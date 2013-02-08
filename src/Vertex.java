@@ -3,40 +3,64 @@ import java.util.List;
 
 public class Vertex {
 	final int id;
-	List<Edge> links;
+	List<Edge> ins;
+	List<Edge> outs;
 	List<String> data;
-	
+
 	public Vertex(int id) {
 		this.id = id;
-		links = new LinkedList<Edge>();
+		ins = new LinkedList<Edge>();
+		outs = new LinkedList<Edge>();
 		data = new LinkedList<String>();
 	}
-	
+
 	public void addDatum(String datum) {
 		data.add(datum);
 	}
-	
-	public void addLink(int to, int w, boolean in) {
-		Edge e = new Edge(id, to, w, in);
-		if (!links.contains(e))
-			links.add(e);
+
+	public void addInEdge(int to, int w) {
+		Edge e = new Edge(id, to, w);
+		if (!ins.contains(e))
+			ins.add(e);
 	}
 	
-	public int inDegree() {
-		int c = 0;
+	public void addOutEdge(int to, int w) {
+		Edge e = new Edge(id, to, w);
+		if (!outs.contains(e))
+			outs.add(e);
+	}
+	
+	public int weightedIndegree() {
+		int d = 0;
 		
-		for (Edge e : links)
-			if (e.in)
-				c ++;
+		for (Edge i : ins)
+			d += i.w;
 		
-		return c;
+		return d;
 	}
 	
-	public int outDegree() {
-		return degree() - inDegree();
+	public int weightedOutdegree() {
+		int d = 0;
+		
+		for (Edge i : outs)
+			d += i.w;
+		
+		return d;
 	}
 	
+	public int weightedDegree() {
+		return weightedIndegree() + weightedOutdegree();
+	}
+
+	public int indegree() {
+		return ins.size();
+	}
+
+	public int outdegree() {
+		return outs.size();
+	}
+
 	public int degree() {
-		return links.size();
+		return indegree() + outdegree();
 	}
 }

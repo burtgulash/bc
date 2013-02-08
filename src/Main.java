@@ -29,9 +29,16 @@ public class Main {
 		
 		// free publications
 		publications = null;
-
+		authors.makeUndirected();
+		
 		// Compute indegree
-		ResultRow[] outdegree = Degree.compute(authors, false);
+		final boolean WEIGHTED = true;
+		ResultRow[] indegree = Degree.compute(authors, WEIGHTED, true);
+		sortAndWrite(indegree, "indegree.csv");
+		indegree = null;
+
+		// Compute outdegree
+		ResultRow[] outdegree = Degree.compute(authors, WEIGHTED, false);
 		sortAndWrite(outdegree, "outdegree.csv");
 		outdegree = null;
 		

@@ -9,13 +9,14 @@ public class Graph {
 	private Map<String, Integer> toId;
 	private List<Vertex> vertices;
 	private int globalId = 0;
+	private boolean undirected = false;
 
 	public Graph() {
 		toName = new HashMap<Integer, String>();
 		toId = new HashMap<String, Integer>();
 		vertices = new ArrayList<Vertex>();
 	}
-	
+
 	public Collection<Vertex> getVertices() {
 		return vertices;
 	}
@@ -29,14 +30,16 @@ public class Graph {
 		for (Vertex v : vertices)
 			es += v.degree();
 
-		// FIXME: what if out and in edges exist?
+		if (undirected)
+			es /= 2;
+
 		return es;
 	}
-	
+
 	public String getVertexName(int id) {
 		return toName.get(id);
 	}
-	
+
 	public Integer getVertexId(String name) {
 		return toId.get(name);
 	}
@@ -44,10 +47,10 @@ public class Graph {
 	public Vertex getVertex(int id) {
 		if (0 <= id && id < vSize())
 			return vertices.get(id);
-		
+
 		return null;
 	}
-	
+
 	public Vertex getVertex(String name) {
 		Integer id = toId.get(name);
 		if (id == null)
@@ -66,18 +69,18 @@ public class Graph {
 
 			assert (vertices.get(globalId) == v);
 			globalId++;
-			
+
 			return v;
 		}
-		
+
 		return vertices.get(toId.get(name));
 	}
-	
+
 	public boolean vertexExists(int id) {
 		return 0 <= id && id < vSize();
 	}
 
-	public Edge getEdge(String from, String to) {
+	public Edge getOutEdge(String from, String to) {
 		Integer fromVertexId = toId.get(from);
 		Integer toVertexId = toId.get(to);
 
@@ -89,7 +92,7 @@ public class Graph {
 		// `From id' must exist.
 		assert (fromVertex != null);
 
-		for (Edge e : fromVertex.links)
+		for (Edge e : fromVertex.outs)
 			if (e.end == toVertexId)
 				return e;
 
@@ -108,9 +111,9 @@ public class Graph {
 		Integer toVertexId = toId.get(to);
 
 		if (in)
-			vertices.get(toVertexId).addLink(fromVertexId, w, in);
+			vertices.get(toVertexId).addInEdge(fromVertexId, w);
 		else
-			vertices.get(fromVertexId).addLink(toVertexId, w, in);
+			vertices.get(fromVertexId).addOutEdge(toVertexId, w);
 	}
 
 	public void addBidirectionalEdge(String from, String to, int w) {
@@ -118,19 +121,29 @@ public class Graph {
 		addEdge(to, from, w, true);
 	}
 
-	public void print() {
+	public void printInEdges() {
 		for (int i = 0; i < vertices.size(); i++) {
-			if (vertices.get(i).links.size() > 0) {
-			System.out.print(toName.get(i) + " : ");
+			if (vertices.get(i).ins.size() > 0) {
+				System.out.print(toName.get(i) + " : ");
 
-			for (Edge e : vertices.get(i).links) {
-				System.out.print(toName.get(e.end));
-				System.out.print(", ");
-			}
+				for (Edge e : vertices.get(i).ins) {
+					System.out.print(toName.get(e.end));
+					System.out.print(", ");
+				}
 
-			System.out.println();
+				System.out.println();
 			}
 		}
 	}
 
+	public void makeUndirected() {
+		for (Vertex v : vertices) {
+			for (Edge e : v.ins)
+				vertices.get(e.end).addOutEdge(v.id, e.w);
+			for (Edge e : v.outs)
+				vertices.get(e.end).addInEdge(v.id, e.w);
+		}
+
+		undirected = true;
+	}
 }

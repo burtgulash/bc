@@ -68,14 +68,14 @@ public class Load {
 			// For all authors of publication
 			for (String authorFrom : pub.data)
 				// For all citations from publication
-				for (Edge link : pub.links)
+				for (Edge link : pub.outs)
 					// Only if the citation points to existing publication
 					if (publications.vertexExists(link.end)) {
 						// For all authors of publications cited by publication
 						for (String authorTo : publications.getVertex(link.end).data) {
 							// Order of authors swapped - we are interested in
 							// cited authors, not citing authors
-							Edge e = authors.getEdge(authorFrom, authorTo);
+							Edge e = authors.getOutEdge(authorFrom, authorTo);
 							if (e == null)
 								authors.addEdge(authorFrom, authorTo, 1, false);
 							else
@@ -94,7 +94,7 @@ public class Load {
 		// Remove self-citations
 		int nSelfCitations = 0;
 		for (Vertex v : authors.getVertices()) {
-			Iterator<Edge> it = v.links.iterator();
+			Iterator<Edge> it = v.outs.iterator();
 			while (it.hasNext()) {
 				Edge e = it.next();
 				if (e.start == e.end) {
