@@ -9,7 +9,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Main {
-	final static boolean VERBOSE = true;
+	private final static boolean VERBOSE = true;
+	private final static int LIMIT = 30;
 
 	final static String dir = "data/";
 	final static String dblp = "dblp2004-vse.csv";
@@ -23,25 +24,57 @@ public class Main {
 	final static String BIB_DB = dir + dblp;
 
 	public static void work() {
+		// // Compute h-index
+		// ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
+		// sortAndWrite(hindex, "hindex.csv", LIMIT);
+		// hindex = null;
+
 		// Create graphs
 		Graph publications = Load.publications(new File(BIB_DB), VERBOSE);
 		Graph authors = Load.authors(publications, VERBOSE);
-		
+
 		// free publications
 		publications = null;
 		authors.makeUndirected();
-		
+
+		// // Compute weightedCloseness
+		// ResultRow[] weightedCloseness = WeightedCloseness.compute(authors);
+		// sortAndWrite(weightedCloseness, "weightedCloseness.csv", LIMIT);
+		// weightedCloseness = null;
+
+		// Compute betweeness
+		ResultRow[] betweeness = Betweeness.compute(authors);
+		sortAndWrite(betweeness, "betweeness.csv", LIMIT);
+		betweeness = null;
+
+		// Compute closeness
+		ResultRow[] closeness = Closeness.compute(authors);
+		sortAndWrite(closeness, "closeness.csv", LIMIT);
+		closeness = null;
+
 		// Compute indegree
 		final boolean WEIGHTED = true;
 		ResultRow[] indegree = Degree.compute(authors, WEIGHTED, true);
-		sortAndWrite(indegree, "indegree.csv");
+		sortAndWrite(indegree, "indegree.csv", LIMIT);
 		indegree = null;
 
 		// Compute outdegree
 		ResultRow[] outdegree = Degree.compute(authors, WEIGHTED, false);
-		sortAndWrite(outdegree, "outdegree.csv");
+		sortAndWrite(outdegree, "outdegree.csv", LIMIT);
 		outdegree = null;
-		
+
+		// Compute pagerank
+		ResultRow[] pagerank = PageRank.compute(authors);
+		sortAndWrite(pagerank, "pagerank.csv", LIMIT);
+		pagerank = null;
+
+		// // Compute closeness and betweeness at once
+		// ResultRow[][] closenessBetweeness = ClsnsBtwns.compute(authors);
+		//
+		// sortAndWrite(closenessBetweeness[0], "closeness.csv", LIMIT);
+		// sortAndWrite(closenessBetweeness[1], "betweeness.csv", LIMIT);
+		// closenessBetweeness = null;
+
 	}
 
 	public static void main(String[] args) {
@@ -76,8 +109,9 @@ public class Main {
 	private static Date getTime() {
 		return Calendar.getInstance().getTime();
 	}
-	
-	private static void sortAndWrite(ResultRow[] result, String fileName) {
+
+	private static void sortAndWrite(ResultRow[] result, String fileName,
+			int limit) {
 		double checkSum = 0;
 
 		Arrays.sort(result, new Comparator<ResultRow>() {
@@ -92,6 +126,9 @@ public class Main {
 			w = new PrintWriter(new FileWriter(new File(fileName)));
 			w.println("author;score");
 			for (ResultRow r : result) {
+				if (limit-- <= 0)
+					break;
+
 				checkSum += r.value;
 				w.println(r);
 			}
