@@ -9,7 +9,7 @@ public class Closeness {
 	private static int[][] links;
 	private static Vertex[] nodes;
 
-	public static ResultRow[] compute(Graph g) {
+	public static ResultRow[] compute(Graph g, boolean verbose) {
 		int n = g.vSize();
 		result = new ResultRow[n];
 
@@ -25,6 +25,8 @@ public class Closeness {
 		}
 
 		for (int v = 0; v < n; v++) {
+			if (verbose)
+				System.out.println("Closeness: " + v + " / " + n);
 			double closeness = 0;
 
 			Queue<E> q = new LinkedList<E>();

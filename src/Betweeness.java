@@ -1,7 +1,10 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 
 public class Betweeness {
+	private static final int C = 100;
+	
 	public static ResultRow[] compute(Graph g) {
 		int n = g.vSize();
 		ResultRow[] result = new ResultRow[n];
@@ -18,7 +21,28 @@ public class Betweeness {
 				links[node.id][k++] = e.end;
 		}
 
-		for (int s = 0; s < n; s++) {
+		Random r = new Random();
+		int[] shuffled = new int[n];
+		for (int i = 0; i < n; i++)
+			shuffled[i] = i;
+
+		for (int i = n - 1; i > 0; i--) {
+			int rand = r.nextInt(i);
+			int tmp = shuffled[i];
+			shuffled[i] = shuffled[rand];
+			shuffled[rand] = tmp;
+		}
+
+		int k = 0;
+		// for (int s = 0; s < n; s++) {
+		for (int i = 0; i < n; i++) {
+			int s = shuffled[i];
+			
+			// Stopping condition for approximation.
+			if (betweeness[s] > C * n)
+				break;
+			k++;
+			
 			// List of predecessors.
 			Stack[] p = new Stack[n];
 			Stack stack = new Stack();
@@ -63,12 +87,14 @@ public class Betweeness {
 						betweeness[w] += delta[v];
 				}
 			}
-
-			System.out.println("Betweeness: " + s + "/" + n);
+			
+			System.out.println("Betweeness: " + i + "/" + n);
 		}
 
-		for (int s = 0; s < n; s++)
+		for (int s = 0; s < n; s++) {
+			betweeness[s] = (n * betweeness[s]) / k;
 			result[s] = new ResultRow(g.getVertexName(s), betweeness[s]);
+		}
 
 		return result;
 	}

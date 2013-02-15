@@ -36,7 +36,29 @@ public class Main {
 		// free publications
 		publications = null;
 		authors.makeUndirected();
+		
+		Graph[] cs = Components.getN(authors, 3);
+//		for (int i = 0; i < cs.length; i++) {
+//			System.out.println(cs[i].vSize());
+//		}
 
+		// Compute approximated closeness
+		for (int i = 0; i < cs.length; i++) {
+//			ResultRow[] acloseness = ApproximateCloseness.compute(cs[i], 30, VERBOSE);
+			ResultRow[] acloseness = Closeness.compute(cs[i], VERBOSE);
+			sortAndWrite(acloseness, "acloseness" + i + ".csv", LIMIT);
+		}
+		cs = null;
+		
+		// TODO remove to complete everything.
+		if (true)
+			return;
+		
+		// Compute closeness
+		ResultRow[] closeness = Closeness.compute(authors, VERBOSE);
+		sortAndWrite(closeness, "closeness.csv", LIMIT);
+		closeness = null;
+		
 		// // Compute weightedCloseness
 		// ResultRow[] weightedCloseness = WeightedCloseness.compute(authors);
 		// sortAndWrite(weightedCloseness, "weightedCloseness.csv", LIMIT);
@@ -47,10 +69,6 @@ public class Main {
 		sortAndWrite(betweeness, "betweeness.csv", LIMIT);
 		betweeness = null;
 
-		// Compute closeness
-		ResultRow[] closeness = Closeness.compute(authors);
-		sortAndWrite(closeness, "closeness.csv", LIMIT);
-		closeness = null;
 
 		// Compute indegree
 		final boolean WEIGHTED = true;
