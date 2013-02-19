@@ -2,41 +2,20 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Closeness {
-	private static final int NIL = -1;
-
-	private static ResultRow[] result;
-
-	private static int[][] links;
-	private static Vertex[] nodes;
-
 	public static ResultRow[] compute(Graph g, boolean verbose) {
 		int n = g.vSize();
-		result = new ResultRow[n];
+		ResultRow[] result = new ResultRow[n];
 
-		links = new int[n][];
-		nodes = g.getVertices().toArray(new Vertex[n]);
-
-		for (Vertex node : nodes) {
-			links[node.id] = new int[node.outdegree()];
-
-			int k = 0;
-			for (Edge e : node.outs)
-				links[node.id][k++] = e.end;
-		}
+		// FIXME Closeness on IN-edges!!!
+		int[][] links = Links.getIns(g);
 
 		for (int v = 0; v < n; v++) {
 			if (verbose)
 				System.out.println("Closeness: " + v + " / " + n);
-			double closeness = 0;
+			double farness = 0;
 
 			Queue<E> q = new LinkedList<E>();
-			int[] previous = new int[n];
 			boolean[] visited = new boolean[n];
-
-			for (int j = 0; j < n; j++) {
-				previous[j] = NIL;
-				visited[j] = false;
-			}
 
 			q.offer(new E(v, 0));
 			visited[v] = true;
@@ -45,21 +24,21 @@ public class Closeness {
 				E cur = q.poll();
 
 				// Update closeness/farness here
-				if (cur.w > 0)
-					closeness += 1d / cur.w;
+				farness += cur.w;
 
 				for (int e : links[cur.to]) {
 					if (!visited[e]) {
 						q.offer(new E(e, cur.w + 1));
-						previous[e] = cur.to;
 						visited[e] = true;
 					}
 				}
 			}
-			
-			// normalize by dividing by maximum attainable amount (n - 1).
-			// FIXME: uncomment line below
-//			closeness /= (double) (n - 1);
+
+			double closeness = 0;
+			if (farness > 0)
+				closeness = (n - 1) / farness;
+
+			System.out.println("close " + closeness);
 
 			result[v] = new ResultRow(g.getVertexName(v), closeness);
 		}

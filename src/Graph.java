@@ -79,6 +79,19 @@ public class Graph {
 	public boolean vertexExists(int id) {
 		return 0 <= id && id < vSize();
 	}
+	
+	public Edge getOutEdge(int from, int to) {
+		Vertex fromVertex = vertices.get(from);
+
+		// `From id' must exist.
+		assert (fromVertex != null);
+
+		for (Edge e : fromVertex.outs)
+			if (e.end == to)
+				return e;
+
+		return null;
+	}
 
 	public Edge getOutEdge(String from, String to) {
 		Integer fromVertexId = toId.get(from);
@@ -87,16 +100,7 @@ public class Graph {
 		if (fromVertexId == null || toVertexId == null)
 			return null;
 
-		Vertex fromVertex = vertices.get(fromVertexId);
-
-		// `From id' must exist.
-		assert (fromVertex != null);
-
-		for (Edge e : fromVertex.outs)
-			if (e.end == toVertexId)
-				return e;
-
-		return null;
+		return getOutEdge(fromVertexId, toVertexId);
 	}
 
 	public void addEdge(String from, String to, int w, boolean in) {

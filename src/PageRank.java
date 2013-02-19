@@ -8,17 +8,11 @@ public class PageRank {
 		int v;
 		double[][] pr = new double[2][n];
 		ResultRow[] result = new ResultRow[n];
-		int[][] inLinks = new int[n][];
+		int[][] inLinks = Links.getIns(g);
 		double[] outDeg = new double[n];
 		
-		// Fill inlinks.
-		for (Vertex vertex : g.getVertices()) {
+		for (Vertex vertex : g.getVertices())
 			outDeg[vertex.id] = vertex.outdegree();
-			inLinks[vertex.id] = new int[vertex.indegree()];
-			int ei = 0;
-			for (Edge e : vertex.ins)
-				inLinks[vertex.id][ei++] = e.end;
-		}
 		
 		// ------------------------------------------------------
 		// ---------------------- PageRank ----------------------

@@ -10,16 +10,7 @@ public class Betweeness {
 		ResultRow[] result = new ResultRow[n];
 		double[] betweeness = new double[n];
 
-		int[][] links = new int[n][];
-		Vertex[] vs = g.getVertices().toArray(new Vertex[n]);
-
-		for (Vertex node : vs) {
-			links[node.id] = new int[node.outdegree()];
-
-			int k = 0;
-			for (Edge e : node.outs)
-				links[node.id][k++] = e.end;
-		}
+		int[][] links = Links.getOuts(g);
 
 		Random r = new Random();
 		int[] shuffled = new int[n];

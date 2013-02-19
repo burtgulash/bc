@@ -36,39 +36,37 @@ public class Main {
 		// free publications
 		publications = null;
 		authors.makeUndirected();
-		
+
 		Graph[] cs = Components.getN(authors, 3);
-//		for (int i = 0; i < cs.length; i++) {
-//			System.out.println(cs[i].vSize());
-//		}
 
 		// Compute approximated closeness
 		for (int i = 0; i < cs.length; i++) {
-//			ResultRow[] acloseness = ApproximateCloseness.compute(cs[i], 30, VERBOSE);
-			ResultRow[] acloseness = Closeness.compute(cs[i], VERBOSE);
+			ResultRow[] acloseness = WeightedCloseness.compute(cs[i], VERBOSE);
+			if (VERBOSE)
+				System.out.printf("Component %d size (|V|, |E|): %d, %d%n", i,
+						cs[i].vSize(), cs[i].eSize());
 			sortAndWrite(acloseness, "acloseness" + i + ".csv", LIMIT);
 		}
 		cs = null;
-		
+
 		// TODO remove to complete everything.
 		if (true)
 			return;
-		
-		// Compute closeness
-		ResultRow[] closeness = Closeness.compute(authors, VERBOSE);
-		sortAndWrite(closeness, "closeness.csv", LIMIT);
-		closeness = null;
-		
+
+		// // Compute closeness
+		// ResultRow[] closeness = Closeness.compute(authors, VERBOSE);
+		// sortAndWrite(closeness, "closeness.csv", LIMIT);
+		// closeness = null;
+
 		// // Compute weightedCloseness
 		// ResultRow[] weightedCloseness = WeightedCloseness.compute(authors);
 		// sortAndWrite(weightedCloseness, "weightedCloseness.csv", LIMIT);
 		// weightedCloseness = null;
 
-		// Compute betweeness
-		ResultRow[] betweeness = Betweeness.compute(authors);
-		sortAndWrite(betweeness, "betweeness.csv", LIMIT);
-		betweeness = null;
-
+		// // Compute betweeness
+		// ResultRow[] betweeness = Betweeness.compute(authors);
+		// sortAndWrite(betweeness, "betweeness.csv", LIMIT);
+		// betweeness = null;
 
 		// Compute indegree
 		final boolean WEIGHTED = true;

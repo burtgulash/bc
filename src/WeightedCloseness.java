@@ -1,21 +1,17 @@
 public class WeightedCloseness {
-	public static ResultRow[] compute(Graph g) {
+	public static ResultRow[] compute(Graph g, boolean verbose) {
 		int n = g.vSize();
 		ResultRow[] result = new ResultRow[n];
+		int[][] links = Links.getIns(g);
+		double[][] ws = Links.getReciprocalWeightsInEdges(g);
 
 		for (int v = 0; v < n; v++) {
+			if (verbose)
+				System.out.println("Weighted Closeness: " + v + " / " + n);
+
+			double farness = 0;
 			PQueue<E> q = new PQueue<E>();
 			boolean[] visited = new boolean[n];
-			E[][] links = new E[n][];
-			for (Vertex vertex : g.getVertices()) {
-				links[vertex.id] = new E[vertex.outdegree()];
-
-				int k = 0;
-				for (Edge e : vertex.outs)
-					links[vertex.id][k++] = new E(e.end, e.w);
-			}
-
-			int closeness = 0;
 
 			q.insert(new E(v, 0));
 			try {
@@ -24,17 +20,17 @@ public class WeightedCloseness {
 
 					visited[cur.to] = true;
 
-					if (cur.w > 0)
-						closeness += 1d / cur.w;
+					farness += cur.w;
 
-					for (E e : links[cur.to]) {
-						if (!visited[e.to]) {
-							double newDist = cur.w + e.w;
+					for (int i = 0; i < links[cur.to].length; i++) {
+						int e = links[cur.to][i];
+
+						if (!visited[e]) {
+							double newDist = cur.w + ws[cur.to][i];
 							// BFS
 							// double newDist = cur.w + 1;
-							if (!q.decreasePriorityAndContainsTest(e.to,
-									newDist))
-								q.insert(new E(e.to, newDist));
+							if (!q.decreasePriorityAndContainsTest(e, newDist))
+								q.insert(new E(e, newDist));
 						}
 					}
 				}
@@ -43,7 +39,9 @@ public class WeightedCloseness {
 				break;
 			}
 
-			System.out.println("Weighted Closeness: " + v + "/" + n);
+			double closeness = 0;
+			if (farness > 0)
+				closeness = (n - 1) / farness;
 			result[v] = new ResultRow(g.getVertexName(v), closeness);
 		}
 

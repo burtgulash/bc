@@ -24,10 +24,13 @@ public class Components {
 
 			for (int v : cs[i])
 				for (int e : outs[v])
-					if (in(e, cs[i]))
+					if (in(e, cs[i])) {
+						Edge edge = g.getOutEdge(v, e);
+						assert (edge != null);
 						gcs[i].addEdge(g.getVertexName(v), g.getVertexName(e),
-								1, false);
-			
+								edge.w, false);
+					}
+
 			gcs[i].makeUndirected();
 		}
 

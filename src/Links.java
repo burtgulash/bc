@@ -1,15 +1,13 @@
-import java.util.Collection;
-
 public class Links {
 	public static int[][] getOuts(Graph g) {
 		int[][] links = new int[g.vSize()][];
 
-		for (Vertex node : g.getVertices()) {
-			links[node.id] = new int[node.outdegree()];
+		for (Vertex v : g.getVertices()) {
+			links[v.id] = new int[v.outdegree()];
 
 			int m = 0;
-			for (Edge e : node.outs)
-				links[node.id][m++] = e.end;
+			for (Edge e : v.outs)
+				links[v.id][m++] = e.end;
 		}
 
 		return links;
@@ -17,24 +15,29 @@ public class Links {
 
 	public static int[][] getIns(Graph g) {
 		int[][] links = new int[g.vSize()][];
-		int[] sizes = new int[g.vSize()];
 
-		Collection<Vertex> vs = g.getVertices();
+		for (Vertex v : g.getVertices()) {
+			links[v.id] = new int[v.indegree()];
 
-		for (Vertex v : vs)
+			int m = 0;
 			for (Edge e : v.ins)
-				sizes[e.end]++;
-
-		for (int v = 0; v < links.length; v++)
-			links[v] = new int[sizes[v]];
-
-		sizes = null;
-		int[] cs = new int[links.length];
-
-		for (Vertex v : vs)
-			for (Edge e : v.ins)
-				links[e.end][cs[e.end]++] = v.id;
+				links[v.id][m++] = e.end;
+		}
 
 		return links;
+	}
+
+	public static double[][] getReciprocalWeightsInEdges(Graph g) {
+		double[][] ws = new double[g.vSize()][];
+
+		for (Vertex v : g.getVertices()) {
+			ws[v.id] = new double[v.indegree()];
+
+			int m = 0;
+			for (Edge e : v.ins)
+				ws[v.id][m++] = 1d / e.w;
+		}
+
+		return ws;
 	}
 }
