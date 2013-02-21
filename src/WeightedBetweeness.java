@@ -1,16 +1,15 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Random;
 
-public class Betweeness {
+public class WeightedBetweeness {
 	public static ResultRow[] compute(Graph g, int C, boolean verbose) {
 		int n = g.vSize();
 		ResultRow[] result = new ResultRow[n];
 		double[] betweeness = new double[n];
 
 		int[][] links = Links.getOuts(g);
+		double[][] ws = Links.getReciprocalWeightsOutEdges(g);
 
-		Random r = new Random();
+		Random r = new Random(System.currentTimeMillis());
 		int[] shuffled = new int[n];
 		for (int i = 0; i < n; i++)
 			shuffled[i] = i;
@@ -23,7 +22,6 @@ public class Betweeness {
 		}
 
 		int k = 0;
-		// for (int s = 0; s < n; s++) {
 		for (int i = 0; i < n; i++) {
 			int s = shuffled[i];
 
@@ -36,33 +34,52 @@ public class Betweeness {
 			Stack[] p = new Stack[n];
 			Stack stack = new Stack();
 			int[] sigma = new int[n];
-			int[] d = new int[n];
+			double[] d = new double[n];
+
+			boolean[] visited = new boolean[n];
 
 			for (int v = 0; v < n; v++) {
 				p[v] = new Stack();
-				d[v] = -1;
+				d[v] = -1d;
 			}
 			sigma[s] = 1;
-			d[s] = 0;
+			d[s] = 0d;
 
-			Queue<Integer> q = new LinkedList<Integer>();
+			PQueue<E> q = new PQueue<E>();
 
-			q.offer(s);
-			while (!q.isEmpty()) {
-				int v = q.poll();
-				stack.push(v);
+			q.insert(new E(s, 0));
+			try {
+				while (!q.empty()) {
+					E cur = q.extractMin();
+					int v = cur.to;
+					visited[v] = true;
 
-				for (int w : links[v]) {
-					if (d[w] == -1) {
-						q.offer(w);
-						d[w] = d[v] + 1;
-					}
+					assert (cur.w == d[v]);
+					stack.push(v);
 
-					if (d[w] == d[v] + 1) {
-						sigma[w] += sigma[v];
-						p[w].push(v);
+					for (int j = 0; j < links[v].length; j++) {
+						int w = links[v][j];
+
+						double newDist = d[v] + ws[v][j];
+						// double newDist = d[v] + 1;
+						if (d[w] < 0) {
+							d[w] = newDist;
+							q.insert(new E(w, d[w]));
+						} else if (newDist < d[w]) {
+							assert (!visited[w]);
+							d[w] = newDist;
+							q.decreasePriorityAndContainsTest(w, d[w]);
+						}
+
+						if (d[w] == d[v] + ws[v][j]) {
+							// if (d[w] == d[v] + 1) {
+							sigma[w] += sigma[v];
+							p[w].push(v);
+						}
 					}
 				}
+			} catch (PQueue.EmptyQueueException e) {
+				e.printStackTrace();
 			}
 
 			double[] delta = new double[n];
@@ -76,8 +93,9 @@ public class Betweeness {
 						betweeness[w] += delta[v];
 				}
 			}
+
 			if (verbose)
-				System.out.println("Betweeness: " + i + "/" + n);
+				System.out.println("Weighted Betweeness: " + i + "/" + n);
 		}
 
 		for (int s = 0; s < n; s++) {
@@ -119,6 +137,31 @@ public class Betweeness {
 				n.next = next;
 				next = n;
 			}
+		}
+	}
+
+	private static class E implements Queable {
+		int to;
+		double w;
+
+		E(int to, double w) {
+			this.to = to;
+			this.w = w;
+		}
+
+		@Override
+		public int id() {
+			return to;
+		}
+
+		@Override
+		public double priority() {
+			return w;
+		}
+
+		@Override
+		public void setPriority(double newPriority) {
+			w = newPriority;
 		}
 	}
 }

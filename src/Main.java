@@ -37,6 +37,23 @@ public class Main {
 		publications = null;
 		authors.makeUndirected();
 
+		final int BETWEENESS_C = 10;
+
+		// Compute weightedBetweeness
+		ResultRow[] weightedBetweeness = WeightedBetweeness.compute(authors,
+				BETWEENESS_C, VERBOSE);
+		sortAndWrite(weightedBetweeness, "weightedBetweeness.csv", LIMIT);
+		weightedBetweeness = null;
+		
+		 // Compute Betweeness
+		 ResultRow[] betweeness = Betweeness.compute(authors, BETWEENESS_C, VERBOSE);
+		 sortAndWrite(betweeness, "betweeness.csv", LIMIT);
+		 betweeness = null;
+
+		// TODO remove to complete everything.
+		if (true)
+			return;
+
 		Graph[] cs = Components.getN(authors, 3);
 
 		// Compute approximated closeness
@@ -48,10 +65,6 @@ public class Main {
 			sortAndWrite(acloseness, "acloseness" + i + ".csv", LIMIT);
 		}
 		cs = null;
-
-		// TODO remove to complete everything.
-		if (true)
-			return;
 
 		// // Compute closeness
 		// ResultRow[] closeness = Closeness.compute(authors, VERBOSE);

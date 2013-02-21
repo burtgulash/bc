@@ -26,6 +26,20 @@ public class Links {
 
 		return links;
 	}
+	
+	public static double[][] getReciprocalWeightsOutEdges(Graph g) {
+		double[][] ws = new double[g.vSize()][];
+
+		for (Vertex v : g.getVertices()) {
+			ws[v.id] = new double[v.outdegree()];
+
+			int m = 0;
+			for (Edge e : v.outs)
+				ws[v.id][m++] = 1d / e.w;
+		}
+
+		return ws;
+	}
 
 	public static double[][] getReciprocalWeightsInEdges(Graph g) {
 		double[][] ws = new double[g.vSize()][];
