@@ -8,6 +8,10 @@ public class Components {
 	public static Graph[] get(Graph g) {
 		return getN(g, g.vSize());
 	}
+	
+	public static Graph getLargest(Graph g) {
+		return getN(g, 1)[0];
+	}
 
 	public static Graph[] getN(Graph g, int n) {
 		int[][] outs = Links.getOuts(g);

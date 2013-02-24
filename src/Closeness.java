@@ -11,7 +11,8 @@ public class Closeness {
 
 		for (int v = 0; v < n; v++) {
 			if (verbose)
-				System.out.println("Closeness: " + v + " / " + n);
+				if (v % 10000 == 0)
+					System.out.println("Closeness: " + v + " / " + n);
 			double farness = 0;
 
 			Queue<E> q = new LinkedList<E>();
@@ -37,8 +38,6 @@ public class Closeness {
 			double closeness = 0;
 			if (farness > 0)
 				closeness = (n - 1) / farness;
-
-			System.out.println("close " + closeness);
 
 			result[v] = new ResultRow(g.getVertexName(v), closeness);
 		}

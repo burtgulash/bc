@@ -7,7 +7,8 @@ public class WeightedCloseness {
 
 		for (int v = 0; v < n; v++) {
 			if (verbose)
-				System.out.println("Weighted Closeness: " + v + " / " + n);
+				if (v % 10000 == 0)
+					System.out.println("Weighted Closeness: " + v + " / " + n);
 
 			double farness = 0;
 			PQueue<E> q = new PQueue<E>();

@@ -1,0 +1,87 @@
+START
+file: data/citeseer2005-cisty.csv
+22-02-2013 15:49:54
+
+hindex.csv finished.
+checksum: 548125.0
+Create network of publications.
+Network of publications: # of publications: 659814
+Network of publications: # of edges: 1624758
+Create network of authors.
+Network of authors: # of authors: 406465
+Network of authors: # of edges: 5398239
+Network of authors: # of self-citations: 60639
+indegree.csv finished.
+checksum: 5337600.0
+Largest clique from top 20 size: 13
+DEBORAH ESTRIN, HARI BALAKRISHNAN, IAN FOSTER, LIXIA ZHANG, M. FRANS KAASHOEK, ROBERT MORRIS, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STEVEN MCCANNE, STUDENT MEMBER, VAN JACOBSON, VERN PAXSON
+
+outdegree.csv finished.
+checksum: 5337600.0
+Largest clique from top 20 size: 8
+DON TOWSLEY, KANG G. SHIN, KARSTEN SCHWAN, KLARA NAHRSTEDT, M. FRANS KAASHOEK, PH. D, SENIOR MEMBER, STUDENT MEMBER
+
+wIndegree.csv finished.
+checksum: 1.0440513E7
+Largest clique from top 20 size: 13
+DEBORAH ESTRIN, HARI BALAKRISHNAN, IAN FOSTER, LIXIA ZHANG, M. FRANS KAASHOEK, ROBERT MORRIS, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STEVEN MCCANNE, STUDENT MEMBER, VAN JACOBSON, VERN PAXSON
+
+wOutdegree.csv finished.
+checksum: 1.0440513E7
+Largest clique from top 20 size: 11
+AZER BESTAVROS, DEBORAH ESTRIN, DON TOWSLEY, HARI BALAKRISHNAN, KANG G. SHIN, KARSTEN SCHWAN, KLARA NAHRSTEDT, PH. D, SCOTT SHENKER, SENIOR MEMBER, STUDENT MEMBER
+
+pagerank.csv finished.
+checksum: 406465.0000024728
+Largest clique from top 20 size: 7
+DEBORAH ESTRIN, LIXIA ZHANG, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STUDENT MEMBER, VAN JACOBSON
+
+Betweeness: 0/406465
+Betweeness: 10000/406465
+Betweeness: 20000/406465
+Betweeness: 30000/406465
+Betweeness: 40000/406465
+Betweeness: 50000/406465
+Betweeness: 60000/406465
+Betweeness: 70000/406465
+Betweeness: 80000/406465
+Betweeness: 90000/406465
+Betweeness: 100000/406465
+Betweeness: 110000/406465
+Betweeness: 120000/406465
+Betweeness: 130000/406465
+Betweeness: 140000/406465
+Betweeness: 150000/406465
+Betweeness: 160000/406465
+Betweeness: 170000/406465
+Betweeness: 180000/406465
+Betweeness: 190000/406465
+Betweeness: 200000/406465
+Betweeness: 210000/406465
+Betweeness: 220000/406465
+Betweeness: 230000/406465
+Betweeness: 240000/406465
+Betweeness: 250000/406465
+Betweeness: 260000/406465
+Betweeness: 270000/406465
+Betweeness: 280000/406465
+Betweeness: 290000/406465
+Betweeness: 300000/406465
+Betweeness: 310000/406465
+Betweeness: 320000/406465
+Betweeness: 330000/406465
+Betweeness: 340000/406465
+Betweeness: 350000/406465
+Betweeness: 360000/406465
+Betweeness: 370000/406465
+Betweeness: 380000/406465
+Betweeness: 390000/406465
+Betweeness: 400000/406465
+betweeness.csv finished.
+checksum: 3.017933261686268E13
+Largest clique from top 20 size: 13
+DEBORAH ESTRIN, DON TOWSLEY, HARI BALAKRISHNAN, LARRY L. PETERSON, LIXIA ZHANG, M. FRANS KAASHOEK, PETER B. DANZIG, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STEVEN MCCANNE, STUDENT MEMBER, VAN JACOBSON
+
+Weighted Betweeness: 0/406465
+Weighted Betweeness: 10000/406465
+Weighted Betweeness: 20000/406465

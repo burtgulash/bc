@@ -10,6 +10,8 @@ import java.util.Date;
 
 public class Main {
 	private final static boolean VERBOSE = true;
+	private final static int DONT_APPROXIMATE = -1;
+	private final static int TOP_K = 20;
 	private final static int LIMIT = 30;
 
 	final static String dir = "data/";
@@ -21,13 +23,14 @@ public class Main {
 	final static String test3 = "test3.csv";
 	final static String test3rev = "test3rev.csv";
 	final static String test4 = "test4.csv";
-	final static String BIB_DB = dir + dblp;
+	final static String BIB_DB = dir + citeseer;
 
 	public static void work() {
-		// // Compute h-index
-		// ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
-		// sortAndWrite(hindex, "hindex.csv", LIMIT);
-		// hindex = null;
+		// Compute h-index
+		ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
+		sortAndWrite(hindex, "hindex.csv", LIMIT);
+		printChecksum(hindex);
+		hindex = null;
 
 		// Create graphs
 		Graph publications = Load.publications(new File(BIB_DB), VERBOSE);
@@ -37,77 +40,105 @@ public class Main {
 		publications = null;
 		authors.makeUndirected();
 
-		final int BETWEENESS_C = 10;
-
-		// Compute weightedBetweeness
-		ResultRow[] weightedBetweeness = WeightedBetweeness.compute(authors,
-				BETWEENESS_C, VERBOSE);
-		sortAndWrite(weightedBetweeness, "weightedBetweeness.csv", LIMIT);
-		weightedBetweeness = null;
-		
-		 // Compute Betweeness
-		 ResultRow[] betweeness = Betweeness.compute(authors, BETWEENESS_C, VERBOSE);
-		 sortAndWrite(betweeness, "betweeness.csv", LIMIT);
-		 betweeness = null;
-
-		// TODO remove to complete everything.
-		if (true)
-			return;
-
-		Graph[] cs = Components.getN(authors, 3);
-
-		// Compute approximated closeness
-		for (int i = 0; i < cs.length; i++) {
-			ResultRow[] acloseness = WeightedCloseness.compute(cs[i], VERBOSE);
-			if (VERBOSE)
-				System.out.printf("Component %d size (|V|, |E|): %d, %d%n", i,
-						cs[i].vSize(), cs[i].eSize());
-			sortAndWrite(acloseness, "acloseness" + i + ".csv", LIMIT);
-		}
-		cs = null;
-
-		// // Compute closeness
-		// ResultRow[] closeness = Closeness.compute(authors, VERBOSE);
-		// sortAndWrite(closeness, "closeness.csv", LIMIT);
-		// closeness = null;
-
-		// // Compute weightedCloseness
-		// ResultRow[] weightedCloseness = WeightedCloseness.compute(authors);
-		// sortAndWrite(weightedCloseness, "weightedCloseness.csv", LIMIT);
-		// weightedCloseness = null;
-
-		// // Compute betweeness
-		// ResultRow[] betweeness = Betweeness.compute(authors);
-		// sortAndWrite(betweeness, "betweeness.csv", LIMIT);
-		// betweeness = null;
+		System.gc();
+		StatisticalDistribution.printEdgeWeightDistribution(authors);
 
 		// Compute indegree
-		final boolean WEIGHTED = true;
-		ResultRow[] indegree = Degree.compute(authors, WEIGHTED, true);
+		ResultRow[] indegree = Degree.compute(authors, false, true);
 		sortAndWrite(indegree, "indegree.csv", LIMIT);
+		printChecksum(indegree);
+		printClique(authors, indegree, TOP_K);
 		indegree = null;
 
 		// Compute outdegree
-		ResultRow[] outdegree = Degree.compute(authors, WEIGHTED, false);
+		ResultRow[] outdegree = Degree.compute(authors, false, false);
 		sortAndWrite(outdegree, "outdegree.csv", LIMIT);
+		printChecksum(outdegree);
+		printClique(authors, outdegree, TOP_K);
 		outdegree = null;
+
+		// Compute weighted indegree
+		ResultRow[] wIndegree = Degree.compute(authors, true, true);
+		sortAndWrite(wIndegree, "wIndegree.csv", LIMIT);
+		printChecksum(wIndegree);
+		printClique(authors, wIndegree, TOP_K);
+		wIndegree = null;
+
+		// Compute outdegree
+		ResultRow[] wOutdegree = Degree.compute(authors, true, false);
+		sortAndWrite(wOutdegree, "wOutdegree.csv", LIMIT);
+		printChecksum(wOutdegree);
+		printClique(authors, wOutdegree, TOP_K);
+		wIndegree = null;
+		wOutdegree = null;
 
 		// Compute pagerank
 		ResultRow[] pagerank = PageRank.compute(authors);
 		sortAndWrite(pagerank, "pagerank.csv", LIMIT);
+		printChecksum(pagerank);
+		printClique(authors, pagerank, TOP_K);
 		pagerank = null;
 
-		// // Compute closeness and betweeness at once
-		// ResultRow[][] closenessBetweeness = ClsnsBtwns.compute(authors);
-		//
-		// sortAndWrite(closenessBetweeness[0], "closeness.csv", LIMIT);
-		// sortAndWrite(closenessBetweeness[1], "betweeness.csv", LIMIT);
-		// closenessBetweeness = null;
+		final int BETWEENESS_C = DONT_APPROXIMATE;
 
+		if (false) {
+			// Compute Betweeness
+			ResultRow[] betweeness = Betweeness.compute(authors, BETWEENESS_C,
+					VERBOSE);
+			sortAndWrite(betweeness, "betweeness.csv", LIMIT);
+			printChecksum(betweeness);
+			printClique(authors, betweeness, TOP_K);
+			betweeness = null;
+
+			// Compute weightedBetweeness
+			ResultRow[] wBetweeness = WeightedBetweeness.compute(authors,
+					BETWEENESS_C, VERBOSE);
+			sortAndWrite(wBetweeness, "wBetweeness.csv", LIMIT);
+			printChecksum(wBetweeness);
+			printClique(authors, wBetweeness, TOP_K);
+			wBetweeness = null;
+		}
+
+		// Get largest (main) component of the graph of authors.
+		Graph mainComponent = Components.getLargest(authors);
+		System.out.printf("Main component size (|V|, |E|): %d, %d%n",
+				mainComponent.vSize(), mainComponent.eSize());
+
+		// Compute closeness
+		ResultRow[] closeness = Closeness.compute(mainComponent, VERBOSE);
+		sortAndWrite(closeness, "closeness.csv", LIMIT);
+		printChecksum(closeness);
+		printClique(authors, closeness, TOP_K);
+		closeness = null;
+
+		// Compute weighted closeness
+		ResultRow[] wCloseness = WeightedCloseness.compute(mainComponent,
+				VERBOSE);
+		sortAndWrite(wCloseness, "wCloseness.csv", LIMIT);
+		printChecksum(wCloseness);
+		printClique(authors, wCloseness, TOP_K);
+		wCloseness = null;
+		mainComponent = null;
+	}
+
+	private static void printClique(Graph g, ResultRow[] rs, int limit) {
+		String[] clique = Clique.findMaxClique(g, rs, limit);
+		System.out.println("Largest clique from top " + limit + " size: "
+				+ clique.length);
+
+		for (int i = 0; i < clique.length; i++) {
+			if (i > 0)
+				System.out.print(", ");
+			System.out.print(clique[i]);
+		}
+
+		System.out.println();
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
 		System.out.println("START");
+		System.out.println("file: " + BIB_DB);
 		Date start = getTime();
 		printDate(start);
 		System.out.println();
@@ -139,9 +170,21 @@ public class Main {
 		return Calendar.getInstance().getTime();
 	}
 
+	private static void printChecksum(ResultRow[] rs) {
+		System.out.println("checksum: " + checksum(rs));
+	}
+
+	private static double checksum(ResultRow[] rs) {
+		double sum = 0;
+
+		for (ResultRow r : rs)
+			sum += r.value;
+
+		return sum;
+	}
+
 	private static void sortAndWrite(ResultRow[] result, String fileName,
 			int limit) {
-		double checkSum = 0;
 
 		Arrays.sort(result, new Comparator<ResultRow>() {
 			@Override
@@ -158,7 +201,6 @@ public class Main {
 				if (limit-- <= 0)
 					break;
 
-				checkSum += r.value;
 				w.println(r);
 			}
 		} catch (IOException e) {
@@ -167,7 +209,7 @@ public class Main {
 			w.close();
 		}
 
-		System.out.println(fileName + " finished. Checksum: " + checkSum);
+		System.out.println(fileName + " finished.");
 	}
 
 }

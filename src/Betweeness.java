@@ -28,7 +28,7 @@ public class Betweeness {
 			int s = shuffled[i];
 
 			// Stopping condition for approximation.
-			if (betweeness[s] > C * n)
+			if (C > 0 && betweeness[s] > C * n)
 				break;
 			k++;
 
@@ -77,7 +77,8 @@ public class Betweeness {
 				}
 			}
 			if (verbose)
-				System.out.println("Betweeness: " + i + "/" + n);
+				if (i % 10000 == 0)
+					System.out.println("Betweeness: " + i + "/" + n);
 		}
 
 		for (int s = 0; s < n; s++) {

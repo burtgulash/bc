@@ -1,0 +1,61 @@
+START
+file: data/citeseer2005-cisty.csv
+24-02-2013 09:23:53
+
+hindex.csv finished.
+checksum: 548125.0
+Create network of publications.
+Network of publications: # of publications: 659814
+Network of publications: # of edges: 1624758
+Create network of authors.
+Network of authors: # of authors: 406465
+Network of authors: # of edges: 5398239
+Network of authors: # of self-citations: 60639
+indegree.csv finished.
+checksum: 5337600.0
+Largest clique from top 20 size: 13
+DEBORAH ESTRIN, HARI BALAKRISHNAN, IAN FOSTER, LIXIA ZHANG, M. FRANS KAASHOEK, ROBERT MORRIS, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STEVEN MCCANNE, STUDENT MEMBER, VAN JACOBSON, VERN PAXSON
+
+outdegree.csv finished.
+checksum: 5337600.0
+Largest clique from top 20 size: 8
+DON TOWSLEY, KANG G. SHIN, KARSTEN SCHWAN, KLARA NAHRSTEDT, M. FRANS KAASHOEK, PH. D, SENIOR MEMBER, STUDENT MEMBER
+
+wIndegree.csv finished.
+checksum: 1.0440513E7
+Largest clique from top 20 size: 13
+DEBORAH ESTRIN, HARI BALAKRISHNAN, IAN FOSTER, LIXIA ZHANG, M. FRANS KAASHOEK, ROBERT MORRIS, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STEVEN MCCANNE, STUDENT MEMBER, VAN JACOBSON, VERN PAXSON
+
+wOutdegree.csv finished.
+checksum: 1.0440513E7
+Largest clique from top 20 size: 11
+AZER BESTAVROS, DEBORAH ESTRIN, DON TOWSLEY, HARI BALAKRISHNAN, KANG G. SHIN, KARSTEN SCHWAN, KLARA NAHRSTEDT, PH. D, SCOTT SHENKER, SENIOR MEMBER, STUDENT MEMBER
+
+pagerank.csv finished.
+checksum: 406465.0000024728
+Largest clique from top 20 size: 7
+DEBORAH ESTRIN, LIXIA ZHANG, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STUDENT MEMBER, VAN JACOBSON
+
+Main component size (|V|, |E|): 120976, 4015739
+Closeness: 0 / 120976
+Closeness: 10000 / 120976
+Closeness: 20000 / 120976
+Closeness: 30000 / 120976
+Closeness: 40000 / 120976
+Closeness: 50000 / 120976
+Closeness: 60000 / 120976
+Closeness: 70000 / 120976
+Closeness: 80000 / 120976
+Closeness: 90000 / 120976
+Closeness: 100000 / 120976
+Closeness: 110000 / 120976
+Closeness: 120000 / 120976
+closeness.csv finished.
+checksum: 29941.275030978726
+Largest clique from top 20 size: 11
+DEBORAH ESTRIN, HARI BALAKRISHNAN, IAN FOSTER, LIXIA ZHANG, M. FRANS KAASHOEK, SALLY FLOYD, SCOTT SHENKER, SENIOR MEMBER, STEVEN MCCANNE, STUDENT MEMBER, VAN JACOBSON
+
+Weighted Closeness: 0 / 120976
+Weighted Closeness: 10000 / 120976
+Weighted Closeness: 20000 / 120976
+Weighted Closeness: 30000 / 120976
