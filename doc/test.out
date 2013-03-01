@@ -1,0 +1,44 @@
+\BOOKMARK [1][-]{section.1}{\332vod}{}
+\BOOKMARK [1][-]{section.2}{Soci\341ln\355 a citacn\355 s\355te}{}
+\BOOKMARK [2][-]{subsection.2.1}{Soci\341ln\355 s\355te}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Anal\375za soci\341ln\355ch s\355t\355}{section.2}
+\BOOKMARK [2][-]{subsection.2.3}{Citacn\355 s\355te}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.3.1}{S\355t publikac\355}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.2}{S\355t autoru}{subsection.2.3}
+\BOOKMARK [2][-]{subsection.2.4}{V\375znamnost autora}{section.2}
+\BOOKMARK [2][-]{subsection.2.5}{M\355ry centrality}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Degree}{subsection.2.5}
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Eigenvector}{subsection.2.5}
+\BOOKMARK [3][-]{subsubsection.2.5.3}{Closeness}{subsection.2.5}
+\BOOKMARK [3][-]{subsubsection.2.5.4}{Betweeness}{subsection.2.5}
+\BOOKMARK [2][-]{subsection.2.6}{Ostatn\355 m\355ry v\375znamnosti autoru}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.6.1}{H-index}{subsection.2.6}
+\BOOKMARK [2][-]{subsection.2.7}{Ocenen\355 v\375znamn\375ch autoru}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.7.1}{ACM A.M. Turing Award}{subsection.2.7}
+\BOOKMARK [3][-]{subsubsection.2.7.2}{ACM SIGMOD Edgar F. Codd Innovations Award}{subsection.2.7}
+\BOOKMARK [3][-]{subsubsection.2.7.3}{ACM Fellows}{subsection.2.7}
+\BOOKMARK [3][-]{subsubsection.2.7.4}{ISI Highly Cited highlighted}{subsection.2.7}
+\BOOKMARK [1][-]{section.3}{Implementace}{}
+\BOOKMARK [2][-]{subsection.3.1}{Nacten\355 vstupn\355ch dat}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Vytvoren\355 citacn\355ch s\355t\355}{section.3}
+\BOOKMARK [2][-]{subsection.3.3}{Anal\375za struktury s\355te}{section.3}
+\BOOKMARK [2][-]{subsection.3.4}{Knihovna pro SNA}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Reprezentace citacn\355 s\355te}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Degree}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Eigenvector}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.4}{Closeness}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.5}{Betweeness}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.6}{H-index}{subsection.3.4}
+\BOOKMARK [1][-]{section.4}{V\375sledky}{}
+\BOOKMARK [2][-]{subsection.4.1}{Citacn\355 datab\341ze}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.1.1}{DBLP 2004}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.2}{CiteSeer 2005}{subsection.4.1}
+\BOOKMARK [2][-]{subsection.4.2}{Struktura s\355te}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.2.1}{DBLP 2004}{subsection.4.2}
+\BOOKMARK [3][-]{subsubsection.4.2.2}{CiteSeer 2005}{subsection.4.2}
+\BOOKMARK [2][-]{subsection.4.3}{\231ebr\355cky v\375znamn\375ch autoru}{section.4}
+\BOOKMARK [2][-]{subsection.4.4}{Porovn\341n\355 implementovan\375ch metod}{section.4}
+\BOOKMARK [1][-]{section.5}{Diskuse}{}
+\BOOKMARK [2][-]{subsection.5.1}{Podobnost v\375sledku jednotliv\375ch metod}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Shoda v\375sledku s ocenen\355mi}{section.5}
+\BOOKMARK [1][-]{section.6}{Z\341ver}{}

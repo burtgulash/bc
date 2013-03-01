@@ -1,62 +1,133 @@
-\documentclass[12pt]{report}
+\documentclass[12pt,titlepage]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{microtype}
-\usepackage{lipsum}
+\usepackage[Sonny]{fncychap}
 
 \usepackage[pdfborder=0 0 0]{hyperref}
 
 \begin{document}
+\begin{titlepage}
+\begin{center}
+	\Large{Západočeská univerzita v Plzni} \\
+	\Large{Fakulta aplikovaných věd} \\
+	\Large{Katedra infromatiky a výpočetní techniky} \\
+\mbox{} \\[1.6cm]
+	\LARGE{{\bf Bakalářská práce}} \\
+\mbox{} \\
+	\Huge{{\bf Měření významnosti autorů v citační síti}} \\
+\end{center}
+\vfill
+\begin{minipage}{.5\textwidth}
+Plzeň, 2013
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\hfill Tomáš Maršálek
+\end{minipage}
+\thispagestyle{empty}
+\end{titlepage}
 
 \section*{Abstract}
-\lipsum
 
 \tableofcontents
 
 \chapter{Úvod}
-\lipsum
 
 \chapter{Sociální a citační sítě}
-\lipsum
 \section{Sociální sítě}
-\lipsum
 
 \section{Analýza sociálních sítí}
-\lipsum
 
 \section{Citační sítě}
-\lipsum
-\subsection{Síť publikací}
-\lipsum
-\subsection{Síť autorů}
-\lipsum
+Citační sítě jsou speciálním případem sociálních sítí, kde jako uzly uvažujeme
+knihy, články nebo jiné publikace; nebo uzly mohou být samotní autoři těchto
+publikací. Spojení mezi uzly je určeno citacemi na jednotlivé publikace. 
 
-\section{Významnost autora}
+\subsection{Síť publikací}
+Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
+mezi těmito publikacemi, jedná se o síť publikací. Tedy pokud publikace $A$
+odkazuje na publikaci $B$, pak budou existovat stejnojmenné uzly $A$ a $B$ a
+hrana mezi těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr
+od citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít
+hrana, kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.
+Výstupní hrana laicky řečeno označuje vztah "cituji", kdežto vstupní hrana
+znamená "jsem citován".
+
+\subsection{Síť autorů}
+Druhým případem citační sítě je síť autorů. Zde je uzel reprezentací autora a
+hrany spojují autory mezi sebou. Ve většině případech máme k dispozici data ve
+formátu, který přímo odpovídá síti publikací, tzn. pro jednu publikaci známe
+seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
+transformací sítě publikací tak, že každou hranu z původní sítě publikací
+přiřadíme každému z autorů této publikace a duplikujeme ji pro každého z autorů
+citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
+publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
+publikací, i zde uvažujeme dvě opačné orientace hrany se stejnou interpretací,
+tedy "cituji" a "jsem citován". 
+
+V síti autorů má pro naše účely smysl uvažovat
+ohodnocení hran. Existuje více způsobů, jak přiřadit ohodnocení (váhy)
+jednotlivým hranám, ale nejjednodušším způsobem, který je použitý i v
+implementaci knihovny, je prosté přiřazení počtu publikací, jejichž autorem
+nebo spoluautorem je daný autor $A$, které odkazují na publikace, jejichž
+autorem je autor $B$. Srozumitelnější popis poskytne obrázek:
+%% TODO figure váha hran.
+
+Druhým způsobem ohodnocení hran, který rovněž využívá implementovaná knihovna
+pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
+je přímá souvislost mezi vahou hrany a vzdáleností mezi uzly. V prvním případě,
+kdy silnější pouto mezi autory vyjadřuje vyšší ohodnocení hrany, v druhém
+případě je naopak nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly
+blíže. Tento způsob je používán pro algoritmy, které pracují na myšlence
+nejkratších cest mezi uzly. 
+
+\section{Významnost autorů}
 %% TODO tady se hodně zmínit o práci předchozích lidí, ne?
-\lipsum
 
 \section{Míry centrality}
-\lipsum
 \subsection{Degree}
 \subsection{Eigenvector}
 \subsection{Closeness}
 \subsection{Betweeness}
 
 \section{Ostatní míry významnosti autorů}
-\lipsum
 \subsection{H-index}
 
+\section{Metody porovnaní}
+\subsection{Spearmanův koeficient pořadové korelace}
+\subsection{Pearsonův korelační koeficient}
+
 \section{Ocenění významných autorů}
-\lipsum
 \subsection{ACM A.M. Turing Award}
+ACM A.M. Turing Award je ocenění ročně udělované skupinou ACM (Association for
+Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
+výpočetního světa.
+\cite{turingaward}.
+
+Turingova cena je brána jako nejvyšší vyznamenání v informatice a je lidově
+nazývána Nobelovou cenou pro informatiku \cite[p.~317]{dasgupta}.
+
 \subsection{ACM SIGMOD Edgar F. Codd Innovations Award}
+ACM SIGMOD Edgar F. Codd Innovations Award je ohodnocení životního díla
+skupinou ACM SIGMOD (Special Interest Group on Management of Data)  za
+inovativní a vysoce ceněné kontribuce k rozvoji, porozumění a použití
+databázových systémů a databází \cite{sigmodinnovations}.
+
 \subsection{ACM Fellows}
+\uv{The ACM Fellows Program} byl založen v roce 1993, aby našel a ocenil
+vynikající členy ACM za jejich dílo v informatice a informační vědě a pro
+jejich významné kontribuce pro účel ACM. Členové ACM Fellows slouží jako
+význační kolegové, ke kterým ACM a jejich členové vzhlížejí jako k autoritám v
+době rozvoje informačních technologií \cite{acmfellows}.
+
 \subsection{ISI Highly Cited highlighted}
+ISI Highly Cited je databáze často citovaných autorů v článcích posledního
+desetiletí, které byly vydány institutem ISI (Institute for Scientific
+Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na jejíchž webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z let 2000 až 2008 napříč 21 vědeckými obory \cite{highlycited}.
 
 \chapter{Implementace}
-\lipsum
 \section{Načtení vstupních dat}
 
 \section{Vytvoření citačních sítí}
@@ -64,7 +135,6 @@
 \section{Analýza struktury sítě}
 
 \section{Knihovna pro SNA}
-\lipsum
 
 \subsection{Reprezentace citační sítě}
 \subsection{Degree}
@@ -74,32 +144,164 @@
 \subsection{H-index}
 
 \chapter{Výsledky}
-\lipsum
 \section{Citační databáze}
-\lipsum
-\subsection{DBLP 2004}
-\subsection{CiteSeer 2005}
+\subsection{DBLP}
+DBLP \cite{DBLP} je webová bibliografická databáze v oboru informatiky,
+která k listopadu 2012 obsahovala více než 2,1 milionu publikací. Pro tuto
+práci používáme verzi z roku 2004.
+
+\subsection{CiteSeer}
+CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
+automatizovaný systém shromažďování publikací a autonomní indexace citací v
+nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
+V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
+a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 
 \section{Struktura sítě}
-\lipsum
-\subsection{DBLP 2004}
-\subsection{CiteSeer 2005}
-
+\subsection{DBLP}
+\subsection{CiteSeer}
 
 \section{Žebříčky významných autorů}
-\lipsum
+\subsection{DBLP}
+\subsubsection{H-index}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf H-index} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1 & MICHAEL STONEBRAKER & 28.000  & & $\bullet$ & $\bullet$ &         \\
+\hline
+2 & DAVID J. DEWITT & 24.000      & & $\bullet$ & $\bullet$ &         \\
+\hline
+3 & JEFFREY D. ULLMAN & 24.000    & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+4 & PHILIP A. BERNSTEIN & 22.000  & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+5 & RAKESH AGRAWAL & 21.000       & & $\bullet$ & $\bullet$ &         \\
+\hline
+6 & WON KIM & 21.000              & & $\bullet$ & $\bullet$ &         \\
+\hline
+7 & YEHOSHUA SAGIV & 20.000       & &         &         &         \\
+\hline
+8 & CATRIEL BEERI & 20.000        & &         & $\bullet$ & $\bullet$ \\
+\hline
+9 & MICHAEL J. CAREY & 20.000     & & $\bullet$ & $\bullet$ &         \\
+\hline
+10 & SERGE ABITEBOUL & 19.000      & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+11 & HECTOR GARCIA-MOLINA & 19.000 & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+12 & UMESHWAR DAYAL & 19.000       & & $\bullet$ & $\bullet$ &         \\
+\hline
+13 & CHRISTOS FALOUTSOS & 19.000   & &         & $\bullet$ & $\bullet$ \\
+\hline
+14 & NATHAN GOODMAN & 18.000       & & $\bullet$ &         &         \\
+\hline
+15 & JIM GRAY & 18.000             & &         & $\bullet$ &         \\
+\hline
+16 & JEFFREY F. NAUGHTON & 18.000  & &         & $\bullet$ &         \\
+\hline
+17 & RAGHU RAMAKRISHNAN & 18.000   & &         &         &         \\
+\hline
+18 & RONALD FAGIN & 18.000         & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+19 & JENNIFER WIDOM & 18.000       & & $\bullet$ & $\bullet$ &         \\
+\hline
+20 & DAVID MAIER & 17.000          & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+21 & BRUCE G. LINDSAY & 17.000     & &         & $\bullet$ &         \\
+\hline
+22 & SHAMKANT B. NAVATHE & 16.000  & &         &         &         \\
+\hline
+23 & C. MOHAN & 16.000             & & $\bullet$ & $\bullet$ &         \\
+\hline
+24 & HAMID PIRAHESH & 16.000       & &         & $\bullet$ &         \\
+\hline
+25 & H. V. JAGADISH & 16.000       & &         & $\bullet$ &         \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Degree}
+\subsubsection{PageRank}
+Hodnoty PageRanku dosahují hodnot mezi $0$ a $1$. Pro účely přehlednosti byly v
+této tabulce normalizovány na interval $0$ až $|V|$, tedy počet uzlů sítě.
+
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf PageRank} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1 & E. F. CODD & 179.324            & $\bullet$ &           & $\bullet$ &           \\
+\hline
+2 & MICHAEL STONEBRAKER & 137.371   &           & $\bullet$ & $\bullet$ &           \\
+\hline
+3 & JIM GRAY & 115.364              &           & $\bullet$ & $\bullet$ &           \\
+\hline
+4 & DONALD D. CHAMBERLIN & 114.010  &           &           & $\bullet$ &           \\
+\hline
+5 & RAYMOND A. LORIE & 107.204      &           &           & $\bullet$ &           \\
+\hline
+6 & PHILIP A. BERNSTEIN & 99.575    &           & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+7 & MORTON M. ASTRAHAN & 87.673     &           &           &           &           \\
+\hline
+8 & KAPALI P. ESWARAN & 87.167      &           &           &           &           \\
+\hline
+9 & PETER P. CHEN & 84.098          &           &           & $\bullet$ &           \\
+\hline
+10 & IRVING L. TRAIGER & 79.313     &           &           & $\bullet$ &           \\
+\hline
+11 & JOHN MILES SMITH & 78.833      &           &           &           &           \\
+\hline
+12 & JEFFREY D. ULLMAN & 74.323     &           & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+13 & EUGENE WONG & 68.319           &           &           &           &           \\
+\hline
+14 & DAVID J. DEWITT & 67.701       &           & $\bullet$ & $\bullet$ &           \\
+\hline
+15 & MIKE W. BLASGEN & 62.185       &           &           & $\bullet$ &           \\
+\hline
+16 & GIANFRANCO R. PUTZOLU & 61.585 &           &           &           &           \\
+\hline
+17 & BRADFORD W. WADE & 60.731      &           &           &           &           \\
+\hline
+18 & RUDOLF BAYER & 60.706          &           & $\bullet$ &           &           \\
+\hline
+19 & JAMES W. MEHL & 58.499         &           &           &           &           \\
+\hline
+20 & PATRICIA P. GRIFFITHS & 58.215 &           &           &           &           \\
+\hline
+21 & WON KIM & 57.946               &           & $\bullet$ & $\bullet$ &           \\
+\hline
+22 & W. FRANK KING III & 57.169     &           &           &           &           \\
+\hline
+23 & NATHAN GOODMAN & 56.791        &           &           &           & $\bullet$ \\
+\hline
+24 & PAUL R. MCJONES & 55.967       &           &           & $\bullet$ &           \\
+\hline
+25 & RONALD FAGIN & 54.766          &           & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Closeness}
+\subsubsection{Betweeness}
+\subsubsection{H-index}
 
 \section{Porovnání implementovaných metod}
-\lipsum
 
 \chapter{Diskuse}
-\lipsum
 \section{Podobnost výsledků jednotlivých metod}
 
 \section{Shoda výsledků s oceněními}
 
+\section{Vliv vah na přesnost výsledků}
+
+\section{Vstupní a výstupní hrany}
+
+
 \chapter{Závěr}
-\lipsum
 
 \bibliographystyle{alpha}
 \bibliography{references}

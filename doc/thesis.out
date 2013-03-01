@@ -1,0 +1,50 @@
+\BOOKMARK [0][-]{chapter.1}{\332vod}{}
+\BOOKMARK [0][-]{chapter.2}{Soci\341ln\355 a citacn\355 s\355te}{}
+\BOOKMARK [1][-]{section.2.1}{Soci\341ln\355 s\355te}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Anal\375za soci\341ln\355ch s\355t\355}{chapter.2}
+\BOOKMARK [1][-]{section.2.3}{Citacn\355 s\355te}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.3.1}{S\355t publikac\355}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.2}{S\355t autoru}{section.2.3}
+\BOOKMARK [1][-]{section.2.4}{V\375znamnost autoru}{chapter.2}
+\BOOKMARK [1][-]{section.2.5}{M\355ry centrality}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.5.1}{Degree}{section.2.5}
+\BOOKMARK [2][-]{subsection.2.5.2}{Eigenvector}{section.2.5}
+\BOOKMARK [2][-]{subsection.2.5.3}{Closeness}{section.2.5}
+\BOOKMARK [2][-]{subsection.2.5.4}{Betweeness}{section.2.5}
+\BOOKMARK [1][-]{section.2.6}{Ostatn\355 m\355ry v\375znamnosti autoru}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.6.1}{H-index}{section.2.6}
+\BOOKMARK [1][-]{section.2.7}{Metody porovnan\355}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.7.1}{Spearmanuv koeficient poradov\351 korelace}{section.2.7}
+\BOOKMARK [2][-]{subsection.2.7.2}{Pearsonuv korelacn\355 koeficient}{section.2.7}
+\BOOKMARK [1][-]{section.2.8}{Ocenen\355 v\375znamn\375ch autoru}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.8.1}{ACM A.M. Turing Award}{section.2.8}
+\BOOKMARK [2][-]{subsection.2.8.2}{ACM SIGMOD Edgar F. Codd Innovations Award}{section.2.8}
+\BOOKMARK [2][-]{subsection.2.8.3}{ACM Fellows}{section.2.8}
+\BOOKMARK [2][-]{subsection.2.8.4}{ISI Highly Cited highlighted}{section.2.8}
+\BOOKMARK [0][-]{chapter.3}{Implementace}{}
+\BOOKMARK [1][-]{section.3.1}{Nacten\355 vstupn\355ch dat}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{Vytvoren\355 citacn\355ch s\355t\355}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Anal\375za struktury s\355te}{chapter.3}
+\BOOKMARK [1][-]{section.3.4}{Knihovna pro SNA}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.4.1}{Reprezentace citacn\355 s\355te}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.2}{Degree}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.3}{Eigenvector}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.4}{Closeness}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.5}{Betweeness}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.6}{H-index}{section.3.4}
+\BOOKMARK [0][-]{chapter.4}{V\375sledky}{}
+\BOOKMARK [1][-]{section.4.1}{Citacn\355 datab\341ze}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.1.1}{DBLP}{section.4.1}
+\BOOKMARK [2][-]{subsection.4.1.2}{CiteSeer}{section.4.1}
+\BOOKMARK [1][-]{section.4.2}{Struktura s\355te}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{DBLP}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{CiteSeer}{section.4.2}
+\BOOKMARK [1][-]{section.4.3}{\231ebr\355cky v\375znamn\375ch autoru}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.3.1}{DBLP}{section.4.3}
+\BOOKMARK [1][-]{section.4.4}{Porovn\341n\355 implementovan\375ch metod}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Diskuse}{}
+\BOOKMARK [1][-]{section.5.1}{Podobnost v\375sledku jednotliv\375ch metod}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{Shoda v\375sledku s ocenen\355mi}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{Vliv vah na presnost v\375sledku}{chapter.5}
+\BOOKMARK [1][-]{section.5.4}{Vstupn\355 a v\375stupn\355 hrany}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{Z\341ver}{}
