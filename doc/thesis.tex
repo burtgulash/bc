@@ -29,77 +29,106 @@ Plzeň, 2013
 \thispagestyle{empty}
 \end{titlepage}
 
-\section*{Abstract}
+\section*{Abstrakt}
+Prvky sociální sítě, které nemají žádné apriorní ohodnocení významnosti, jsou
+různě významné pouze na základě vztahů s okolními prvky. V této práci byly
+prozkoumány a implementovány známé metody centrality a bibliografické metody
+měřící významnost prvků v sociální nebo citační síti. Výsledky aplikování metod
+na volně dostupné citační databáze ukázaly vysokou podobnost jednotlivých metod
+a rovněž shodu nejvýznamnějších autorů dle těchto metod se známými oceněními v
+oblasti informatiky a informační vědy (Turing Award, Codd, ACM Fellows, ISI
+Highly Cited). Bylo zjištěno, že některé implementované metody jsou i přes
+použití nejrychlejších algoritmů výpočetně příliš náročné vzhledem k velikosti
+citačních sítí, vzniklých z těchto citačních databází. Dále bylo empiricky
+potvrzeno, že implementované metody měří významnost, byť může mít více
+interpretací.
 
 \tableofcontents
 
 \chapter{Úvod}
 
-\chapter{Sociální a citační sítě}
 \section{Sociální sítě}
 
 \section{Analýza sociálních sítí}
 
 \section{Citační sítě}
-Citační sítě jsou speciálním případem sociálních sítí, kde jako uzly uvažujeme
-knihy, články nebo jiné publikace; nebo uzly mohou být samotní autoři těchto
-publikací. Spojení mezi uzly je určeno citacemi na jednotlivé publikace. 
+% Citační sítě jsou speciálním případem sociálních sítí, kde jako uzly uvažujeme
+% knihy, články nebo jiné publikace; nebo uzly mohou být samotní autoři těchto
+% publikací. Spojení mezi uzly je určeno citacemi na jednotlivé publikace. 
 
 \subsection{Síť publikací}
-Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
-mezi těmito publikacemi, jedná se o síť publikací. Tedy pokud publikace $A$
-odkazuje na publikaci $B$, pak budou existovat stejnojmenné uzly $A$ a $B$ a
-hrana mezi těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr
-od citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít
-hrana, kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.
-Výstupní hrana laicky řečeno označuje vztah "cituji", kdežto vstupní hrana
-znamená "jsem citován".
+% Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
+% mezi těmito publikacemi, jedná se o síť publikací. Tedy pokud publikace $A$
+% odkazuje na publikaci $B$, pak budou existovat stejnojmenné uzly $A$ a $B$ a
+% hrana mezi těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr
+% od citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít
+% hrana, kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.
+% Výstupní hrana laicky řečeno označuje vztah "cituji", kdežto vstupní hrana
+% znamená "jsem citován".
 
 \subsection{Síť autorů}
-Druhým případem citační sítě je síť autorů. Zde je uzel reprezentací autora a
-hrany spojují autory mezi sebou. Ve většině případech máme k dispozici data ve
-formátu, který přímo odpovídá síti publikací, tzn. pro jednu publikaci známe
-seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
-transformací sítě publikací tak, že každou hranu z původní sítě publikací
-přiřadíme každému z autorů této publikace a duplikujeme ji pro každého z autorů
-citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
-publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
-publikací, i zde uvažujeme dvě opačné orientace hrany se stejnou interpretací,
-tedy "cituji" a "jsem citován". 
+% Druhým případem citační sítě je síť autorů. Zde je uzel reprezentací autora a
+% hrany spojují autory mezi sebou. Ve většině případech máme k dispozici data ve
+% formátu, který přímo odpovídá síti publikací, tzn. pro jednu publikaci známe
+% seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
+% transformací sítě publikací tak, že každou hranu z původní sítě publikací
+% přiřadíme každému z autorů této publikace a duplikujeme ji pro každého z autorů
+% citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
+% publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
+% publikací, i zde uvažujeme dvě opačné orientace hrany se stejnou interpretací,
+% tedy "cituji" a "jsem citován". 
+% 
+% V síti autorů má pro naše účely smysl uvažovat
+% ohodnocení hran. Existuje více způsobů, jak přiřadit ohodnocení (váhy)
+% jednotlivým hranám, ale nejjednodušším způsobem, který je použitý i v
+% implementaci knihovny, je prosté přiřazení počtu publikací, jejichž autorem
+% nebo spoluautorem je daný autor $A$, které odkazují na publikace, jejichž
+% autorem je autor $B$. Srozumitelnější popis poskytne obrázek:
+% %% TODO figure váha hran.
+% 
+% Druhým způsobem ohodnocení hran, který rovněž využívá implementovaná knihovna
+% pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
+% je přímá souvislost mezi vahou hrany a vzdáleností mezi uzly. V prvním případě,
+% kdy silnější pouto mezi autory vyjadřuje vyšší ohodnocení hrany, v druhém
+% případě je naopak nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly
+% blíže. Tento způsob je používán pro algoritmy, které pracují na myšlence
+% nejkratších cest mezi uzly. 
+\section{Analýza citačních sítí}
 
-V síti autorů má pro naše účely smysl uvažovat
-ohodnocení hran. Existuje více způsobů, jak přiřadit ohodnocení (váhy)
-jednotlivým hranám, ale nejjednodušším způsobem, který je použitý i v
-implementaci knihovny, je prosté přiřazení počtu publikací, jejichž autorem
-nebo spoluautorem je daný autor $A$, které odkazují na publikace, jejichž
-autorem je autor $B$. Srozumitelnější popis poskytne obrázek:
-%% TODO figure váha hran.
-
-Druhým způsobem ohodnocení hran, který rovněž využívá implementovaná knihovna
-pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
-je přímá souvislost mezi vahou hrany a vzdáleností mezi uzly. V prvním případě,
-kdy silnější pouto mezi autory vyjadřuje vyšší ohodnocení hrany, v druhém
-případě je naopak nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly
-blíže. Tento způsob je používán pro algoritmy, které pracují na myšlence
-nejkratších cest mezi uzly. 
+\subsection{Vážené citační sítě}
+\subsection{Orientované a neorientované sítě}
 
 \section{Významnost autorů}
 %% TODO tady se hodně zmínit o práci předchozích lidí, ne?
 
 \section{Míry centrality}
+\subsection{Radius}
 \subsection{Degree}
 \subsection{Eigenvector}
+\subsubsection{PageRank}
 \subsection{Closeness}
+% TODO zmínit největší komponentu
+\subsubsection{Algoritmus}
+\subsubsection{Aproximace}
 \subsection{Betweeness}
+\subsubsection{Brandesův algoritmus}
+\subsubsection{Aproximace}
 
-\section{Ostatní míry významnosti autorů}
+\section{Ostatní používané míry významnosti autorů}
 \subsection{H-index}
+\subsection{Impact factor}
+
+\section{Komponenty a kliky}
+\subsection{Komponenty grafu}
+\subsubsection{Silně spojité komponenty}
+\subsection{Klika v grafu}
 
 \section{Metody porovnaní}
 \subsection{Spearmanův koeficient pořadové korelace}
 \subsection{Pearsonův korelační koeficient}
 
 \section{Ocenění významných autorů}
+% TODO kecy co to ty ceny jsou a k čemu jsou a proč je tu uvádim.
 \subsection{ACM A.M. Turing Award}
 ACM A.M. Turing Award je ocenění ročně udělované skupinou ACM (Association for
 Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
@@ -131,24 +160,36 @@ Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na její
 \section{Načtení vstupních dat}
 
 \section{Vytvoření citačních sítí}
+\subsection{Síť publikací}
+\subsection{Síť autorů}
 
 \section{Analýza struktury sítě}
 
-\section{Knihovna pro SNA}
+\section{Reprezentace citační sítě}
+\subsection{All-pair shortest path}
+\subsection{Single source shortest path}
 
-\subsection{Reprezentace citační sítě}
+\section{Hledání nejkratších cest}
+
+\section{Knihovna pro SNA}
+\subsection{Radius}
 \subsection{Degree}
 \subsection{Eigenvector}
 \subsection{Closeness}
 \subsection{Betweeness}
+% TODO normalizace - vydělení maximální možnou hodnotou
 \subsection{H-index}
 
-\chapter{Výsledky}
+\subsection{Paralelní výpočty}
+
 \section{Citační databáze}
 \subsection{DBLP}
 DBLP \cite{DBLP} je webová bibliografická databáze v oboru informatiky,
 která k listopadu 2012 obsahovala více než 2,1 milionu publikací. Pro tuto
 práci používáme verzi z roku 2004.
+
+\subsubsection{Charakteristika}
+% TODO tzn. v jakym roce je nejvíc publikací atd.
 
 \subsection{CiteSeer}
 CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
@@ -157,9 +198,18 @@ nich obsažených. Publikace jsou zejména z oboru informatiky a informační v�
 V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
 a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 
+\subsubsection{Charakteristika}
+
+
+\chapter{Výsledky}
 \section{Struktura sítě}
 \subsection{DBLP}
+\subsubsection{Rozdělení vah}
 \subsection{CiteSeer}
+\subsubsection{Rozdělení vah}
+
+\section{Porovnání nejvýznamnějších autorů}
+\section{Porovnání implementovaných metod}
 
 \section{Žebříčky významných autorů}
 \subsection{DBLP}
@@ -169,60 +219,296 @@ a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 \hline
 & {\bf Autor} & {\bf H-index} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
 \hline
-1 & MICHAEL STONEBRAKER & 28.000  & & $\bullet$ & $\bullet$ &         \\
+1 & MICHAEL STONEBRAKER & 28& & $\bullet$ & $\bullet$ &         \\
 \hline
-2 & DAVID J. DEWITT & 24.000      & & $\bullet$ & $\bullet$ &         \\
+2 & DAVID J. DEWITT & 24& & $\bullet$ & $\bullet$ &         \\
 \hline
-3 & JEFFREY D. ULLMAN & 24.000    & & $\bullet$ & $\bullet$ & $\bullet$ \\
+3 & JEFFREY D. ULLMAN & 24& & $\bullet$ & $\bullet$ & $\bullet$ \\
 \hline
-4 & PHILIP A. BERNSTEIN & 22.000  & & $\bullet$ & $\bullet$ & $\bullet$ \\
+4 & PHILIP A. BERNSTEIN & 22& & $\bullet$ & $\bullet$ & $\bullet$ \\
 \hline
-5 & RAKESH AGRAWAL & 21.000       & & $\bullet$ & $\bullet$ &         \\
+5 & RAKESH AGRAWAL & 21& & $\bullet$ & $\bullet$ &         \\
 \hline
-6 & WON KIM & 21.000              & & $\bullet$ & $\bullet$ &         \\
+6 & WON KIM & 21& & $\bullet$ & $\bullet$ &         \\
 \hline
-7 & YEHOSHUA SAGIV & 20.000       & &         &         &         \\
+7 & YEHOSHUA SAGIV & 20& &         &         &         \\
 \hline
-8 & CATRIEL BEERI & 20.000        & &         & $\bullet$ & $\bullet$ \\
+8 & CATRIEL BEERI & 20& &         & $\bullet$ & $\bullet$ \\
 \hline
-9 & MICHAEL J. CAREY & 20.000     & & $\bullet$ & $\bullet$ &         \\
+9 & MICHAEL J. CAREY & 20& & $\bullet$ & $\bullet$ &         \\
 \hline
-10 & SERGE ABITEBOUL & 19.000      & & $\bullet$ & $\bullet$ & $\bullet$ \\
+10 & SERGE ABITEBOUL & 19& & $\bullet$ & $\bullet$ & $\bullet$ \\
 \hline
-11 & HECTOR GARCIA-MOLINA & 19.000 & & $\bullet$ & $\bullet$ & $\bullet$ \\
+11 & HECTOR GARCIA-MOLINA & 19& & $\bullet$ & $\bullet$ & $\bullet$ \\
 \hline
-12 & UMESHWAR DAYAL & 19.000       & & $\bullet$ & $\bullet$ &         \\
+12 & UMESHWAR DAYAL & 19& & $\bullet$ & $\bullet$ &         \\
 \hline
-13 & CHRISTOS FALOUTSOS & 19.000   & &         & $\bullet$ & $\bullet$ \\
+13 & CHRISTOS FALOUTSOS & 19& &         & $\bullet$ & $\bullet$ \\
 \hline
-14 & NATHAN GOODMAN & 18.000       & & $\bullet$ &         &         \\
+14 & NATHAN GOODMAN & 18& & $\bullet$ &         &         \\
 \hline
-15 & JIM GRAY & 18.000             & &         & $\bullet$ &         \\
+15 & JIM GRAY & 18& &         & $\bullet$ &         \\
 \hline
-16 & JEFFREY F. NAUGHTON & 18.000  & &         & $\bullet$ &         \\
+16 & JEFFREY F. NAUGHTON & 18& &         & $\bullet$ &         \\
 \hline
-17 & RAGHU RAMAKRISHNAN & 18.000   & &         &         &         \\
+17 & RAGHU RAMAKRISHNAN & 18& &         &         &         \\
 \hline
-18 & RONALD FAGIN & 18.000         & & $\bullet$ & $\bullet$ & $\bullet$ \\
+18 & RONALD FAGIN & 18& & $\bullet$ & $\bullet$ & $\bullet$ \\
 \hline
-19 & JENNIFER WIDOM & 18.000       & & $\bullet$ & $\bullet$ &         \\
+19 & JENNIFER WIDOM & 18& & $\bullet$ & $\bullet$ &         \\
 \hline
-20 & DAVID MAIER & 17.000          & & $\bullet$ & $\bullet$ & $\bullet$ \\
+20 & DAVID MAIER & 17& & $\bullet$ & $\bullet$ & $\bullet$ \\
 \hline
-21 & BRUCE G. LINDSAY & 17.000     & &         & $\bullet$ &         \\
+21 & BRUCE G. LINDSAY & 17& &         & $\bullet$ &         \\
 \hline
-22 & SHAMKANT B. NAVATHE & 16.000  & &         &         &         \\
+22 & SHAMKANT B. NAVATHE & 16& &         &         &         \\
 \hline
-23 & C. MOHAN & 16.000             & & $\bullet$ & $\bullet$ &         \\
+23 & C. MOHAN & 16& & $\bullet$ & $\bullet$ &         \\
 \hline
-24 & HAMID PIRAHESH & 16.000       & &         & $\bullet$ &         \\
+24 & HAMID PIRAHESH & 16& &         & $\bullet$ &         \\
 \hline
-25 & H. V. JAGADISH & 16.000       & &         & $\bullet$ &         \\
+25 & H. V. JAGADISH & 16& &         & $\bullet$ &         \\
 \hline
 \end{tabular}
 \end{center}
 
-\subsubsection{Degree}
+\subsubsection{Nevážený indegree}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf indegree} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & MICHAEL STONEBRAKER & 1909&         &$\bullet$&$\bullet$& \\
+\hline
+2  & DAVID J. DEWITT & 1484&         &$\bullet$&$\bullet$& \\
+\hline
+3  & JIM GRAY & 1400&         &$\bullet$&$\bullet$& \\
+\hline
+4  & RAYMOND A. LORIE & 1276&         &         &$\bullet$& \\
+\hline
+5  & JEFFREY D. ULLMAN & 1180&         &$\bullet$&$\bullet$&$\bullet$ \\
+\hline
+6  & WON KIM & 1146&         &         &$\bullet$& \\
+\hline
+7  & PHILIP A. BERNSTEIN & 1145&         &$\bullet$&$\bullet$&$\bullet$ \\
+\hline
+8  & E. F. CODD & 1110&$\bullet$&         &$\bullet$& \\
+\hline
+9  & MICHAEL J. CAREY & 1110&         &$\bullet$&$\bullet$& \\
+\hline
+10 & UMESHWAR DAYAL & 1076&         &$\bullet$&$\bullet$& \\
+\hline
+11 & HECTOR GARCIA-MOLINA & 1020&         &$\bullet$&$\bullet$&$\bullet$ \\
+\hline
+12 & DAVID MAIER & 1017&         &$\bullet$&$\bullet$&$\bullet$ \\
+\hline
+13 & DONALD D. CHAMBERLIN & 966&         &$\bullet$&$\bullet$& \\
+\hline
+14 & RAKESH AGRAWAL & 907&         &$\bullet$&$\bullet$& \\
+\hline
+15 & PETER P. CHEN & 906&         &         &$\bullet$& \\
+\hline
+16 & SERGE ABITEBOUL & 848&         &$\bullet$&$\bullet$&$\bullet$ \\
+\hline
+17 & KAPALI P. ESWARAN & 847&         &         &         & \\
+\hline
+18 & MORTON M. ASTRAHAN & 846&         &         &         & \\
+\hline
+19 & FRANCCEDILOIS BANCILHON & 840&         &         &         & \\
+\hline
+20 & NATHAN GOODMAN & 819&         &         &         &$\bullet$ \\
+\hline
+21 & BRUCE G. LINDSAY & 806&         &         &$\bullet$& \\
+\hline
+22 & HAMID PIRAHESH & 803&         &         &$\bullet$& \\
+\hline
+23 & IRVING L. TRAIGER & 785&         &         &$\bullet$& \\
+\hline
+24 & EUGENE WONG & 762&         &         &         & \\
+\hline
+25 & JEFFREY F. NAUGHTON & 729&         &         &$\bullet$& \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Nevážený outdegree}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf indegree} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & GERHARD WEIKUM & 872&&         &$\bullet$&         \\
+\hline
+2  & HECTOR GARCIA-MOLINA & 856&&$\bullet$&$\bullet$&$\bullet$\\
+\hline
+3  & RAKESH AGRAWAL & 761&&$\bullet$&$\bullet$&         \\
+\hline
+4  & MICHAEL J. CAREY & 758&&$\bullet$&$\bullet$&         \\
+\hline
+5  & DAVID J. DEWITT & 758&&$\bullet$&$\bullet$&         \\
+\hline
+6  & H. V. JAGADISH & 717&&         &$\bullet$&         \\
+\hline
+7  & MICHAEL STONEBRAKER & 677&&$\bullet$&$\bullet$&         \\
+\hline
+8  & RAGHU RAMAKRISHNAN & 652&&         &$\bullet$&         \\
+\hline
+9  & YANNIS E. IOANNIDIS & 649&&         &$\bullet$&         \\
+\hline
+10 & ABRAHAM SILBERSCHATZ & 636&&         &$\bullet$&         \\
+\hline
+11 & ELISA BERTINO & 635&&         &$\bullet$&         \\
+\hline
+12 & SHAMKANT B. NAVATHE & 629&&         &         &         \\
+\hline
+13 & PHILIP S. YU & 622&&         &$\bullet$&$\bullet$\\
+\hline
+14 & STEFANO CERI & 611&&         &         &         \\
+\hline
+15 & CHRISTOS FALOUTSOS & 607&&         &$\bullet$&         \\
+\hline
+16 & MATTHIAS JARKE & 586&&         &         &         \\
+\hline
+17 & GULTEKIN OUMLZSOYOGLU & 582&&         &         &         \\
+\hline
+18 & SERGE ABITEBOUL & 575&&$\bullet$&$\bullet$&$\bullet$\\
+\hline
+19 & NICK ROUSSOPOULOS & 568&&         &$\bullet$&         \\
+\hline
+20 & MIRON LIVNY & 559&&         &         &         \\
+\hline
+21 & STANLEY Y. W. SU & 558&&         &         &         \\
+\hline
+22 & HANS-JOUMLRG SCHEK & 557&&         &$\bullet$&         \\
+\hline
+23 & PATRICK VALDURIEZ & 547&&         &$\bullet$&         \\
+\hline
+24 & GOETZ GRAEFE & 546&&         &         &         \\
+\hline
+25 & CLEMENT T. YU & 542&&         &         &         \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Vážený indegree}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf indegree} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & MICHAEL STONEBRAKER & 5946    &         &$\bullet$&$\bullet$&         \\
+\hline
+2  & DAVID J. DEWITT & 5733        &         &$\bullet$&$\bullet$&         \\
+\hline
+3  & JEFFREY D. ULLMAN & 4429      &         &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+4  & JIM GRAY & 3982               &         &$\bullet$&$\bullet$&         \\
+\hline
+5  & MICHAEL J. CAREY & 3583       &         &$\bullet$&$\bullet$&         \\
+\hline
+6  & RAYMOND A. LORIE & 3501       &         &         &$\bullet$&         \\
+\hline
+7  & HECTOR GARCIA-MOLINA & 3275   &         &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+8  & PHILIP A. BERNSTEIN & 3225    &         &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+9  & SERGE ABITEBOUL & 3177        &         &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+10 & RAKESH AGRAWAL & 3152         &         &$\bullet$&$\bullet$&         \\
+\hline
+11 & WON KIM & 2993                &         &         &$\bullet$&         \\
+\hline
+12 & DAVID MAIER & 2772            &         &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+13 & E. F. CODD & 2736             &$\bullet$&         &$\bullet$&         \\
+\hline
+14 & YEHOSHUA SAGIV & 2575         &         &         &         &         \\
+\hline
+15 & CATRIEL BEERI & 2491          &         &         &$\bullet$&$\bullet$\\
+\hline
+16 & UMESHWAR DAYAL & 2465         &         &$\bullet$&$\bullet$&         \\
+\hline
+17 & RAGHU RAMAKRISHNAN & 2426     &         &         &$\bullet$&         \\
+\hline
+18 & CHRISTOS FALOUTSOS & 2413     &         &         &$\bullet$&         \\
+\hline
+19 & JENNIFER WIDOM & 2354         &         &$\bullet$&$\bullet$&         \\
+\hline
+20 & DONALD D. CHAMBERLIN & 2269   &         &$\bullet$&$\bullet$&         \\
+\hline
+21 & FRANCCEDILOIS BANCILHON & 2264&         &         &         &         \\
+\hline
+22 & JEFFREY F. NAUGHTON & 2186    &         &         &$\bullet$&         \\
+\hline
+23 & NATHAN GOODMAN & 2176         &         &         &         &$\bullet$\\
+\hline
+24 & HAMID PIRAHESH & 2135         &         &         &$\bullet$&         \\
+\hline
+25 & BRUCE G. LINDSAY & 2013       &         &         &$\bullet$&         \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Vážený outdegree}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf outdegree} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & MICHAEL J. CAREY & 3239    &&$\bullet$&$\bullet$&         \\
+\hline
+2  & GERHARD WEIKUM & 3071      &&         &$\bullet$&         \\
+\hline
+3  & DAVID J. DEWITT & 2818     &&$\bullet$&$\bullet$&         \\
+\hline
+4  & PHILIP S. YU & 2614        &&         &$\bullet$&$\bullet$\\
+\hline
+5  & HECTOR GARCIA-MOLINA & 2512&&$\bullet$&$\bullet$&$\bullet$\\
+\hline
+6  & MICHAEL STONEBRAKER & 2316 &&$\bullet$&$\bullet$&         \\
+\hline
+7  & SERGE ABITEBOUL & 2297     &&$\bullet$&$\bullet$&$\bullet$\\
+\hline
+8  & H. V. JAGADISH & 2263      &&         &$\bullet$&         \\
+\hline
+9  & RAKESH AGRAWAL & 2240      &&$\bullet$&$\bullet$&         \\
+\hline
+10 & RAGHU RAMAKRISHNAN & 2059  &&         &$\bullet$&         \\
+\hline
+11 & CHRISTOS FALOUTSOS & 2042  &&         &$\bullet$&         \\
+\hline
+12 & WON KIM & 1902             &&         &$\bullet$&         \\
+\hline
+13 & ABRAHAM SILBERSCHATZ & 1867&&         &$\bullet$&         \\
+\hline
+14 & MIRON LIVNY & 1806         &&         &         &         \\
+\hline
+15 & GOETZ GRAEFE & 1789        &&         &         &         \\
+\hline
+16 & STEFANO CERI & 1775        &&         &         &         \\
+\hline
+17 & YANNIS E. IOANNIDIS & 1775 &&         &$\bullet$&         \\
+\hline
+18 & RICHARD HULL & 1692        &&         &$\bullet$&         \\
+\hline
+19 & HAMID PIRAHESH & 1685      &&         &$\bullet$&         \\
+\hline
+20 & HANS-JOUMLRG SCHEK & 1661  &&         &$\bullet$&         \\
+\hline
+21 & STANLEY Y. W. SU & 1651    &&         &         &         \\
+\hline
+22 & CLEMENT T. YU & 1630       &&         &         &         \\
+\hline
+23 & JEFFREY F. NAUGHTON & 1587 &&         &$\bullet$&         \\
+\hline
+24 & RICHARD T. SNODGRASS & 1558&&         &$\bullet$&         \\
+\hline
+25 & SHAMKANT B. NAVATHE & 1538 &&         &         &         \\
+\hline
+\end{tabular}
+\end{center}
+
+
 \subsubsection{PageRank}
 Hodnoty PageRanku dosahují hodnot mezi $0$ a $1$. Pro účely přehlednosti byly v
 této tabulce normalizovány na interval $0$ až $|V|$, tedy počet uzlů sítě.
@@ -285,19 +571,393 @@ této tabulce normalizovány na interval $0$ až $|V|$, tedy počet uzlů sítě
 \end{tabular}
 \end{center}
 
-\subsubsection{Closeness}
-\subsubsection{Betweeness}
-\subsubsection{H-index}
+\subsubsection{Nevážený closeness}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf Closeness} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & MICHAEL STONEBRAKER & 0.593& & $\bullet$ & $\bullet$ &           \\
+\hline
+2  & JIM GRAY & 0.560&           & $\bullet$ & $\bullet$ &           \\
+\hline
+3  & DAVID J. DEWITT & 0.556&           & $\bullet$ & $\bullet$ &           \\
+\hline
+4  & RAYMOND A. LORIE & 0.556&           &           & $\bullet$ &           \\
+\hline
+5  & JEFFREY D. ULLMAN & 0.546&           & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+6  & PHILIP A. BERNSTEIN & 0.546&& $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+7  & E. F. CODD & 0.543& $\bullet$ &           & $\bullet$ &           \\
+\hline
+8  & DONALD D. CHAMBERLIN & 0.539& & & $\bullet$ &           \\
+\hline
+9  & WON KIM & 0.537&           & $\bullet$ & $\bullet$ &           \\
+\hline
+10 & UMESHWAR DAYAL & 0.535&         &$\bullet$&$\bullet$&         \\
+\hline
+11 & MICHAEL J. CAREY & 0.532&&$\bullet$&$\bullet$&         \\
+\hline
+12 & MORTON M. ASTRAHAN & 0.531&     &     &     &           \\
+\hline
+13 & DAVID MAIER & 0.529&         &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+14 & KAPALI P. ESWARAN & 0.529 &    &   &     &    \\
+\hline
+15 & NATHAN GOODMAN & 0.527 & & $\bullet$ &         &         \\
+\hline
+16 & EUGENE WONG & 0.526& &  &   & \\
+\hline
+17 & IRVING L. TRAIGER & 0.525&           &           & $\bullet$ &           \\
+\hline
+18 & HECTOR GARCIA-MOLINA & 0.523 &&$\bullet$&$\bullet$&$\bullet$\\
+\hline
+19 & FRANCCEDILOIS BANCILHON & 0.520 &         &         &         &         \\
+\hline
+20 & BRUCE G. LINDSAY & 0.519&         &         &$\bullet$&         \\
+\hline
+21 & PETER P. CHEN & 0.518&           &           & $\bullet$ &           \\
+\hline
+22 & RAKESH AGRAWAL & 0.518&&$\bullet$&$\bullet$&         \\
+\hline
+23 & RONALD FAGIN & 0.517&           & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+24 & CATRIEL BEERI & 0.517&         &         &$\bullet$&$\bullet$\\
+\hline
+25 & THOMAS G. PRICE & 0.514 & & & & \\
+\hline
+\end{tabular}
+\end{center}
 
-\section{Porovnání implementovaných metod}
+\subsubsection{Vážený closeness}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf Closeness} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & MICHAEL STONEBRAKER & 2.055& & $\bullet$ & $\bullet$ &           \\
+\hline
+2  & JIM GRAY & 2.047&           & $\bullet$ & $\bullet$ &           \\
+\hline
+3  & E. F. CODD & 2.043& $\bullet$ &           & $\bullet$ &           \\
+\hline
+4  & DAVID J. DEWITT & 2.017&           & $\bullet$ & $\bullet$ &           \\
+\hline
+5  & JEFFREY D. ULLMAN & 2.014&           & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+6  & RAYMOND A. LORIE & 2.012&           &           & $\bullet$ &           \\
+\hline
+7  & PHILIP A. BERNSTEIN & 2.011&& $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+8  & MICHAEL J. CAREY & 1.993&&$\bullet$&$\bullet$&         \\
+\hline
+9  & DAVID MAIER & 1.979&         &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+10 & EUGENE WONG & 1.973& &  &   & \\
+\hline
+11 & DONALD D. CHAMBERLIN & 1.969& & & $\bullet$ &           \\
+\hline
+12 & LAWRENCE A. ROWE & 1.967 &&$\bullet$&&\\
+\hline
+13 & NATHAN GOODMAN & 1.966 & & $\bullet$ &         &         \\
+\hline
+14 & YEHOSHUA SAGIV & 1.966&         &         &         &         \\
+\hline
+15 & HECTOR GARCIA-MOLINA & 1.960 &&$\bullet$&$\bullet$&$\bullet$\\
+\hline
+16 & IRVING L. TRAIGER & 1.955&           &           & $\bullet$ &           \\
+\hline
+17 & CATRIEL BEERI & 1.949&         &         &$\bullet$&$\bullet$\\
+\hline
+18 & BRUCE G. LINDSAY & 1.944&         &         &$\bullet$&         \\
+\hline
+19 & MORTON M. ASTRAHAN & 1.943&     &     &     &           \\
+\hline
+20 & JEFFREY F. NAUGHTON & 1.942&&         &$\bullet$&         \\
+\hline
+21 & JENNIFER WIDOM & 1.937&         &$\bullet$&$\bullet$&         \\
+\hline
+22 & RAGHU RAMAKRISHNAN & 1.936 &&         &$\bullet$&         \\
+\hline
+23 & MIRON LIVNY & 1.936&&         &         &         \\
+\hline
+24 & RANDY H. KATZ & 1.934 &&$\bullet$&&\\
+\hline
+25 & RAKESH AGRAWAL & 1.933&&$\bullet$&$\bullet$&         \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Navážený betweeness}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf Betweeness} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1 & PHILIP A. BERNSTEIN & 62655703.293 & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+2 & MICHAEL STONEBRAKER & 61738362.921 & & $\bullet$ & $\bullet$ &           \\
+\hline
+3 & DAVID J. DEWITT & 60335509.092     & & $\bullet$ & $\bullet$ &           \\
+\hline
+4 & JIM GRAY & 58452724.132            & & $\bullet$ & $\bullet$ &           \\
+\hline
+5 & UMESHWAR DAYAL & 58105048.655      & & $\bullet$ & $\bullet$ &         \\
+\hline
+6 & RAYMOND A. LORIE & 57606842.228    & &           & $\bullet$ &           \\
+\hline
+7 & DONALD D. CHAMBERLIN & 57435250.431& &           & $\bullet$ &           \\
+\hline
+8 & MICHAEL J. CAREY & 56191915.811    & & $\bullet$ & $\bullet$ &         \\
+\hline
+9 & JEFFREY D. ULLMAN & 56098986.122   & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+10 & KAPALI P. ESWARAN & 55953909.624  & &           &           &           \\
+\hline
+11 & E. F. CODD & 55595773.178         & $\bullet$ & & $\bullet$ &           \\
+\hline
+12 & WON KIM & 55485910.707            & & $\bullet$ & $\bullet$ &           \\
+\hline
+13 & MORTON M. ASTRAHAN & 53967137.730 &         &         &         & \\
+\hline
+14 & DAVID MAIER & 53884993.441        & &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+15 & FRANCCEDILOIS BANCILHON & 52436978.786 &  &  & &         \\
+\hline
+16 & NATHAN GOODMAN & 51776071.388& & $\bullet$ &         &         \\
+\hline
+17 & EUGENE WONG & 50457002.386&         &         &         & \\
+\hline
+18 & IRVING L. TRAIGER & 50067735.663&         &         &$\bullet$& \\
+\hline
+19 & HECTOR GARCIA-MOLINA & 49279794.248& & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+20 & CATRIEL BEERI & 49031169.516&         &         &$\bullet$&$\bullet$\\
+\hline
+21 & RONALD FAGIN & 48476621.189& & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+22 & BRUCE G. LINDSAY & 47956637.448&         &         &$\bullet$&         \\
+\hline
+23 & SERGE ABITEBOUL & 47196023.670& & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+24 & RAKESH AGRAWAL & 46621125.945&&$\bullet$&$\bullet$&         \\
+\hline
+25 & PATRICIA G. SELINGER & 45312957.343 & & $\bullet$ & $\bullet$ & \\ 
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsubsection{Vážený betweeness}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf Betweeness} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & MICHAEL STONEBRAKER & 51920270.604 & & $\bullet$ & $\bullet$ &   \\
+\hline
+2  & DAVID J. DEWITT & 47407633.796& & $\bullet$ & $\bullet$ &           \\
+\hline
+3  & JIM GRAY & 46202513.744& & $\bullet$ & $\bullet$ &           \\
+\hline
+4  & JEFFREY D. ULLMAN & 43255880.998  & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+5  & MICHAEL J. CAREY & 40700171.932 & & $\bullet$ & $\bullet$ &         \\
+\hline
+6  & RAYMOND A. LORIE & 37350006.114 & &           & $\bullet$ &           \\
+\hline
+7  & PHILIP A. BERNSTEIN & 36361815.206 & & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+8  & LAWRENCE A. ROWE & 35035718.542 &&$\bullet$&&\\
+\hline
+9  & EUGENE WONG & 34499259.565&         &         &         & \\
+\hline
+10 & MIRON LIVNY & 34488016.860&&         &         &         \\
+\hline
+11 & YEHOSHUA SAGIV & 32954711.980& &         &         &         \\
+\hline
+12 & DONALD D. CHAMBERLIN & 32704585.298& &           & $\bullet$ &           \\
+\hline
+13 & C. MOHAN & 32417070.578& & $\bullet$ & $\bullet$ &         \\
+\hline
+14 & DAVID MAIER & 32132542.674& &$\bullet$&$\bullet$&$\bullet$\\
+\hline
+15 & NATHAN GOODMAN & 31719323.894& & $\bullet$ &         &         \\
+\hline
+16 & HECTOR GARCIA-MOLINA & 31080457.354& & $\bullet$ & $\bullet$ & $\bullet$ \\
+\hline
+17 & RANDY H. KATZ & 30977276.737 &&$\bullet$&&\\
+\hline
+18 & JENNIFER WIDOM & 30793150.109&         &$\bullet$&$\bullet$& \\
+\hline
+19 & RAKESH AGRAWAL & 30763284.150&&$\bullet$&$\bullet$&         \\
+\hline
+20 & E. F. CODD & 29634524.870& $\bullet$ & & $\bullet$ &           \\
+\hline
+21 & JEFFREY F. NAUGHTON & 29267110.900&&         &$\bullet$&         \\
+\hline
+22 & HAMID PIRAHESH & 29233790.884&&         &$\bullet$&         \\
+\hline
+23 & CATRIEL BEERI & 28857797.364&         &         &$\bullet$&$\bullet$\\
+\hline
+24 & BRUCE G. LINDSAY & 28566231.162&         &         &$\bullet$&         \\
+\hline
+25 & RAGHU RAMAKRISHNAN & 28057226.481 &&         &$\bullet$&         \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\subsection{CiteSeer}
+
+\subsubsection{PageRank}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf PageRank} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & JOHN K. OUSTERHOUT & 413.275 &         &         &$\bullet$&         \\
+2  & MARTIN E. HELLMAN & 336.552  &         &         &         &         \\
+3  & WHITFIELD DIFFIE & 289.814   &         &         &         &         \\
+4  & SENIOR MEMBER & 280.899      &         &         &         &         \\
+5  & JACK J. DONGARRA & 279.157   &         &         &$\bullet$&$\bullet$\\
+6  & VAN JACOBSON & 259.762       &         &         &         &         \\
+7  & SCOTT SHENKER & 225.241      &         &         &$\bullet$&         \\
+8  & S. KENT & 224.260            &         &         &         &         \\
+9  & RANDAL E. BRYANT & 197.141   &         &         &$\bullet$&$\bullet$\\
+10 & SALLY FLOYD & 196.267        &         &         &$\bullet$&$\bullet$\\
+11 & LIXIA ZHANG & 194.574        &         &         &$\bullet$&         \\
+12 & STUDENT MEMBER & 182.926     &         &         &         &         \\
+13 & S. KIRKPATRICK & 181.416     &         &         &$\bullet$&$\bullet$\\
+14 & C. D. GELATT & 181.416       &         &         &         &         \\
+15 & M. P. VECCHI & 181.416       &         &         &         &         \\
+16 & TAKEO KANADE & 178.883       &         &         &$\bullet$&         \\
+17 & RANDOLPH BENTSON & 178.869   &         &         &         &         \\
+18 & GEORGE W. FURNAS & 177.145   &         &         &$\bullet$&         \\
+19 & RAKESH AGRAWAL & 175.358     &         &$\bullet$&$\bullet$&         \\
+20 & DEBORAH ESTRIN & 173.030     &         &         &$\bullet$&         \\
+21 & STEPHEN C. JOHNSON & 168.657 &         &         &         &         \\
+22 & EDWARD H. ADELSON & 162.659  &         &         &         &$\bullet$\\
+23 & KEN THOMPSON & 159.405       &$\bullet$&         &         &         \\
+24 & ADI SHAMIR & 155.899         &$\bullet$&         &         &         \\
+25 & MICHAEL J. KARELS & 153.567  &         &         &         &         \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Nevážený closeness}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf Closeness} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & SENIOR MEMBER & 0.393          & &         &         &          \\
+2  & JOHN K. OUSTERHOUT & 0.392     & &         &$\bullet$&          \\
+3  & SCOTT SHENKER & 0.384          & &         &$\bullet$&          \\
+4  & M. FRANS KAASHOEK & 0.383      & &         &$\bullet$&          \\
+5  & STUDENT MEMBER & 0.380         & &         &         &          \\
+6  & RAKESH AGRAWAL & 0.380         & &$\bullet$&$\bullet$&          \\
+7  & HARI BALAKRISHNAN & 0.377      & &         &$\bullet$&          \\
+8  & DEBORAH ESTRIN & 0.377         & &         &$\bullet$&          \\
+9  & HECTOR GARCIA-MOLINA & 0.376   & &$\bullet$&$\bullet$&$\bullet$ \\
+10 & FACHBEREICH INFORMATIK & 0.375 & &         &         &          \\
+11 & VAN JACOBSON & 0.375           & &         &         &          \\
+12 & RAJEEV MOTWANI & 0.374         & &         &$\bullet$&          \\
+13 & SALLY FLOYD & 0.373            & &         &$\bullet$&$\bullet$ \\
+14 & DAVID CULLER & 0.370           & &         &$\bullet$&          \\
+15 & LIXIA ZHANG & 0.370            & &         &$\bullet$&          \\
+16 & CHRISTOS FALOUTSOS & 0.370     & &         &$\bullet$&          \\
+17 & IAN FOSTER & 0.370             & &         &$\bullet$&$\bullet$ \\
+18 & STEVEN MCCANNE & 0.370         & &         &         &          \\
+19 & PRABHAKAR RAGHAVAN & 0.369     & &         &$\bullet$&$\bullet$ \\
+20 & JENNIFER WIDOM & 0.369         & &$\bullet$&$\bullet$&          \\
+21 & ROBERT E. SCHAPIRE & 0.368     & &         &         &$\bullet$ \\
+22 & ROBERT MORRIS & 0.368          & &         &         &          \\
+23 & M. SATYANARAYANAN & 0.368      & &         &$\bullet$&          \\
+24 & PETER B. DANZIG & 0.367        & &         &         &          \\
+25 & VERN PAXSON & 0.367            & &         &$\bullet$&$\bullet$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Nevážený betweeness}
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf Betweeness} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & M. FRANS KAASHOEK & 10112159061.330 & &         &$\bullet$&         \\
+2  & SCOTT SHENKER & 9785892051.377      & &         &$\bullet$&         \\
+3  & SENIOR MEMBER & 8845140725.909      & &         &         &         \\
+4  & VAN JACOBSON & 8813158813.753       & &         &         &         \\
+5  & SALLY FLOYD & 8690842977.231        & &         &$\bullet$&$\bullet$\\
+6  & LARRY L. PETERSON & 8630281410.114  & &         &$\bullet$&         \\
+7  & HARI BALAKRISHNAN & 8544868651.846  & &         &$\bullet$&         \\
+8  & JENNIFER WIDOM & 8512314665.858     & &$\bullet$&$\bullet$&         \\
+9  & DEBORAH ESTRIN & 8414557973.610     & &         &$\bullet$&         \\
+10 & MONICA S. LAM & 8394649393.784      & &         &$\bullet$&         \\
+11 & LIXIA ZHANG & 8350916122.773        & &         &$\bullet$&         \\
+12 & STEVEN MCCANNE & 8263572085.250     & &         &         &         \\
+13 & M. SATYANARAYANAN & 8087193503.971  & &         &$\bullet$&         \\
+14 & THOMAS E. ANDERSON & 8078380316.694 & &         &$\bullet$&         \\
+15 & DON TOWSLEY & 8053219720.880        & &         &$\bullet$&$\bullet$\\
+16 & JOHN K. OUSTERHOUT & 8039121635.247 & &         &$\bullet$&         \\
+17 & PETER B. DANZIG & 7986359949.439    & &         &         &         \\
+18 & SERGE ABITEBOUL & 7924035872.338    & &$\bullet$&$\bullet$&$\bullet$\\
+19 & CHRISTOS FALOUTSOS & 7915737482.408 & &         &$\bullet$&         \\
+20 & STUDENT MEMBER & 7854847262.677     & &         &         &         \\
+21 & KEN KENNEDY & 7846470147.904        & &         &$\bullet$&$\bullet$\\
+22 & Y H. KATZ & 7746528995.356          & &         &$\bullet$&         \\
+23 & DAVID B. JOHNSON & 7657508456.644   & &         &         &         \\
+24 & RAKESH AGRAWAL & 7615283090.821     & &$\bullet$&$\bullet$&         \\
+25 & HUI ZHANG & 7588067468.401          & &         &$\bullet$&         \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+& {\bf Autor} & {\bf H-index} & {\bf Turing} & {\bf Codd} & {\bf Fellows} & {\bf ISI} \\
+\hline
+1  & SCOTT SHENKER & 37        & &         &$\bullet$&         \\
+2  & DEBORAH ESTRIN & 34       & &         &$\bullet$&         \\
+3  & KEN KENNEDY & 33          & &         &$\bullet$&$\bullet$\\
+4  & DOUGLAS C. SCHMIDT & 33   & &         &         &         \\
+5  & DON TOWSLEY & 32          & &         &$\bullet$&$\bullet$\\
+6  & HECTOR GARCIA-MOLINA & 31 & &$\bullet$&$\bullet$&$\bullet$\\
+7  & THOMAS A. HENZINGER & 30  & &         &$\bullet$&$\bullet$\\
+8  & RAKESH AGRAWAL & 29       & &$\bullet$&$\bullet$&         \\
+9  & M. FRANS KAASHOEK & 29    & &         &$\bullet$&         \\
+10 & JENNIFER WIDOM & 29       & &$\bullet$&$\bullet$&         \\
+11 & WILLY ZWAENEPOEL & 28     & &         &$\bullet$&         \\
+12 & HUI ZHANG & 27            & &         &$\bullet$&         \\
+13 & IAN FOSTER & 27           & &         &$\bullet$&$\bullet$\\
+14 & MONI NAOR & 27            & &         &         &         \\
+15 & SALLY FLOYD & 26          & &         &$\bullet$&$\bullet$\\
+16 & LUCA CARDELLI & 26        & &         &$\bullet$&         \\
+17 & SERGE ABITEBOUL & 26      & &$\bullet$&$\bullet$&$\bullet$\\
+18 & SENIOR MEMBER & 26        & &         &         &         \\
+19 & BART SELMAN & 26          & &         &$\bullet$&         \\
+20 & SEBASTIAN THRUN & 25      & &         &         &         \\
+21 & OREN ETZIONI & 24         & &         &         &         \\
+22 & DAVID J. DEWITT & 24      & &$\bullet$&$\bullet$&         \\
+23 & DAPHNE KOLLER & 24        & &         &         &         \\
+24 & RAJEEV ALUR & 24          & &         &$\bullet$&$\bullet$\\
+25 & HARI BALAKRISHNAN & 24    & &         &$\bullet$&         \\
+\hline
+\end{tabular}
+\end{center}
+
+
 
 \chapter{Diskuse}
 \section{Podobnost výsledků jednotlivých metod}
-
 \section{Shoda výsledků s oceněními}
-
 \section{Vliv vah na přesnost výsledků}
-
 \section{Vstupní a výstupní hrany}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.4)  1 MAR 2013 17:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.4)  3 MAR 2013 17:02
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -557,184 +557,157 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.34 \tableofcontents
+l.46 \tableofcontents
                       [1] (./thesis.toc [2
 
-])
+] [3])
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- [3]
+ [4]
 Kapitola 1.
-[4
-
-]
-Kapitola 2.
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 38.
-
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 38.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 39.
+(hyperref)                removing `\textasciicaron' on input line 50.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 43.
+(hyperref)                removing `\textasciicaron' on input line 54.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 43.
+(hyperref)                removing `\textasciicaron' on input line 54.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 48.
+(hyperref)                removing `\textasciicaron' on input line 59.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 58.
+(hyperref)                removing `\textasciicaron' on input line 69.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 58.
+(hyperref)                removing `\textring' on input line 69.
 
-[5
 
-]
-
-Package hyperref Warning: Composite letter `\textring+u'
+Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 86.
+(hyperref)                removing `\textasciicaron' on input line 96.
 
 
-Package hyperref Warning: Composite letter `\textring+u'
+Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 95.
+(hyperref)                removing `\textasciicaron' on input line 98.
 
 
-Package hyperref Warning: Composite letter `\textring+u'
+Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 99.
+(hyperref)                removing `\textasciicaron' on input line 98.
 
 
-Package hyperref Warning: Composite letter `\textasciicaron+r'
+Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 99.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 100.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 100.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 102.
+(hyperref)                removing `\textring' on input line 101.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 102.
+(hyperref)                removing `\textring' on input line 117.
 
 
-LaTeX Warning: Citation `turingaward' on page 6 undefined on input line 107.
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 127.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 127.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 128.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 128.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 130.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 130.
+
+
+LaTeX Warning: Citation `turingaward' on page 5 undefined on input line 136.
+
+[5
+
+]
+Overfull \vbox (629.83347pt too high) has occurred while \output is active []
+
 
 [6]
 
-LaTeX Warning: Citation `dasgupta' on page 7 undefined on input line 110.
+LaTeX Warning: Citation `dasgupta' on page 7 undefined on input line 139.
 
 
-Overfull \hbox (11.29433pt too wide) in paragraph at lines 112--112
+Overfull \hbox (19.39432pt too wide) in paragraph at lines 141--141
 []\OT1/cmr/bx/n/14.4 ACM SIG-MOD Ed-gar F. Codd In-no-vati-ons Award 
  []
 
 
 LaTeX Warning: Citation `sigmodinnovations' on page 7 undefined on input line 1
-16.
+45.
 
 
-LaTeX Warning: Citation `acmfellows' on page 7 undefined on input line 123.
+LaTeX Warning: Citation `acmfellows' on page 7 undefined on input line 152.
+
+
+LaTeX Warning: Citation `highlycited' on page 7 undefined on input line 157.
 
 [7]
-
-LaTeX Warning: Citation `highlycited' on page 8 undefined on input line 128.
-
-[8]
-Kapitola 3.
+Kapitola 2.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 131.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+r'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 133.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 133.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 135.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 139.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 139.
-
-[9
-
-]
-Kapitola 4.
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 147.
-
-
-LaTeX Warning: Citation `DBLP' on page 10 undefined on input line 149.
-
-
-LaTeX Warning: Citation `citeseer' on page 10 undefined on input line 154.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 160.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 164.
+(hyperref)                removing `\textasciicaron' on input line 162.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 162.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+t'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 163.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 164.
 
@@ -744,59 +717,189 @@ Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                removing `\textring' on input line 164.
 
 
-Overfull \hbox (40.39697pt too wide) in paragraph at lines 168--223
- [] 
- []
-
-[10
-
-] [11]
-Overfull \vbox (6.06613pt too high) has occurred while \output is active []
-
-
-[12]
-Overfull \hbox (56.63861pt too wide) in paragraph at lines 231--286
- [] 
- []
-
-[13] [14]
-Kapitola 5.
-
-Package hyperref Warning: Composite letter `\textring+u'
+Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 295.
+(hyperref)                removing `\textasciicaron' on input line 166.
 
 
-Package hyperref Warning: Composite letter `\textring+u'
+Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 297.
+(hyperref)                removing `\textasciicaron' on input line 168.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 297.
+(hyperref)                removing `\textasciicaron' on input line 168.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 183.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 185.
+
+
+LaTeX Warning: Citation `DBLP' on page 8 undefined on input line 187.
+
+[8
+
+]
+Overfull \vbox (269.68343pt too high) has occurred while \output is active []
+
+
+[9]
+
+LaTeX Warning: Citation `citeseer' on page 10 undefined on input line 195.
+
+[10]
+Kapitola 3.
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 205.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 211.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 211.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 299.
+(hyperref)                removing `\textasciicaron' on input line 214.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 214.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 299.
+(hyperref)                removing `\textring' on input line 214.
 
-[15
+
+Overfull \hbox (40.39697pt too wide) in paragraph at lines 218--273
+ [] 
+ []
+
+[11
 
 ]
-Kapitola 6.
+Overfull \vbox (371.33282pt too high) has occurred while \output is active []
+
+
+[12]
+Overfull \hbox (62.4551pt too wide) in paragraph at lines 277--332
+ [] 
+ []
+
+
+Overfull \hbox (55.28294pt too wide) in paragraph at lines 336--391
+ [] 
+ []
+
+[13]
+Overfull \hbox (62.4551pt too wide) in paragraph at lines 395--450
+ [] 
+ []
+
+[14]
+Overfull \hbox (51.94417pt too wide) in paragraph at lines 454--509
+ [] 
+ []
+
+[15]
+Overfull \hbox (56.63861pt too wide) in paragraph at lines 517--572
+ [] 
+ []
+
+[16]
+Overfull \hbox (69.00652pt too wide) in paragraph at lines 576--631
+ [] 
+ []
+
+[17]
+Overfull \hbox (49.35115pt too wide) in paragraph at lines 635--690
+ [] 
+ []
+
+[18]
+Overfull \hbox (80.85023pt too wide) in paragraph at lines 694--749
+ [] 
+ []
+
+[19]
+Overfull \hbox (61.19487pt too wide) in paragraph at lines 754--809
+ [] 
+ []
+
+[20]
+Overfull \hbox (34.37215pt too wide) in paragraph at lines 817--848
+ [] 
+ []
+
+[21]
+Overfull \hbox (62.14825pt too wide) in paragraph at lines 852--883
+ [] 
+ []
+
+[22]
+Overfull \hbox (61.7754pt too wide) in paragraph at lines 887--918
+ [] 
+ []
+
+[23]
+Overfull \hbox (40.39697pt too wide) in paragraph at lines 922--953
+ [] 
+ []
+
+[24] [25]
+Kapitola 4.
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 958.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 959.
+
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 304.
+(hyperref)                removing `\textasciicaron' on input line 959.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 960.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 960.
+
+[26
+
+]
+Kapitola 5.
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 964.
 
 No file thesis.bbl.
-[16
+[27
 
 ] (./thesis.aux)
 
@@ -804,23 +907,145 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6898 strings out of 495027
- 99722 string characters out of 1181419
- 222740 words of memory out of 3000000
- 9877 multiletter control sequences out of 15000+50000
- 11274 words of font info for 55 fonts, out of 3000000 for 9000
+ 6977 strings out of 495027
+ 100896 string characters out of 1181419
+ 234740 words of memory out of 3000000
+ 9885 multiletter control sequences out of 15000+50000
+ 10931 words of font info for 48 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
  38i,7n,39p,269b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmss17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb
->
-Output written on thesis.pdf (17 pages, 147178 bytes).
+pdfTeX warning (dest): name{chapter.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.4} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.1} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.4.2.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.4.2.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.4.1.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.4.1.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.7.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.7.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.3.7} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.6.7} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.6.6} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.6.5} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.6.4} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.6.3} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.6.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.6.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.3.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.3.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.2.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.2.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.9.4} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.9.3} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.9.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.9.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.2.9} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.8.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.8.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.2.8} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.5.5} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.5.4} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.5.3} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.5.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.5.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.5} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.4} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.3} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mss17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on thesis.pdf (28 pages, 193256 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
- 10641 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 580 PDF objects out of 1000 (max. 8388607)
+ 160 named destinations out of 1000 (max. 500000)
+ 10769 words of extra memory for PDF output out of 12000 (max. 10000000)
 
