@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 	private final static boolean VERBOSE = true;
@@ -23,81 +25,99 @@ public class Main {
 	final static String test3 = "test3.csv";
 	final static String test3rev = "test3rev.csv";
 	final static String test4 = "test4.csv";
-	final static String BIB_DB = dir + citeseer;
+	final static String DB = dblp;
+	final static String BIB_DB = dir + DB;
+
+	private static Graph authors;
+	private static ResultRow[][] results = new ResultRow[9][];
+	private static String dbname = null;
 
 	public static void work() {
-		// Compute h-index
-		ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
-		sortAndWrite(hindex, "hindex.csv", LIMIT);
-		printChecksum(hindex);
-		hindex = null;
 
 		// Create graphs
 		Graph publications = Load.publications(new File(BIB_DB), VERBOSE);
-		Graph authors = Load.authors(publications, VERBOSE);
+		authors = Load.authors(publications, VERBOSE);
 
 		// free publications
 		publications = null;
 		authors.makeUndirected();
 
+		// Compute h-index
+		ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
+		sortAndWrite(hindex, "hindex.csv", LIMIT);
+		printChecksum(hindex);
+		results[0] = hindex;
+
 		System.gc();
 		StatisticalDistribution.printEdgeWeightDistribution(authors);
+
+		// Compute indegree
+		ResultRow[][] btwnsrds = BetweenessRadius.compute(authors, true);
+		sortAndWrite(btwnsrds[0], "betweenessParallel.csv", LIMIT);
+		printChecksum(btwnsrds[0]);
+		printClique(authors, btwnsrds[0], TOP_K);
+		results[1] = btwnsrds[0];
+
+		sortAndWrite(btwnsrds[1], "radius.csv", LIMIT, true);
+		printChecksum(btwnsrds[1]);
+		printClique(authors, btwnsrds[1], TOP_K);
+		results[2] = btwnsrds[1];
+		btwnsrds = null;
+
+		// if (true)
+		// return;
 
 		// Compute indegree
 		ResultRow[] indegree = Degree.compute(authors, false, true);
 		sortAndWrite(indegree, "indegree.csv", LIMIT);
 		printChecksum(indegree);
 		printClique(authors, indegree, TOP_K);
-		indegree = null;
+		results[3] = indegree;
 
 		// Compute outdegree
 		ResultRow[] outdegree = Degree.compute(authors, false, false);
 		sortAndWrite(outdegree, "outdegree.csv", LIMIT);
 		printChecksum(outdegree);
 		printClique(authors, outdegree, TOP_K);
-		outdegree = null;
+		results[4] = outdegree;
 
 		// Compute weighted indegree
 		ResultRow[] wIndegree = Degree.compute(authors, true, true);
 		sortAndWrite(wIndegree, "wIndegree.csv", LIMIT);
 		printChecksum(wIndegree);
 		printClique(authors, wIndegree, TOP_K);
-		wIndegree = null;
+		results[5] = wIndegree;
 
 		// Compute outdegree
 		ResultRow[] wOutdegree = Degree.compute(authors, true, false);
 		sortAndWrite(wOutdegree, "wOutdegree.csv", LIMIT);
 		printChecksum(wOutdegree);
 		printClique(authors, wOutdegree, TOP_K);
-		wIndegree = null;
-		wOutdegree = null;
+		results[6] = wOutdegree;
 
 		// Compute pagerank
 		ResultRow[] pagerank = PageRank.compute(authors);
 		sortAndWrite(pagerank, "pagerank.csv", LIMIT);
 		printChecksum(pagerank);
 		printClique(authors, pagerank, TOP_K);
-		pagerank = null;
+		results[7] = pagerank;
 
 		final int BETWEENESS_C = DONT_APPROXIMATE;
 
-		if (false) {
-			// Compute Betweeness
-			ResultRow[] betweeness = Betweeness.compute(authors, BETWEENESS_C,
-					VERBOSE);
-			sortAndWrite(betweeness, "betweeness.csv", LIMIT);
-			printChecksum(betweeness);
-			printClique(authors, betweeness, TOP_K);
-			betweeness = null;
+		// Compute Betweeness
+		ResultRow[] betweeness = Betweeness.compute(authors, 4, VERBOSE);
+		sortAndWrite(betweeness, "approximatedBetweeness_Nover4.csv", LIMIT);
+		printChecksum(betweeness);
+		printClique(authors, betweeness, TOP_K);
+		results[7] = betweeness;
 
-			// Compute weightedBetweeness
-			ResultRow[] wBetweeness = WeightedBetweeness.compute(authors,
-					BETWEENESS_C, VERBOSE);
-			sortAndWrite(wBetweeness, "wBetweeness.csv", LIMIT);
-			printChecksum(wBetweeness);
-			printClique(authors, wBetweeness, TOP_K);
-			wBetweeness = null;
-		}
+		// Compute weightedBetweeness
+		ResultRow[] wBetweeness = WeightedBetweeness.compute(authors,
+				BETWEENESS_C, VERBOSE);
+		sortAndWrite(wBetweeness, "wBetweeness.csv", LIMIT);
+		printChecksum(wBetweeness);
+		printClique(authors, wBetweeness, TOP_K);
+		results[8] = wBetweeness;
 
 		// Get largest (main) component of the graph of authors.
 		Graph mainComponent = Components.getLargest(authors);
@@ -109,7 +129,7 @@ public class Main {
 		sortAndWrite(closeness, "closeness.csv", LIMIT);
 		printChecksum(closeness);
 		printClique(authors, closeness, TOP_K);
-		closeness = null;
+		// results[9] = closeness;
 
 		// Compute weighted closeness
 		ResultRow[] wCloseness = WeightedCloseness.compute(mainComponent,
@@ -117,8 +137,20 @@ public class Main {
 		sortAndWrite(wCloseness, "wCloseness.csv", LIMIT);
 		printChecksum(wCloseness);
 		printClique(authors, wCloseness, TOP_K);
-		wCloseness = null;
-		mainComponent = null;
+		// results[10] = wCloseness;
+	}
+
+	private static void printCorrelations(ResultRow[][] results) {
+		for (int i = 0; i < results.length; i++)
+			results[i] = removeSingletons(authors, results[i]);
+		
+		for (int i = 0; i < results.length; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.printf("spearman(%d, %d) = %f%n", i, j,
+						Correlation.spearman(results[i], results[j]));
+				System.out.println();
+			}
+		}
 	}
 
 	private static void printClique(Graph g, ResultRow[] rs, int limit) {
@@ -136,7 +168,13 @@ public class Main {
 		System.out.println();
 	}
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
+		if (DB == dblp)
+			dbname = "DBLP";
+		else if (DB == citeseer)
+			dbname = "CiteSeer";
+
 		System.out.println("START");
 		System.out.println("file: " + BIB_DB);
 		Date start = getTime();
@@ -144,6 +182,8 @@ public class Main {
 		System.out.println();
 
 		work();
+
+		printCorrelations(results);
 
 		Date end = getTime();
 		printDate(end);
@@ -183,8 +223,25 @@ public class Main {
 		return sum;
 	}
 
+	private static ResultRow[] removeSingletons(Graph authors,
+			ResultRow[] result) {
+		List<ResultRow> notSingletons = new LinkedList<ResultRow>();
+
+		for (ResultRow r : result) {
+			if (authors.getVertex(r.name).degree() > 0)
+				notSingletons.add(r);
+		}
+
+		return notSingletons.toArray(new ResultRow[notSingletons.size()]);
+	}
+
 	private static void sortAndWrite(ResultRow[] result, String fileName,
 			int limit) {
+		sortAndWrite(result, fileName, limit, false);
+	}
+
+	private static void sortAndWrite(ResultRow[] result, String fileName,
+			int limit, boolean reversed) {
 
 		Arrays.sort(result, new Comparator<ResultRow>() {
 			@Override
@@ -193,15 +250,61 @@ public class Main {
 			}
 		});
 
+		if (reversed)
+			for (int i = 0; i < result.length / 2; i++) {
+				ResultRow tmp = result[i];
+				result[i] = result[result.length - 1 - i];
+				result[result.length - 1 - i] = tmp;
+			}
+
+		boolean[] Codd = null, ACMFell = null, ISIHC = null, Turing = null;
+
+		if (dbname != null) {
+			Codd = Awards.assignAwards(result, dbname, "Codd");
+			System.out.println("Codd sum: " + Awards.getSum(Codd));
+			ACMFell = Awards.assignAwards(result, dbname, "ACMFell");
+			System.out.println("ACMFell sum: " + Awards.getSum(ACMFell));
+			ISIHC = Awards.assignAwards(result, dbname, "ISIHC");
+			System.out.println("ISIHC sum: " + Awards.getSum(ISIHC));
+			Turing = Awards.assignAwards(result, dbname, "Turing");
+			System.out.println("Turing sum: " + Awards.getSum(Turing));
+		}
+
 		PrintWriter w = null;
 		try {
 			w = new PrintWriter(new FileWriter(new File(fileName)));
-			w.println("author;score");
-			for (ResultRow r : result) {
+			w.print("author;score");
+			if (dbname != null)
+				w.println(";Codd;ACMFell;ISIHC;Turing");
+			w.println();
+
+			for (int i = 0; i < result.length; i++) {
 				if (limit-- <= 0)
 					break;
 
-				w.println(r);
+				ResultRow r = result[i];
+
+				w.print(r.name);
+				w.print(";");
+				w.print(r.value);
+
+				if (dbname != null) {
+					w.print(";");
+
+					if (Codd[i])
+						w.print("x");
+					w.print(";");
+					if (ACMFell[i])
+						w.print("x");
+					w.print(";");
+					if (ISIHC[i])
+						w.print("x");
+					w.print(";");
+					if (Turing[i])
+						w.print("x");
+				}
+
+				w.println();
 			}
 		} catch (IOException e) {
 			System.err.println("Error writing to file.");

@@ -24,13 +24,8 @@ public class Betweeness {
 
 		int k = 0;
 		// for (int s = 0; s < n; s++) {
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n / C; i++) {
 			int s = shuffled[i];
-
-			// Stopping condition for approximation.
-			if (C > 0 && betweeness[s] > C * n)
-				break;
-			k++;
 
 			// List of predecessors.
 			Stack[] p = new Stack[n];
@@ -47,10 +42,12 @@ public class Betweeness {
 
 			Queue<Integer> q = new LinkedList<Integer>();
 
+			
 			q.offer(s);
 			while (!q.isEmpty()) {
 				int v = q.poll();
 				stack.push(v);
+				
 
 				for (int w : links[v]) {
 					if (d[w] == -1) {

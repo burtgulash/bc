@@ -49,62 +49,156 @@ interpretací.
 
 \section{Sociální sítě}
 
-\section{Analýza sociálních sítí}
+\subsection{Analýza sociálních sítí}
 
 \section{Citační sítě}
-% Citační sítě jsou speciálním případem sociálních sítí, kde jako uzly uvažujeme
-% knihy, články nebo jiné publikace; nebo uzly mohou být samotní autoři těchto
-% publikací. Spojení mezi uzly je určeno citacemi na jednotlivé publikace. 
+Citační sítě jsou podobné sociálním sítím, pouze místo uzlů, které představují
+osoby, v citační síti se jedná o publikace nebo autory těchto publikací.  Pokud
+je uzlem publikace, pak hrany této sítě symbolizují citaci publikace jinou
+publikací. V druhém případě uvažujeme síť, kde uzly reprezentují autory knih,
+vědeckých článků, vědecké literatury a dalších publikací. Prvnímu typu říkáme
+síť publikací, druhému síť autorů.
 
 \subsection{Síť publikací}
-% Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
-% mezi těmito publikacemi, jedná se o síť publikací. Tedy pokud publikace $A$
-% odkazuje na publikaci $B$, pak budou existovat stejnojmenné uzly $A$ a $B$ a
-% hrana mezi těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr
-% od citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít
-% hrana, kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.
-% Výstupní hrana laicky řečeno označuje vztah "cituji", kdežto vstupní hrana
-% znamená "jsem citován".
+Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
+mezi těmito publikacemi, jedná se o síť publikací. Tedy pokud publikace $A$
+odkazuje na publikaci $B$, pak budou existovat stejnojmenné uzly $A$ a $B$ a
+hrana mezi těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr
+od citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít
+hrana, kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.
+Výstupní hrana laicky řečeno označuje vztah "cituji", kdežto vstupní hrana
+znamená "jsem citován".
 
 \subsection{Síť autorů}
-% Druhým případem citační sítě je síť autorů. Zde je uzel reprezentací autora a
-% hrany spojují autory mezi sebou. Ve většině případech máme k dispozici data ve
-% formátu, který přímo odpovídá síti publikací, tzn. pro jednu publikaci známe
-% seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
-% transformací sítě publikací tak, že každou hranu z původní sítě publikací
-% přiřadíme každému z autorů této publikace a duplikujeme ji pro každého z autorů
-% citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
-% publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
-% publikací, i zde uvažujeme dvě opačné orientace hrany se stejnou interpretací,
-% tedy "cituji" a "jsem citován". 
-% 
-% V síti autorů má pro naše účely smysl uvažovat
-% ohodnocení hran. Existuje více způsobů, jak přiřadit ohodnocení (váhy)
-% jednotlivým hranám, ale nejjednodušším způsobem, který je použitý i v
-% implementaci knihovny, je prosté přiřazení počtu publikací, jejichž autorem
-% nebo spoluautorem je daný autor $A$, které odkazují na publikace, jejichž
-% autorem je autor $B$. Srozumitelnější popis poskytne obrázek:
-% %% TODO figure váha hran.
-% 
-% Druhým způsobem ohodnocení hran, který rovněž využívá implementovaná knihovna
-% pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
-% je přímá souvislost mezi vahou hrany a vzdáleností mezi uzly. V prvním případě,
-% kdy silnější pouto mezi autory vyjadřuje vyšší ohodnocení hrany, v druhém
-% případě je naopak nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly
-% blíže. Tento způsob je používán pro algoritmy, které pracují na myšlence
-% nejkratších cest mezi uzly. 
-\section{Analýza citačních sítí}
+Druhým případem citační sítě je síť autorů. Zde je uzel reprezentací autora a
+hrany spojují autory mezi sebou. Ve většině případech máme k dispozici data ve
+formátu, který přímo odpovídá síti publikací, tzn. pro jednu publikaci známe
+seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
+transformací sítě publikací tak, že každou hranu z původní sítě publikací
+přiřadíme každému z autorů této publikace a duplikujeme ji pro každého z autorů
+citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
+publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
+publikací, i zde uvažujeme dvě opačné orientace hrany se stejnou interpretací,
+tedy "cituji" a "jsem citován". 
+
+V síti autorů má pro naše účely smysl uvažovat
+ohodnocení hran. Existuje více způsobů, jak přiřadit ohodnocení (váhy)
+jednotlivým hranám, ale nejjednodušším způsobem, který je použitý i v
+implementaci knihovny, je prosté přiřazení počtu publikací, jejichž autorem
+nebo spoluautorem je daný autor $A$, které odkazují na publikace, jejichž
+autorem je autor $B$. Srozumitelnější popis poskytne obrázek:
+%% TODO figure váha hran.
+
+Druhým způsobem ohodnocení hran, který rovněž využívá implementovaná knihovna
+pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
+je přímá souvislost mezi vahou hrany a vzdáleností mezi uzly. V prvním případě,
+kdy silnější pouto mezi autory vyjadřuje vyšší ohodnocení hrany, v druhém
+případě je naopak nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly
+blíže. Tento způsob je používán pro algoritmy, které pracují na myšlence
+nejkratších cest mezi uzly. 
 
 \subsection{Vážené citační sítě}
-\subsection{Orientované a neorientované sítě}
+V definici grafu nebo sítě $G = (V, E)$ je množina hran $E$ soubor dvojic,
+které označují koncové uzly hrany, neboli jejich spojení. Samotné spojení je
+jediná informace, kterou množina hran nese. Chceme-li zaznamenat nějakou další
+informaci, která je spojená se spojením dvou uzlů, namísto hrany jako dvojice
+koncových uzlů nadefinujeme hranu jako n-tici, kde první dvě hodnoty jsou
+koncové uzly a zbylé hodnoty nesou libovolnou informaci. Ve většině případů si
+vystačíme s jednou dodatečnou informací a nazýváme ji váha hrany.
 
+Při zavedení vah máme například možnost používat síť jako multigraf, tedy graf,
+u kterého je povoleno více spojení mezi dvěma stejnými uzly. Počet stejných
+hran pak pouze zaznamenáme celočíselnou hodnotou ve váze hrany.
+
+Například síť world wide web tvořená webovými stránkami je příkladem
+multigrafu, protože je povoleno z jedné stránky odkazovat na jinou na více
+místech. Při analýze takových sítí využijeme právě vah hran a počet
+hypertextových odkazů mezi dvěma stránkami zaznamenáme vyšším ohodnocením
+hrany. V tomhle případě znamená vyšší váha silnější pouto mezi uzly.
+
+Jiným případem může být například síť kde sledujeme města a dopravní spojení
+mezi nimi. V tomhle případě nás může zajímat vzdálenost nebo časová náročnost
+na dopravu mezi dvěma městy, které budou znamenat silnější pouto pokud budou
+mít naopak menší váhu. Hledáme totiž nejkratší a nejrychlejší spojení.
+
+Pro citační sítě můžeme uvažovat ohodnocení hran obojího typu. Například mezi
+dvěma autory může být silnější vztah, pokud se citují ve více publikacích.
+Pokud citační síť analyzujeme metodami, které jsou založené na myšlence hledání
+nejkratších cest i v této síti, která nemá v podstatě žádný pojem vzdálenosti,
+použijeme druhý typ ohodnocení - menší váha, silnější pouto.
+
+
+\subsection{Orientované a neorientované sítě}
+Obecně můžeme uvažovat grafy s hranami s orientací či bez orientace. V obou
+případech se stále jedná o množinu $(V, E)$, pouze pro orientovaný graf je
+množina hran množinou uspořádaných dvojic oproti množině neuspořádaných dvojic
+u neorientovaného grafu.
+
+Hrany se uzlu v případě orientovaného grafu liší z pohledu jednoho uzlu. Pokud
+hrana vychází z tohoto uzlu, nazveme ji výstupní hrana, v opačném případě se
+bude jednat o vstupní hranu.
+
+V případě sociálních sítí nejčastěji uvažujeme sítě bez orientace, protože
+nejčastěji modelovaný vztah přítel-přítel je ekvivalentní z pohledu obou
+koncových uzlů. Pro citační síť jsou na místě orientované hrany, protože vztahy
+autor odkazujícího na jiného autora nebo publikace citující jinou publikaci
+mají očividně jinou interpretaci z pohledu koncových uzlů. Buďto se jedná o
+citovaného nebo citujícího autora či publikaci.
+
+\subsection{Komponenty grafu}
+\subsubsection{Silně spojité komponenty}
+\subsection{Klika v grafu}
+
+\section{Analýza citačních sítí}
 \section{Významnost autorů}
 %% TODO tady se hodně zmínit o práci předchozích lidí, ne?
 
 \section{Míry centrality}
-\subsection{Radius}
 \subsection{Degree}
+Pro orientovaný graf můžeme uvažovat vstupní (indegree) a výstupní stupeň
+(outdegree) vrcholu nebo obecný stupeň (degree), tedy součet těchto dvou. Pokud
+uvažujeme pouze vstupní stupeň, vypočtená hodnota určuje významnost uzlu,
+kdežto výstupní stupeň ukazuje společenskost či otevřenost uzlu. Obecný stupeň
+znamená celkový počet spojení s okolními prvky sítě.
+
+Degree centrality je výpočetně velmi jednoduchý způsob, jak změřit významnost
+prvku v síti, v tomto případě autorů. Tato metoda je však příliš jednoduchá,
+protože do výpočtu hodnoty centrality nezahrnuje uzly, které jsou od daného
+uzlu vzdálenější než jeden skok. Tento fakt je známý problém a důvod pro
+zavedení dalších a složitějších metod pro výpočet významnosti.
+
 \subsection{Eigenvector}
+Eigenvector centrality je míra vlivu uzlu v síti. Oproti jednoduché degree
+centrality, která použila pouze počet přímých spojení, tahle míra navíc používá
+významnost uzlů v těchto přímých spojeních. Pokud máme dva uzly se stejným
+počtem přímých spojení, hodnota degree centrality bude u obou stejná. Pokud je
+ale první uzel spojen s významnějšími uzly než druhý uzel, v metodě typu
+eigenvector centrality bude první uzel hodnocen výše. Eigenvector centralitu
+vypočteme pomocí numerických metod pro vlastní čísla, které vyřeší rovnici 
+\begin{align}
+{\bf Ax} &= \lambda {\bf x}
+\end{align}
+
+kde ${\bf A}$ je matice sousednosti (adjacency matrix), ${\bf x}$ je vlastní
+vektor matice $A$ a je řešením této rovnice, která má více řešení. Ke každému
+řešení náleží vlastní číslo $\lambda$. Podle Perron-Frobeniovy věty má pouze
+jedno řešení všechny prvky vlastního vektoru ${\bf x}$ nezáporné
+\cite{langvillemeyer}. Tohle řešení odpovídá největšímu vlastnímu číslu
+$\lambda$ a jako jediné nás v problému eigenvector centrality zajímá. 
+
+Pro výpočet použijeme iterační metodu
+\begin{align}
+x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf A}_{uv} x_v \\
+\end{align}
+kde $x_u$ je prvek vlastního vektoru ${\bf x}$, který odpovídá uzlu $u$. $G$ je
+množina uzlů sítě a ${\bf A}_{uv}$ je prvek matice sousednosti na řádku $u$ a
+sloupci $v$, který je $1$, pokud existuje přímé spojení mezi uzly $u$ a $v$,
+jinak $0$.
+
+V tomto vyjádření eigenvector centrality zjistíme, že se jedná o přímé
+rozšíření degree centrality. Výsledek z předchozí iterace použijeme jako vstup
+do další iterace. Výpočet iterujeme, dokud nedosáhneme požadované přesnosti
+výsledku.
 \subsubsection{PageRank}
 \subsection{Closeness}
 % TODO zmínit největší komponentu
@@ -113,15 +207,11 @@ interpretací.
 \subsection{Betweeness}
 \subsubsection{Brandesův algoritmus}
 \subsubsection{Aproximace}
+\subsection{Radius}
 
 \section{Ostatní používané míry významnosti autorů}
 \subsection{H-index}
 \subsection{Impact factor}
-
-\section{Komponenty a kliky}
-\subsection{Komponenty grafu}
-\subsubsection{Silně spojité komponenty}
-\subsection{Klika v grafu}
 
 \section{Metody porovnaní}
 \subsection{Spearmanův koeficient pořadové korelace}
