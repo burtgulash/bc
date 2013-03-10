@@ -275,7 +275,7 @@ public class Main {
 			w = new PrintWriter(new FileWriter(new File(fileName)));
 			w.print("author;score");
 			if (dbname != null)
-				w.println(";Codd;ACMFell;ISIHC;Turing");
+				w.print(";Codd;ACMFell;ISIHC;Turing");
 			w.println();
 
 			for (int i = 0; i < result.length; i++) {

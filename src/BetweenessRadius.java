@@ -129,6 +129,10 @@ public class BetweenessRadius extends Thread {
 			e.printStackTrace();
 		}
 
+//		// normalize
+//		for (int i = 0; i < n; i++) 
+//			betweenessResult[i].value /= ((double) n - 1d) * ((double) n - 2d) / 2d;
+		
 		System.out.println("Max radius: " + global_max_radius);
 		return new ResultRow[][] { betweenessResult, radiusResult };
 	}

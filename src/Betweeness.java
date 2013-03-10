@@ -24,7 +24,7 @@ public class Betweeness {
 
 		int k = 0;
 		// for (int s = 0; s < n; s++) {
-		for (int i = 0; i < n / C; i++) {
+		for (int i = 0; i < n / C; i++, k++) {
 			int s = shuffled[i];
 
 			// List of predecessors.
@@ -80,6 +80,8 @@ public class Betweeness {
 
 		for (int s = 0; s < n; s++) {
 			betweeness[s] = (n * betweeness[s]) / k;
+//			// normalize
+//			betweeness[s] /= ((double) n - 1d) * ((double) n - 2d) / 2d;
 			result[s] = new ResultRow(g.getVertexName(s), betweeness[s]);
 		}
 

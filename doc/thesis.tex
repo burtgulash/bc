@@ -146,11 +146,34 @@ mají očividně jinou interpretaci z pohledu koncových uzlů. Buďto se jedná
 citovaného nebo citujícího autora či publikaci.
 
 \subsection{Komponenty grafu}
-\subsubsection{Silně spojité komponenty}
+Pro neorientovaný graf je komponenta maximálně souvislý podgraf. Jinak řečeno
+komponenta je podgraf takový, že všechny jeho vrcholy jsou spojeny nějakou
+cestou. Komponentou ji i samotný vrchol.
+
+Všechny komponenty grafu najdeme pomocí jednoduchých algoritmů prohledávání do
+šířky nebo do hloubky. Spuštění prohledávání najde celou komponentu, ve které
+se výchozí vrchol nachází. Spustíme-li prohledávání ze všech vrcholů, najdeme
+všechny komponenty. 
+
+\subsection{Silně spojité komponenty}
+Pro orientované grafy je musíme uvažovat silně spojité komponenty. Definice
+zůstává stejná jako u slabě spojitých komponent, ale protože hrany nejsou
+oboustranné, mezi dvěma spojenými vrcholy ne vždy existuje cesta oběma směry.
+Proto silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do
+hloubky, ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, ...),
+které vycházejí z prohledávání do hloubky.
+
 \subsection{Klika v grafu}
+Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
+jsou spojeny přímo hranou.
+
+V sociologii slovo klika souvisí se skupinou lidí, kteří jsou na sebe vázáni
+více než na jiné lidi v tomtéž prostředí. Klika je silněji spojená skupina lidí
+než sociální kruh.
 
 \section{Analýza citačních sítí}
 \section{Významnost autorů}
+Ve světě
 %% TODO tady se hodně zmínit o práci předchozích lidí, ne?
 
 \section{Míry centrality}
@@ -200,7 +223,38 @@ rozšíření degree centrality. Výsledek z předchozí iterace použijeme jako
 do další iterace. Výpočet iterujeme, dokud nedosáhneme požadované přesnosti
 výsledku.
 \subsubsection{PageRank}
+
+\subsection{Míry založené na nejkratších cestách}
+V sítích dopravní infrastruktury nás zajímá, po které cestě se nejrychleji a
+nejvýhodněji dostat z bodu $A$ do bodu $B$. V sociálních a citačních sítích
+nemůžeme intuitivně hovořit o nějakých cestách mezi uzly, protože ani přesně
+nevíme jak takovou cestu interpretovat. Nejkratší cesta mezi přáteli v sociální
+síti může znamenat, přes které přátele se mezi nimi nejpravděpodobněji šíří
+informace. V sítích spolupráce vědeckých autorů se například setkáme s tzv.
+Erdősovým číslem, které vyjadřuje nejkratší vzdálenost mezi osobou a
+matematikem Paulem Erdősem v rámci spolupráce na matematických pracích.
+
+Použijeme-li metody z dopravních sítí pro analýzu sociálních a citačních sítí,
+které v jádře spočívají v hledání nejkratších cest, setkáme se s dvěma
+nejznámějšími mírami centrality closeness a betweeness.
+
+Nechť cesta z bodu $u \in V$ do bodu $v \in V$ je střídající se posloupnost
+vrcholů a hran takových, že spojují předcházející a následující vrchol v této
+posloupnosti. Délka cesty je pak součet vah hran této cesty nebo pouze počet
+hran v případě neváženého grafu. Vzdálenost vrcholů $d_G(u, v)$ je délka nejkratší z cest, které spojují vrcholy $u$ a $v$.
+
 \subsection{Closeness}
+Closeness neboli blízkost je definována jako převrácená hodnota míry farness, tedy dalekost. Dalekost je součet všech vzdáleností od uzlu do všech ostatních, tzn $\sum|$. Jiná definice je převrácená hodnota průměrné nejkratší cesty.
+
+Zde se budeme soustředit na druhou definici.
+
+Nevýhoda closeness centrality je nutnost uvažovat souvislý graf, tedy takový,
+který obsahuje pouze jednu komponentu. Pokud by měl více komponent, pak by vždy
+existovala cesta s nekonečnou vzdáleností. Hodnota farness by pak byla
+automaticky nekonečná a closeness, tedy převrácená hodnota, by byla nulová.
+
+
+
 % TODO zmínit největší komponentu
 \subsubsection{Algoritmus}
 \subsubsection{Aproximace}
@@ -213,9 +267,7 @@ výsledku.
 \subsection{H-index}
 \subsection{Impact factor}
 
-\section{Metody porovnaní}
-\subsection{Spearmanův koeficient pořadové korelace}
-\subsection{Pearsonův korelační koeficient}
+\section{Porovnání výsledků}
 
 \section{Ocenění významných autorů}
 % TODO kecy co to ty ceny jsou a k čemu jsou a proč je tu uvádim.
@@ -247,19 +299,18 @@ desetiletí, které byly vydány institutem ISI (Institute for Scientific
 Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na jejíchž webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z let 2000 až 2008 napříč 21 vědeckými obory \cite{highlycited}.
 
 \chapter{Implementace}
-\section{Načtení vstupních dat}
+% \section{Načtení vstupních dat}
 
 \section{Vytvoření citačních sítí}
 \subsection{Síť publikací}
 \subsection{Síť autorů}
 
+\section{Reprezentace citační sítě}
 \section{Analýza struktury sítě}
 
-\section{Reprezentace citační sítě}
+\section{Hledání nejkratších cest}
 \subsection{All-pair shortest path}
 \subsection{Single source shortest path}
-
-\section{Hledání nejkratších cest}
 
 \section{Knihovna pro SNA}
 \subsection{Radius}
@@ -280,6 +331,8 @@ práci používáme verzi z roku 2004.
 
 \subsubsection{Charakteristika}
 % TODO tzn. v jakym roce je nejvíc publikací atd.
+\subsubsection{Struktura sítě}
+\subsubsection{Rozďělení vah}
 
 \subsection{CiteSeer}
 CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
@@ -292,12 +345,6 @@ a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 
 
 \chapter{Výsledky}
-\section{Struktura sítě}
-\subsection{DBLP}
-\subsubsection{Rozdělení vah}
-\subsection{CiteSeer}
-\subsubsection{Rozdělení vah}
-
 \section{Porovnání nejvýznamnějších autorů}
 \section{Porovnání implementovaných metod}
 
