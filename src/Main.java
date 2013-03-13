@@ -125,10 +125,15 @@ public class Main {
 				mainComponent.vSize(), mainComponent.eSize());
 
 		// Compute closeness
-		ResultRow[] closeness = Closeness.compute(mainComponent, VERBOSE);
-		sortAndWrite(closeness, "closeness.csv", LIMIT);
-		printChecksum(closeness);
-		printClique(authors, closeness, TOP_K);
+		ResultRow[] inCloseness = Closeness.compute(mainComponent, true, VERBOSE);
+		sortAndWrite(inCloseness, "inCloseness.csv", LIMIT);
+		printChecksum(inCloseness);
+		printClique(authors, inCloseness, TOP_K);
+		
+		ResultRow[] outCloseness = Closeness.compute(mainComponent, false, VERBOSE);
+		sortAndWrite(outCloseness, "outCloseness.csv", LIMIT);
+		printChecksum(outCloseness);
+		printClique(authors, outCloseness, TOP_K);
 		// results[9] = closeness;
 
 		// Compute weighted closeness
@@ -275,7 +280,7 @@ public class Main {
 			w = new PrintWriter(new FileWriter(new File(fileName)));
 			w.print("author;score");
 			if (dbname != null)
-				w.print(";Codd;ACMFell;ISIHC;Turing");
+				w.print(";Turing;Codd;ACMFell;ISIHC");
 			w.println();
 
 			for (int i = 0; i < result.length; i++) {
@@ -284,13 +289,14 @@ public class Main {
 
 				ResultRow r = result[i];
 
-				w.print(r.name);
-				w.print(";");
-				w.print(r.value);
+				w.printf("%s;%.3f", r.name, r.value);
 
 				if (dbname != null) {
 					w.print(";");
 
+					if (Turing[i])
+						w.print("x");
+					w.print(";");
 					if (Codd[i])
 						w.print("x");
 					w.print(";");
@@ -298,9 +304,6 @@ public class Main {
 						w.print("x");
 					w.print(";");
 					if (ISIHC[i])
-						w.print("x");
-					w.print(";");
-					if (Turing[i])
 						w.print("x");
 				}
 

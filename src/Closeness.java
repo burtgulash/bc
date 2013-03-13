@@ -2,12 +2,16 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Closeness {
-	public static ResultRow[] compute(Graph g, boolean verbose) {
+	public static ResultRow[] compute(Graph g, boolean in, boolean verbose) {
 		int n = g.vSize();
 		ResultRow[] result = new ResultRow[n];
 
 		// FIXME Closeness on IN-edges!!!
-		int[][] links = Links.getIns(g);
+		int[][] links;
+		if (in)
+			links = Links.getIns(g);
+		else
+			links = Links.getOuts(g);
 
 		for (int v = 0; v < n; v++) {
 			if (verbose)

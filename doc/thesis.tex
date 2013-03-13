@@ -241,24 +241,103 @@ nejznámějšími mírami centrality closeness a betweeness.
 Nechť cesta z bodu $u \in V$ do bodu $v \in V$ je střídající se posloupnost
 vrcholů a hran takových, že spojují předcházející a následující vrchol v této
 posloupnosti. Délka cesty je pak součet vah hran této cesty nebo pouze počet
-hran v případě neváženého grafu. Vzdálenost vrcholů $d_G(u, v)$ je délka nejkratší z cest, které spojují vrcholy $u$ a $v$.
+hran v případě neváženého grafu. Vzdálenost vrcholů $d_G(u, v)$ je délka
+nejkratší z cest, které spojují vrcholy $u$ a $v$.
 
 \subsection{Closeness}
-Closeness neboli blízkost je definována jako převrácená hodnota míry farness, tedy dalekost. Dalekost je součet všech vzdáleností od uzlu do všech ostatních, tzn $\sum|$. Jiná definice je převrácená hodnota průměrné nejkratší cesty.
+Closeness neboli blízkost je definována jako převrácená hodnota míry farness,
+tedy dalekost. Dalekost je součet všech vzdáleností od uzlu do všech ostatních,
+tzn. $f(u) = \sum_{v \in V} d_G(u, v)$ a $c(u) = \sum_{v \in V} \frac{1}{d_G(u,
+v)}$. Podle jiné definice je closeness převrácená hodnota průměrné nejkratší
+cesty. V podstatě se od předchozí příliš neliší, protože průměrná nejkratší
+cesta je rovna $\frac{1}{n
+- 1} \sum_{v \in V} d_G(u, v)$ a closeness podle této definice:
+\begin{align*}
+c(u) &= \frac{n - 1}{\sum_{v \in V} d_G(u, v)}
+\end{align*}
 
-Zde se budeme soustředit na druhou definici.
+Pro obě definice platí, že čím vyšší hodnota $c(u)$, tím je uzel $u$
+významnější podle této míry. Zde se budeme soustředit na druhou definici,
+protože je častou volbou autorů zabývajících se touto problematikou a existuje
+pro ni aproximační algoritmus, který si zde uvedeme.
 
-Nevýhoda closeness centrality je nutnost uvažovat souvislý graf, tedy takový,
+Closeness, stejně jako ostatní míry centrality, modelují rozptýlení informace
+napříč sítí. Výše uvedené klasické definici je vytýkáno, že pro přenos
+informace uvažuje pouze nejkratší cesty, které nejsou vždy jedinou komunikační
+cestou v síti. Alternativu navrhli Noh A Rieger (2004), kde namísto nejkratších
+cest používají náhodné procházky (random walk closeness centrality). Příkladem
+může být oběh mincí mezi lidmi. Tento jev nemá s nejkratšími cestami mnoho
+společného, proto je vhodnější ho modelovat náhodnými procházkami. Oproti tomu
+například poštovní zásilky očividně cestují po nejkratších cestách.  Pokud
+uvažujeme citační sítě, nemáme jasnou představu o významu náhodných procházek
+nebo nejkratších cest jako v případě mince nebo dopisu. I přesto očekáváme
+vysokou podobnost této metody s ostatními.
+
+Nevýhodou closeness centrality je nutnost uvažovat souvislý graf, tedy takový,
 který obsahuje pouze jednu komponentu. Pokud by měl více komponent, pak by vždy
 existovala cesta s nekonečnou vzdáleností. Hodnota farness by pak byla
 automaticky nekonečná a closeness, tedy převrácená hodnota, by byla nulová.
+
+Existuje několik upravených definic, které se mají vypořádat s problémem
+konektivity a druhotně jsou numericky stabilnější. Jedna z nich zaměňuje
+převrácenou hodnotu součtu vzdáleností za součet převrácených hodnot
+vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$ (Opsahl) a druhá 
+$c(u) = \sum_{v \in V} 2^{-d_G(u, v)}$ (Dangalchev).
 
 
 
 % TODO zmínit největší komponentu
 \subsubsection{Algoritmus}
+Closeness pro všechny vrcholy můžeme přesně vypočítat v čase $O(|V||E| +
+|V|^2\log|V|)$, kde $V$ a $E$ jsou množiny vrcholů a hran sítě (cite JO77,
+FT87). 
+
+Algoritmus vychází z definice, tedy vyřeší problém všech párů nejkratších cest,
+čímž rovnou získá hodnoty farness $f(u) = \sum_{v \in V} d_G(u, v)$ a zjištění
+closeness je poté triviální podle jedné z výše uvedených definic.  Výše uvedená
+složitost platí pro použití Dijkstrova algoritmu (cite Dijkstra) pro všechny
+páry cest.
+
+Pro rozsáhlé sítě s miliony uzlů (sociální sítě k dnešnímu datu) je tato
+metoda příliš náročná. Eppstein a Wang vyvinuli aproximační algoritmus s
+náročností $O(\frac{\log|V|}{\epsilon}^2 (|V| \log |V| + |E|))$ s chybou
+$\epsilon \delta$ pro převrácenou hodnotu closeness s pravděpodobností alespoň
+$1 - \frac{1}{n}$, kde $\epsilon > 0$ a $\delta$ je diametr sítě (nejdelší z
+nejkratších cest). Na základě tohoto aproximačního algoritmu byl vytvořen jiný
+aproximační algoritmus pro nalezení $k$ nejvýznamnějších uzlů hodnocených podle
+closeness centrality.
+
 \subsubsection{Aproximace}
+Algoritmus TOPRANK (Okamoto, Chen, Li) najde prvních $k$ nejvýznamnějších uzlů
+s vysokou pravděpodobností a pro každý z nich přesnou hodnotu closeness.
+Algoritmus pracuje s myšlenkou, že zjistíme přibližné pořadí uzlů tak, že pro
+jeden strom nejkratších cest nebudeme počítat se všemi koncovými uzly, ale jen
+s dostatečně velkým vzorkem této množiny.  Přesné hodnoty closeness dosáhneme
+použitím exaktního algoritmu, který použijeme jen na nejvýznamnější uzly
+získané z prvního aproximovaného kroku. Klíčovou otázkou je kolik
+nejvýznamnějších uzlů musíme uvažovat, aby se jednalo o dostatečně přesný
+výsledek. Autoři algoritmu uvádějí tento algoritmus s heuristikou, která najde
+přibližně místo, ve kterém je vhodné výpočet ukončit a považovat za dostatečně
+přesný. Sami uvádějí, že tento algoritmus je pouze první krok k návrhu
+efektivnějšího způsobu jak najít prvních $k$ nejvýznamnějších uzlů.
+
 \subsection{Betweeness}
+Betweeness je druhá metoda, která modeluje šíření informace sítí pomocí
+nejkratších cest. Princip betweeness spočívá v zvýhodnění uzlů s pozicí, přes
+kterou teče nejvíce informace. Pokud uzel $A$ komunikuje s uzlem $C$, pak
+můžeme tvrdit, že uzel $B$, který leží mezi nimi, bude mít roli prostředníka.
+Být tímto prostředníkem mezi více takovými uzly intuitivně napovídá, že takový
+uzel bude centrální. Betweeness měří na kolika nejkratších cestách se uzel
+nachází. Více se setkáme s normalizovanou hodnotou betweeness:
+
+\begin{align*}
+b(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
+\end{align*}
+
+$b(v)$ značí hodnotu betweeness centrality pro uzel $v$, V množinu uzlů,
+$\sigma_{st}$ je počet nejkratších cest mezi uzly $s$ a $t$ a $\sigma_{st}(v)$
+je počet nejkratších cest, které navíc procházejí uzlem $v$.
+
 \subsubsection{Brandesův algoritmus}
 \subsubsection{Aproximace}
 \subsection{Radius}
@@ -266,6 +345,8 @@ automaticky nekonečná a closeness, tedy převrácená hodnota, by byla nulová
 \section{Ostatní používané míry významnosti autorů}
 \subsection{H-index}
 \subsection{Impact factor}
+
+\section{Nejkratší cesty}
 
 \section{Porovnání výsledků}
 
