@@ -50,6 +50,7 @@ interpretací.
 \section{Sociální sítě}
 
 \subsection{Analýza sociálních sítí}
+\subsubsection{Bezškálové sítě}
 
 \section{Citační sítě}
 Citační sítě jsou podobné sociálním sítím, pouze místo uzlů, které představují
@@ -145,7 +146,7 @@ autor odkazujícího na jiného autora nebo publikace citující jinou publikaci
 mají očividně jinou interpretaci z pohledu koncových uzlů. Buďto se jedná o
 citovaného nebo citujícího autora či publikaci.
 
-\subsection{Komponenty grafu}
+\subsection{Souvislost a komponenty grafu}
 Pro neorientovaný graf je komponenta maximálně souvislý podgraf. Jinak řečeno
 komponenta je podgraf takový, že všechny jeho vrcholy jsou spojeny nějakou
 cestou. Komponentou ji i samotný vrchol.
@@ -155,13 +156,23 @@ Všechny komponenty grafu najdeme pomocí jednoduchých algoritmů prohledáván
 se výchozí vrchol nachází. Spustíme-li prohledávání ze všech vrcholů, najdeme
 všechny komponenty. 
 
-\subsection{Silně spojité komponenty}
-Pro orientované grafy je musíme uvažovat silně spojité komponenty. Definice
-zůstává stejná jako u slabě spojitých komponent, ale protože hrany nejsou
-oboustranné, mezi dvěma spojenými vrcholy ne vždy existuje cesta oběma směry.
-Proto silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do
-hloubky, ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, ...),
-které vycházejí z prohledávání do hloubky.
+Slabě souvislý orientovaný graf znamená, že neorientovaný graf, který by vznikl
+nahrazením orientovaných hran neorientovanými (symetrizace grafu), by byl
+souvislý.
+
+Pro zachování vlastnosti souvislosti, že všechny vrcholy jsou spojené nějakou
+cestou, pro orientovaný graf musíme uvažovat silně souvislý graf nebo podgraf.
+Definice zůstává stejná jako u slabě spojitých komponent, ale protože hrany
+nejsou oboustranné, mezi dvěma spojenými vrcholy ne vždy existuje cesta oběma
+směry. U neorientovaného grafu můžeme souvislost vyjádřit tak, že pro každé dva
+uzly $u$ a $v$ existuje cesta z $u$ do $v$. Protože jsou hrany symetrické, pak
+automaticky existuje i cesta z $v$ do $u$. U orientovaného grafu musíme druhou
+podmínku explicitně dodat: graf je silně souvislý, pokud pro každé dva vrcholy
+$u$ a $v$ existuje cesta z $u$ do $v$ i z $v$ do $u$. 
+
+Silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do hloubky,
+ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, ...), které ale
+vycházejí z prohledávání do hloubky.
 
 \subsection{Klika v grafu}
 Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
@@ -179,10 +190,21 @@ Ve světě
 \section{Míry centrality}
 \subsection{Degree}
 Pro orientovaný graf můžeme uvažovat vstupní (indegree) a výstupní stupeň
-(outdegree) vrcholu nebo obecný stupeň (degree), tedy součet těchto dvou. Pokud
-uvažujeme pouze vstupní stupeň, vypočtená hodnota určuje významnost uzlu,
-kdežto výstupní stupeň ukazuje společenskost či otevřenost uzlu. Obecný stupeň
-znamená celkový počet spojení s okolními prvky sítě.
+(outdegree) vrcholu nebo obecný stupeň (degree), tedy součet těchto dvou.
+Vstupní stupeň se často označuje jako $deg^-$ a výstupní jako $deg^+$.
+
+\begin{align}
+{C_D}_{in}(u) &= deg^-(u)  = \displaystyle\sum\limits_{v \in V} {\bf A}_{uv} \\
+{C_D}_{out}(u) &= deg^+(u) = \displaystyle\sum\limits_{v \in V} {\bf A}_{vu} \\
+{C_D}(v) &= {C_D}_{in} + {C_D}_{out} \\
+\end{align}
+
+${\bf A}$ je matice sousednosti grafu a prvek této matice ${\bf A}_{uv}$ na
+řádku $u$ a $v$ značí, že existuje hrana z vrcholu $u$ do vrcholu $v$ - $1$
+pokud hrana existuje, $w$ pokud se jedná o vážený graf a $0$, pokud hrana
+neexistuje.
+
+Pokud uvažujeme pouze vstupní stupeň, vypočtená hodnota určuje významnost uzlu, kdežto výstupní stupeň ukazuje jakousi společenskost či otevřenost uzlu. 
 
 Degree centrality je výpočetně velmi jednoduchý způsob, jak změřit významnost
 prvku v síti, v tomto případě autorů. Tato metoda je však příliš jednoduchá,
@@ -190,39 +212,43 @@ protože do výpočtu hodnoty centrality nezahrnuje uzly, které jsou od daného
 uzlu vzdálenější než jeden skok. Tento fakt je známý problém a důvod pro
 zavedení dalších a složitějších metod pro výpočet významnosti.
 
+
+
 \subsection{Eigenvector}
-Eigenvector centrality je míra vlivu uzlu v síti. Oproti jednoduché degree
-centrality, která použila pouze počet přímých spojení, tahle míra navíc používá
-významnost uzlů v těchto přímých spojeních. Pokud máme dva uzly se stejným
-počtem přímých spojení, hodnota degree centrality bude u obou stejná. Pokud je
-ale první uzel spojen s významnějšími uzly než druhý uzel, v metodě typu
-eigenvector centrality bude první uzel hodnocen výše. Eigenvector centralitu
-vypočteme pomocí numerických metod pro vlastní čísla, které vyřeší rovnici 
+Eigenvector centrality, také známá jako Gould's index of accessibility of a
+Network (Linear Algebra with Applications: Alternate Edition by Gareth
+Williams), je míra vlivu vrcholu v grafu. Hodnotu vlivu získáme z vlastního
+vektoru $x$ matice sousednosti grafu:
 \begin{align}
-{\bf Ax} &= \lambda {\bf x}
+{\bf Ax} &= \lambda {\bf x} \\
 \end{align}
+${\bf A}$ je matice sousednosti (adjacency matrix), ${\bf x}$ je vlastní vektor
+matice ${\bf A}$ a řešením této rovnice o více řešeních. Ke každému řešení
+náleží vlastní číslo $\lambda$. Pro měření významnosti nás však zajímá pouze to
+řešení, které má pouze nezáporné hodnoty. Podle Perron-Frobeniovy věty pro
+každou nezápornou primitivní matici existuje právě jedno takové řešení, které
+zároveň patří k největšímu vlastnímu číslu $\lambda$ \cite{langvillemeyer}.
 
-kde ${\bf A}$ je matice sousednosti (adjacency matrix), ${\bf x}$ je vlastní
-vektor matice $A$ a je řešením této rovnice, která má více řešení. Ke každému
-řešení náleží vlastní číslo $\lambda$. Podle Perron-Frobeniovy věty má pouze
-jedno řešení všechny prvky vlastního vektoru ${\bf x}$ nezáporné
-\cite{langvillemeyer}. Tohle řešení odpovídá největšímu vlastnímu číslu
-$\lambda$ a jako jediné nás v problému eigenvector centrality zajímá. 
+Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
+\begin{align} x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf
+A}_{uv} x_v \\ \end{align} Kde $x_u$ je prvek vlastního vektoru ${\bf x}$
+náležící vrcholu $u$ a ${\bf A}_{uv}$ je prvek matice sousednosti ${\bf A}$,
+který leží na řádku $u$ a sloupci $v$.
 
-Pro výpočet použijeme iterační metodu
-\begin{align}
-x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf A}_{uv} x_v \\
-\end{align}
-kde $x_u$ je prvek vlastního vektoru ${\bf x}$, který odpovídá uzlu $u$. $G$ je
-množina uzlů sítě a ${\bf A}_{uv}$ je prvek matice sousednosti na řádku $u$ a
-sloupci $v$, který je $1$, pokud existuje přímé spojení mezi uzly $u$ a $v$,
-jinak $0$.
+V tomhle rekurentním tvaru je vidět předpis pro iterační výpočet eigenvector
+centrality. Algoritmus se nazývá mocninná metoda, která se používá pro řešení
+problému vlastních čísel v numerické matematice. Výsledkem mocinné metody je
+dominantní vlastní číslo a odpovídající vlastní vektor. Pro eigenvector
+centrality nás zajímá právě tohle řešení a žádné jiné.
 
-V tomto vyjádření eigenvector centrality zjistíme, že se jedná o přímé
-rozšíření degree centrality. Výsledek z předchozí iterace použijeme jako vstup
-do další iterace. Výpočet iterujeme, dokud nedosáhneme požadované přesnosti
-výsledku.
+Z druhé rovnice si navíc povšimneme, že se jedná o přímé rozšíření degree
+centrality (TODO referencuj tu rovnici u degree TODO). Výsledek předchozí
+iterace použijeme jako vstup do následující iterace tak dlouho, dokud
+nedosáhneme požadované přesnosti.
+
 \subsubsection{PageRank}
+V roce 1998 vyvinuli Sergey Brin a Larry Page algoritmus PageRank nesoucí jméno
+druhého autora jako součást výzkumu na novém druhu webového vyhledávače.
 
 \subsection{Míry založené na nejkratších cestách}
 V sítích dopravní infrastruktury nás zajímá, po které cestě se nejrychleji a
@@ -327,8 +353,10 @@ nejkratších cest. Princip betweeness spočívá v zvýhodnění uzlů s pozic�
 kterou teče nejvíce informace. Pokud uzel $A$ komunikuje s uzlem $C$, pak
 můžeme tvrdit, že uzel $B$, který leží mezi nimi, bude mít roli prostředníka.
 Být tímto prostředníkem mezi více takovými uzly intuitivně napovídá, že takový
-uzel bude centrální. Betweeness měří na kolika nejkratších cestách se uzel
-nachází. Více se setkáme s normalizovanou hodnotou betweeness:
+uzel bude centrální. \uv{Čím více lidí na mně závisí k vytvoření spojení s
+jinými lidmi, tím mám větší moc} (cite introductino to social network methods).
+Betweeness měří na kolika nejkratších cestách se uzel nachází. Více se setkáme
+s definicí, kde do sumy zahrneme poměr cest, na kterých se uzel nachází, k celkovému počtu cest mezi dvěma uzly.
 
 \begin{align*}
 b(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
@@ -337,6 +365,17 @@ b(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \ba
 $b(v)$ značí hodnotu betweeness centrality pro uzel $v$, V množinu uzlů,
 $\sigma_{st}$ je počet nejkratších cest mezi uzly $s$ a $t$ a $\sigma_{st}(v)$
 je počet nejkratších cest, které navíc procházejí uzlem $v$.
+
+Normalizovaný betweeness je hodnota v intervalu od $0$ do $1$, kterou získáme
+tak, že betweeness vydělíme celkovým počtem možných cest - ($(|V| - 1)(|V| -
+2)$) pro orientované grafy a ($\frac{(|V| - 1)(|V| - 2)}{2}$) pro neorientované
+grafy.
+
+\begin{align*}
+b(v) &= \frac{1}{(|V| - 1)(|V| - 2)} \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
+\end{align*}
+
+Vznik betweeness je připisován sociologovi Lintonu Freemanovi (Freeman 77).
 
 \subsubsection{Brandesův algoritmus}
 \subsubsection{Aproximace}
