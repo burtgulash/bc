@@ -196,7 +196,7 @@ Vstupní stupeň se často označuje jako $deg^-$ a výstupní jako $deg^+$.
 \begin{align}
 {C_D}_{in}(u) &= deg^-(u)  = \displaystyle\sum\limits_{v \in V} {\bf A}_{uv} \\
 {C_D}_{out}(u) &= deg^+(u) = \displaystyle\sum\limits_{v \in V} {\bf A}_{vu} \\
-{C_D}(v) &= {C_D}_{in} + {C_D}_{out} \\
+{C_D}(v) &= {C_D}_{in} + {C_D}_{out}
 \end{align}
 
 ${\bf A}$ je matice sousednosti grafu a prvek této matice ${\bf A}_{uv}$ na
@@ -230,10 +230,19 @@ každou nezápornou primitivní matici existuje právě jedno takové řešení,
 zároveň patří k největšímu vlastnímu číslu $\lambda$ \cite{langvillemeyer}.
 
 Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
-\begin{align} x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf
-A}_{uv} x_v \\ \end{align} Kde $x_u$ je prvek vlastního vektoru ${\bf x}$
+
+\begin{align} 
+x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf A}_{uv} x_v 
+\end{align} 
+
+Kde $x_u$ je prvek vlastního vektoru ${\bf x}$
 náležící vrcholu $u$ a ${\bf A}_{uv}$ je prvek matice sousednosti ${\bf A}$,
 který leží na řádku $u$ a sloupci $v$.
+
+\begin{align} 
+{x_u}_{i + 1} &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf A}_{uv}
+{x_v}_{i}
+\end{align} 
 
 V tomhle rekurentním tvaru je vidět předpis pro iterační výpočet eigenvector
 centrality. Algoritmus se nazývá mocninná metoda, která se používá pro řešení
@@ -249,6 +258,44 @@ nedosáhneme požadované přesnosti.
 \subsubsection{PageRank}
 V roce 1998 vyvinuli Sergey Brin a Larry Page algoritmus PageRank nesoucí jméno
 druhého autora jako součást výzkumu na novém druhu webového vyhledávače.
+PageRank přiřazuje relativní hodnocení webovým stránkám podle hypertextových
+odkazů z jiných webových stránek, které na ně směřují, a podle jejich
+PageRankové významnosti. Sama definice je rekurzivní a po nahlédnutí na vzorec
+zjistíme, že se jedná pouze o rozšířenou variantu algoritmu pro eigenvector
+centrality.
+
+\begin{align}
+{x_u}_{i + 1} &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv}
+\frac{{x_v}_{i}}{deg^+ (v)}
+\end{align}
+
+${\bf A}$ je opět matice sousednosti, $V$ je množina vrcholů a $deg^+(v)$ je
+výstupní stupeň vrcholu $v$.  V původní myšlence, kdy PageRank modeluje chování
+náhodného surfaře, damping factor je pravděpodobnost, že daný surfař přestane
+opakovaně klikat na odkazy, které najde na webové stránce, na kterou se dostal
+z předchozího odkazu, a otevře zcela novou stránku, ze které povede podobný
+sled surfování přes odkazy.  Damping factor je často ze zkušenosti nastaven na
+$85\%$.
+
+Hodnota PageRanku je z matematického hlediska pravděpodobnost, že surfař, který
+náhodně kliká na odkazy, se dostane na konkrétní stránku. Součet všech hodnot
+PageRanku je tedy $1$, protože se vlastně jedná o rozdělení pravděpodobnosti.
+
+Jedním problémem algoritmu PageRank jsou uzly bez výstupních hran (dangling
+nodes). Protože musíme v každé iteraci algoritmu zachovat vlastnost rozdělení
+pravděpodobnosti, že suma všech pravděpodobností je $1$, je třeba zajistit, aby
+se přenášená hodnota mezi iteracemi neztrácela právě v uzlech bez výstupních
+hran. Problém se nazývá rank sink a nejčastěji se řeší přidáním zdroje
+PageRanku:
+
+\begin{align}
+{x_{i + 1}}_u &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv} \frac{{x_i}_v}{deg^+ (v)} + \frac{1}{|D|} \displaystyle\sum_{w \in D} {x_i}_w
+\end{align}
+
+V každé iteraci předem vypočítáme součet hodnot PageRanku, které by se ztratily
+v uzlech bez výstupních hran. Tahle hodnota je v rámci iterace konstantní a
+pouze ji rovnoměrně rozdělíme mezi uzly sítě (tedy s váhou $1/|D|$, kde $D$ je
+množina uzlů bez výstupních hran (dangling nodes).
 
 \subsection{Míry založené na nejkratších cestách}
 V sítích dopravní infrastruktury nás zajímá, po které cestě se nejrychleji a
