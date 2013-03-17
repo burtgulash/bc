@@ -23,63 +23,63 @@
 \contentsline {subsection}{\numberline {1.5.5}Betweeness}{14}{subsection.1.5.5}
 \contentsline {subsubsection}{Brandes\IeC {\r u}v algoritmus}{15}{section*.7}
 \contentsline {subsubsection}{Aproximace}{15}{section*.8}
-\contentsline {subsection}{\numberline {1.5.6}Radius}{15}{subsection.1.5.6}
-\contentsline {section}{\numberline {1.6}Ostatn\IeC {\'\i } pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} m\IeC {\'\i }ry v\IeC {\'y}znamnosti autor\IeC {\r u}}{15}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}H-index}{15}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}Impact factor}{15}{subsection.1.6.2}
-\contentsline {section}{\numberline {1.7}Nejkrat\IeC {\v s}\IeC {\'\i } cesty}{15}{section.1.7}
-\contentsline {section}{\numberline {1.8}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{15}{section.1.8}
-\contentsline {section}{\numberline {1.9}Ocen\IeC {\v e}n\IeC {\'\i } v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{15}{section.1.9}
-\contentsline {subsection}{\numberline {1.9.1}ACM A.M. Turing Award}{15}{subsection.1.9.1}
+\contentsline {subsection}{\numberline {1.5.6}Radius}{16}{subsection.1.5.6}
+\contentsline {section}{\numberline {1.6}Ostatn\IeC {\'\i } pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} m\IeC {\'\i }ry v\IeC {\'y}znamnosti autor\IeC {\r u}}{16}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}H-index}{16}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Impact factor}{16}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.7}Nejkrat\IeC {\v s}\IeC {\'\i } cesty}{16}{section.1.7}
+\contentsline {section}{\numberline {1.8}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{16}{section.1.8}
+\contentsline {section}{\numberline {1.9}Ocen\IeC {\v e}n\IeC {\'\i } v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{16}{section.1.9}
+\contentsline {subsection}{\numberline {1.9.1}ACM A.M. Turing Award}{16}{subsection.1.9.1}
 \contentsline {subsection}{\numberline {1.9.2}ACM SIGMOD Edgar F. Codd Innovations Award}{16}{subsection.1.9.2}
 \contentsline {subsection}{\numberline {1.9.3}ACM Fellows}{16}{subsection.1.9.3}
-\contentsline {subsection}{\numberline {1.9.4}ISI Highly Cited highlighted}{16}{subsection.1.9.4}
-\contentsline {chapter}{\numberline {2}Implementace}{17}{chapter.2}
-\contentsline {section}{\numberline {2.1}Vytvo\IeC {\v r}en\IeC {\'\i } cita\IeC {\v c}n\IeC {\'\i }ch s\IeC {\'\i }t\IeC {\'\i }}{18}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}S\IeC {\'\i }\IeC {\v t} publikac\IeC {\'\i }}{18}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}S\IeC {\'\i }\IeC {\v t} autor\IeC {\r u}}{18}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Reprezentace cita\IeC {\v c}n\IeC {\'\i } s\IeC {\'\i }t\IeC {\v e}}{18}{section.2.2}
-\contentsline {section}{\numberline {2.3}Anal\IeC {\'y}za struktury s\IeC {\'\i }t\IeC {\v e}}{18}{section.2.3}
-\contentsline {section}{\numberline {2.4}Hled\IeC {\'a}n\IeC {\'\i } nejkrat\IeC {\v s}\IeC {\'\i }ch cest}{18}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}All-pair shortest path}{18}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Single source shortest path}{18}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}Knihovna pro SNA}{18}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Radius}{18}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Degree}{18}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}Eigenvector}{18}{subsection.2.5.3}
-\contentsline {subsection}{\numberline {2.5.4}Closeness}{18}{subsection.2.5.4}
-\contentsline {subsection}{\numberline {2.5.5}Betweeness}{18}{subsection.2.5.5}
-\contentsline {subsection}{\numberline {2.5.6}H-index}{18}{subsection.2.5.6}
-\contentsline {subsection}{\numberline {2.5.7}Paraleln\IeC {\'\i } v\IeC {\'y}po\IeC {\v c}ty}{18}{subsection.2.5.7}
-\contentsline {section}{\numberline {2.6}Cita\IeC {\v c}n\IeC {\'\i } datab\IeC {\'a}ze}{18}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}DBLP}{18}{subsection.2.6.1}
-\contentsline {subsubsection}{Charakteristika}{19}{section*.9}
-\contentsline {subsubsection}{Struktura s\IeC {\'\i }t\IeC {\v e}}{19}{section*.10}
-\contentsline {subsubsection}{Roz\IeC {\v d}\IeC {\v e}len\IeC {\'\i } vah}{19}{section*.11}
-\contentsline {subsection}{\numberline {2.6.2}CiteSeer}{19}{subsection.2.6.2}
-\contentsline {subsubsection}{Charakteristika}{19}{section*.12}
-\contentsline {chapter}{\numberline {3}V\IeC {\'y}sledky}{20}{chapter.3}
-\contentsline {section}{\numberline {3.1}Porovn\IeC {\'a}n\IeC {\'\i } nejv\IeC {\'y}znamn\IeC {\v e}j\IeC {\v s}\IeC {\'\i }ch autor\IeC {\r u}}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}Porovn\IeC {\'a}n\IeC {\'\i } implementovan\IeC {\'y}ch metod}{21}{section.3.2}
-\contentsline {section}{\numberline {3.3}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{21}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}DBLP}{21}{subsection.3.3.1}
-\contentsline {subsubsection}{H-index}{21}{section*.13}
-\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} indegree}{22}{section*.14}
-\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} outdegree}{23}{section*.15}
-\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} indegree}{24}{section*.16}
-\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} outdegree}{25}{section*.17}
-\contentsline {subsubsection}{PageRank}{25}{section*.18}
-\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} closeness}{27}{section*.19}
-\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} closeness}{28}{section*.20}
-\contentsline {subsubsection}{Nav\IeC {\'a}\IeC {\v z}en\IeC {\'y} betweeness}{29}{section*.21}
-\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} betweeness}{30}{section*.22}
-\contentsline {subsection}{\numberline {3.3.2}CiteSeer}{31}{subsection.3.3.2}
-\contentsline {subsubsection}{PageRank}{31}{section*.23}
-\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} closeness}{32}{section*.24}
-\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} betweeness}{33}{section*.25}
-\contentsline {chapter}{\numberline {4}Diskuse}{35}{chapter.4}
-\contentsline {section}{\numberline {4.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{35}{section.4.1}
-\contentsline {section}{\numberline {4.2}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{35}{section.4.2}
-\contentsline {section}{\numberline {4.3}Vliv vah na p\IeC {\v r}esnost v\IeC {\'y}sledk\IeC {\r u}}{35}{section.4.3}
-\contentsline {section}{\numberline {4.4}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{35}{section.4.4}
-\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{36}{chapter.5}
+\contentsline {subsection}{\numberline {1.9.4}ISI Highly Cited highlighted}{17}{subsection.1.9.4}
+\contentsline {chapter}{\numberline {2}Implementace}{18}{chapter.2}
+\contentsline {section}{\numberline {2.1}Vytvo\IeC {\v r}en\IeC {\'\i } cita\IeC {\v c}n\IeC {\'\i }ch s\IeC {\'\i }t\IeC {\'\i }}{19}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}S\IeC {\'\i }\IeC {\v t} publikac\IeC {\'\i }}{19}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}S\IeC {\'\i }\IeC {\v t} autor\IeC {\r u}}{19}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Reprezentace cita\IeC {\v c}n\IeC {\'\i } s\IeC {\'\i }t\IeC {\v e}}{19}{section.2.2}
+\contentsline {section}{\numberline {2.3}Anal\IeC {\'y}za struktury s\IeC {\'\i }t\IeC {\v e}}{19}{section.2.3}
+\contentsline {section}{\numberline {2.4}Hled\IeC {\'a}n\IeC {\'\i } nejkrat\IeC {\v s}\IeC {\'\i }ch cest}{19}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}All-pair shortest path}{19}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Single source shortest path}{19}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Knihovna pro SNA}{19}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Radius}{19}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Degree}{19}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Eigenvector}{19}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.4}Closeness}{19}{subsection.2.5.4}
+\contentsline {subsection}{\numberline {2.5.5}Betweeness}{19}{subsection.2.5.5}
+\contentsline {subsection}{\numberline {2.5.6}H-index}{19}{subsection.2.5.6}
+\contentsline {subsection}{\numberline {2.5.7}Paraleln\IeC {\'\i } v\IeC {\'y}po\IeC {\v c}ty}{19}{subsection.2.5.7}
+\contentsline {section}{\numberline {2.6}Cita\IeC {\v c}n\IeC {\'\i } datab\IeC {\'a}ze}{19}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}DBLP}{19}{subsection.2.6.1}
+\contentsline {subsubsection}{Charakteristika}{20}{section*.9}
+\contentsline {subsubsection}{Struktura s\IeC {\'\i }t\IeC {\v e}}{20}{section*.10}
+\contentsline {subsubsection}{Roz\IeC {\v d}\IeC {\v e}len\IeC {\'\i } vah}{20}{section*.11}
+\contentsline {subsection}{\numberline {2.6.2}CiteSeer}{20}{subsection.2.6.2}
+\contentsline {subsubsection}{Charakteristika}{20}{section*.12}
+\contentsline {chapter}{\numberline {3}V\IeC {\'y}sledky}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Porovn\IeC {\'a}n\IeC {\'\i } nejv\IeC {\'y}znamn\IeC {\v e}j\IeC {\v s}\IeC {\'\i }ch autor\IeC {\r u}}{22}{section.3.1}
+\contentsline {section}{\numberline {3.2}Porovn\IeC {\'a}n\IeC {\'\i } implementovan\IeC {\'y}ch metod}{22}{section.3.2}
+\contentsline {section}{\numberline {3.3}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{22}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}DBLP}{22}{subsection.3.3.1}
+\contentsline {subsubsection}{H-index}{22}{section*.13}
+\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} indegree}{23}{section*.14}
+\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} outdegree}{24}{section*.15}
+\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} indegree}{25}{section*.16}
+\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} outdegree}{26}{section*.17}
+\contentsline {subsubsection}{PageRank}{26}{section*.18}
+\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} closeness}{28}{section*.19}
+\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} closeness}{29}{section*.20}
+\contentsline {subsubsection}{Nav\IeC {\'a}\IeC {\v z}en\IeC {\'y} betweeness}{30}{section*.21}
+\contentsline {subsubsection}{V\IeC {\'a}\IeC {\v z}en\IeC {\'y} betweeness}{31}{section*.22}
+\contentsline {subsection}{\numberline {3.3.2}CiteSeer}{32}{subsection.3.3.2}
+\contentsline {subsubsection}{PageRank}{32}{section*.23}
+\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} closeness}{33}{section*.24}
+\contentsline {subsubsection}{Nev\IeC {\'a}\IeC {\v z}en\IeC {\'y} betweeness}{34}{section*.25}
+\contentsline {chapter}{\numberline {4}Diskuse}{36}{chapter.4}
+\contentsline {section}{\numberline {4.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{36}{section.4.1}
+\contentsline {section}{\numberline {4.2}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{36}{section.4.2}
+\contentsline {section}{\numberline {4.3}Vliv vah na p\IeC {\v r}esnost v\IeC {\'y}sledk\IeC {\r u}}{36}{section.4.3}
+\contentsline {section}{\numberline {4.4}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{36}{section.4.4}
+\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{37}{chapter.5}

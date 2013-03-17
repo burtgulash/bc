@@ -297,6 +297,13 @@ v uzlech bez výstupních hran. Tahle hodnota je v rámci iterace konstantní a
 pouze ji rovnoměrně rozdělíme mezi uzly sítě (tedy s váhou $1/|D|$, kde $D$ je
 množina uzlů bez výstupních hran (dangling nodes).
 
+Přestože je PageRank původně určený pro webovou síť, lze ho použít na
+jakoukoliv orientovanou váženou i neváženou síť, tedy i na sociální a citační
+sítě, o kterých je zde řeč. Pro neorientovaný graf je hodnota PageRanku pro
+jednotlivé uzly velmi blízká stupňům grafu, ale ne totožná (cite icola Perra
+and Santo Fortunato.; Fortunato (September 2008). "Spectral centrality measures
+in complex networks")
+
 \subsection{Míry založené na nejkratších cestách}
 V sítích dopravní infrastruktury nás zajímá, po které cestě se nejrychleji a
 nejvýhodněji dostat z bodu $A$ do bodu $B$. V sociálních a citačních sítích
@@ -403,7 +410,8 @@ Být tímto prostředníkem mezi více takovými uzly intuitivně napovídá, ž
 uzel bude centrální. \uv{Čím více lidí na mně závisí k vytvoření spojení s
 jinými lidmi, tím mám větší moc} (cite introductino to social network methods).
 Betweeness měří na kolika nejkratších cestách se uzel nachází. Více se setkáme
-s definicí, kde do sumy zahrneme poměr cest, na kterých se uzel nachází, k celkovému počtu cest mezi dvěma uzly.
+s definicí, kde do sumy zahrneme poměr cest, na kterých se uzel nachází, k
+celkovému počtu cest mezi dvěma uzly (Freeman, 1977; Anthonisse, 1971, Brandes).
 
 \begin{align*}
 b(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
@@ -425,7 +433,36 @@ b(v) &= \frac{1}{(|V| - 1)(|V| - 2)} \displaystyle\sum\limits_{s \in V} \display
 Vznik betweeness je připisován sociologovi Lintonu Freemanovi (Freeman 77).
 
 \subsubsection{Brandesův algoritmus}
+Ve své práci Ulrik Brandes zmiňuje do té doby nejrychlejší algoritmus pro
+výpočet betweeness centrality s časovou náročností $\theta(|V|^3)$ a
+$\theta(|V|^2)$ paměťovými nároky. Tento způsob přistupuje k problému
+nekratších cest způsobem all-pair shortest paths. Brandesův způsob využívá
+algoritmů pro nalezení nejkratších cest z jednoho bodu, kde výsledný algoritmus
+pracuje s paměťovou náročností $O(|V| + |E|)$ a běží v čase $O(|V||E|)$ nebo
+$O(|V||E| + |V|^2 \log|V|)$ pro nevážený, respektive vážený graf. 
+
+%% TODO napsat pár větama brandes alg., aby se dala pochopit aproximace.
+
+Brandes ve
+své práci o algoritmu uvádí pseudokód pro nevážený graf, který je následně
+snadné pozměnit pro vážený graf zaměněním obyčejné fronty za prioritní frontu;
+kompletní důkaz správnosti algoritmu a porovnání standardního algoritmu s tímto
+(TODO cite Brandes).
+
 \subsubsection{Aproximace}
+I přes rychlejší Brandesův algoritmus je výpočet betweeness centrality příliš
+náročný výpočet pro sítě reálného světa (např. biologické, dopravní nebo webové
+sítě) a pokud nám jde více o relativní pořadí uzlů podle hodnoty betweeness než
+o hodnotu samotnou, lze oželit přesný výpočet přibližným, který příliš nezmění
+výsledné umístění v žebříčku nejvýznamnějších uzlů.
+
+Bader, Kintali, Madduri, Mihail ukazují aproximační algoritmus pro betweeness a
+odhadem chyby.  Myšlenkou je jednoduchá lineární extrapolace Brandesova
+algoritmu, pokud do výpočtu zahrneme pouze náhodný vzorek namísto celé množiny
+vrcholů. Nechť $k$ je velikost vzorku množiny vrcholů, se kterým počítáme, pak
+extrapolovaná hodnota betweeness je $\frac{|V| S}{k}$, kde $S$ je vypočtená
+přibližná hodnota.
+
 \subsection{Radius}
 
 \section{Ostatní používané míry významnosti autorů}
