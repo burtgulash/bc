@@ -47,10 +47,32 @@ interpretací.
 
 \chapter{Úvod}
 
-\section{Sociální sítě}
+\chapter{Sociální a citační sítě}
 
-\subsection{Analýza sociálních sítí}
-\subsubsection{Bezškálové sítě}
+\section{Sociální sítě}
+\section{Analýza sociálních sítí}
+\subsection{Bezškálové sítě}
+Více než 40 let byly považovány všechny komplexní sítě za naprosto náhodné.
+Paul Erdős a Alfréd Rényi v roce 1959 navrhli modelování komunikačních sítí a
+sítí, které se vyskytují v přírodních vědách, spojením uzlů náhodnými hranami.
+Tento jednoduchý způsob způsobí rozložení stupňů vrcholů podle Poissonova
+rozdělení s charakteristickou křivkou připomínající zvon - většina uzlů má
+zhruba stejný stupeň. V roce 1998 bylo na univerzitě v Notre Dame (Barabási a
+kolegové) provedeno mapování sítě World Wide Web s očekáváním, že výsledkem
+bude náhodná síť. Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo
+přes všechna očekávání, zcela jiné rozdělení stupňů - mocninné. Přes $80\%$
+uzlů mělo méně než čtyři spojení, ale méně než $0.01\%$ uzlů mělo více než
+tisíc spojení.
+Sítě, které se řídí mocninným rozdělením, nazvali Barabási a jeho kolegové
+bezškálovými sítěmi (scale-free network). Rozpoznání tohoto jevu vedlo k
+lepšímu porozumění šíření virů a epidemií nebo proč některé sítě fungují takřka
+beze změny i přes poruchu většiny jejich uzlů.
+Sociální a citační sítě se řadí do kategorie bezškálových sítí. Například autor
+vědecké literatury, jehož dílo je v dané oblasti známé, má velkou šanci, že
+bude citován dalšími autory, především těmi novými. Stejně tak osoba v sociální
+síti s velkým počtem přátel má velikou šanci, že bude představen novým lidem a
+rozšíří si tak svůj kruh přátel ještě více. Tomuto jevu v bezškálových sítí se
+říká \uv{bohatší se stává bohatším}.
 
 \section{Citační sítě}
 Citační sítě jsou podobné sociálním sítím, pouze místo uzlů, které představují
@@ -183,9 +205,54 @@ více než na jiné lidi v tomtéž prostředí. Klika je silněji spojená skup
 než sociální kruh.
 
 \section{Analýza citačních sítí}
-\section{Významnost autorů}
-Ve světě
-%% TODO tady se hodně zmínit o práci předchozích lidí, ne?
+
+\chapter{Významnost autorů}
+
+\section{Citační databáze}
+\subsection{DBLP}
+DBLP \cite{DBLP} je webová bibliografická databáze v oboru informatiky,
+která k listopadu 2012 obsahovala více než 2,1 milionu publikací. Pro tuto
+práci používáme verzi z roku 2004.
+
+\subsubsection{Charakteristika}
+% TODO tzn. v jakym roce je nejvíc publikací atd.
+\subsubsection{Struktura sítě}
+\subsubsection{Rozďělení vah}
+
+\subsection{CiteSeer}
+CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
+automatizovaný systém shromažďování publikací a autonomní indexace citací v
+nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
+V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
+a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
+\section{Ocenění významných autorů}
+% TODO kecy co to ty ceny jsou a k čemu jsou a proč je tu uvádim.
+\subsection{ACM A.M. Turing Award}
+ACM A.M. Turing Award je ocenění ročně udělované skupinou ACM (Association for
+Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
+výpočetního světa.
+\cite{turingaward}.
+
+Turingova cena je brána jako nejvyšší vyznamenání v informatice a je lidově
+nazývána Nobelovou cenou pro informatiku \cite[p.~317]{dasgupta}.
+
+\subsection{ACM SIGMOD Edgar F. Codd Innovations Award}
+ACM SIGMOD Edgar F. Codd Innovations Award je ohodnocení životního díla
+skupinou ACM SIGMOD (Special Interest Group on Management of Data)  za
+inovativní a vysoce ceněné kontribuce k rozvoji, porozumění a použití
+databázových systémů a databází \cite{sigmodinnovations}.
+
+\subsection{ACM Fellows}
+\uv{The ACM Fellows Program} byl založen v roce 1993, aby našel a ocenil
+vynikající členy ACM za jejich dílo v informatice a informační vědě a pro
+jejich významné kontribuce pro účel ACM. Členové ACM Fellows slouží jako
+význační kolegové, ke kterým ACM a jejich členové vzhlížejí jako k autoritám v
+době rozvoje informačních technologií \cite{acmfellows}.
+
+\subsection{ISI Highly Cited highlighted}
+ISI Highly Cited je databáze často citovaných autorů v článcích posledního
+desetiletí, které byly vydány institutem ISI (Institute for Scientific
+Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na jejíchž webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z let 2000 až 2008 napříč 21 vědeckými obory \cite{highlycited}.
 
 \section{Míry centrality}
 \subsection{Degree}
@@ -473,77 +540,14 @@ přibližná hodnota.
 
 \section{Porovnání výsledků}
 
-\section{Ocenění významných autorů}
-% TODO kecy co to ty ceny jsou a k čemu jsou a proč je tu uvádim.
-\subsection{ACM A.M. Turing Award}
-ACM A.M. Turing Award je ocenění ročně udělované skupinou ACM (Association for
-Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
-výpočetního světa.
-\cite{turingaward}.
-
-Turingova cena je brána jako nejvyšší vyznamenání v informatice a je lidově
-nazývána Nobelovou cenou pro informatiku \cite[p.~317]{dasgupta}.
-
-\subsection{ACM SIGMOD Edgar F. Codd Innovations Award}
-ACM SIGMOD Edgar F. Codd Innovations Award je ohodnocení životního díla
-skupinou ACM SIGMOD (Special Interest Group on Management of Data)  za
-inovativní a vysoce ceněné kontribuce k rozvoji, porozumění a použití
-databázových systémů a databází \cite{sigmodinnovations}.
-
-\subsection{ACM Fellows}
-\uv{The ACM Fellows Program} byl založen v roce 1993, aby našel a ocenil
-vynikající členy ACM za jejich dílo v informatice a informační vědě a pro
-jejich významné kontribuce pro účel ACM. Členové ACM Fellows slouží jako
-význační kolegové, ke kterým ACM a jejich členové vzhlížejí jako k autoritám v
-době rozvoje informačních technologií \cite{acmfellows}.
-
-\subsection{ISI Highly Cited highlighted}
-ISI Highly Cited je databáze často citovaných autorů v článcích posledního
-desetiletí, které byly vydány institutem ISI (Institute for Scientific
-Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na jejíchž webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z let 2000 až 2008 napříč 21 vědeckými obory \cite{highlycited}.
-
-\chapter{Implementace}
-% \section{Načtení vstupních dat}
-
-\section{Vytvoření citačních sítí}
-\subsection{Síť publikací}
-\subsection{Síť autorů}
 
 \section{Reprezentace citační sítě}
-\section{Analýza struktury sítě}
 
 \section{Hledání nejkratších cest}
 \subsection{All-pair shortest path}
 \subsection{Single source shortest path}
-
-\section{Knihovna pro SNA}
-\subsection{Radius}
-\subsection{Degree}
-\subsection{Eigenvector}
-\subsection{Closeness}
-\subsection{Betweeness}
-% TODO normalizace - vydělení maximální možnou hodnotou
-\subsection{H-index}
-
 \subsection{Paralelní výpočty}
 
-\section{Citační databáze}
-\subsection{DBLP}
-DBLP \cite{DBLP} je webová bibliografická databáze v oboru informatiky,
-která k listopadu 2012 obsahovala více než 2,1 milionu publikací. Pro tuto
-práci používáme verzi z roku 2004.
-
-\subsubsection{Charakteristika}
-% TODO tzn. v jakym roce je nejvíc publikací atd.
-\subsubsection{Struktura sítě}
-\subsubsection{Rozďělení vah}
-
-\subsection{CiteSeer}
-CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
-automatizovaný systém shromažďování publikací a autonomní indexace citací v
-nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
-V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
-a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 
 \subsubsection{Charakteristika}
 
