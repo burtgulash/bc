@@ -11,41 +11,36 @@
 \BOOKMARK [2][-]{subsection.2.3.5}{Souvislost a komponenty grafu}{section.2.3}
 \BOOKMARK [2][-]{subsection.2.3.6}{Klika v grafu}{section.2.3}
 \BOOKMARK [1][-]{section.2.4}{Anal\375za citacn\355ch s\355t\355}{chapter.2}
+\BOOKMARK [1][-]{section.2.5}{Citacn\355 datab\341ze}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.5.1}{DBLP}{section.2.5}
+\BOOKMARK [2][-]{subsection.2.5.2}{CiteSeer}{section.2.5}
+\BOOKMARK [1][-]{section.2.6}{Ocenen\355 v\375znamn\375ch autoru}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.6.1}{ACM A.M. Turing Award}{section.2.6}
+\BOOKMARK [2][-]{subsection.2.6.2}{ACM SIGMOD Edgar F. Codd Innovations Award}{section.2.6}
+\BOOKMARK [2][-]{subsection.2.6.3}{ACM Fellows}{section.2.6}
+\BOOKMARK [2][-]{subsection.2.6.4}{ISI Highly Cited highlighted}{section.2.6}
 \BOOKMARK [0][-]{chapter.3}{V\375znamnost autoru}{}
-\BOOKMARK [1][-]{section.3.1}{Citacn\355 datab\341ze}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.1.1}{DBLP}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.2}{CiteSeer}{section.3.1}
-\BOOKMARK [1][-]{section.3.2}{Ocenen\355 v\375znamn\375ch autoru}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.2.1}{ACM A.M. Turing Award}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.2}{ACM SIGMOD Edgar F. Codd Innovations Award}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.3}{ACM Fellows}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.4}{ISI Highly Cited highlighted}{section.3.2}
-\BOOKMARK [1][-]{section.3.3}{M\355ry centrality}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.3.1}{Degree}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.2}{Eigenvector}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.3}{M\355ry zalo\236en\351 na nejkrat\235\355ch cest\341ch}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.4}{Closeness}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.5}{Betweeness}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.6}{Radius}{section.3.3}
-\BOOKMARK [1][-]{section.3.4}{Ostatn\355 pou\236\355van\351 m\355ry v\375znamnosti autoru}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.4.1}{H-index}{section.3.4}
-\BOOKMARK [2][-]{subsection.3.4.2}{Impact factor}{section.3.4}
-\BOOKMARK [1][-]{section.3.5}{Nejkrat\235\355 cesty}{chapter.3}
-\BOOKMARK [1][-]{section.3.6}{Porovn\341n\355 v\375sledku}{chapter.3}
-\BOOKMARK [1][-]{section.3.7}{Reprezentace citacn\355 s\355te}{chapter.3}
-\BOOKMARK [1][-]{section.3.8}{Hled\341n\355 nejkrat\235\355ch cest}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.8.1}{All-pair shortest path}{section.3.8}
-\BOOKMARK [2][-]{subsection.3.8.2}{Single source shortest path}{section.3.8}
-\BOOKMARK [2][-]{subsection.3.8.3}{Paraleln\355 v\375pocty}{section.3.8}
+\BOOKMARK [1][-]{section.3.1}{M\355ry centrality}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{Degree}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{Eigenvector}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.3}{M\355ry zalo\236en\351 na nejkrat\235\355ch cest\341ch}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.4}{Closeness}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.5}{Betweeness}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.6}{Radius}{section.3.1}
+\BOOKMARK [1][-]{section.3.2}{Hled\341n\355 nejkrat\235\355ch cest}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Single source shortest path}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{All-pair shortest path}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{Ostatn\355 pou\236\355van\351 m\355ry v\375znamnosti autoru}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{H-index}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{Impact factor}{section.3.3}
+\BOOKMARK [1][-]{section.3.4}{Porovn\341n\355 v\375sledku}{chapter.3}
 \BOOKMARK [0][-]{chapter.4}{V\375sledky}{}
 \BOOKMARK [1][-]{section.4.1}{Porovn\341n\355 nejv\375znamnej\235\355ch autoru}{chapter.4}
 \BOOKMARK [1][-]{section.4.2}{Porovn\341n\355 implementovan\375ch metod}{chapter.4}
-\BOOKMARK [1][-]{section.4.3}{\231ebr\355cky v\375znamn\375ch autoru}{chapter.4}
-\BOOKMARK [2][-]{subsection.4.3.1}{DBLP}{section.4.3}
-\BOOKMARK [2][-]{subsection.4.3.2}{CiteSeer}{section.4.3}
 \BOOKMARK [0][-]{chapter.5}{Diskuse}{}
 \BOOKMARK [1][-]{section.5.1}{Podobnost v\375sledku jednotliv\375ch metod}{chapter.5}
 \BOOKMARK [1][-]{section.5.2}{Shoda v\375sledku s ocenen\355mi}{chapter.5}
 \BOOKMARK [1][-]{section.5.3}{Vliv vah na presnost v\375sledku}{chapter.5}
 \BOOKMARK [1][-]{section.5.4}{Vstupn\355 a v\375stupn\355 hrany}{chapter.5}
 \BOOKMARK [0][-]{chapter.6}{Z\341ver}{}
+\BOOKMARK [0][-]{appendix.A}{\231ebr\355cky v\375znamn\375ch autoru}{}
