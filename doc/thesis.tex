@@ -50,11 +50,18 @@ interpretací.
 \chapter{Sociální a citační sítě}
 
 \section{Sociální sítě}
-Sociální síť je tvořena lidmi, kteří jsou svázáni nějakým sociálním vztahem.
-Nejčastěji, zejména v poslední době s rozmachem populárních webových sociálních
-sítí (Facebook, MySpace, Lidé) jím bývá přátelství.
+Myšlenka sociální sítě existovala dlouho předtím, než je pod tímto termínem
+začali lidé rozpoznávat. Jedná se o komplexní struktury vztahů mezi členy
+sociálních uspořádání na všech úrovních - od osobních až po mezinárodní vztahy
+mezi organizacemi.
+
+Nejčastěji se ale setkáme se sociální sítí jako strukturou tvořenou lidmi,
+kteří jsou svázáni nějakým sociálním vztahem.  Nejčastěji, zejména v poslední
+době s rozmachem populárních webových sociálních sítí (MySpace, Facebook, G+,
+Lidé), jím bývá přátelství.
 
 \section{Analýza sociálních sítí}
+
 \subsection{Bezškálové sítě}
 Více než 40 let byly považovány všechny komplexní sítě za naprosto náhodné.
 Paul Erdős a Alfréd Rényi v roce 1959 navrhli modelování komunikačních sítí a
@@ -212,10 +219,18 @@ než sociální kruh.
 
 
 \section{Citační databáze}
+Citační databáze poskytují možnost vyhledávání bibliografických citací. Většina
+z dnešních citačních databází se zaměřuje na jeden obor. Full-textové databáze
+poskytují kompletní text publikací, které indexují (cite
+http://library.amnh.org/research-tools/citation-full-text-databases).
+
 \subsection{DBLP}
-DBLP \cite{DBLP} je webová bibliografická databáze v oboru informatiky,
-která k listopadu 2012 obsahovala více než 2,1 milionu publikací. Pro tuto
-práci používáme verzi z roku 2004.
+DBLP \cite{DBLP} je webová bibliografická databáze hostovaná na univerzitě
+Trier. Od 80.  let indexovala literaturu z oblasti databází a logického
+programovaní, ale postupně se její zaměření zobecnilo a nyní je bibliografickou
+databází obecně pro obor informatiky. V roce 2012 obsahovala více než 2,1
+milionu článků. Metody implementované v této práci jsou aplikovány na verzi z
+roku 2004. 
 
 \subsubsection{Charakteristika}
 % TODO tzn. v jakym roce je nejvíc publikací atd.
@@ -610,9 +625,54 @@ Bellman-Fordova algoritmu, která zachová nejkratší cesty.
 
 \section{Ostatní používané míry významnosti autorů}
 \subsection{H-index}
+H-index je metoda pro měření produktivity a významu publikované vědecké práce.
+Metoda byla navržena fyzikem Jorge E. Hirschem pro zjištování relativní
+významnosti vědců publikujících v oboru teoretické fyziky. Původní Hirschova
+definice zní:
+
+\begin{quotation}
+Vědec má index $h$ pokud $h$ z jeho $N_p$ publikací má každá alespoň $h$ citací
+a žádná ze zbylých ($N_p - h$) publikací nemá více než $h$ citací.
+\end{quotation}
+
+Tato metoda je specifická pro citační sítě a nelze ji aplikovat na sociální
+nebo obecnou komplexní síť.
+
+Výpočet probíhá tak, že seřadíme autorovy publikace sestupně podle počtu citací
+a poté od začátku tohoto seřazeného seznamu hledáme tu publikaci, jejíž počet
+citací je nižší než pořadové číslo v tomto seznamu. Toto číslo je pak h-index
+autora.
+
 \subsection{Impact factor}
+% TODO teď
 
 \section{Porovnání výsledků}
+Pro zjištění, jestli jsou výsledky implementovaných metod shodné s uvedenými
+oceněními, použijeme metodu součtu pořadí oceněných autorů. Tzn. pro jedno
+ocenění sečteme pořadí všech autorů, kteří byli oceněni touhle cenou. Tuhle
+jednoduchou míru můžeme porovnat pouze mezi jednotlivými metodami pro jedno
+ocenění, ale ne mezi různými oceněními pro jednu metodu. Jednodušše protože
+například Turingova cena je ve výsledcích udělena pouze několika autorům, z
+čehož plyne malý součet pořadí, kdežto velké množství autorů na prvních
+pozicích je členy ACM Fellows, tím pádem velký součet pořadí oceněných.
+
+
+Dále nás zajímá, zda-li jsou metody mezi sebou podobné či nikoliv. Pro
+porovnání metod mezi sebou je použit Spearmanův koeficient pořadové korelace.
+
+\subsection{Spearmanův koeficient pořadové korelace}
+Spearmanův koeficient je klasický Pearsonův koeficient korelace, který je
+aplikovaný na proměnné s pořadím (cite Myers, Jerome L.; Well, Arnold D.
+(2003), Research Design and Statistical Analysis (2nd ed.), Lawrence Erlbaum,
+pp. 508).
+
+Koeficient korelace obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$
+znamená naprostou lineární závislost mezi porovnávanými proměnnými tak, že s
+rostoucí první proměnnou roste i druhá proměnná. Hodnota $-1$ znamená rovněž
+naprostou lineární závislost, ale při rostoucí jedné proměnné druhá proměnná
+klesá. Hodnota $0$ znamená kompletní náhodnost či nezávislost mezi měřenými
+proměnnými.
+
 
 
 % \section{Reprezentace citační sítě}
@@ -643,5 +703,13 @@ Bellman-Fordova algoritmu, která zachová nejkratší cesty.
 \newpage
 \appendix
 \chapter{Žebříčky významných autorů}
+\newpage
+\section{DBLP}
+\input{../dblp/tabels/outdegree}
+\input{../dblp/tabels/indegree}
+\input{../dblp/tabels/pagerank}
 \input{../dblp/tabels/inCloseness}
+\input{../dblp/tabels/outCloseness}
+
+\section{CiteSeer}
 \end{document}
