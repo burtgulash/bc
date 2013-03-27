@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage[Sonny]{fncychap}
@@ -60,6 +61,69 @@ kteří jsou svázáni nějakým sociálním vztahem.  Nejčastěji, zejména v 
 době s rozmachem populárních webových sociálních sítí (MySpace, Facebook, G+,
 Lidé), jím bývá přátelství.
 
+\section{Reprezentace sítí}
+Abychom mohli pracovat s doposud abstraktním konceptem sítě, musíme být schopni
+ji reprezentovat jako datovou strukturu, na níž poté provedeme jakoukoliv
+analýzu.
+V odvětví matematiky teorie grafů je síť (graf) dvojice množin uzlů $V$
+(vrcholů) a spojení uzlů $E$ (hran) $G = (V, E)$.  Obecně můžeme uvažovat grafy
+s hranami s orientací či bez orientace. V obou případech se stále jedná o
+dvojici $(V, E)$, pouze pro orientovaný graf je množina hran množinou
+uspořádaných dvojic oproti množině neuspořádaných dvojic u neorientovaného
+grafu.
+
+V definici grafu je množina hran $E$ soubor dvojic, které označují koncové uzly
+hrany, neboli jejich spojení. Samotné spojení je jediná informace, kterou
+množina hran nese. Chceme-li zaznamenat nějakou další informaci, která je
+spojená se spojením dvou uzlů, namísto hrany jako dvojice koncových uzlů
+nadefinujeme hranu jako n-tici, kde první dvě hodnoty jsou koncové uzly a zbylé
+hodnoty nesou libovolnou informaci. Ve většině případů si vystačíme s jednou
+dodatečnou informací a nazýváme ji váha hrany. Jiná možnost pro zavedení vah
+hran je váhová funkce $f: E \mapsto \mathbb{R}$, kde $f(e) = w$ je ohodnocení
+konkrétní hrany $e \in E$. V případě zavedení vah hovoříme o vážených sítích.
+
+Při zavedení vah máme například možnost používat síť jako multigraf, tedy graf,
+u kterého je povoleno více spojení mezi dvěma stejnými uzly. Počet stejných
+hran pak pouze zaznamenáme celočíselnou hodnotou ve váze hrany.
+
+Například síť world wide web tvořená webovými stránkami je příkladem
+multigrafu, protože je povoleno z jedné stránky odkazovat na jinou na více
+místech. Při analýze takových sítí využijeme právě vah hran a počet
+hypertextových odkazů mezi dvěma stránkami zaznamenáme vyšším ohodnocením
+hrany. V tomhle případě znamená vyšší váha silnější pouto mezi uzly.
+
+Jiným případem může být například síť kde sledujeme města a dopravní spojení
+mezi nimi. V tomhle případě nás může zajímat vzdálenost nebo časová náročnost
+na dopravu mezi dvěma městy, které budou znamenat silnější pouto pokud budou
+mít naopak menší váhu. Hledáme totiž nejkratší a nejrychlejší spojení.
+
+
+Pro reprezentaci v paměti počítače se nejčastěji používají dva způsoby - matice sousednosti a graf pomocí spojových seznamů.
+Hrany se uzlu v případě orientovaného grafu liší z pohledu jednoho uzlu. Pokud
+hrana vychází z tohoto uzlu, nazveme ji výstupní hrana, v opačném případě se
+bude jednat o vstupní hranu.
+
+
+Matice sousednosti (adjacency matrix) je čtvercová matice $A$ o velikosti počtu
+vrcholů grafu $|V|$, ve které prvek ${\bf A}_{uv}$ na řádku $u$ a sloupci $v$
+určuje jestli existuje hrana od vrcholu $u$ do vrcholu $v$. Pokud je hodnota
+${\bf A}_{uv}$ $1$, hrana existuje; pokud je hodnota $0$, pak hrana neexistuje
+a pokud je hodnota $w$, pak hrana existuje s váhou $w$.
+
+Jiným maticovým způsobem uchování grafu je incidenční matice ${\bf B}$.
+Incidenční matice vyjadřuje vztah mezi vrcholy a hranami tak, že ${\bf B}_{ue}
+= 1$, pokud vrchol $u$ je spojený s hranou $e$, a $0$ v opačném případě. V
+orientovaném grafu rozlišujeme mezi počátečním uzlem ${\bf B}_{ue} = -1$ a
+koncovým uzlem ${\bf B}_{ue} = 1$. Incidenční matice se pro výpočetní teorii
+grafů často nepoužívá z důvodu paměťové náročnosti, která je pro většinu grafů
+výrazně vyšší než u matice sousednosti ($\Theta(|V||E|)$ oproti $\Theta(|V|^2)$, kde množina hran dosahuje velikostí $O(|V|^2)$).
+
+Nejčastěji ale používáme myšlenku sousednosti vrcholů, ale namísto reprezentace
+maticí, která je ve většině případů řídká a zbytečně obsahuje velké množství
+nul, použijeme reprezentaci řídké matice - řádek nahradíme seznamem vrcholů,
+které v matici sousednosti mají nenulovou hodnotu. Tento způsob je známý jako
+graf pomocí spojových seznamů (adjacency list representation of a graph).
+
 \section{Analýza sociálních sítí}
 
 \subsection{Bezškálové sítě}
@@ -115,12 +179,12 @@ publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
 publikací, i zde uvažujeme dvě opačné orientace hrany se stejnou interpretací,
 tedy "cituji" a "jsem citován". 
 
-V síti autorů má pro naše účely smysl uvažovat
-ohodnocení hran. Existuje více způsobů, jak přiřadit ohodnocení (váhy)
-jednotlivým hranám, ale nejjednodušším způsobem, který je použitý i v
-implementaci knihovny, je prosté přiřazení počtu publikací, jejichž autorem
-nebo spoluautorem je daný autor $A$, které odkazují na publikace, jejichž
-autorem je autor $B$. Srozumitelnější popis poskytne obrázek:
+V síti autorů má pro naše účely smysl uvažovat ohodnocení hran. Existuje více
+způsobů, jak přiřadit ohodnocení (váhy) jednotlivým hranám, ale nejjednodušším
+způsobem, který je použitý i v implementaci knihovny, je prosté přiřazení počtu
+publikací, jejichž autorem nebo spoluautorem je daný autor $A$, které odkazují
+na publikace, jejichž autorem je autor $B$. Srozumitelnější popis poskytne
+obrázek:
 %% TODO figure váha hran.
 
 Druhým způsobem ohodnocení hran, který rovněž využívá implementovaná knihovna
@@ -132,28 +196,6 @@ blíže. Tento způsob je používán pro algoritmy, které pracují na myšlenc
 nejkratších cest mezi uzly. 
 
 \subsection{Vážené citační sítě}
-V definici grafu nebo sítě $G = (V, E)$ je množina hran $E$ soubor dvojic,
-které označují koncové uzly hrany, neboli jejich spojení. Samotné spojení je
-jediná informace, kterou množina hran nese. Chceme-li zaznamenat nějakou další
-informaci, která je spojená se spojením dvou uzlů, namísto hrany jako dvojice
-koncových uzlů nadefinujeme hranu jako n-tici, kde první dvě hodnoty jsou
-koncové uzly a zbylé hodnoty nesou libovolnou informaci. Ve většině případů si
-vystačíme s jednou dodatečnou informací a nazýváme ji váha hrany.
-
-Při zavedení vah máme například možnost používat síť jako multigraf, tedy graf,
-u kterého je povoleno více spojení mezi dvěma stejnými uzly. Počet stejných
-hran pak pouze zaznamenáme celočíselnou hodnotou ve váze hrany.
-
-Například síť world wide web tvořená webovými stránkami je příkladem
-multigrafu, protože je povoleno z jedné stránky odkazovat na jinou na více
-místech. Při analýze takových sítí využijeme právě vah hran a počet
-hypertextových odkazů mezi dvěma stránkami zaznamenáme vyšším ohodnocením
-hrany. V tomhle případě znamená vyšší váha silnější pouto mezi uzly.
-
-Jiným případem může být například síť kde sledujeme města a dopravní spojení
-mezi nimi. V tomhle případě nás může zajímat vzdálenost nebo časová náročnost
-na dopravu mezi dvěma městy, které budou znamenat silnější pouto pokud budou
-mít naopak menší váhu. Hledáme totiž nejkratší a nejrychlejší spojení.
 
 Pro citační sítě můžeme uvažovat ohodnocení hran obojího typu. Například mezi
 dvěma autory může být silnější vztah, pokud se citují ve více publikacích.
@@ -163,15 +205,6 @@ použijeme druhý typ ohodnocení - menší váha, silnější pouto.
 
 
 \subsection{Orientované a neorientované sítě}
-Obecně můžeme uvažovat grafy s hranami s orientací či bez orientace. V obou
-případech se stále jedná o množinu $(V, E)$, pouze pro orientovaný graf je
-množina hran množinou uspořádaných dvojic oproti množině neuspořádaných dvojic
-u neorientovaného grafu.
-
-Hrany se uzlu v případě orientovaného grafu liší z pohledu jednoho uzlu. Pokud
-hrana vychází z tohoto uzlu, nazveme ji výstupní hrana, v opačném případě se
-bude jednat o vstupní hranu.
-
 V případě sociálních sítí nejčastěji uvažujeme sítě bez orientace, protože
 nejčastěji modelovaný vztah přítel-přítel je ekvivalentní z pohledu obou
 koncových uzlů. Pro citační síť jsou na místě orientované hrany, protože vztahy
@@ -289,12 +322,9 @@ $deg^-$ a výstupní jako $deg^+$.
 {C_D}(v) &= {C_D}_{in} + {C_D}_{out}
 \end{align}
 
-${\bf A}$ je matice sousednosti grafu (adjacency matrix) a prvek této matice
-${\bf A}_{uv}$ na řádku $u$ a $v$ značí, že existuje hrana z vrcholu $u$ do
-vrcholu $v$, je-li hodnota $1$, $w$ pokud se jedná o vážený graf a $0$, pokud
-hrana neexistuje.
-
-Pokud uvažujeme pouze vstupní stupeň, vypočtená hodnota určuje významnost uzlu, kdežto výstupní stupeň ukazuje jakousi společenskost či otevřenost uzlu. 
+Kde ${\bf A}$ je matice sousednosti grafu. Pokud uvažujeme pouze vstupní
+stupeň, vypočtená hodnota určuje významnost uzlu, kdežto výstupní stupeň
+ukazuje jakousi společenskost či otevřenost uzlu. 
 
 Degree centrality je výpočetně velmi jednoduchý způsob, jak změřit významnost
 prvku v síti. Tato metoda je však příliš jednoduchá, protože do výpočtu hodnoty
@@ -447,13 +477,14 @@ vysokou podobnost této metody s ostatními.
 Nevýhodou closeness centrality je nutnost uvažovat souvislý graf, tedy takový,
 který obsahuje pouze jednu komponentu. Pokud by měl více komponent, pak by vždy
 existovala cesta s nekonečnou vzdáleností. Hodnota farness by pak byla
-automaticky nekonečná a closeness, tedy převrácená hodnota, by byla nulová.
+automaticky nekonečná a closeness, tedy převrácená hodnota, by byla nulová. 
 
 Existuje několik upravených definic, které se mají vypořádat s problémem
 konektivity a druhotně jsou numericky stabilnější. Jedna z nich zaměňuje
 převrácenou hodnotu součtu vzdáleností za součet převrácených hodnot
-vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$ (Opsahl) a druhá 
-$c(u) = \sum_{v \in V} 2^{-d_G(u, v)}$ (Dangalchev).
+vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$ (Opsahl) a druhá $c(u)
+= \sum_{v \in V} 2^{-d_G(u, v)}$ (Dangalchev). Přesto se nejvíce používá
+původní definice closeness a výpočet se omezí na největší komponentu.
 
 
 
@@ -554,8 +585,6 @@ vrcholů. Nechť $k$ je velikost vzorku množiny vrcholů, se kterým počítám
 extrapolovaná hodnota betweeness je $\frac{|V| S}{k}$, kde $S$ je vypočtená
 přibližná hodnota.
 
-\subsection{Radius}
-
 
 \section{Hledání nejkratších cest}
 Hledání nejkratších cest v grafu je historicky starý problém, jehož matematický
@@ -568,7 +597,7 @@ sobě nalezeno několik řešících metod různými lidmi (Shimbel [1955], Ford
 schrijver alexander ON THE HISTORY OF THE SHORTEST PATH PROBLEM)
 
 Z hlediska metod řešení můžeme uvažovat několik kategorií algoritmů - nalezení
-všech párů nejkratších cest (all-pairs shortest path problem), nalezení cesty
+všech párů nejkratších cest (all-pairs shortest paths problem), nalezení cesty
 mezi počátečním a koncovým vrcholem (source-target) nebo nalezení stromu
 nejkratších cest, máme-li zadán počáteční vrchol (single source shortest path
 problem).
@@ -585,9 +614,29 @@ který najde nejkratší cesty z jednoho bodu do všech ostatních v případě
 neváženého grafu v čase $O(E)$.
 
 \paragraph{Bellman-Fordův algoritmus}
-\paragraph{Dijkstrův algoritmus}
+Bellman-Fordův algoritmus je aplikací dynamického programování na nejkratší
+cesty z jednoho vrcholu do všech ostatních. Jeho využití najdeme zejména tam,
+kde se mohou objevit záporné váhy hran. Časová náročnost je $O(|V||E|)$.
 
-\subsection{All-pair shortest path}
+\paragraph{Dijkstrův algoritmus}
+Dijkstrův algoritmus řeší single source shortest path problém pomocí greedy
+(žravé) strategie. Časová náročnost běžné implementace $O((|E| + |V|)\log|V|)$
+je lepší než u Bellman-Fordova algoritmu, ale Dijkstrova greedy strategie
+funguje pouze pokud v grafu neexistují záporně ohodnocené hrany. Časová
+náročnost závisí především na implementaci klíčové datové struktury prioritní
+fronty. V případě použití obyčejného spojového seznamu jako prioritní fronty
+získáme kvadratickou náročnost $O(|V|^2)$. Nejčastěji se setkáme s prioritní
+frontou implementovanou pomocí binární haldy, která zajišťuje čas běhu právě
+$O((|E| + |V|)\log|V|)$. Pomocí Fibonacciho haldy získáme doposud nejrychlejší
+Dijkstrův algoritmus s časem běhu $O(|E| + |V| \log|V|)$, ale pro běžné účely
+(grafy menší než miliony vrcholů) je nejvýhodnější binární halda (cite CLRS,
+Fredman \& Tarjan). Pro nevážený graf je Dijkstrův algoritmus ekvivalentní
+prohledávání do šířky.
+
+Dijkstrův algoritmus je klíčovým pro všechny implementované metody založené na
+nejkratších cestách.
+
+\subsection{All-pair shortest paths}
 Do této kategorie spadají maticové metody, tj. graf je zadán jako matice
 sousednosti nebo matice sousednost s váhami hran.
 
@@ -620,7 +669,7 @@ Výpočet provádíme pro všechny páry vrcholů pro všechny vrcholy $k$ ($|V|
 \paragraph{Johnsonův algoritmus} nepatří mezi maticové metody, protože využívá
 metod single source shortest path pro všechny vrcholy. Váhy hran mohou být i
 záporné, ale v takovém případě je nutné provést transformaci vah pomocí
-Bellman-Fordova algoritmu, která zachová nejkratší cesty. 
+Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty. 
 
 
 \section{Ostatní používané míry významnosti autorů}
@@ -642,9 +691,6 @@ Výpočet probíhá tak, že seřadíme autorovy publikace sestupně podle počt
 a poté od začátku tohoto seřazeného seznamu hledáme tu publikaci, jejíž počet
 citací je nižší než pořadové číslo v tomto seznamu. Toto číslo je pak h-index
 autora.
-
-\subsection{Impact factor}
-% TODO teď
 
 \section{Porovnání výsledků}
 Pro zjištění, jestli jsou výsledky implementovaných metod shodné s uvedenými
@@ -684,6 +730,10 @@ proměnnými.
 
 
 \chapter{Výsledky}
+\section{Žebříčky významných autorů}
+Viz příloha A \ref{chapter:zebricky}. Hodnoty u metody PageRank jsou
+transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
+% FIXME chapter:zebricky
 \section{Porovnání nejvýznamnějších autorů}
 \section{Porovnání implementovaných metod}
 
@@ -703,13 +753,33 @@ proměnnými.
 \newpage
 \appendix
 \chapter{Žebříčky významných autorů}
+\label{chapter:zebricky}
+
 \newpage
 \section{DBLP}
 \input{../dblp/tabels/outdegree}
 \input{../dblp/tabels/indegree}
+\input{../dblp/tabels/wOutdegree}
+\input{../dblp/tabels/wIndegree}
 \input{../dblp/tabels/pagerank}
 \input{../dblp/tabels/inCloseness}
-\input{../dblp/tabels/outCloseness}
+\input{../dblp/tabels/wCloseness}
+% \input{../dblp/tabels/approximatedBetweeness_Nover4}
+\input{../dblp/tabels/betweenessParallel}
+\input{../dblp/tabels/wBetweeness}
+\input{../dblp/tabels/hindex}
 
 \section{CiteSeer}
+\input{../citeseer/tabels/outdegree}
+\input{../citeseer/tabels/indegree}
+\input{../citeseer/tabels/wOutdegree}
+\input{../citeseer/tabels/wIndegree}
+\input{../citeseer/tabels/pagerank}
+\input{../citeseer/tabels/inCloseness}
+\input{../citeseer/tabels/wCloseness}
+% \input{../citeseer/tabels/approximatedBetweeness_Nover4}
+\input{../citeseer/tabels/betweenessParallel}
+\input{../citeseer/tabels/wBetweeness}
+\input{../citeseer/tabels/hindex}
+
 \end{document}
