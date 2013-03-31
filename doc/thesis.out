@@ -9,31 +9,31 @@
 \BOOKMARK [2][-]{subsection.2.4.2}{S\355t autoru}{section.2.4}
 \BOOKMARK [2][-]{subsection.2.4.3}{V\341\236en\351 citacn\355 s\355te}{section.2.4}
 \BOOKMARK [2][-]{subsection.2.4.4}{Orientovan\351 a neorientovan\351 s\355te}{section.2.4}
-\BOOKMARK [2][-]{subsection.2.4.5}{Souvislost a komponenty grafu}{section.2.4}
-\BOOKMARK [2][-]{subsection.2.4.6}{Klika v grafu}{section.2.4}
-\BOOKMARK [1][-]{section.2.5}{Anal\375za citacn\355ch s\355t\355}{chapter.2}
-\BOOKMARK [1][-]{section.2.6}{Citacn\355 datab\341ze}{chapter.2}
-\BOOKMARK [2][-]{subsection.2.6.1}{DBLP}{section.2.6}
-\BOOKMARK [2][-]{subsection.2.6.2}{CiteSeer}{section.2.6}
-\BOOKMARK [1][-]{section.2.7}{Ocenen\355 v\375znamn\375ch autoru}{chapter.2}
-\BOOKMARK [2][-]{subsection.2.7.1}{ACM A.M. Turing Award}{section.2.7}
-\BOOKMARK [2][-]{subsection.2.7.2}{ACM SIGMOD Edgar F. Codd Innovations Award}{section.2.7}
-\BOOKMARK [2][-]{subsection.2.7.3}{ACM Fellows}{section.2.7}
-\BOOKMARK [2][-]{subsection.2.7.4}{ISI Highly Cited highlighted}{section.2.7}
-\BOOKMARK [0][-]{chapter.3}{V\375znamnost autoru}{}
-\BOOKMARK [1][-]{section.3.1}{M\355ry centrality}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.1.1}{Degree}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.2}{Eigenvector}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.3}{M\355ry zalo\236en\351 na nejkrat\235\355ch cest\341ch}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.4}{Closeness}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.5}{Betweeness}{section.3.1}
-\BOOKMARK [1][-]{section.3.2}{Hled\341n\355 nejkrat\235\355ch cest}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.2.1}{Single source shortest path}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.2}{All-pair shortest paths}{section.3.2}
-\BOOKMARK [1][-]{section.3.3}{Ostatn\355 pou\236\355van\351 m\355ry v\375znamnosti autoru}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.3.1}{H-index}{section.3.3}
-\BOOKMARK [1][-]{section.3.4}{Porovn\341n\355 v\375sledku}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.4.1}{Spearmanuv koeficient poradov\351 korelace}{section.3.4}
+\BOOKMARK [0][-]{chapter.3}{Citacn\355 datab\341ze}{}
+\BOOKMARK [1][-]{subsection.3.0.5}{DBLP}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.0.6}{CiteSeer}{subsection.3.0.5}
+\BOOKMARK [1][-]{section.3.1}{Ocenen\355 v\375znamn\375ch autoru}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{ACM A.M. Turing Award}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{ACM SIGMOD Edgar F. Codd Innovations Award}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.3}{ACM Fellows}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.4}{ISI Highly Cited highlighted}{section.3.1}
+\BOOKMARK [1][-]{section.3.2}{Anal\375za citacn\355ch s\355t\355}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Souvislost a komponenty grafu}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Klika v grafu}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{V\375znamnost uzlu}{chapter.3}
+\BOOKMARK [1][-]{section.3.4}{M\355ry centrality}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.4.1}{Degree}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.2}{Eigenvector}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.3}{M\355ry zalo\236en\351 na nejkrat\235\355ch cest\341ch}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.4}{Closeness}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.5}{Betweenness}{section.3.4}
+\BOOKMARK [1][-]{section.3.5}{Hled\341n\355 nejkrat\235\355ch cest}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.5.1}{Single source shortest path}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.2}{All-pair shortest paths}{section.3.5}
+\BOOKMARK [1][-]{section.3.6}{Ostatn\355 pou\236\355van\351 m\355ry v\375znamnosti autoru}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.6.1}{H-index}{section.3.6}
+\BOOKMARK [1][-]{section.3.7}{Porovn\341n\355 v\375sledku}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.7.1}{Spearmanuv koeficient poradov\351 korelace}{section.3.7}
 \BOOKMARK [0][-]{chapter.4}{V\375sledky}{}
 \BOOKMARK [1][-]{section.4.1}{\231ebr\355cky v\375znamn\375ch autoru}{chapter.4}
 \BOOKMARK [1][-]{section.4.2}{Porovn\341n\355 nejv\375znamnej\235\355ch autoru}{chapter.4}

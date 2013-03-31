@@ -206,7 +206,6 @@ blíže. Tento způsob je používán pro algoritmy, které pracují na myšlenc
 nejkratších cest mezi uzly. 
 
 \subsection{Vážené citační sítě}
-
 Pro citační sítě můžeme uvažovat ohodnocení hran obojího typu. Například mezi
 dvěma autory může být silnější vztah, pokud se citují ve více publikacích.
 Pokud citační síť analyzujeme metodami, které jsou založené na myšlence hledání
@@ -222,46 +221,10 @@ autor odkazujícího na jiného autora nebo publikace citující jinou publikaci
 mají očividně jinou interpretaci z pohledu koncových uzlů. Buďto se jedná o
 citovaného nebo citujícího autora či publikaci.
 
-\subsection{Souvislost a komponenty grafu}
-Pro neorientovaný graf je komponenta maximálně souvislý podgraf. Jinak řečeno
-komponenta je podgraf takový, že všechny jeho vrcholy jsou spojeny nějakou
-cestou. Komponentou ji i samotný vrchol.
-
-Všechny komponenty grafu najdeme pomocí jednoduchých algoritmů prohledávání do
-šířky nebo do hloubky. Spuštění prohledávání najde celou komponentu, ve které
-se výchozí vrchol nachází. Spustíme-li prohledávání ze všech vrcholů, najdeme
-všechny komponenty. 
-
-Slabě souvislý orientovaný graf znamená, že neorientovaný graf, který by vznikl
-nahrazením orientovaných hran neorientovanými (symetrizace grafu), by byl
-souvislý.
-
-Pro zachování vlastnosti souvislosti, že všechny vrcholy jsou spojené nějakou
-cestou, pro orientovaný graf musíme uvažovat silně souvislý graf nebo podgraf.
-Definice zůstává stejná jako u slabě spojitých komponent, ale protože hrany
-nejsou oboustranné, mezi dvěma spojenými vrcholy ne vždy existuje cesta oběma
-směry. U neorientovaného grafu můžeme souvislost vyjádřit tak, že pro každé dva
-uzly $u$ a $v$ existuje cesta z $u$ do $v$. Protože jsou hrany symetrické, pak
-automaticky existuje i cesta z $v$ do $u$. U orientovaného grafu musíme druhou
-podmínku explicitně dodat: graf je silně souvislý, pokud pro každé dva vrcholy
-$u$ a $v$ existuje cesta z $u$ do $v$ i z $v$ do $u$. 
-
-Silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do hloubky,
-ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, ...), které ale
-vycházejí z prohledávání do hloubky.
-
-\subsection{Klika v grafu}
-Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
-jsou spojeny přímo hranou.
-
-V sociologii slovo klika souvisí se skupinou lidí, kteří jsou na sebe vázáni
-více než na jiné lidi v tomtéž prostředí. Klika je silněji spojená skupina lidí
-než sociální kruh.
-
-\section{Analýza citačních sítí}
 
 
-\section{Citační databáze}
+
+\chapter{Citační databáze}
 Citační databáze poskytují možnost vyhledávání bibliografických citací. Většina
 z dnešních citačních databází se zaměřuje na jeden obor. Full-textové databáze
 poskytují kompletní text publikací, které indexují (cite
@@ -317,7 +280,58 @@ Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na její
 webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z let
 2000 až 2008 napříč 21 vědeckými obory \cite{highlycited}.
 
-\chapter{Významnost autorů}
+\section{Analýza citačních sítí}
+\subsection{Souvislost a komponenty grafu}
+Pro neorientovaný graf je komponenta maximálně souvislý podgraf. Jinak řečeno
+komponenta je podgraf takový, že všechny jeho vrcholy jsou spojeny nějakou
+cestou. Komponentou ji i samotný vrchol.
+
+Všechny komponenty grafu najdeme pomocí jednoduchých algoritmů prohledávání do
+šířky nebo do hloubky. Spuštění prohledávání najde celou komponentu, ve které
+se výchozí vrchol nachází. Spustíme-li prohledávání ze všech vrcholů, najdeme
+všechny komponenty. 
+
+Slabě souvislý orientovaný graf znamená, že neorientovaný graf, který by vznikl
+nahrazením orientovaných hran neorientovanými (symetrizace grafu), by byl
+souvislý.
+
+Pro zachování vlastnosti souvislosti, že všechny vrcholy jsou spojené nějakou
+cestou, pro orientovaný graf musíme uvažovat silně souvislý graf nebo podgraf.
+Definice zůstává stejná jako u slabě spojitých komponent, ale protože hrany
+nejsou oboustranné, mezi dvěma spojenými vrcholy ne vždy existuje cesta oběma
+směry. U neorientovaného grafu můžeme souvislost vyjádřit tak, že pro každé dva
+uzly $u$ a $v$ existuje cesta z $u$ do $v$. Protože jsou hrany symetrické, pak
+automaticky existuje i cesta z $v$ do $u$. U orientovaného grafu musíme druhou
+podmínku explicitně dodat: graf je silně souvislý, pokud pro každé dva vrcholy
+$u$ a $v$ existuje cesta z $u$ do $v$ i z $v$ do $u$. 
+
+Silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do hloubky,
+ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, ...), které ale
+vycházejí z prohledávání do hloubky.
+
+\subsection{Klika v grafu}
+Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
+jsou spojeny přímo hranou.
+
+V sociologii slovo klika souvisí se skupinou lidí, kteří jsou na sebe vázáni
+více než na jiné lidi v tomtéž prostředí. Klika je silněji spojená skupina lidí
+než sociální kruh.
+
+\section{Významnost uzlů}
+Významnost autorů je jedním předmětem zájmu analýzy sociálních sítí. Kdybychom
+se měli rozhodnout, kterého člena sítě zvolit jako vůdce nebo přes které členy
+nejrychleji rozšíříme zprávu, koho bychom měli vybrat? 
+
+Velký díl k zodpovězení otázky relativní významnosti prvků definovali Freeman
+(1979), Bonacich (1972), jehož práce je spojena s Hubbellovo (1965) mírou
+sociometrického statusu, Coleman (1973) se svou mírou síly a Burt (1982) a jeho
+míra prestiže (cite Noah E. Friedkin, Theoretical Foundations for Centrality Measures). Významnost prvku bývá v sociální síti označována jako centralita
+a metody pro zjištění centrality jsou známé jako míry centrality (centrality
+measure). Původně byly vyvinuty v sociologickém kontextu pro analýzu sociálních
+sítí, ale jejich princip lze snadno zobecnit na obecný graf, proto můžeme
+využít těchto metod pro analýzu citačních nebo jiných komplexních sítí, které
+nemají čistě sociologický význam.
+
 \section{Míry centrality}
 \subsection{Degree}
 Stupeň je počet hran spojených s uzlem. Pro orientovaný graf můžeme uvažovat
@@ -347,8 +361,9 @@ metod pro výpočet významnosti.
 \subsection{Eigenvector}
 Eigenvector centrality, také známá jako Gould's index of accessibility of a
 Network (Linear Algebra with Applications: Alternate Edition by Gareth
-Williams), je míra vlivu vrcholu v grafu. Hodnotu vlivu získáme z vlastního
-vektoru $x$ matice sousednosti grafu:
+Williams) nebo Bonacich's centrality, je míra vlivu vrcholu v grafu, která
+doslova znamená \uv{Důležitý uzel má důležité sousedy} (cite An introduction to Centrality measures, Zweig, Iyengar, 2010). Hodnotu vlivu získáme z
+vlastního vektoru $x$ matice sousednosti grafu:
 
 \begin{align}
 {\bf Ax} &= \lambda {\bf x}
@@ -420,13 +435,42 @@ hran. Problém se nazývá rank sink a nejčastěji se řeší přidáním zdroj
 PageRanku:
 
 \begin{align}
-{x_u}_{i + 1} &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv} \frac{{x_v}_i}{deg^+ (v)} + \frac{1}{|D|} \displaystyle\sum_{w \in D} {x_w}_i
+{x_u}_{i + 1} &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv} \frac{{x_v}_i}{deg^+ (v)} + \frac{1}{|V|} \displaystyle\sum_{w \in D} {x_w}_i
 \end{align}
 
 V každé iteraci předem vypočítáme součet hodnot PageRanku, které by se ztratily
-v uzlech bez výstupních hran. Tahle hodnota je v rámci iterace konstantní a
-pouze ji rovnoměrně rozdělíme mezi uzly sítě (tedy s váhou $1/|D|$, kde $D$ je
-množina uzlů bez výstupních hran (dangling nodes).
+v uzlech bez výstupních hran ($D$). Tahle hodnota je v rámci iterace konstantní
+a pouze ji rovnoměrně rozdělíme mezi uzly sítě (s váhou $1/|V|$).
+
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{algorithm}[H]
+	\caption{PageRank}
+		\label{alg:pagerank}
+
+	\begin{algorithmic}[1]
+	\Statex
+	\State $x_0[v] \gets \frac{1}{|V|}$, $v \in V$\Comment{Uzly začínají se stejnou pravděpodobností}
+	\For{$i \gets 0, K$}\Comment{Iterujeme pro $K$-krát}
+		\State $s \gets 0$\Comment{$s$ je suma PageRanků pro dangling nodes}
+		\For{$v \in V$}
+			\If{$deg^+(v) = 0$}
+				\State $s \gets s + x_{i}[v]$
+			\EndIf
+		\EndFor
+		\State $x_{i + 1}[v] \gets \frac{s}{|V|}$, $v \in V$\Comment{Každý uzel začíná s přebytkem z dangling nodes}
+		\For{$v \in V$}
+			\For{$k \in inLinks[v]$}
+				\State $x_{i + 1}[v] \gets x_{i + 1} + \frac{x_i[k]}{deg^+(k)}$
+			\EndFor
+		\EndFor
+		\State $x_{i + 1}[v] \gets \frac{1 - d}{|V|} + d x_{i + 1}[v]$, $v \in V$\Comment{Přidání damping factoru}
+	\EndFor
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\end{center}
+\mbox{}
 
 Přestože je PageRank původně určený pro webovou síť, lze ho použít na
 jakoukoliv orientovanou váženou i neváženou síť, tedy i na sociální a citační
@@ -447,7 +491,7 @@ matematikem Paulem Erdősem v rámci spolupráce na matematických pracích.
 
 Použijeme-li metody z dopravních sítí pro analýzu sociálních a citačních sítí,
 které v jádře spočívají v hledání nejkratších cest, setkáme se se dvěma
-nejznámějšími mírami centrality closeness a betweeness.
+nejznámějšími mírami centrality closeness a betweenness.
 
 Nechť cesta z bodu $u \in V$ do bodu $v \in V$ je střídající se posloupnost
 vrcholů a hran takových, že spojují předcházející a následující vrchol v této
@@ -463,6 +507,7 @@ v)}$. Podle jiné definice je closeness převrácená hodnota průměrné nejkra
 cesty. V podstatě se od předchozí příliš neliší, protože průměrná nejkratší
 cesta je rovna $\frac{1}{n
 - 1} \sum_{v \in V} d_G(u, v)$ a closeness podle této definice:
+
 \begin{align*}
 c(u) &= \frac{n - 1}{\sum_{v \in V} d_G(u, v)}
 \end{align*}
@@ -527,21 +572,21 @@ closeness centrality.
 	\begin{algorithmic}[1]
 	\Statex
 	\For{$s \in V$}
-		\State $f \gets 0$
-		\State $d[v] \gets \infty$, $v \in V$
+		\State $f \gets 0$\Comment{Farness}
+		\State $d[v] \gets \infty$, $v \in V$\Comment{Zpočátku jsou uzly nedosažitelné}
 		\State $d[u] \gets 0$
-		\State $Q \gets \{s\}$
-		\While{$Q \ne \varnothing$}
-			\State $u \gets extract\mbox{-}min(Q)$
-			\State $f \gets f + d[u]$
-			\For{sousedící vrchol $v \in Adj[u]$}
+		\State $Q \gets \{s\}$\Comment{Prioritní fronta $Q$ začíná se zdrojovým vrcholem}
+		\While{$Q \ne \varnothing$}\Comment{Dokud není fronta prázdná}
+			\State $u \gets extract\mbox{-}min(Q)$\Comment{Vytáhneme uzel s min. vzdáleností $d$}
+			\State $f \gets f + d[u]$\Comment{Zvýšíme farness pro nový uzel}
+			\For{sousedící vrchol $v \in Adj[u]$}\Comment{Přidáme nově nalezené vrcholy}
 				\If{$d[v] > d[u] + w(u, v)$}
 					\State $d[v] \gets d[u] + w(u, v)$
 					\State $Q \gets Q \cup \{v\}$
 				\EndIf
 			\EndFor
 		\EndWhile
-		\State $c[s] \gets \frac{n - 1}{f}$
+		\State $c[s] \gets \frac{n - 1}{f}$\Comment{Closeness je převrácená hodnota farness}
 	\EndFor
 	\end{algorithmic}
 \end{algorithm}
@@ -549,7 +594,8 @@ closeness centrality.
 \end{center}
 \mbox{}
 
-Výpočet closeness lze snadno paralelizovat, jelikož výpočet stromu nejkratších cest je nezávislá úloha pro každý z $|V|$ vrcholů.
+Výpočet closeness lze snadno paralelizovat, jelikož výpočet stromu nejkratších
+cest je nezávislá úloha pro každý z $|V|$ vrcholů.
 
 \subsubsection{Aproximace}
 Algoritmus TOPRANK (Okamoto, Chen, Li) najde prvních $k$ nejvýznamnějších uzlů
@@ -565,15 +611,15 @@ přibližně místo, ve kterém je vhodné výpočet ukončit a považovat za do
 přesný. Sami uvádějí, že tento algoritmus je pouze první krok k návrhu
 efektivnějšího způsobu jak najít prvních $k$ nejvýznamnějších uzlů.
 
-\subsection{Betweeness}
-Betweeness je druhá metoda, která modeluje šíření informace sítí pomocí
-nejkratších cest. Princip betweeness spočívá v zvýhodnění uzlů s pozicí, přes
+\subsection{Betweenness}
+Betweenness je druhá metoda, která modeluje šíření informace sítí pomocí
+nejkratších cest. Princip betweenness spočívá v zvýhodnění uzlů s pozicí, přes
 kterou teče nejvíce informace. Pokud uzel $A$ komunikuje s uzlem $C$, pak
 můžeme tvrdit, že uzel $B$, který leží mezi nimi, bude mít roli prostředníka.
 Být tímto prostředníkem mezi více takovými uzly intuitivně napovídá, že takový
 uzel bude centrální. \uv{Čím více lidí na mně závisí k vytvoření spojení s
 jinými lidmi, tím mám větší moc} (cite introductino to social network methods).
-Betweeness měří na kolika nejkratších cestách se uzel nachází. Více se setkáme
+Betweenness měří na kolika nejkratších cestách se uzel nachází. Více se setkáme
 s definicí, kde do sumy zahrneme poměr cest, na kterých se uzel nachází, k
 celkovému počtu cest mezi dvěma uzly (Freeman, 1977; Anthonisse, 1971, Brandes).
 
@@ -581,24 +627,26 @@ celkovému počtu cest mezi dvěma uzly (Freeman, 1977; Anthonisse, 1971, Brande
 b(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
 \end{align*}
 
-$b(v)$ značí hodnotu betweeness centrality pro uzel $v$, V množinu uzlů,
+$b(v)$ značí hodnotu betweenness centrality pro uzel $v$, V množinu uzlů,
 $\sigma_{st}$ je počet nejkratších cest mezi uzly $s$ a $t$ a $\sigma_{st}(v)$
 je počet nejkratších cest, které navíc procházejí uzlem $v$.
 
-Normalizovaný betweeness je hodnota v intervalu od $0$ do $1$, kterou získáme
-tak, že betweeness vydělíme celkovým počtem možných cest - ($(|V| - 1)(|V| -
+Normalizovaný betweenness je hodnota v intervalu od $0$ do $1$, kterou získáme
+tak, že betweenness vydělíme celkovým počtem možných cest - ($(|V| - 1)(|V| -
 2)$) pro orientované grafy a ($\frac{(|V| - 1)(|V| - 2)}{2}$) pro neorientované
-grafy.
+grafy. Normalizované hodnoty metod centralit jsou nezávislé na velikosti grafu
+(cite Douglas R. WHite, Stephen P. Borgatti - Betweenness centrality measures
+for directed graphs)
 
 \begin{align*}
 b(v) &= \frac{1}{(|V| - 1)(|V| - 2)} \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
 \end{align*}
 
-Vznik betweeness je připisován sociologovi Lintonu Freemanovi (Freeman 77).
+Vznik betweenness je připisován sociologovi Lintonu Freemanovi (Freeman 77) a byl původně definován pro neorientované grafy.
 
 \subsubsection{Brandesův algoritmus}
 Ve své práci Ulrik Brandes zmiňuje do té doby nejrychlejší algoritmus pro
-výpočet betweeness centrality s časovou náročností $\theta(|V|^3)$ a
+výpočet betweenness centrality s časovou náročností $\theta(|V|^3)$ a
 $\theta(|V|^2)$ paměťovými nároky. Tento způsob přistupuje k problému
 nekratších cest způsobem all-pair shortest paths. Brandesův způsob využívá
 algoritmů pro nalezení nejkratších cest z jednoho bodu, kde výsledný algoritmus
@@ -612,11 +660,7 @@ následně snadné pozměnit pro vážený graf zaměněním obyčejné fronty z
 frontu; kompletní důkaz správnosti algoritmu a porovnání standardního algoritmu
 s tímto (TODO cite Brandes).
 
-Algoritmus lze paralelizovat stejně jako algoritmus pro closeness centralitu,
-pokud zajistíme synchronizaci vláken při přístupu k hodnotám betweeness.
-Narozdíl od closeness, kde výpočet pro jeden uzel ovlivňuje hodnotu closeness
-pouze pro tento uzel, u betweeness výpočet vycházející z jednoho uzlu ovlivňuje
-hodnotu betweeness potencionálně i pro všechny ostatní uzly.
+
 
 \begin{center}
 \begin{minipage}{\textwidth}
@@ -643,19 +687,19 @@ hodnotu betweeness potencionálně i pro všechny ostatní uzly.
 					\State $enqueue(Q, w)$
 					\State $d[w] \gets d[v] + 1$
 				\EndIf
-				\If{$d[w] = d[v] + 1$}
+				\If{$d[w] = d[v] + 1$}\Comment{Nejkratší cesta do $w$ přes $v$?}
 					\State $\sigma[w] \gets \sigma[w] + \sigma[v]$
-					\State $append(P[w], v)$
+					\State $push(P[w], v)$
 				\EndIf
 			\EndFor
 		\EndWhile
-		\State $\delta[v] \gets 0$,$v \in V$
-		\While{$S \ne \varnothing$}
+		\State $\delta[v] \gets 0$,$v \in V$\Comment{$\delta$ je závislost uzlu $s$ na ostatních}
+		\While{$S \ne \varnothing$} \Comment{$S$ vrátí vrcholy v pořadí s nezvyšující se vzdáleností od $s$}
 			\State $w \gets pop(S)$
 			\For{$v \in P[w]$}
-				\State $\delta[v] + \frac{\sigma[v]}{\sigma[w]}(1 + \delta[w])$
+				\State $\delta[v] \gets \delta[v] + \frac{\sigma[v]}{\sigma[w]}(1 + \delta[w])$
 			\EndFor
-			\If{$w \ne s$}
+			\If{$w \ne s$}\Comment{Betweenness je součet dependencí $\delta[w]$}
 				\State $b[w] \gets b[w] + \delta[w]$
 			\EndIf
 		\EndWhile
@@ -666,19 +710,33 @@ hodnotu betweeness potencionálně i pro všechny ostatní uzly.
 \end{center}
 \mbox{}
 
+
+% Závislost (dependency) vrcholu $s \in V$ na všech ostatních vrcholech je v
+% tomto algoritmu (cite Brandes):
+% \begin{align*}
+% \delta_{s \bullet}(v) &= \displaystyle\sum\limits_{w:v \in P_s(w)} \frac{\sigma_{sv}}{\sigma_{sw}}(1 + \sigma_{s \bullet}(w))
+% \end{align*}
+
+Algoritmus lze paralelizovat stejně jako algoritmus pro closeness centralitu,
+pokud zajistíme synchronizaci vláken při přístupu k hodnotám betweenness.
+Narozdíl od closeness, kde výpočet pro jeden uzel ovlivňuje hodnotu closeness
+pouze pro tento uzel, u betweenness výpočet vycházející z jednoho uzlu ovlivňuje
+hodnotu betweenness potencionálně i pro všechny ostatní uzly.
+
 \subsubsection{Aproximace}
-I přes rychlejší Brandesův algoritmus je výpočet betweeness centrality příliš
+I přes rychlejší Brandesův algoritmus je výpočet betweenness centrality příliš
 náročný výpočet pro sítě reálného světa (např. biologické, dopravní nebo webové
-sítě) a pokud nám jde více o relativní pořadí uzlů podle hodnoty betweeness než
+sítě) a pokud nám jde více o relativní pořadí uzlů podle hodnoty betweenness než
 o hodnotu samotnou, lze oželit přesný výpočet přibližným, který příliš nezmění
 výsledné umístění v žebříčku nejvýznamnějších uzlů.
 
-Bader, Kintali, Madduri, Mihail ukazují aproximační algoritmus pro betweeness a
+Bader, Kintali, Madduri, Mihail ukazují aproximační algoritmus pro betweenness a
 odhadem chyby.  Myšlenkou je jednoduchá lineární extrapolace Brandesova
 algoritmu, pokud do výpočtu zahrneme pouze náhodný vzorek namísto celé množiny
 vrcholů. Nechť $k$ je velikost vzorku množiny vrcholů, se kterým počítáme, pak
-extrapolovaná hodnota betweeness je $\frac{|V| S}{k}$, kde $S$ je vypočtená
+extrapolovaná hodnota betweenness je $\frac{|V| S}{k}$, kde $S$ je vypočtená
 přibližná hodnota.
+
 
 
 \section{Hledání nejkratších cest}
@@ -713,21 +771,21 @@ metrika vzálenosti by byla počet skoků mezi uzly.
 \begin{minipage}{\textwidth}
 \begin{algorithm}[H]
 	\caption{Prohledávání do šířky}
-		\label{alg:dijkstra}
+		\label{alg:bfs}
 	\begin{algorithmic}[1]
 	\Statex
 	\Function{BFS}{$G, s$}
-		\State $d[v] \gets \infty$,$v \in V$
+		\State $d[v] \gets \infty$,$v \in V$\Comment{Uzly jsou zpočátku nedosažitelné}
 		\State $d[s] \gets 0$
-		\State $p[v] \gets $ NIL,$v \in V$
-		\State $Q \gets V$
-		\While{$Q \ne \varnothing$}
+		\State $p[v] \gets $ NIL,$v \in V$\Comment{A nemají implicitně žádné předchůdce}
+		\State $Q \gets \{s\}$\Comment{Fronta začíná s počátečním vrcholem}
+		\While{$Q \ne \varnothing$}\Comment{Dokud není prázdná}
 			\State $u \gets dequeue(Q)$
 			\For{sousedící vrchol $v \in Adj[u]$}
-				\If{$d[v] = -1$}
-					\State $d[v] \gets d[u] + 1$
-					\State $Q \gets Q \cup \{v\}$
-					\State $p[v] \gets u$
+				\If{$d[v] = -1$}\Comment{Pro všechny nově objevené vrcholy}
+					\State $d[v] \gets d[u] + 1$\Comment{Nově vypočtená vzdálensot}
+					\State $Q \gets Q \cup \{v\}$\Comment{Přidáme nově objevené uzly do fronty}
+					\State $p[v] \gets u$\Comment{Předchůdce uzlu $v$ je $u$}
 				\EndIf
 			\EndFor
 		\EndWhile
@@ -794,7 +852,7 @@ nejkratších cestách, proto uvedeme pseudokód (cite CLRS):
 
 Výsledkem je strom předchůdců, který reprezentuje strom nejkratších cest.
 Princip Dijkstrova algoritmu se objevuje i u algoritmů pro closeness,
-betweeness a BFS. V tomto případě do prioritní fronty prvotně zahrneme všechny
+betweenness a BFS. V tomto případě do prioritní fronty prvotně zahrneme všechny
 vrcholy. Jinou možností je přidávat je postupně, aby vybírání z prioritní
 fronty ($extract\mbox{-}min(Q)$) bylo rychlejší. Tento způsob je použit v
 algoritmu pro closeness.
@@ -854,10 +912,35 @@ a žádná ze zbylých ($N_p - h$) publikací nemá více než $h$ citací.
 Tato metoda je specifická pro citační sítě a nelze ji aplikovat na sociální
 nebo obecnou komplexní síť.
 
-Výpočet probíhá tak, že seřadíme autorovy publikace sestupně podle počtu citací
-a poté od začátku tohoto seřazeného seznamu hledáme tu publikaci, jejíž počet
-citací je nižší než pořadové číslo v tomto seznamu. Toto číslo je pak h-index
-autora.
+Výpočet probíhá tak, že seřadíme autorovy publikace $P$ sestupně podle počtu
+citací $c: P \mapsto \mathbb{N}$ a poté od začátku tohoto seřazeného seznamu
+hledáme tu publikaci, jejíž počet citací je nižší než pořadové číslo v tomto
+seznamu. Toto číslo je pak h-index autora.
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{algorithm}[H]
+	\caption{H-index}
+		\label{alg:hindex}
+
+	\begin{algorithmic}[1]
+	\Statex
+	\Function{H-index}{$P, c$}
+		\State $sort(P, key \gets c)$\Comment{Seřadíme publikace sestupně podle počtu citací}
+		\State $h \gets 0$
+		\For{$p \in P$}
+			\If{$c(p) < h$}\Comment{Bod, kde počet citací vyrovná $h$ je h-index}
+				\State \textbf{break}
+			\EndIf
+			\State $h \gets h + 1$
+		\EndFor
+		\State \textbf{return} $h$
+	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\end{center}
+\mbox{}
+
 
 \section{Porovnání výsledků}
 Pro zjištění, jestli jsou výsledky implementovaných metod shodné s uvedenými
@@ -918,14 +1001,50 @@ w indegree & 0.596 & 0.878 & 0.217 & 0.989 & 0.186 & - \\ \cline{1-7}
 outdegree & 0.253 & 0.121 & 0.567 & 0.173 & - \\ \cline{1-6}
 indegree & 0.571 & 0.880 & 0.203 & - \\ \cline{1-5}
 radius & 0.300 & 0.203 & - \\ \cline{1-4}
-betweeness & 0.528 & - \\ \cline{1-3}
+betweenness & 0.528 & - \\ \cline{1-3}
 h-index &  - \\ \cline{1-2}
  - \\ \cline{1-1}
 \end{tabular}
 \section{Shoda výsledků s oceněními}
 \section{Vliv vah na přesnost výsledků}
 \section{Vstupní a výstupní hrany}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+   & WB & B & A & B & B & B & B & B & B \\
+\hline
+WB & 0.520 & 0.929 & 0.830 & 0.134 & 0.849 & 0.140 & 0.754 & 0.924 & - \\
+\hline
+B  & 0.514 & 0.993 & 0.872 & 0.133 & 0.869 & 0.138 & 0.809 & - \\
+\cline{1-9}
+A  & 0.533 & 0.818 & 0.909 & 0.102 & 0.898 & 0.108 & - \\
+\cline{1-8}
+B  & 0.258 & 0.126 & 0.178 & 0.998 & 0.192 & - \\
+\cline{1-7}
+B  & 0.596 & 0.877 & 0.988 & 0.186 & - \\
+\cline{1-6}
+B  & 0.252 & 0.121 & 0.173 & - \\
+\cline{1-5}
+B  & 0.571 & 0.880 & - \\
+\cline{1-4}
+B  & 0.517 & - \\
+\cline{1-3}
+B  &  - \\
+\cline{1-2}
+\end{tabular}
 
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+ - \\
+0.51 & - \\
+0.51 & 1.00 & - \\
+0.51 & 1.00 & 1.00 & - \\
+0.53 & 0.99 & 0.99 & 0.99 & - \\
+0.53 & 0.99 & 0.99 & 0.99 & 1.00 & - \\
+0.53 & 0.99 & 0.99 & 0.99 & 1.00 & 1.00 & - \\
+0.53 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & - \\
+0.52 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & 0.82 & - \\
+0.52 & 0.57 & 0.57 & 0.57 & 0.58 & 0.58 & 0.58 & 0.81 & 0.99 & - \\
+0.52 & 0.53 & 0.53 & 0.53 & 0.55 & 0.55 & 0.55 & 0.75 & 0.93 & 0.92 - \\
+\end{tabular}
 
 \chapter{Závěr}
 
@@ -947,25 +1066,14 @@ h-index &  - \\ \cline{1-2}
 \input{../dblp/tabels/pagerank}
 \input{../dblp/tabels/inCloseness}
 \input{../dblp/tabels/wCloseness}
-\input{../dblp/tabels/approximatedbetweenessnover4}
-\input{../dblp/tabels/betweenessParallel}
-\input{../dblp/tabels/wBetweeness}
+\input{../dblp/tabels/approximatedbetweennessnover4}
+\input{../dblp/tabels/betweennessParallel}
+\input{../dblp/tabels/wBetweenness}
 \input{../dblp/tabels/hindex}
 \end{footnotesize}
 
 \section{CiteSeer}
 \begin{footnotesize}
-\input{../citeseer/tabels/outdegree}
-\input{../citeseer/tabels/indegree}
-\input{../citeseer/tabels/wOutdegree}
-\input{../citeseer/tabels/wIndegree}
-\input{../citeseer/tabels/pagerank}
-\input{../citeseer/tabels/inCloseness}
-\input{../citeseer/tabels/wCloseness}
-% \input{../citeseer/tabels/approximatedBetweeness_Nover4}
-\input{../citeseer/tabels/betweenessParallel}
-\input{../citeseer/tabels/wBetweeness}
-\input{../citeseer/tabels/hindex}
 \end{footnotesize}
 
 \end{document}
