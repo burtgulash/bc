@@ -3,13 +3,23 @@
 \usepackage[czech]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage[Sonny]{fncychap}
 
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{caption}
+
+\usepackage{wrapfig} % testing
+
 \usepackage[pdfborder=0 0 0]{hyperref}
 
 \begin{document}
+\shorthandoff{-}
+
 \begin{titlepage}
 \begin{center}
 	\Large{Západočeská univerzita v Plzni} \\
@@ -497,8 +507,7 @@ FT87).
 Algoritmus vychází z definice, tedy vyřeší problém všech párů nejkratších cest,
 čímž rovnou získá hodnoty farness $f(u) = \sum_{v \in V} d_G(u, v)$ a zjištění
 closeness je poté triviální podle jedné z výše uvedených definic.  Výše uvedená
-složitost platí pro použití Dijkstrova algoritmu (cite Dijkstra) pro všechny
-páry cest.
+složitost platí pro použití Dijkstrova algoritmu pro všechny páry cest.
 
 Pro rozsáhlé sítě s miliony uzlů (sociální sítě k dnešnímu datu) je tato
 metoda příliš náročná. Eppstein a Wang vyvinuli aproximační algoritmus s
@@ -508,6 +517,39 @@ $1 - \frac{1}{n}$, kde $\epsilon > 0$ a $\delta$ je diametr sítě (nejdelší z
 nejkratších cest). Na základě tohoto aproximačního algoritmu byl vytvořen jiný
 aproximační algoritmus pro nalezení $k$ nejvýznamnějších uzlů hodnocených podle
 closeness centrality.
+
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{algorithm}[H]
+	\caption{Closeness}
+		\label{alg:closeness}
+
+	\begin{algorithmic}[1]
+	\Statex
+	\For{$s \in V$}
+		\State $f \gets 0$
+		\State $d[v] \gets \infty$, $v \in V$
+		\State $d[u] \gets 0$
+		\State $Q \gets \{s\}$
+		\While{$Q \ne \varnothing$}
+			\State $u \gets extract\mbox{-}min(Q)$
+			\State $f \gets f + d[u]$
+			\For{sousedící vrchol $v \in Adj[u]$}
+				\If{$d[v] > d[u] + w(u, v)$}
+					\State $d[v] \gets d[u] + w(u, v)$
+					\State $Q \gets Q \cup \{v\}$
+				\EndIf
+			\EndFor
+		\EndWhile
+		\State $c[s] \gets \frac{n - 1}{f}$
+	\EndFor
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\end{center}
+\mbox{}
+
+Výpočet closeness lze snadno paralelizovat, jelikož výpočet stromu nejkratších cest je nezávislá úloha pro každý z $|V|$ vrcholů.
 
 \subsubsection{Aproximace}
 Algoritmus TOPRANK (Okamoto, Chen, Li) najde prvních $k$ nejvýznamnějších uzlů
@@ -565,11 +607,64 @@ $O(|V||E| + |V|^2 \log|V|)$ pro nevážený, respektive vážený graf.
 
 %% TODO napsat pár větama brandes alg., aby se dala pochopit aproximace.
 
-Brandes ve
-své práci o algoritmu uvádí pseudokód pro nevážený graf, který je následně
-snadné pozměnit pro vážený graf zaměněním obyčejné fronty za prioritní frontu;
-kompletní důkaz správnosti algoritmu a porovnání standardního algoritmu s tímto
-(TODO cite Brandes).
+Brandes ve své práci o algoritmu uvádí pseudokód pro nevážený graf, který je
+následně snadné pozměnit pro vážený graf zaměněním obyčejné fronty za prioritní
+frontu; kompletní důkaz správnosti algoritmu a porovnání standardního algoritmu
+s tímto (TODO cite Brandes).
+
+Algoritmus lze paralelizovat stejně jako algoritmus pro closeness centralitu,
+pokud zajistíme synchronizaci vláken při přístupu k hodnotám betweeness.
+Narozdíl od closeness, kde výpočet pro jeden uzel ovlivňuje hodnotu closeness
+pouze pro tento uzel, u betweeness výpočet vycházející z jednoho uzlu ovlivňuje
+hodnotu betweeness potencionálně i pro všechny ostatní uzly.
+
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{algorithm}[H]
+	\caption{Brandesův algoritmus}
+		\label{alg:brandes}
+
+	\begin{algorithmic}[1]
+	\Statex
+	\State $b[v] \gets 0$, $v \in V$
+	\For{$s \in V$}
+		\State $S \gets $prázdný zásobník
+		\State $P[w] \gets $prázdný seznam, $w \in V$
+		\State $\sigma[t] \gets 0$, $t \in V$
+		\State $\sigma[s] \gets 1$
+		\State $d[t] \gets -1$, $t \in V$
+		\State $d[s] \gets 0$
+		\State $Q \gets \{s\}$
+		\While{$Q \ne \varnothing$}
+			\State $v \gets dequeue(Q)$
+			\State $push(S, v)$
+			\For{sousedící vrchol $w \in Adj[v]$}
+				\If{$d[w] < 0$}
+					\State $enqueue(Q, w)$
+					\State $d[w] \gets d[v] + 1$
+				\EndIf
+				\If{$d[w] = d[v] + 1$}
+					\State $\sigma[w] \gets \sigma[w] + \sigma[v]$
+					\State $append(P[w], v)$
+				\EndIf
+			\EndFor
+		\EndWhile
+		\State $\delta[v] \gets 0$,$v \in V$
+		\While{$S \ne \varnothing$}
+			\State $w \gets pop(S)$
+			\For{$v \in P[w]$}
+				\State $\delta[v] + \frac{\sigma[v]}{\sigma[w]}(1 + \delta[w])$
+			\EndFor
+			\If{$w \ne s$}
+				\State $b[w] \gets b[w] + \delta[w]$
+			\EndIf
+		\EndWhile
+	\EndFor
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\end{center}
+\mbox{}
 
 \subsubsection{Aproximace}
 I přes rychlejší Brandesův algoritmus je výpočet betweeness centrality příliš
@@ -611,7 +706,38 @@ požadovaného vrcholu.
 \paragraph{BFS}
 Prohledávání do šířky z jednoho bodu (breadth first search) je algoritmus,
 který najde nejkratší cesty z jednoho bodu do všech ostatních v případě
-neváženého grafu v čase $O(E)$.
+neváženého grafu v čase $O(E)$. Pro vážený graf by zjistil nejkratší cesty, kde
+metrika vzálenosti by byla počet skoků mezi uzly.
+
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{algorithm}[H]
+	\caption{Prohledávání do šířky}
+		\label{alg:dijkstra}
+	\begin{algorithmic}[1]
+	\Statex
+	\Function{BFS}{$G, s$}
+		\State $d[v] \gets \infty$,$v \in V$
+		\State $d[s] \gets 0$
+		\State $p[v] \gets $ NIL,$v \in V$
+		\State $Q \gets V$
+		\While{$Q \ne \varnothing$}
+			\State $u \gets dequeue(Q)$
+			\For{sousedící vrchol $v \in Adj[u]$}
+				\If{$d[v] = -1$}
+					\State $d[v] \gets d[u] + 1$
+					\State $Q \gets Q \cup \{v\}$
+					\State $p[v] \gets u$
+				\EndIf
+			\EndFor
+		\EndWhile
+		\State \textbf{return} $p$
+	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\end{center}
+\mbox{}
 
 \paragraph{Bellman-Fordův algoritmus}
 Bellman-Fordův algoritmus je aplikací dynamického programování na nejkratší
@@ -624,17 +750,56 @@ Dijkstrův algoritmus řeší single source shortest path problém pomocí greed
 je lepší než u Bellman-Fordova algoritmu, ale Dijkstrova greedy strategie
 funguje pouze pokud v grafu neexistují záporně ohodnocené hrany. Časová
 náročnost závisí především na implementaci klíčové datové struktury prioritní
-fronty. V případě použití obyčejného spojového seznamu jako prioritní fronty
-získáme kvadratickou náročnost $O(|V|^2)$. Nejčastěji se setkáme s prioritní
-frontou implementovanou pomocí binární haldy, která zajišťuje čas běhu právě
-$O((|E| + |V|)\log|V|)$. Pomocí Fibonacciho haldy získáme doposud nejrychlejší
-Dijkstrův algoritmus s časem běhu $O(|E| + |V| \log|V|)$, ale pro běžné účely
-(grafy menší než miliony vrcholů) je nejvýhodnější binární halda (cite CLRS,
-Fredman \& Tarjan). Pro nevážený graf je Dijkstrův algoritmus ekvivalentní
-prohledávání do šířky.
+fronty, která v každém kroku vybírá uzel s nejmenší vzdáleností od zdrojového
+vrcholu (greedy strategie). V případě použití obyčejného spojového seznamu jako
+prioritní fronty získáme kvadratickou náročnost $O(|V|^2)$. Nejčastěji se
+setkáme s prioritní frontou implementovanou pomocí binární haldy, která
+zajišťuje čas běhu právě $O((|E| + |V|)\log|V|)$. Pomocí Fibonacciho haldy
+získáme doposud nejrychlejší Dijkstrův algoritmus s časem běhu $O(|E| + |V|
+\log|V|)$, ale pro běžné účely (grafy menší než miliony vrcholů) je
+nejvýhodnější binární halda (cite CLRS, Fredman \& Tarjan). Pro nevážený graf
+je Dijkstrův algoritmus ekvivalentní prohledávání do šířky.
 
 Dijkstrův algoritmus je klíčovým pro všechny implementované metody založené na
-nejkratších cestách.
+nejkratších cestách, proto uvedeme pseudokód (cite CLRS):
+
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{algorithm}[H]
+	\caption{Dijkstrův algoritmus}
+		\label{alg:dijkstra}
+	\begin{algorithmic}[1]
+	\Statex
+	\Function{Dijkstra}{$G, w, s$}  \Comment{$s$ je zdrojový vrchol a $w$ je váhová funkce}
+		\State $d[v] \gets \infty$,$v \in V$\Comment{Vrcholy jsou zpočátku nedosažitelné}
+		\State $d[s] \gets 0$
+		\State $p[v] \gets $ NIL,$v \in V$\Comment{Předchůdci vrcholů zpočátku neexistují}
+		\State $Q \gets V$\Comment{Prioritní fronta $Q$ obsahuje všechny vrcholy}
+		\While{$Q \ne \varnothing$}\Comment{Postupujeme, dokud není prázdná}
+			\State $u \gets extract\mbox{-}min(Q)$\Comment{Vytáhneme z fronty vrchol s nejmenší hodnotou $d[u]$}
+			\For{sousedící vrchol $v \in Adj[u]$}
+				\If{$d[v] > d[u] + w(u, v)$}
+					\State $d[v] \gets d[u] + w(u, v)$\Comment{Relaxace hrany $\{u, v\}$}
+					\State $p[v] \gets u$
+				\EndIf
+			\EndFor
+		\EndWhile
+		\State \textbf{return} $p$\Comment{Strom předchůdců}
+	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\end{center}
+\mbox{}
+
+Výsledkem je strom předchůdců, který reprezentuje strom nejkratších cest.
+Princip Dijkstrova algoritmu se objevuje i u algoritmů pro closeness,
+betweeness a BFS. V tomto případě do prioritní fronty prvotně zahrneme všechny
+vrcholy. Jinou možností je přidávat je postupně, aby vybírání z prioritní
+fronty ($extract\mbox{-}min(Q)$) bylo rychlejší. Tento způsob je použit v
+algoritmu pro closeness.
+% TODO reference algs
+
 
 \subsection{All-pair shortest paths}
 Do této kategorie spadají maticové metody, tj. graf je zadán jako matice
@@ -667,9 +832,11 @@ Výpočet provádíme pro všechny páry vrcholů pro všechny vrcholy $k$ ($|V|
 |V|$).
 
 \paragraph{Johnsonův algoritmus} nepatří mezi maticové metody, protože využívá
-metod single source shortest path pro všechny vrcholy. Váhy hran mohou být i
-záporné, ale v takovém případě je nutné provést transformaci vah pomocí
-Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty. 
+metod single source shortest path pro všechny vrcholy. V principu jednodušše
+použijeme Dijkstrův algoritmus pro každý vrchol zvlášť, ale dovolujeme váhy
+hran i záporné. V případě záporných hran je nutné provést transformaci vah
+pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty. 
+(cite CLRS)
 
 
 \section{Ostatní používané míry významnosti autorů}
@@ -740,6 +907,21 @@ transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
 
 \chapter{Diskuse}
 \section{Podobnost výsledků jednotlivých metod}
+\paragraph{DBLP}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+pagerank & 0.520 & 0.930 & 0.173 & 0.830 & 0.134 & 0.850 & 0.140 & 0.923 & - \\ 
+\hline
+pagerank & 0.514 & 0.993 & 0.210 & 0.871 & 0.130 & 0.869 & 0.136 & - \\ \cline{1-9}
+w outdegree & 0.258 & 0.127 & 0.568 & 0.179 & 0.999 & 0.193 & - \\ \cline{1-8}
+w indegree & 0.596 & 0.878 & 0.217 & 0.989 & 0.186 & - \\ \cline{1-7}
+outdegree & 0.253 & 0.121 & 0.567 & 0.173 & - \\ \cline{1-6}
+indegree & 0.571 & 0.880 & 0.203 & - \\ \cline{1-5}
+radius & 0.300 & 0.203 & - \\ \cline{1-4}
+betweeness & 0.528 & - \\ \cline{1-3}
+h-index &  - \\ \cline{1-2}
+ - \\ \cline{1-1}
+\end{tabular}
 \section{Shoda výsledků s oceněními}
 \section{Vliv vah na přesnost výsledků}
 \section{Vstupní a výstupní hrany}
@@ -757,6 +939,7 @@ transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
 
 \newpage
 \section{DBLP}
+\begin{footnotesize}
 \input{../dblp/tabels/outdegree}
 \input{../dblp/tabels/indegree}
 \input{../dblp/tabels/wOutdegree}
@@ -764,12 +947,14 @@ transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
 \input{../dblp/tabels/pagerank}
 \input{../dblp/tabels/inCloseness}
 \input{../dblp/tabels/wCloseness}
-% \input{../dblp/tabels/approximatedBetweeness_Nover4}
+\input{../dblp/tabels/approximatedbetweenessnover4}
 \input{../dblp/tabels/betweenessParallel}
 \input{../dblp/tabels/wBetweeness}
 \input{../dblp/tabels/hindex}
+\end{footnotesize}
 
 \section{CiteSeer}
+\begin{footnotesize}
 \input{../citeseer/tabels/outdegree}
 \input{../citeseer/tabels/indegree}
 \input{../citeseer/tabels/wOutdegree}
@@ -781,5 +966,6 @@ transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
 \input{../citeseer/tabels/betweenessParallel}
 \input{../citeseer/tabels/wBetweeness}
 \input{../citeseer/tabels/hindex}
+\end{footnotesize}
 
 \end{document}
