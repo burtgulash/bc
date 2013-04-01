@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  31 MAR 2013 18:56
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  1 APR 2013 11:23
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -552,7 +552,7 @@ File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count121
 ) (./thesis.aux
 
-LaTeX Warning: Label `alg:dijkstra' multiply defined.
+LaTeX Warning: Label `tab:dblpstat' multiply defined.
 
 )
 \openout1 = `thesis.aux'.
@@ -756,188 +756,188 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 LaTeX Warning: Citation `DBLP' on page 10 undefined on input line 234.
 
 
-LaTeX Warning: Citation `citeseer' on page 10 undefined on input line 247.
+LaTeX Warning: Citation `citeseer' on page 10 undefined on input line 265.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 295.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 295.
+
+
+LaTeX Warning: Citation `turingaward' on page 10 undefined on input line 301.
 
 [10
 
 ]
 
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 252.
+LaTeX Warning: Citation `dasgupta' on page 11 undefined on input line 304.
 
 
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 252.
-
-
-LaTeX Warning: Citation `turingaward' on page 11 undefined on input line 258.
-
-
-LaTeX Warning: Citation `dasgupta' on page 11 undefined on input line 261.
-
-
-Overfull \hbox (11.29433pt too wide) in paragraph at lines 263--263
+Overfull \hbox (11.29433pt too wide) in paragraph at lines 306--306
 []\OT1/cmr/bx/n/14.4 ACM SIG-MOD Ed-gar F. Codd In-no-vati-ons Award 
  []
 
 
 LaTeX Warning: Citation `sigmodinnovations' on page 11 undefined on input line 
-267.
-
-
-LaTeX Warning: Citation `acmfellows' on page 11 undefined on input line 274.
-
-
-LaTeX Warning: Citation `highlycited' on page 11 undefined on input line 281.
+310.
 
 [11]
 
+LaTeX Warning: Citation `acmfellows' on page 12 undefined on input line 317.
+
+
+LaTeX Warning: Citation `highlycited' on page 12 undefined on input line 324.
+
+
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 283.
+(hyperref)                removing `\textasciicaron' on input line 326.
 
 [12]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 320.
+(hyperref)                removing `\textring' on input line 363.
 
 [13]
 
-LaTeX Warning: Citation `langvillemeyer' on page 14 undefined on input line 377
+LaTeX Warning: Citation `langvillemeyer' on page 14 undefined on input line 420
 .
 
 [14] [15]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 448.
- [16] [17] [18]
-Overfull \hbox (3.18457pt too wide) in paragraph at lines 601--613
+put line 491.
+ [16] [17] [18] [19]
+Overfull \hbox (3.18457pt too wide) in paragraph at lines 642--654
 \OT1/cmr/m/n/12 (-20) Algoritmus TO-PRANK (Oka-moto, Chen, Li) na-jde prvn^^S^^
 Pch $\OML/cmm/m/it/12 k$ \OT1/cmr/m/n/12 (-20) nejv^^Syznamn^^Tej^^Ts^^S^^Pch
  []
 
-[19] [20] [21] [22] [23] [24] [25]
-Overfull \hbox (11.80121pt too wide) in paragraph at lines 878--881
+[20] [21] [22] [23] [24] [25] [26]
+Overfull \hbox (11.80121pt too wide) in paragraph at lines 919--922
  \OT1/cmr/bx/n/12 Floyd-Warshall^^Wuv al-go-rit-mus[] \OT1/cmr/m/n/12 (-20) sni
 ^^Tzuje ^^Tcasovou n^^Saro^^Tcnost na $\OML/cmm/m/it/12 O\OMS/cmsy/m/n/12 j\OML
 /cmm/m/it/12 V\OMS/cmsy/m/n/12 j[]$ \OT1/cmr/m/n/12 (-20) pou^^Tzit^^S^^Pm
  []
 
-[26]
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 900.
-
 [27]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 945.
+(hyperref)                removing `\textring' on input line 941.
+
+[28]
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 986.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 959.
+(hyperref)                removing `\textring' on input line 1000.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 959.
+(hyperref)                removing `\textasciicaron' on input line 1000.
 
-[28] [29]
+[29] [30]
 Kapitola 4.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 983.
+(hyperref)                removing `\textasciicaron' on input line 1024.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 983.
+(hyperref)                removing `\textasciicaron' on input line 1024.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 983.
+(hyperref)                removing `\textring' on input line 1024.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 987.
+(hyperref)                removing `\textasciicaron' on input line 1028.
 
 
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 987.
+Overfull \hbox (44.41739pt too wide) in paragraph at lines 1048--1075
+ [] 
+ []
 
-[30
+[31
 
 ]
+Overfull \hbox (47.22299pt too wide) in paragraph at lines 1080--1097
+ [] 
+ []
+
+[32]
 Kapitola 5.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 992.
-
-
-Overfull \hbox (59.52338pt too wide) in paragraph at lines 994--1008
- \OT1/cmr/bx/n/12 DBLP[] [] 
- []
+(hyperref)                removing `\textring' on input line 1101.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1008.
+(hyperref)                removing `\textring' on input line 1102.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1008.
+(hyperref)                removing `\textasciicaron' on input line 1102.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1009.
+(hyperref)                removing `\textasciicaron' on input line 1103.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1009.
+(hyperref)                removing `\textring' on input line 1103.
 
-[31
+[33
 
-] [32]
+]
 Kapitola 6.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1049.
+(hyperref)                removing `\textasciicaron' on input line 1106.
 
 No file thesis.bbl.
-[33
+[34
 
 ]
 P\v {r}\'{\i }loha A.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1056.
+(hyperref)                removing `\textasciicaron' on input line 1113.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1056.
+(hyperref)                removing `\textasciicaron' on input line 1113.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1056.
+(hyperref)                removing `\textring' on input line 1113.
 
-[34
+[35
 
 ] (../dblp/tabels/outdegree.tex
 Overfull \hbox (9.02173pt too wide) in paragraph at lines 2--67
@@ -949,42 +949,42 @@ Overfull \hbox (8.10512pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[35]) (../dblp/tabels/wOutdegree.tex
+[36]) (../dblp/tabels/wOutdegree.tex
 Overfull \hbox (10.35497pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[36]) (../dblp/tabels/wIndegree.tex
+[37]) (../dblp/tabels/wIndegree.tex
 Overfull \hbox (17.57729pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[37]) (../dblp/tabels/pagerank.tex [38]) (../dblp/tabels/inCloseness.tex
+[38]) (../dblp/tabels/pagerank.tex [39]) (../dblp/tabels/inCloseness.tex
 Overfull \hbox (23.20636pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[39]) (../dblp/tabels/wCloseness.tex
+[40]) (../dblp/tabels/wCloseness.tex
 Overfull \hbox (5.19238pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[40]) (../dblp/tabels/approximatedbetweennessnover4.tex
+[41]) (../dblp/tabels/approximatedbetweennessnover4.tex
 Overfull \hbox (130.04471pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[41]) (../dblp/tabels/betweennessParallel.tex
+[42]) (../dblp/tabels/betweennessParallel.tex
 Overfull \hbox (65.92697pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[42]) (../dblp/tabels/wBetweenness.tex
+[43]) (../dblp/tabels/wBetweenness.tex
 Overfull \hbox (20.65622pt too wide) in paragraph at lines 2--67
  [] 
  []
 
-[43]) (../dblp/tabels/hindex.tex [44]) [45] (./thesis.aux)
+[44]) (../dblp/tabels/hindex.tex [45]) [46] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -993,10 +993,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8970 strings out of 493848
- 131349 string characters out of 1152823
- 273782 words of memory out of 3000000
- 11845 multiletter control sequences out of 15000+50000
+ 8973 strings out of 493848
+ 131409 string characters out of 1152823
+ 273909 words of memory out of 3000000
+ 11848 multiletter control sequences out of 15000+50000
  17467 words of font info for 103 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  38i,9n,39p,251b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1014,9 +1014,9 @@ msfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
 ss17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (46 pages, 359463 bytes).
+Output written on thesis.pdf (47 pages, 364011 bytes).
 PDF statistics:
- 568 PDF objects out of 1000 (max. 8388607)
+ 575 PDF objects out of 1000 (max. 8388607)
  126 named destinations out of 1000 (max. 500000)
- 18313 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 18321 words of extra memory for PDF output out of 20736 (max. 10000000)
 

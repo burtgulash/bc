@@ -238,10 +238,28 @@ databází obecně pro obor informatiky. V roce 2012 obsahovala více než 2,1
 milionu článků. Metody implementované v této práci jsou aplikovány na verzi z
 roku 2004. 
 
-\subsubsection{Charakteristika}
-% TODO tzn. v jakym roce je nejvíc publikací atd.
-\subsubsection{Struktura sítě}
-\subsubsection{Rozďělení vah}
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{cc}
+\hline
+& hodnota \\
+\hline
+Počet publikací & 470554 \\
+Počet hran v síti publikací & 109130 \\
+Počet autorů & 315485 \\
+Počet hran v síti autorů & 331245 \\
+Počet samocitací & 3095 \\
+Průměrný počet spoluautorů & \\
+Největší komponenta & \\
+Průměrná nejkratší cesta & \\
+% Clustering coefficient & \\
+\hline
+\end{tabular}
+\caption{Statistiky pro databázi DBLP 2004}
+\label{tab:dblpstat}
+\end{center}
+\end{table}
+
 
 \subsection{CiteSeer}
 CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
@@ -249,6 +267,31 @@ automatizovaný systém shromažďování publikací a autonomní indexace citac
 nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
 V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
 a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{cc}
+\hline
+& hodnota \\
+\hline
+Počet publikací & \\
+Počet hran v síti publikací & \\
+Počet autorů &  \\
+Počet hran v síti autorů &  \\
+Počet samocitací &  \\
+Průměrný počet spoluautorů & \\
+Největší komponenta & \\
+Průměrná nejkratší cesta & \\
+% Clustering coefficient & \\
+\hline
+\end{tabular}
+\caption{Statistiky pro databázi CiteSeer 2005}
+\label{tab:dblpstat}
+\end{center}
+\end{table}
+
+
+
 \section{Ocenění významných autorů}
 % TODO kecy co to ty ceny jsou a k čemu jsou a proč je tu uvádim.
 \subsection{ACM A.M. Turing Award}
@@ -542,8 +585,6 @@ vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$ (Opsahl) a druhá $c(u
 původní definice closeness a výpočet se omezí na největší komponentu.
 
 
-
-% TODO zmínit největší komponentu
 \subsubsection{Algoritmus}
 Closeness pro všechny vrcholy můžeme přesně vypočítat v čase $O(|V||E| +
 |V|^2\log|V|)$, kde $V$ a $E$ jsou množiny vrcholů a hran sítě (cite JO77,
@@ -984,67 +1025,83 @@ proměnnými.
 Viz příloha A \ref{chapter:zebricky}. Hodnoty u metody PageRank jsou
 transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
 % FIXME chapter:zebricky
-\section{Porovnání nejvýznamnějších autorů}
-\section{Porovnání implementovaných metod}
+\section{Porovnání metod s oceněními}
+% \begin{tabular}{|c|c|c|c|c|}
+% H-id & 
+% IDg  & 
+% ODg  & 
+% Dg   & 
+% wIDg &
+% wODg &
+% wDg  &
+% PR   &
+% Btw  &
+% BtwA &  
+% wBtw & 
+% \end{tabular}
 
+
+\section{Porovnání implementovaných metod}
+\subsection{DBLP}
+\begin{footnotesize}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& wBtw  & BtwA  & Btw   & PR    & wDg  & wODg & wIDg & Dg   & ODg  & IDg  & H-idx \\
+\hline
+H-idx  & 0.520 & 0.830 & 0.134 & 0.529 & 0.849 & 0.140 & 0.549 & 0.754 & 0.929 & 0.923 & - \\
+\cline{1-12}
+IDg   & 0.514 & 0.872 & 0.127 & 0.571 & 0.870 & 0.133 & 0.577 & 0.807 & 0.993 & - \\
+\cline{1-11}
+ODg   & 0.517 & 0.880 & 0.121 & 0.566 & 0.877 & 0.126 & 0.573 & 0.818 & - \\
+\cline{1-10}
+Dg    & 0.533 & 0.909 & 0.102 & 0.570 & 0.898 & 0.108 & 0.570 & - \\
+\cline{1-9}
+wIDg  & 0.525 & 0.669 & 0.662 & 0.992 & 0.687 & 0.665 & - \\
+\cline{1-8}
+wODg  & 0.258 & 0.178 & 0.998 & 0.670 & 0.192 & - \\
+\cline{1-7}
+wDg   & 0.596 & 0.988 & 0.186 & 0.673 & - \\
+\cline{1-6}
+PR     & 0.508 & 0.669 & 0.670 & - \\
+\cline{1-5}
+Btw    & 0.252 & 0.173 & - \\
+\cline{1-4}
+BtwA   & 0.571 & - \\
+\cline{1-3}
+wBtw   &  - \\
+\cline{1-2}
+\end{tabular}
+\end{center}
+\end{footnotesize}
+
+\begin{footnotesize}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+& wic & ic & oc & wb & ba & b & pr & wd & wod & wid & d & od & id & hi \\
+hi & 0.67 & 0.84 & 0.49 & 0.73 & 0.88 & 0.52 & 0.76 & 0.80 & 0.86 & 0.86 & 0.93 & 0.86 & 0.47 & - \\
+id & 0.48 & 0.46 & 0.89 & 0.78 & 0.48 & 0.88 & 0.78 & 0.34 & 0.42 & 0.42 & 0.46 & 0.41 & - \\
+od & 0.62 & 0.89 & 0.43 & 0.72 & 0.87 & 0.45 & 0.71 & 0.89 & 0.96 & 0.96 & 0.87 & - \\
+d  & 0.67 & 0.86 & 0.50 & 0.75 & 0.88 & 0.52 & 0.76 & 0.81 & 0.91 & 0.91 & - \\
+wid& 0.65 & 0.91 & 0.45 & 0.74 & 0.90 & 0.47 & 0.73 & 0.89 & 0.99 & - \\
+wod& 0.65 & 0.91 & 0.45 & 0.74 & 0.90 & 0.47 & 0.74 & 0.89 & - \\
+wd & 0.67 & 0.94 & 0.38 & 0.70 & 0.92 & 0.41 & 0.70 & - \\
+pr & 0.72 & 0.80 & 0.86 & 0.98 & 0.83 & 0.88 & - \\
+b  & 0.57 & 0.52 & 0.98 & 0.87 & 0.55 & - \\
+ba & 0.75 & 0.98 & 0.53 & 0.82 & - \\
+wb & 0.69 & 0.81 & 0.87 & - \\
+oc & 0.55 & 0.50 & - \\
+ic & 0.71 & - \\
+wic&  - \\
+\end{tabular}
+\end{center}
+\end{footnotesize}
 
 \chapter{Diskuse}
 \section{Podobnost výsledků jednotlivých metod}
-\paragraph{DBLP}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline
-pagerank & 0.520 & 0.930 & 0.173 & 0.830 & 0.134 & 0.850 & 0.140 & 0.923 & - \\ 
-\hline
-pagerank & 0.514 & 0.993 & 0.210 & 0.871 & 0.130 & 0.869 & 0.136 & - \\ \cline{1-9}
-w outdegree & 0.258 & 0.127 & 0.568 & 0.179 & 0.999 & 0.193 & - \\ \cline{1-8}
-w indegree & 0.596 & 0.878 & 0.217 & 0.989 & 0.186 & - \\ \cline{1-7}
-outdegree & 0.253 & 0.121 & 0.567 & 0.173 & - \\ \cline{1-6}
-indegree & 0.571 & 0.880 & 0.203 & - \\ \cline{1-5}
-radius & 0.300 & 0.203 & - \\ \cline{1-4}
-betweenness & 0.528 & - \\ \cline{1-3}
-h-index &  - \\ \cline{1-2}
- - \\ \cline{1-1}
-\end{tabular}
 \section{Shoda výsledků s oceněními}
 \section{Vliv vah na přesnost výsledků}
 \section{Vstupní a výstupní hrany}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline
-   & WB & B & A & B & B & B & B & B & B \\
-\hline
-WB & 0.520 & 0.929 & 0.830 & 0.134 & 0.849 & 0.140 & 0.754 & 0.924 & - \\
-\hline
-B  & 0.514 & 0.993 & 0.872 & 0.133 & 0.869 & 0.138 & 0.809 & - \\
-\cline{1-9}
-A  & 0.533 & 0.818 & 0.909 & 0.102 & 0.898 & 0.108 & - \\
-\cline{1-8}
-B  & 0.258 & 0.126 & 0.178 & 0.998 & 0.192 & - \\
-\cline{1-7}
-B  & 0.596 & 0.877 & 0.988 & 0.186 & - \\
-\cline{1-6}
-B  & 0.252 & 0.121 & 0.173 & - \\
-\cline{1-5}
-B  & 0.571 & 0.880 & - \\
-\cline{1-4}
-B  & 0.517 & - \\
-\cline{1-3}
-B  &  - \\
-\cline{1-2}
-\end{tabular}
-
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
- - \\
-0.51 & - \\
-0.51 & 1.00 & - \\
-0.51 & 1.00 & 1.00 & - \\
-0.53 & 0.99 & 0.99 & 0.99 & - \\
-0.53 & 0.99 & 0.99 & 0.99 & 1.00 & - \\
-0.53 & 0.99 & 0.99 & 0.99 & 1.00 & 1.00 & - \\
-0.53 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & - \\
-0.52 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & 0.57 & 0.82 & - \\
-0.52 & 0.57 & 0.57 & 0.57 & 0.58 & 0.58 & 0.58 & 0.81 & 0.99 & - \\
-0.52 & 0.53 & 0.53 & 0.53 & 0.55 & 0.55 & 0.55 & 0.75 & 0.93 & 0.92 - \\
-\end{tabular}
 
 \chapter{Závěr}
 

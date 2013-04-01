@@ -12,54 +12,51 @@
 \contentsline {subsection}{\numberline {2.4.4}Orientovan\IeC {\'e} a neorientovan\IeC {\'e} s\IeC {\'\i }t\IeC {\v e}}{9}{subsection.2.4.4}
 \contentsline {chapter}{\numberline {3}Cita\IeC {\v c}n\IeC {\'\i } datab\IeC {\'a}ze}{10}{chapter.3}
 \contentsline {subsection}{\numberline {3.0.5}DBLP}{10}{subsection.3.0.5}
-\contentsline {subsubsection}{Charakteristika}{11}{section*.3}
-\contentsline {subsubsection}{Struktura s\IeC {\'\i }t\IeC {\v e}}{11}{section*.4}
-\contentsline {subsubsection}{Roz\IeC {\v d}\IeC {\v e}len\IeC {\'\i } vah}{11}{section*.5}
-\contentsline {subsection}{\numberline {3.0.6}CiteSeer}{11}{subsection.3.0.6}
+\contentsline {subsection}{\numberline {3.0.6}CiteSeer}{10}{subsection.3.0.6}
 \contentsline {section}{\numberline {3.1}Ocen\IeC {\v e}n\IeC {\'\i } v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{11}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}ACM A.M. Turing Award}{11}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}ACM SIGMOD Edgar F. Codd Innovations Award}{11}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}ACM Fellows}{11}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.2}ACM SIGMOD Edgar F. Codd Innovations Award}{12}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}ACM Fellows}{12}{subsection.3.1.3}
 \contentsline {subsection}{\numberline {3.1.4}ISI Highly Cited highlighted}{12}{subsection.3.1.4}
 \contentsline {section}{\numberline {3.2}Anal\IeC {\'y}za cita\IeC {\v c}n\IeC {\'\i }ch s\IeC {\'\i }t\IeC {\'\i }}{12}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Souvislost a komponenty grafu}{12}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Klika v grafu}{13}{subsection.3.2.2}
 \contentsline {section}{\numberline {3.3}V\IeC {\'y}znamnost uzl\IeC {\r u}}{13}{section.3.3}
-\contentsline {section}{\numberline {3.4}M\IeC {\'\i }ry centrality}{13}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Degree}{13}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.4}M\IeC {\'\i }ry centrality}{14}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Degree}{14}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Eigenvector}{14}{subsection.3.4.2}
-\contentsline {subsubsection}{PageRank}{15}{section*.6}
+\contentsline {subsubsection}{PageRank}{15}{section*.5}
 \contentsline {subsection}{\numberline {3.4.3}M\IeC {\'\i }ry zalo\IeC {\v z}en\IeC {\'e} na nejkrat\IeC {\v s}\IeC {\'\i }ch cest\IeC {\'a}ch}{17}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}Closeness}{17}{subsection.3.4.4}
-\contentsline {subsubsection}{Algoritmus}{18}{section*.7}
-\contentsline {subsubsection}{Aproximace}{19}{section*.8}
-\contentsline {subsection}{\numberline {3.4.5}Betweenness}{20}{subsection.3.4.5}
-\contentsline {subsubsection}{Brandes\IeC {\r u}v algoritmus}{21}{section*.9}
-\contentsline {subsubsection}{Aproximace}{23}{section*.10}
-\contentsline {section}{\numberline {3.5}Hled\IeC {\'a}n\IeC {\'\i } nejkrat\IeC {\v s}\IeC {\'\i }ch cest}{23}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Single source shortest path}{24}{subsection.3.5.1}
-\contentsline {paragraph}{BFS}{24}{section*.11}
-\contentsline {paragraph}{Bellman-Ford\IeC {\r u}v algoritmus}{24}{section*.12}
-\contentsline {paragraph}{Dijkstr\IeC {\r u}v algoritmus}{25}{section*.13}
-\contentsline {subsection}{\numberline {3.5.2}All-pair shortest paths}{26}{subsection.3.5.2}
-\contentsline {paragraph}{Shimbelova metoda}{26}{section*.14}
-\contentsline {paragraph}{Floyd-Warshall\IeC {\r u}v algoritmus}{26}{section*.15}
-\contentsline {paragraph}{Johnson\IeC {\r u}v algoritmus}{26}{section*.16}
-\contentsline {section}{\numberline {3.6}Ostatn\IeC {\'\i } pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} m\IeC {\'\i }ry v\IeC {\'y}znamnosti autor\IeC {\r u}}{27}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}H-index}{27}{subsection.3.6.1}
-\contentsline {section}{\numberline {3.7}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{28}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}Spearman\IeC {\r u}v koeficient po\IeC {\v r}adov\IeC {\'e} korelace}{28}{subsection.3.7.1}
-\contentsline {chapter}{\numberline {4}V\IeC {\'y}sledky}{30}{chapter.4}
-\contentsline {section}{\numberline {4.1}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{30}{section.4.1}
-\contentsline {section}{\numberline {4.2}Porovn\IeC {\'a}n\IeC {\'\i } nejv\IeC {\'y}znamn\IeC {\v e}j\IeC {\v s}\IeC {\'\i }ch autor\IeC {\r u}}{30}{section.4.2}
-\contentsline {section}{\numberline {4.3}Porovn\IeC {\'a}n\IeC {\'\i } implementovan\IeC {\'y}ch metod}{30}{section.4.3}
-\contentsline {chapter}{\numberline {5}Diskuse}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{31}{section.5.1}
-\contentsline {paragraph}{DBLP}{31}{section*.17}
-\contentsline {section}{\numberline {5.2}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{32}{section.5.2}
-\contentsline {section}{\numberline {5.3}Vliv vah na p\IeC {\v r}esnost v\IeC {\'y}sledk\IeC {\r u}}{32}{section.5.3}
-\contentsline {section}{\numberline {5.4}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{32}{section.5.4}
-\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{33}{chapter.6}
-\contentsline {chapter}{\numberline {A}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{34}{appendix.A}
-\contentsline {section}{\numberline {A.1}DBLP}{35}{section.A.1}
-\contentsline {section}{\numberline {A.2}CiteSeer}{45}{section.A.2}
+\contentsline {subsection}{\numberline {3.4.4}Closeness}{18}{subsection.3.4.4}
+\contentsline {subsubsection}{Algoritmus}{19}{section*.6}
+\contentsline {subsubsection}{Aproximace}{20}{section*.7}
+\contentsline {subsection}{\numberline {3.4.5}Betweenness}{21}{subsection.3.4.5}
+\contentsline {subsubsection}{Brandes\IeC {\r u}v algoritmus}{22}{section*.8}
+\contentsline {subsubsection}{Aproximace}{24}{section*.9}
+\contentsline {section}{\numberline {3.5}Hled\IeC {\'a}n\IeC {\'\i } nejkrat\IeC {\v s}\IeC {\'\i }ch cest}{24}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Single source shortest path}{25}{subsection.3.5.1}
+\contentsline {paragraph}{BFS}{25}{section*.10}
+\contentsline {paragraph}{Bellman-Ford\IeC {\r u}v algoritmus}{25}{section*.11}
+\contentsline {paragraph}{Dijkstr\IeC {\r u}v algoritmus}{26}{section*.12}
+\contentsline {subsection}{\numberline {3.5.2}All-pair shortest paths}{27}{subsection.3.5.2}
+\contentsline {paragraph}{Shimbelova metoda}{27}{section*.13}
+\contentsline {paragraph}{Floyd-Warshall\IeC {\r u}v algoritmus}{27}{section*.14}
+\contentsline {paragraph}{Johnson\IeC {\r u}v algoritmus}{27}{section*.15}
+\contentsline {section}{\numberline {3.6}Ostatn\IeC {\'\i } pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} m\IeC {\'\i }ry v\IeC {\'y}znamnosti autor\IeC {\r u}}{28}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}H-index}{28}{subsection.3.6.1}
+\contentsline {section}{\numberline {3.7}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{29}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Spearman\IeC {\r u}v koeficient po\IeC {\v r}adov\IeC {\'e} korelace}{29}{subsection.3.7.1}
+\contentsline {chapter}{\numberline {4}V\IeC {\'y}sledky}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{31}{section.4.1}
+\contentsline {section}{\numberline {4.2}Porovn\IeC {\'a}n\IeC {\'\i } metod s ocen\IeC {\v e}n\IeC {\'\i }mi}{32}{section.4.2}
+\contentsline {section}{\numberline {4.3}Porovn\IeC {\'a}n\IeC {\'\i } implementovan\IeC {\'y}ch metod}{32}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}DBLP}{32}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {5}Diskuse}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{33}{section.5.2}
+\contentsline {section}{\numberline {5.3}Vliv vah na p\IeC {\v r}esnost v\IeC {\'y}sledk\IeC {\r u}}{33}{section.5.3}
+\contentsline {section}{\numberline {5.4}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{33}{section.5.4}
+\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{34}{chapter.6}
+\contentsline {chapter}{\numberline {A}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{35}{appendix.A}
+\contentsline {section}{\numberline {A.1}DBLP}{36}{section.A.1}
+\contentsline {section}{\numberline {A.2}CiteSeer}{46}{section.A.2}

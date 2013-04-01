@@ -1,0 +1,360 @@
+START
+file: data/dblp2004-vse.csv
+31-03-2013 17:41:52
+
+Create network of publications.
+Network of publications: # of publications: 470554
+Network of publications: # of edges: 109130
+Create network of authors.
+Network of authors: # of authors: 315485
+Network of authors: # of edges: 331245
+Network of authors: # of self-citations: 3095
+Codd sum: 842
+ACMFell sum: 5816850
+ISIHC sum: 2034688
+Turing sum: 779276
+hindex.csv finished.
+checksum: 326463.0
+Codd sum: 741
+ACMFell sum: 1077282
+ISIHC sum: 525324
+Turing sum: 84191
+indegree.csv finished.
+checksum: 656300.0
+Largest clique from top 20 size: 19
+ABRAHAM SILBERSCHATZ, BRUCE G. LINDSAY, DAVID J. DEWITT, DAVID MAIER, H. V. JAGADISH, HAMID PIRAHESH, HECTOR GARCIA-MOLINA, JEFFREY D. ULLMAN, JIM GRAY, MICHAEL J. CAREY, MICHAEL STONEBRAKER, PHILIP A. BERNSTEIN, RAGHU RAMAKRISHNAN, RAKESH AGRAWAL, RAYMOND A. LORIE, SERGE ABITEBOUL, SHAMKANT B. NAVATHE, UMESHWAR DAYAL, WON KIM
+
+Codd sum: 741
+ACMFell sum: 1077282
+ISIHC sum: 525324
+Turing sum: 84191
+outdegree.csv finished.
+checksum: 656300.0
+Largest clique from top 20 size: 19
+ABRAHAM SILBERSCHATZ, BRUCE G. LINDSAY, DAVID J. DEWITT, DAVID MAIER, H. V. JAGADISH, HAMID PIRAHESH, HECTOR GARCIA-MOLINA, JEFFREY D. ULLMAN, JIM GRAY, MICHAEL J. CAREY, MICHAEL STONEBRAKER, PHILIP A. BERNSTEIN, RAGHU RAMAKRISHNAN, RAKESH AGRAWAL, RAYMOND A. LORIE, SERGE ABITEBOUL, SHAMKANT B. NAVATHE, UMESHWAR DAYAL, WON KIM
+
+Codd sum: 741
+ACMFell sum: 1077282
+ISIHC sum: 525324
+Turing sum: 84191
+degree.csv finished.
+checksum: 656300.0
+Largest clique from top 20 size: 19
+ABRAHAM SILBERSCHATZ, BRUCE G. LINDSAY, DAVID J. DEWITT, DAVID MAIER, H. V. JAGADISH, HAMID PIRAHESH, HECTOR GARCIA-MOLINA, JEFFREY D. ULLMAN, JIM GRAY, MICHAEL J. CAREY, MICHAEL STONEBRAKER, PHILIP A. BERNSTEIN, RAGHU RAMAKRISHNAN, RAKESH AGRAWAL, RAYMOND A. LORIE, SERGE ABITEBOUL, SHAMKANT B. NAVATHE, UMESHWAR DAYAL, WON KIM
+
+Codd sum: 692
+ACMFell sum: 1065801
+ISIHC sum: 511523
+Turing sum: 82652
+wIndegree.csv finished.
+checksum: 1170110.0
+Largest clique from top 20 size: 17
+DAVID J. DEWITT, H. V. JAGADISH, HAMID PIRAHESH, HECTOR GARCIA-MOLINA, JEFFREY D. ULLMAN, JEFFREY F. NAUGHTON, JENNIFER WIDOM, JIM GRAY, MICHAEL J. CAREY, MICHAEL STONEBRAKER, PHILIP A. BERNSTEIN, RAGHU RAMAKRISHNAN, RAKESH AGRAWAL, RAYMOND A. LORIE, SERGE ABITEBOUL, UMESHWAR DAYAL, WON KIM
+
+Codd sum: 692
+ACMFell sum: 1065801
+ISIHC sum: 511523
+Turing sum: 82652
+wOutdegree.csv finished.
+checksum: 1170110.0
+Largest clique from top 20 size: 17
+DAVID J. DEWITT, H. V. JAGADISH, HAMID PIRAHESH, HECTOR GARCIA-MOLINA, JEFFREY D. ULLMAN, JEFFREY F. NAUGHTON, JENNIFER WIDOM, JIM GRAY, MICHAEL J. CAREY, MICHAEL STONEBRAKER, PHILIP A. BERNSTEIN, RAGHU RAMAKRISHNAN, RAKESH AGRAWAL, RAYMOND A. LORIE, SERGE ABITEBOUL, UMESHWAR DAYAL, WON KIM
+
+Codd sum: 692
+ACMFell sum: 1065801
+ISIHC sum: 511523
+Turing sum: 82652
+wDegree.csv finished.
+checksum: 1170110.0
+Largest clique from top 20 size: 17
+DAVID J. DEWITT, H. V. JAGADISH, HAMID PIRAHESH, HECTOR GARCIA-MOLINA, JEFFREY D. ULLMAN, JEFFREY F. NAUGHTON, JENNIFER WIDOM, JIM GRAY, MICHAEL J. CAREY, MICHAEL STONEBRAKER, PHILIP A. BERNSTEIN, RAGHU RAMAKRISHNAN, RAKESH AGRAWAL, RAYMOND A. LORIE, SERGE ABITEBOUL, UMESHWAR DAYAL, WON KIM
+
+Codd sum: 867
+ACMFell sum: 805267
+ISIHC sum: 403109
+Turing sum: 41735
+pagerank.csv finished.
+checksum: 315484.99999808037
+Largest clique from top 20 size: 18
+BRADFORD W. WADE, DAVID J. DEWITT, DONALD D. CHAMBERLIN, E. F. CODD, EUGENE WONG, GIANFRANCO R. PUTZOLU, IRVING L. TRAIGER, JAMES W. MEHL, JIM GRAY, JOHN MILES SMITH, KAPALI P. ESWARAN, MICHAEL STONEBRAKER, MIKE W. BLASGEN, MORTON M. ASTRAHAN, PATRICIA P. GRIFFITHS, PETER P. CHEN, PHILIP A. BERNSTEIN, RAYMOND A. LORIE
+
+Betweeness Radius: 10000/315485
+Betweeness Radius: 20000/315485
+Betweeness Radius: 30000/315485
+Betweeness Radius: 40000/315485
+Betweeness Radius: 50000/315485
+Betweeness Radius: 60000/315485
+Betweeness Radius: 70000/315485
+Betweeness Radius: 80000/315485
+Betweeness Radius: 90000/315485
+Betweeness Radius: 100000/315485
+Betweeness Radius: 110000/315485
+Betweeness Radius: 120000/315485
+Betweeness Radius: 130000/315485
+Betweeness Radius: 140000/315485
+Betweeness Radius: 150000/315485
+Betweeness Radius: 160000/315485
+Betweeness Radius: 170000/315485
+Betweeness Radius: 180000/315485
+Betweeness Radius: 190000/315485
+Betweeness Radius: 200000/315485
+Betweeness Radius: 210000/315485
+Betweeness Radius: 220000/315485
+Betweeness Radius: 230000/315485
+Betweeness Radius: 240000/315485
+Betweeness Radius: 250000/315485
+Betweeness Radius: 260000/315485
+Betweeness Radius: 270000/315485
+Betweeness Radius: 280000/315485
+Betweeness Radius: 290000/315485
+Betweeness Radius: 300000/315485
+Betweeness Radius: 310000/315485
+Max radius: 10.0
+Codd sum: 796
+ACMFell sum: 828571
+ISIHC sum: 399720
+Turing sum: 70342
+betweennessParallel.csv finished.
+checksum: 2.6255217139582985E10
+Largest clique from top 20 size: 19
+DAVID J. DEWITT, DAVID MAIER, DONALD D. CHAMBERLIN, E. F. CODD, EUGENE WONG, FRANCCEDILOIS BANCILHON, HECTOR GARCIA-MOLINA, IRVING L. TRAIGER, JEFFREY D. ULLMAN, JIM GRAY, KAPALI P. ESWARAN, MICHAEL J. CAREY, MICHAEL STONEBRAKER, MORTON M. ASTRAHAN, NATHAN GOODMAN, PHILIP A. BERNSTEIN, RAYMOND A. LORIE, UMESHWAR DAYAL, WON KIM
+
+Betweeness: 0/315485
+Betweeness: 10000/315485
+Betweeness: 20000/315485
+Betweeness: 30000/315485
+Betweeness: 40000/315485
+Betweeness: 50000/315485
+Betweeness: 60000/315485
+Betweeness: 70000/315485
+Codd sum: 795
+ACMFell sum: 1059542
+ISIHC sum: 426089
+Turing sum: 70696
+approximatedBetweennessnover4.csv finished.
+checksum: 2.709945443805364E10
+Largest clique from top 20 size: 19
+DAVID J. DEWITT, DAVID MAIER, DONALD D. CHAMBERLIN, E. F. CODD, EUGENE WONG, FRANCCEDILOIS BANCILHON, HECTOR GARCIA-MOLINA, IRVING L. TRAIGER, JEFFREY D. ULLMAN, JIM GRAY, KAPALI P. ESWARAN, MICHAEL J. CAREY, MICHAEL STONEBRAKER, MORTON M. ASTRAHAN, NATHAN GOODMAN, PHILIP A. BERNSTEIN, RAYMOND A. LORIE, UMESHWAR DAYAL, WON KIM
+
+Weighted Betweeness: 0/315485
+Weighted Betweeness: 10000/315485
+Weighted Betweeness: 20000/315485
+Weighted Betweeness: 30000/315485
+Weighted Betweeness: 40000/315485
+Weighted Betweeness: 50000/315485
+Weighted Betweeness: 60000/315485
+Weighted Betweeness: 70000/315485
+Weighted Betweeness: 80000/315485
+Weighted Betweeness: 90000/315485
+Weighted Betweeness: 100000/315485
+Weighted Betweeness: 110000/315485
+Weighted Betweeness: 120000/315485
+Weighted Betweeness: 130000/315485
+Weighted Betweeness: 140000/315485
+Weighted Betweeness: 150000/315485
+Weighted Betweeness: 160000/315485
+Weighted Betweeness: 170000/315485
+Weighted Betweeness: 180000/315485
+Weighted Betweeness: 190000/315485
+Weighted Betweeness: 200000/315485
+Weighted Betweeness: 210000/315485
+Weighted Betweeness: 220000/315485
+Weighted Betweeness: 230000/315485
+Weighted Betweeness: 240000/315485
+Weighted Betweeness: 250000/315485
+Weighted Betweeness: 260000/315485
+Weighted Betweeness: 270000/315485
+Weighted Betweeness: 280000/315485
+Weighted Betweeness: 290000/315485
+Weighted Betweeness: 300000/315485
+Weighted Betweeness: 310000/315485
+Codd sum: 565
+ACMFell sum: 847175
+ISIHC sum: 404847
+Turing sum: 75666
+wBetweenness.csv finished.
+checksum: 1.0073248495474073E10
+Largest clique from top 20 size: 16
+C. MOHAN, DAVID J. DEWITT, DAVID MAIER, DONALD D. CHAMBERLIN, EUGENE WONG, HECTOR GARCIA-MOLINA, JEFFREY D. ULLMAN, JIM GRAY, LAWRENCE A. ROWE, MICHAEL J. CAREY, MICHAEL STONEBRAKER, NATHAN GOODMAN, PHILIP A. BERNSTEIN, RAKESH AGRAWAL, RANDY H. KATZ, RAYMOND A. LORIE
+
+Main component size (|V|, |E|): 5166, 236857
+Closeness: 0 / 5166
+Codd sum: 805
+ACMFell sum: 63753
+ISIHC sum: 34004
+Turing sum: 1384
+inCloseness.csv finished.
+checksum: 1833.6282296596837
+Largest clique from top 20 size: 19
+DAVID J. DEWITT, DAVID MAIER, DONALD D. CHAMBERLIN, E. F. CODD, EUGENE WONG, FRANCCEDILOIS BANCILHON, HECTOR GARCIA-MOLINA, IRVING L. TRAIGER, JEFFREY D. ULLMAN, JIM GRAY, KAPALI P. ESWARAN, MICHAEL J. CAREY, MICHAEL STONEBRAKER, MORTON M. ASTRAHAN, NATHAN GOODMAN, PHILIP A. BERNSTEIN, RAYMOND A. LORIE, UMESHWAR DAYAL, WON KIM
+
+Closeness: 0 / 5166
+Codd sum: 6607
+ACMFell sum: 129810
+ISIHC sum: 59701
+Turing sum: 4098
+outCloseness.csv finished.
+checksum: 1805.2098116814636
+Largest clique from top 20 size: 16
+ABRAHAM SILBERSCHATZ, CLEMENT T. YU, DAVID J. DEWITT, ELISA BERTINO, GOETZ GRAEFE, GULTEKIN OUMLZSOYOGLU, H. V. JAGADISH, HECTOR GARCIA-MOLINA, JENNIFER WIDOM, MICHAEL J. CAREY, RAGHU RAMAKRISHNAN, RAKESH AGRAWAL, RICHARD T. SNODGRASS, SERGE ABITEBOUL, SHAMKANT B. NAVATHE, STEFANO CERI
+
+Weighted Closeness: 0 / 5166
+Codd sum: 512
+ACMFell sum: 73729
+ISIHC sum: 38045
+Turing sum: 1482
+wCloseness.csv finished.
+checksum: 5077.801236075975
+Largest clique from top 20 size: 18
+BRUCE G. LINDSAY, CATRIEL BEERI, DAVID J. DEWITT, DAVID MAIER, DONALD D. CHAMBERLIN, E. F. CODD, EUGENE WONG, HECTOR GARCIA-MOLINA, IRVING L. TRAIGER, JEFFREY D. ULLMAN, JIM GRAY, LAWRENCE A. ROWE, MICHAEL J. CAREY, MICHAEL STONEBRAKER, MORTON M. ASTRAHAN, NATHAN GOODMAN, PHILIP A. BERNSTEIN, RAYMOND A. LORIE
+
+spearman(1, 0) = 0.508280
+spearman(2, 0) = 0.508280
+spearman(2, 1) = 1.000000
+spearman(3, 0) = 0.508280
+spearman(3, 1) = 1.000000
+spearman(3, 2) = 1.000000
+spearman(4, 0) = 0.525578
+spearman(4, 1) = 0.992769
+spearman(4, 2) = 0.992769
+spearman(4, 3) = 0.992769
+spearman(5, 0) = 0.525578
+spearman(5, 1) = 0.992769
+spearman(5, 2) = 0.992769
+spearman(5, 3) = 0.992769
+spearman(5, 4) = 1.000000
+spearman(6, 0) = 0.525578
+spearman(6, 1) = 0.992769
+spearman(6, 2) = 0.992769
+spearman(6, 3) = 0.992769
+spearman(6, 4) = 1.000000
+spearman(6, 5) = 1.000000
+spearman(7, 0) = 0.533862
+spearman(7, 1) = 0.570905
+spearman(7, 2) = 0.570905
+spearman(7, 3) = 0.570905
+spearman(7, 4) = 0.570317
+spearman(7, 5) = 0.570317
+spearman(7, 6) = 0.570317
+spearman(8, 0) = 0.517843
+spearman(8, 1) = 0.566961
+spearman(8, 2) = 0.566961
+spearman(8, 3) = 0.566961
+spearman(8, 4) = 0.573330
+spearman(8, 5) = 0.573330
+spearman(8, 6) = 0.573330
+spearman(8, 7) = 0.818099
+spearman(9, 0) = 0.516209
+spearman(9, 1) = 0.570777
+spearman(9, 2) = 0.570777
+spearman(9, 3) = 0.570777
+spearman(9, 4) = 0.577068
+spearman(9, 5) = 0.577068
+spearman(9, 6) = 0.577068
+spearman(9, 7) = 0.808198
+spearman(9, 8) = 0.993409
+spearman(10, 0) = 0.520180
+spearman(10, 1) = 0.529474
+spearman(10, 2) = 0.529474
+spearman(10, 3) = 0.529474
+spearman(10, 4) = 0.549150
+spearman(10, 5) = 0.549150
+spearman(10, 6) = 0.549150
+spearman(10, 7) = 0.754066
+spearman(10, 8) = 0.929241
+spearman(10, 9) = 0.923386
+spearman(1, 0) = 0.698373
+spearman(2, 0) = 0.698373
+spearman(2, 1) = 1.000000
+spearman(3, 0) = 0.698373
+spearman(3, 1) = 1.000000
+spearman(3, 2) = 1.000000
+spearman(4, 0) = 0.721204
+spearman(4, 1) = 0.984648
+spearman(4, 2) = 0.984648
+spearman(4, 3) = 0.984648
+spearman(5, 0) = 0.721204
+spearman(5, 1) = 0.984648
+spearman(5, 2) = 0.984648
+spearman(5, 3) = 0.984648
+spearman(5, 4) = 1.000000
+spearman(6, 0) = 0.721204
+spearman(6, 1) = 0.984648
+spearman(6, 2) = 0.984648
+spearman(6, 3) = 0.984648
+spearman(6, 4) = 1.000000
+spearman(6, 5) = 1.000000
+spearman(7, 0) = 0.674689
+spearman(7, 1) = 0.708118
+spearman(7, 2) = 0.708118
+spearman(7, 3) = 0.708118
+spearman(7, 4) = 0.701510
+spearman(7, 5) = 0.701510
+spearman(7, 6) = 0.701510
+spearman(8, 0) = 0.657926
+spearman(8, 1) = 0.747951
+spearman(8, 2) = 0.747951
+spearman(8, 3) = 0.747951
+spearman(8, 4) = 0.740786
+spearman(8, 5) = 0.740786
+spearman(8, 6) = 0.740786
+spearman(8, 7) = 0.894663
+spearman(9, 0) = 0.657945
+spearman(9, 1) = 0.746391
+spearman(9, 2) = 0.746391
+spearman(9, 3) = 0.746391
+spearman(9, 4) = 0.739247
+spearman(9, 5) = 0.739247
+spearman(9, 6) = 0.739247
+spearman(9, 7) = 0.894491
+spearman(9, 8) = 0.998616
+spearman(10, 0) = 0.679627
+spearman(10, 1) = 0.753087
+spearman(10, 2) = 0.753087
+spearman(10, 3) = 0.753087
+spearman(10, 4) = 0.766408
+spearman(10, 5) = 0.766408
+spearman(10, 6) = 0.766408
+spearman(10, 7) = 0.815455
+spearman(10, 8) = 0.918612
+spearman(10, 9) = 0.916478
+spearman(11, 0) = 0.626525
+spearman(11, 1) = 0.720957
+spearman(11, 2) = 0.720957
+spearman(11, 3) = 0.720957
+spearman(11, 4) = 0.712699
+spearman(11, 5) = 0.712699
+spearman(11, 6) = 0.712699
+spearman(11, 7) = 0.891281
+spearman(11, 8) = 0.961968
+spearman(11, 9) = 0.961798
+spearman(11, 10) = 0.876429
+spearman(12, 0) = 0.486337
+spearman(12, 1) = 0.783366
+spearman(12, 2) = 0.783366
+spearman(12, 3) = 0.783366
+spearman(12, 4) = 0.780464
+spearman(12, 5) = 0.780464
+spearman(12, 6) = 0.780464
+spearman(12, 7) = 0.340546
+spearman(12, 8) = 0.422278
+spearman(12, 9) = 0.420307
+spearman(12, 10) = 0.463574
+spearman(12, 11) = 0.412360
+spearman(13, 0) = 0.674273
+spearman(13, 1) = 0.734885
+spearman(13, 2) = 0.734885
+spearman(13, 3) = 0.734885
+spearman(13, 4) = 0.763596
+spearman(13, 5) = 0.763596
+spearman(13, 6) = 0.763596
+spearman(13, 7) = 0.803091
+spearman(13, 8) = 0.866502
+spearman(13, 9) = 0.864738
+spearman(13, 10) = 0.930168
+spearman(13, 11) = 0.862943
+spearman(13, 12) = 0.472274
+31-03-2013 18:51:18
+
+Elapsed time: 1:09:26
+END
