@@ -14,6 +14,9 @@
 \usepackage{caption}
 
 \usepackage{wrapfig} % testing
+\usepackage{booktabs} % beautify tables?
+
+\usepackage{chngpage}
 
 \usepackage[pdfborder=0 0 0]{hyperref}
 
@@ -240,10 +243,10 @@ roku 2004.
 
 \begin{table}[!ht]
 \begin{center}
-\begin{tabular}{cc}
-\hline
+\begin{tabular}{c|c}
+\toprule
 & hodnota \\
-\hline
+\midrule
 Počet publikací & 470554 \\
 Počet hran v síti publikací & 109130 \\
 Počet autorů & 315485 \\
@@ -253,7 +256,7 @@ Průměrný počet spoluautorů & \\
 Největší komponenta & \\
 Průměrná nejkratší cesta & \\
 % Clustering coefficient & \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{Statistiky pro databázi DBLP 2004}
 \label{tab:dblpstat}
@@ -270,10 +273,10 @@ a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 
 \begin{table}[!ht]
 \begin{center}
-\begin{tabular}{cc}
-\hline
+\begin{tabular}{c|c}
+\toprule
 & hodnota \\
-\hline
+\midrule
 Počet publikací & \\
 Počet hran v síti publikací & \\
 Počet autorů &  \\
@@ -283,7 +286,7 @@ Průměrný počet spoluautorů & \\
 Největší komponenta & \\
 Průměrná nejkratší cesta & \\
 % Clustering coefficient & \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{Statistiky pro databázi CiteSeer 2005}
 \label{tab:dblpstat}
@@ -1042,60 +1045,67 @@ transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
 
 
 \section{Porovnání implementovaných metod}
-\subsection{DBLP}
-\begin{footnotesize}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-& wBtw  & BtwA  & Btw   & PR    & wDg  & wODg & wIDg & Dg   & ODg  & IDg  & H-idx \\
-\hline
-H-idx  & 0.520 & 0.830 & 0.134 & 0.529 & 0.849 & 0.140 & 0.549 & 0.754 & 0.929 & 0.923 & - \\
-\cline{1-12}
-IDg   & 0.514 & 0.872 & 0.127 & 0.571 & 0.870 & 0.133 & 0.577 & 0.807 & 0.993 & - \\
-\cline{1-11}
-ODg   & 0.517 & 0.880 & 0.121 & 0.566 & 0.877 & 0.126 & 0.573 & 0.818 & - \\
-\cline{1-10}
-Dg    & 0.533 & 0.909 & 0.102 & 0.570 & 0.898 & 0.108 & 0.570 & - \\
-\cline{1-9}
-wIDg  & 0.525 & 0.669 & 0.662 & 0.992 & 0.687 & 0.665 & - \\
-\cline{1-8}
-wODg  & 0.258 & 0.178 & 0.998 & 0.670 & 0.192 & - \\
-\cline{1-7}
-wDg   & 0.596 & 0.988 & 0.186 & 0.673 & - \\
-\cline{1-6}
-PR     & 0.508 & 0.669 & 0.670 & - \\
-\cline{1-5}
-Btw    & 0.252 & 0.173 & - \\
-\cline{1-4}
-BtwA   & 0.571 & - \\
-\cline{1-3}
-wBtw   &  - \\
-\cline{1-2}
-\end{tabular}
-\end{center}
-\end{footnotesize}
 
-\begin{footnotesize}
+\subsection{DBLP}
+\begin{table}[!ht]
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-& wic & ic & oc & wb & ba & b & pr & wd & wod & wid & d & od & id & hi \\
-hi & 0.67 & 0.84 & 0.49 & 0.73 & 0.88 & 0.52 & 0.76 & 0.80 & 0.86 & 0.86 & 0.93 & 0.86 & 0.47 & - \\
-id & 0.48 & 0.46 & 0.89 & 0.78 & 0.48 & 0.88 & 0.78 & 0.34 & 0.42 & 0.42 & 0.46 & 0.41 & - \\
-od & 0.62 & 0.89 & 0.43 & 0.72 & 0.87 & 0.45 & 0.71 & 0.89 & 0.96 & 0.96 & 0.87 & - \\
-d  & 0.67 & 0.86 & 0.50 & 0.75 & 0.88 & 0.52 & 0.76 & 0.81 & 0.91 & 0.91 & - \\
-wid& 0.65 & 0.91 & 0.45 & 0.74 & 0.90 & 0.47 & 0.73 & 0.89 & 0.99 & - \\
-wod& 0.65 & 0.91 & 0.45 & 0.74 & 0.90 & 0.47 & 0.74 & 0.89 & - \\
-wd & 0.67 & 0.94 & 0.38 & 0.70 & 0.92 & 0.41 & 0.70 & - \\
-pr & 0.72 & 0.80 & 0.86 & 0.98 & 0.83 & 0.88 & - \\
-b  & 0.57 & 0.52 & 0.98 & 0.87 & 0.55 & - \\
-ba & 0.75 & 0.98 & 0.53 & 0.82 & - \\
-wb & 0.69 & 0.81 & 0.87 & - \\
-oc & 0.55 & 0.50 & - \\
-ic & 0.71 & - \\
-wic&  - \\
+\makebox[\linewidth]{
+\begin{small}
+\begin{tabular}{c|cccccccccccc}
+\toprule
+&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtw \\
+\midrule
+hi   &  -  &0.571&0.252&0.508&0.596&0.258&0.525&0.533&0.517&0.513&0.520\\
+ideg &0.571&  -  &0.173&0.669&0.988&0.178&0.669&0.909&0.880&0.873&0.830\\
+odeg &0.252&0.173&  -  &0.670&0.186&0.998&0.662&0.102&0.121&0.131&0.134\\
+deg  &0.508&0.669&0.670&  -  &0.673&0.670&0.992&0.570&0.566&0.573&0.529\\
+wideg&0.596&0.988&0.186&0.673&  -  &0.192&0.687&0.898&0.877&0.870&0.849\\
+wodeg&0.258&0.178&0.998&0.670&0.192&  -  &0.665&0.108&0.126&0.136&0.140\\
+wdeg &0.525&0.669&0.662&0.992&0.687&0.665&  -  &0.570&0.573&0.579&0.549\\
+pr   &0.533&0.909&0.102&0.570&0.898&0.108&0.570&  -  &0.818&0.810&0.754\\
+btw  &0.517&0.880&0.121&0.566&0.877&0.126&0.573&0.818&  -  &0.993&0.929\\
+btwA &0.513&0.873&0.131&0.573&0.870&0.136&0.579&0.810&0.993&  -  &0.924\\
+wBtw &0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
+\bottomrule
 \end{tabular}
+\end{small}
+}
 \end{center}
-\end{footnotesize}
+\caption{Tabulka korelací pro neizolované uzly}
+\label{tab:corr1}
+\end{table}
+
+
+\begin{table}[!ht]
+\begin{center}
+\makebox[\linewidth]{
+\begin{small}
+\begin{tabular}{c|ccccccccccccccc}
+\toprule
+&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtw &ic   &oc   &wic\\
+\midrule
+hi   &  -  &0.718&0.551&0.698&0.752&0.579&0.721&0.674&0.657&0.656&0.679&0.626&0.486&0.674\\
+ideg &0.718&  -  &0.509&0.813&0.984&0.527&0.804&0.940&0.918&0.917&0.865&0.890&0.467&0.844\\
+odeg &0.551&0.509&  -  &0.877&0.532&0.980&0.865&0.389&0.458&0.457&0.505&0.435&0.892&0.493\\
+deg  &0.698&0.813&0.877&  -  &0.821&0.873&0.984&0.708&0.747&0.747&0.753&0.720&0.783&0.734\\
+wideg&0.752&0.984&0.532&0.821&  -  &0.557&0.831&0.922&0.905&0.904&0.889&0.871&0.487&0.887\\
+wodeg&0.579&0.527&0.980&0.873&0.557&  -  &0.889&0.410&0.475&0.475&0.529&0.453&0.884&0.527\\
+wdeg &0.721&0.804&0.865&0.984&0.831&0.889&  -  &0.701&0.740&0.739&0.766&0.712&0.780&0.763\\
+pr   &0.674&0.940&0.389&0.708&0.922&0.410&0.701&  -  &0.894&0.894&0.815&0.891&0.340&0.803\\
+btw  &0.657&0.918&0.458&0.747&0.905&0.475&0.740&0.894&  -  &0.998&0.918&0.961&0.422&0.866\\
+btwA &0.656&0.917&0.457&0.747&0.904&0.475&0.739&0.894&0.998&  -  &0.917&0.960&0.421&0.864\\
+wBtw &0.679&0.865&0.505&0.753&0.889&0.529&0.766&0.815&0.918&0.917&  -  &0.876&0.463&0.930\\
+ic   &0.626&0.890&0.435&0.720&0.871&0.453&0.712&0.891&0.961&0.960&0.876&  -  &0.412&0.862\\
+oc   &0.486&0.467&0.892&0.783&0.487&0.884&0.780&0.340&0.422&0.421&0.463&0.412&  -  &0.472\\
+wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.472&  -  \\
+\bottomrule
+\end{tabular}
+\end{small}
+}
+\end{center}
+\caption{Tabulka korelací pro hlavní komponentu. Zahrnuty i variace closeness.}
+\label{tab:corr2}
+\end{table}
 
 \chapter{Diskuse}
 \section{Podobnost výsledků jednotlivých metod}
@@ -1115,7 +1125,6 @@ wic&  - \\
 
 \newpage
 \section{DBLP}
-\begin{footnotesize}
 \input{../dblp/tabels/outdegree}
 \input{../dblp/tabels/indegree}
 \input{../dblp/tabels/wOutdegree}
@@ -1127,7 +1136,6 @@ wic&  - \\
 \input{../dblp/tabels/betweennessParallel}
 \input{../dblp/tabels/wBetweenness}
 \input{../dblp/tabels/hindex}
-\end{footnotesize}
 
 \section{CiteSeer}
 \begin{footnotesize}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  1 APR 2013 11:23
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  1 APR 2013 15:12
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -437,6 +437,31 @@ Package caption Info: float package is loaded.
 \WF@everypar=\toks26
 Package: wrapfig 2003/01/31  v 3.6
 )
+(/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen124
+\lightrulewidth=\dimen125
+\cmidrulewidth=\dimen126
+\belowrulesep=\dimen127
+\belowbottomsep=\dimen128
+\aboverulesep=\dimen129
+\abovetopsep=\dimen130
+\cmidrulesep=\dimen131
+\cmidrulekern=\dimen132
+\defaultaddspace=\dimen133
+\@cmidla=\count115
+\@cmidlb=\count116
+\@aboverulesep=\dimen134
+\@belowrulesep=\dimen135
+\@thisruleclass=\count117
+\@lastruleclass=\count118
+\@thisrulewidth=\dimen136
+)
+(/usr/share/texmf-texlive/tex/latex/changepage/chngpage.sty
+Package: chngpage 2009/10/20 v1.2b change page layout
+\c@cp@cnt=\count119
+\c@cp@tempcnt=\count120
+)
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
 
@@ -458,9 +483,9 @@ O)
 (/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
-\@linkdim=\dimen124
-\Hy@linkcounter=\count115
-\Hy@pagecounter=\count116
+\@linkdim=\dimen137
+\Hy@linkcounter=\count121
+\Hy@pagecounter=\count122
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -527,9 +552,9 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count117
-\Field@Width=\dimen125
-\Fld@charsize=\dimen126
+\Fld@menulength=\count123
+\Field@Width=\dimen138
+\Fld@charsize=\dimen139
 \Field@toks=\toks27
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
@@ -542,14 +567,14 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count118
-\c@Item=\count119
-\c@Hfootnote=\count120
+\Hy@abspage=\count124
+\c@Item=\count125
+\c@Hfootnote=\count126
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count121
+\Fld@listcount=\count127
 ) (./thesis.aux
 
 LaTeX Warning: Label `tab:dblpstat' multiply defined.
@@ -557,34 +582,34 @@ LaTeX Warning: Label `tab:dblpstat' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
  (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count122
-\scratchdimen=\dimen127
+\scratchcounter=\count128
+\scratchdimen=\dimen140
 \scratchbox=\box31
-\nofMPsegments=\count123
-\nofMParguments=\count124
+\nofMPsegments=\count129
+\nofMParguments=\count130
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count125
-\MPscratchDim=\dimen128
-\MPnumerator=\count126
+\MPscratchCnt=\count131
+\MPscratchDim=\dimen141
+\MPnumerator=\count132
 \everyMPtoPDFconversion=\toks29
 )
-LaTeX Info: Redefining \microtypecontext on input line 20.
+LaTeX Info: Redefining \microtypecontext on input line 23.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -602,7 +627,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 20.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -610,24 +635,24 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count127
+\c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 20.
-LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
  (./thesis.out)
 (./thesis.out)
 \@outlinefile=\write3
 \openout3 = `thesis.out'.
 
 \AtBeginShipoutBox=\box32
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 (/usr/share/texmf-texlive/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -635,12 +660,12 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 (/usr/share/texmf-texlive/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 34--41
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 37--44
 $[]$ $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--41
+Underfull \hbox (badness 10000) in paragraph at lines 37--44
 
  []
 
@@ -651,7 +676,7 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.57 \tableofcontents
+l.60 \tableofcontents
                       [1] (./thesis.toc [2
 
 ])
@@ -667,17 +692,17 @@ Kapitola 2.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 61.
+(hyperref)                removing `\textasciicaron' on input line 64.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 61.
+(hyperref)                removing `\textasciicaron' on input line 64.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 63.
+(hyperref)                removing `\textasciicaron' on input line 66.
 
 [5
 
@@ -685,141 +710,141 @@ Package hyperref Warning: Composite letter `\textasciicaron+e'
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 139.
+(hyperref)                removing `\textasciicaron' on input line 142.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 162.
+(hyperref)                removing `\textasciicaron' on input line 165.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 162.
+(hyperref)                removing `\textasciicaron' on input line 165.
 
 [7]
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 170.
+(hyperref)                removing `\textasciicaron' on input line 173.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 180.
+(hyperref)                removing `\textasciicaron' on input line 183.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 180.
+(hyperref)                removing `\textring' on input line 183.
 
 [8]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 208.
+(hyperref)                removing `\textasciicaron' on input line 211.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 208.
+(hyperref)                removing `\textasciicaron' on input line 211.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 216.
+(hyperref)                removing `\textasciicaron' on input line 219.
 
 [9]
 Kapitola 3.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 227.
+(hyperref)                removing `\textasciicaron' on input line 230.
 
 
-Overfull \hbox (3.84933pt too wide) in paragraph at lines 228--232
+Overfull \hbox (3.84933pt too wide) in paragraph at lines 231--235
 \OT1/cmr/m/n/12 (-20) Cita^^Tcn^^S^^P da-tab^^Saze po-sky-tuj^^S^^P mo^^Tznost 
 vy-hled^^Sav^^San^^S^^P bib-li-o-gra-fick^^Sych ci-tac^^S^^P. V^^Tet^^Tsina
  []
 
 
-Overfull \hbox (48.34367pt too wide) in paragraph at lines 228--232
+Overfull \hbox (48.34367pt too wide) in paragraph at lines 231--235
 \OT1/cmr/m/n/12 (-20) po-sky-tuj^^S^^P kom-pletn^^S^^P text pu-b-li-kac^^S^^P, 
 kter^^Se in-de-xuj^^S^^P (cite http://library.amnh.org/research-
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 233.
+(hyperref)                than one, level fixed on input line 236.
 
 
-LaTeX Warning: Citation `DBLP' on page 10 undefined on input line 234.
+LaTeX Warning: Citation `DBLP' on page 10 undefined on input line 237.
 
 
-LaTeX Warning: Citation `citeseer' on page 10 undefined on input line 265.
+LaTeX Warning: Citation `citeseer' on page 10 undefined on input line 268.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 295.
+(hyperref)                removing `\textasciicaron' on input line 298.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 295.
+(hyperref)                removing `\textring' on input line 298.
 
 
-LaTeX Warning: Citation `turingaward' on page 10 undefined on input line 301.
+LaTeX Warning: Citation `turingaward' on page 10 undefined on input line 304.
 
 [10
 
 ]
 
-LaTeX Warning: Citation `dasgupta' on page 11 undefined on input line 304.
+LaTeX Warning: Citation `dasgupta' on page 11 undefined on input line 307.
 
 
-Overfull \hbox (11.29433pt too wide) in paragraph at lines 306--306
+Overfull \hbox (11.29433pt too wide) in paragraph at lines 309--309
 []\OT1/cmr/bx/n/14.4 ACM SIG-MOD Ed-gar F. Codd In-no-vati-ons Award 
  []
 
 
 LaTeX Warning: Citation `sigmodinnovations' on page 11 undefined on input line 
-310.
+313.
 
 [11]
 
-LaTeX Warning: Citation `acmfellows' on page 12 undefined on input line 317.
+LaTeX Warning: Citation `acmfellows' on page 12 undefined on input line 320.
 
 
-LaTeX Warning: Citation `highlycited' on page 12 undefined on input line 324.
+LaTeX Warning: Citation `highlycited' on page 12 undefined on input line 327.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 326.
+(hyperref)                removing `\textasciicaron' on input line 329.
 
 [12]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 363.
+(hyperref)                removing `\textring' on input line 366.
 
 [13]
 
-LaTeX Warning: Citation `langvillemeyer' on page 14 undefined on input line 420
+LaTeX Warning: Citation `langvillemeyer' on page 14 undefined on input line 423
 .
 
 [14] [15]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 491.
+put line 494.
  [16] [17] [18] [19]
-Overfull \hbox (3.18457pt too wide) in paragraph at lines 642--654
+Overfull \hbox (3.18457pt too wide) in paragraph at lines 645--657
 \OT1/cmr/m/n/12 (-20) Algoritmus TO-PRANK (Oka-moto, Chen, Li) na-jde prvn^^S^^
 Pch $\OML/cmm/m/it/12 k$ \OT1/cmr/m/n/12 (-20) nejv^^Syznamn^^Tej^^Ts^^S^^Pch
  []
 
 [20] [21] [22] [23] [24] [25] [26]
-Overfull \hbox (11.80121pt too wide) in paragraph at lines 919--922
+Overfull \hbox (11.80121pt too wide) in paragraph at lines 922--925
  \OT1/cmr/bx/n/12 Floyd-Warshall^^Wuv al-go-rit-mus[] \OT1/cmr/m/n/12 (-20) sni
 ^^Tzuje ^^Tcasovou n^^Saro^^Tcnost na $\OML/cmm/m/it/12 O\OMS/cmsy/m/n/12 j\OML
 /cmm/m/it/12 V\OMS/cmsy/m/n/12 j[]$ \OT1/cmr/m/n/12 (-20) pou^^Tzit^^S^^Pm
@@ -829,84 +854,74 @@ Overfull \hbox (11.80121pt too wide) in paragraph at lines 919--922
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 941.
+(hyperref)                removing `\textring' on input line 944.
 
 [28]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 986.
+(hyperref)                removing `\textring' on input line 989.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1000.
+(hyperref)                removing `\textring' on input line 1003.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1000.
+(hyperref)                removing `\textasciicaron' on input line 1003.
 
 [29] [30]
 Kapitola 4.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1024.
+(hyperref)                removing `\textasciicaron' on input line 1027.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1024.
+(hyperref)                removing `\textasciicaron' on input line 1027.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1024.
+(hyperref)                removing `\textring' on input line 1027.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1028.
-
-
-Overfull \hbox (44.41739pt too wide) in paragraph at lines 1048--1075
- [] 
- []
+(hyperref)                removing `\textasciicaron' on input line 1031.
 
 [31
 
-]
-Overfull \hbox (47.22299pt too wide) in paragraph at lines 1080--1097
- [] 
- []
-
-[32]
+] [32]
 Kapitola 5.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1101.
+(hyperref)                removing `\textring' on input line 1111.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1102.
+(hyperref)                removing `\textring' on input line 1112.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1102.
+(hyperref)                removing `\textasciicaron' on input line 1112.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1103.
+(hyperref)                removing `\textasciicaron' on input line 1113.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1103.
+(hyperref)                removing `\textring' on input line 1113.
 
 [33
 
@@ -915,7 +930,7 @@ Kapitola 6.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1106.
+(hyperref)                removing `\textasciicaron' on input line 1116.
 
 No file thesis.bbl.
 [34
@@ -925,66 +940,28 @@ P\v {r}\'{\i }loha A.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1113.
+(hyperref)                removing `\textasciicaron' on input line 1123.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1113.
+(hyperref)                removing `\textasciicaron' on input line 1123.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1113.
+(hyperref)                removing `\textring' on input line 1123.
 
 [35
 
-] (../dblp/tabels/outdegree.tex
-Overfull \hbox (9.02173pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-) (../dblp/tabels/indegree.tex
-Overfull \hbox (8.10512pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[36]) (../dblp/tabels/wOutdegree.tex
-Overfull \hbox (10.35497pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[37]) (../dblp/tabels/wIndegree.tex
-Overfull \hbox (17.57729pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[38]) (../dblp/tabels/pagerank.tex [39]) (../dblp/tabels/inCloseness.tex
-Overfull \hbox (23.20636pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[40]) (../dblp/tabels/wCloseness.tex
-Overfull \hbox (5.19238pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[41]) (../dblp/tabels/approximatedbetweennessnover4.tex
-Overfull \hbox (130.04471pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[42]) (../dblp/tabels/betweennessParallel.tex
-Overfull \hbox (65.92697pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[43]) (../dblp/tabels/wBetweenness.tex
-Overfull \hbox (20.65622pt too wide) in paragraph at lines 2--67
- [] 
- []
-
-[44]) (../dblp/tabels/hindex.tex [45]) [46] (./thesis.aux)
+] (../dblp/tabels/outdegree.tex) (../dblp/tabels/indegree.tex)
+(../dblp/tabels/wOutdegree.tex) (../dblp/tabels/wIndegree.tex)
+(../dblp/tabels/pagerank.tex) (../dblp/tabels/inCloseness.tex)
+(../dblp/tabels/wCloseness.tex)
+(../dblp/tabels/approximatedbetweennessnover4.tex)
+(../dblp/tabels/betweennessParallel.tex) (../dblp/tabels/wBetweenness.tex)
+(../dblp/tabels/hindex.tex) [36] [37] [38] [39] [40] [41] [42] [43] [44]
+[45] [46] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -993,11 +970,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8973 strings out of 493848
- 131409 string characters out of 1152823
- 273909 words of memory out of 3000000
- 11848 multiletter control sequences out of 15000+50000
- 17467 words of font info for 103 fonts, out of 3000000 for 9000
+ 9070 strings out of 493848
+ 132714 string characters out of 1152823
+ 393521 words of memory out of 3000000
+ 11924 multiletter control sequences out of 15000+50000
+ 16799 words of font info for 101 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  38i,9n,39p,251b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
@@ -1014,9 +991,9 @@ msfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
 ss17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (47 pages, 364011 bytes).
+Output written on thesis.pdf (47 pages, 363663 bytes).
 PDF statistics:
- 575 PDF objects out of 1000 (max. 8388607)
- 126 named destinations out of 1000 (max. 500000)
+ 591 PDF objects out of 1000 (max. 8388607)
+ 139 named destinations out of 1000 (max. 500000)
  18321 words of extra memory for PDF output out of 20736 (max. 10000000)
 

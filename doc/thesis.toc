@@ -48,9 +48,9 @@
 \contentsline {subsection}{\numberline {3.7.1}Spearman\IeC {\r u}v koeficient po\IeC {\v r}adov\IeC {\'e} korelace}{29}{subsection.3.7.1}
 \contentsline {chapter}{\numberline {4}V\IeC {\'y}sledky}{31}{chapter.4}
 \contentsline {section}{\numberline {4.1}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{31}{section.4.1}
-\contentsline {section}{\numberline {4.2}Porovn\IeC {\'a}n\IeC {\'\i } metod s ocen\IeC {\v e}n\IeC {\'\i }mi}{32}{section.4.2}
-\contentsline {section}{\numberline {4.3}Porovn\IeC {\'a}n\IeC {\'\i } implementovan\IeC {\'y}ch metod}{32}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}DBLP}{32}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.2}Porovn\IeC {\'a}n\IeC {\'\i } metod s ocen\IeC {\v e}n\IeC {\'\i }mi}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}Porovn\IeC {\'a}n\IeC {\'\i } implementovan\IeC {\'y}ch metod}{31}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}DBLP}{31}{subsection.4.3.1}
 \contentsline {chapter}{\numberline {5}Diskuse}{33}{chapter.5}
 \contentsline {section}{\numberline {5.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{33}{section.5.1}
 \contentsline {section}{\numberline {5.2}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{33}{section.5.2}
@@ -59,4 +59,4 @@
 \contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{34}{chapter.6}
 \contentsline {chapter}{\numberline {A}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{35}{appendix.A}
 \contentsline {section}{\numberline {A.1}DBLP}{36}{section.A.1}
-\contentsline {section}{\numberline {A.2}CiteSeer}{46}{section.A.2}
+\contentsline {section}{\numberline {A.2}CiteSeer}{37}{section.A.2}
