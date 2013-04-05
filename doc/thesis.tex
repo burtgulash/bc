@@ -18,6 +18,7 @@
 
 \usepackage{chngpage}
 
+
 \usepackage[pdfborder=0 0 0]{hyperref}
 
 \begin{document}
@@ -70,9 +71,9 @@ sociálních uspořádání na všech úrovních - od osobních až po mezináro
 mezi organizacemi.
 
 Nejčastěji se ale setkáme se sociální sítí jako strukturou tvořenou lidmi,
-kteří jsou svázáni nějakým sociálním vztahem.  Nejčastěji, zejména v poslední
-době s rozmachem populárních webových sociálních sítí (MySpace, Facebook, G+,
-Lidé), jím bývá přátelství.
+kteří jsou svázáni nějakým sociálním vztahem, zejména v poslední době s
+rozmachem populárních webových sociálních sítí (MySpace, Facebook, G+, Lidé),
+jím bývá přátelství.
 
 \section{Reprezentace sítí}
 Abychom mohli pracovat s doposud abstraktním konceptem sítě, musíme být schopni
@@ -88,7 +89,7 @@ grafu.
 V definici grafu je množina hran $E$ soubor dvojic, které označují koncové uzly
 hrany, neboli jejich spojení. Samotné spojení je jediná informace, kterou
 množina hran nese. Chceme-li zaznamenat nějakou další informaci, která je
-spojená se spojením dvou uzlů, namísto hrany jako dvojice koncových uzlů
+spojená se spojením dvou uzlů, namísto hrany jako dvojice koncových uzlů,
 nadefinujeme hranu jako n-tici, kde první dvě hodnoty jsou koncové uzly a zbylé
 hodnoty nesou libovolnou informaci. Ve většině případů si vystačíme s jednou
 dodatečnou informací a nazýváme ji váha hrany. Jiná možnost pro zavedení vah
@@ -99,22 +100,23 @@ Při zavedení vah máme například možnost používat síť jako multigraf, t
 u kterého je povoleno více spojení mezi dvěma stejnými uzly. Počet stejných
 hran pak pouze zaznamenáme celočíselnou hodnotou ve váze hrany.
 
-Například síť world wide web tvořená webovými stránkami je příkladem
+Síť world wide web tvořená webovými stránkami je příkladem
 multigrafu, protože je povoleno z jedné stránky odkazovat na jinou na více
-místech. Při analýze takových sítí využijeme právě vah hran a počet
+místech. Při analýze takovýchto sítí využijeme právě vah hran a počet
 hypertextových odkazů mezi dvěma stránkami zaznamenáme vyšším ohodnocením
 hrany. V tomhle případě znamená vyšší váha silnější pouto mezi uzly.
 
-Jiným případem může být například síť kde sledujeme města a dopravní spojení
-mezi nimi. V tomhle případě nás může zajímat vzdálenost nebo časová náročnost
-na dopravu mezi dvěma městy, které budou znamenat silnější pouto pokud budou
-mít naopak menší váhu. Hledáme totiž nejkratší a nejrychlejší spojení.
+Jiným případem může být např. síť, kde sledujeme města a dopravní spojení
+mezi nimi. V tomto případě nás může zajímat vzdálenost nebo časová náročnost
+na dopravu mezi dvěma městy, které budou znamenat silnější pouto, pokud budou
+mít naopak menší váhu. Hledáme totiž nejkratší či nejrychlejší spojení.
 
 
-Pro reprezentaci v paměti počítače se nejčastěji používají dva způsoby - matice sousednosti a graf pomocí spojových seznamů.
-Hrany se uzlu v případě orientovaného grafu liší z pohledu jednoho uzlu. Pokud
-hrana vychází z tohoto uzlu, nazveme ji výstupní hrana, v opačném případě se
-bude jednat o vstupní hranu.
+Pro reprezentaci v paměti počítače se nejčastěji používají dva způsoby - matice
+sousednosti a graf pomocí spojových seznamů.  Hrany se uzlu v případě
+orientovaného grafu liší z pohledu jednoho uzlu. Pokud hrana vychází z tohoto
+uzlu, nazveme ji výstupní hrana, v opačném případě se bude jednat o vstupní
+hranu.
 
 
 Matice sousednosti (adjacency matrix) je čtvercová matice $A$ o velikosti počtu
@@ -143,64 +145,63 @@ graf pomocí spojových seznamů (adjacency list representation of a graph).
 Více než 40 let byly považovány všechny komplexní sítě za naprosto náhodné.
 Paul Erdős a Alfréd Rényi v roce 1959 navrhli modelování komunikačních sítí a
 sítí, které se vyskytují v přírodních vědách, spojením uzlů náhodnými hranami.
-Tento jednoduchý způsob způsobí rozložení stupňů vrcholů podle Poissonova
-rozdělení s charakteristickou křivkou připomínající zvon - většina uzlů má
-zhruba stejný stupeň. V roce 1998 bylo na univerzitě v Notre Dame (Barabási a
-kolegové) provedeno mapování sítě World Wide Web s očekáváním, že výsledkem
-bude náhodná síť. Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo
-přes všechna očekávání, zcela jiné rozdělení stupňů - mocninné. Přes $80\%$
-uzlů mělo méně než čtyři spojení, ale méně než $0.01\%$ uzlů mělo více než
-tisíc spojení.
+Tato jednoduchá metoda vytvoření náhodného grafu způsobí rozložení stupňů
+vrcholů (počet spojení vrcholu s ostatními) podle Poissonova rozdělení s
+charakteristickou křivkou připomínající zvon - většina uzlů má zhruba stejný
+stupeň. 
+V roce 1998 bylo na univerzitě v Notre Dame (Barabási a kolegové) provedeno
+mapování sítě World Wide Web s očekáváním, že výsledkem bude náhodná síť.
+Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo přes všechna
+očekávání, zcela jiné rozdělení stupňů - mocninné. Přes $80\%$ uzlů mělo méně
+než čtyři spojení, ale méně než $0.01\%$ uzlů mělo více než tisíc spojení.
 Sítě, které se řídí mocninným rozdělením, nazvali Barabási a jeho kolegové
 bezškálovými sítěmi (scale-free network). Rozpoznání tohoto jevu vedlo k
 lepšímu porozumění šíření virů a epidemií nebo proč některé sítě fungují takřka
-beze změny i přes poruchu většiny jejich uzlů.
-Sociální a citační sítě se řadí do kategorie bezškálových sítí. Například autor
-vědecké literatury, jehož dílo je v dané oblasti známé, má velkou šanci, že
-bude citován dalšími autory, především těmi novými. Stejně tak osoba v sociální
-síti s velkým počtem přátel má velikou šanci, že bude představen novým lidem a
-rozšíří si tak svůj kruh přátel ještě více. Tomuto jevu v bezškálových sítí se
-říká \uv{bohatší se stává bohatším}.
+beze změny i přes poruchu většiny jejich uzlů.  Sociální a citační sítě se řadí
+do kategorie bezškálových sítí. Například autor vědecké literatury, jehož dílo
+je v dané oblasti známé, má velkou šanci, že bude citován dalšími autory,
+především těmi novými. Stejně tak osoba s velkým počtem přátel má velikou
+šanci, že bude představen novým lidem a rozšíří si tak svůj okruh přátel ještě
+více. Tomuto jevu v bezškálových sítí se říká \uv{bohatší se stává bohatším}.
 
 \section{Citační sítě}
 Citační sítě jsou podobné sociálním sítím, pouze místo uzlů, které představují
-osoby, v citační síti se jedná o publikace nebo autory těchto publikací.  Pokud
+osoby, se v citační síti jedná o publikace nebo autory těchto publikací. Pokud
 je uzlem publikace, pak hrany této sítě symbolizují citaci publikace jinou
 publikací. V druhém případě uvažujeme síť, kde uzly reprezentují autory knih,
 vědeckých článků, vědecké literatury a dalších publikací. Prvnímu typu říkáme
 síť publikací, druhému síť autorů.
 
-\subsection{Síť publikací}
+\subsection{Citační síť publikací}
 Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
-mezi těmito publikacemi, jedná se o síť publikací. Tedy pokud publikace $A$
-odkazuje na publikaci $B$, pak budou existovat stejnojmenné uzly $A$ a $B$ a
-hrana mezi těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr
-od citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít
-hrana, kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.
-Výstupní hrana laicky řečeno označuje vztah "cituji", kdežto vstupní hrana
-znamená "jsem citován".
+mezi těmito publikacemi, jedná se o síť publikací. Pokud publikace $A$ odkazuje
+na publikaci $B$, budou existovat stejnojmenné uzly $A$ a $B$ a hrana mezi
+těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr od
+citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít hrana,
+kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.  Výstupní
+hrana, laicky řečeno, označuje vztah \uv{cituji}, kdežto vstupní hrana znamená
+\uv{jsem citován}.
 
-\subsection{Síť autorů}
-Druhým případem citační sítě je síť autorů. Zde je uzel reprezentací autora a
+\subsection{Citační síť autorů}
+Druhou citační sítí je citační síť autorů. Zde je uzel reprezentací autora a
 hrany spojují autory mezi sebou. Ve většině případech máme k dispozici data ve
-formátu, který přímo odpovídá síti publikací, tzn. pro jednu publikaci známe
+formátu, který přímo odpovídá síti publikací, tj. pro každou publikaci známe
 seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
 transformací sítě publikací tak, že každou hranu z původní sítě publikací
-přiřadíme každému z autorů této publikace a duplikujeme ji pro každého z autorů
-citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
+přiřadíme každému z autorů citující publikace a duplikujeme ji pro každého z
+autorů citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
 publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
-publikací, i zde uvažujeme dvě opačné orientace hrany se stejnou interpretací,
-tedy "cituji" a "jsem citován". 
+publikací, i zde uvažujeme opačné orientace hrany.
 
 V síti autorů má pro naše účely smysl uvažovat ohodnocení hran. Existuje více
-způsobů, jak přiřadit ohodnocení (váhy) jednotlivým hranám, ale nejjednodušším
-způsobem, který je použitý i v implementaci knihovny, je prosté přiřazení počtu
-publikací, jejichž autorem nebo spoluautorem je daný autor $A$, které odkazují
-na publikace, jejichž autorem je autor $B$. Srozumitelnější popis poskytne
+způsobů, jak lze přiřadit ohodnocení (váhu) jednotlivým hranám, ale
+nejjednodušším způsobem, který je použitý i v implementaci knihovny, je prosté
+přiřazení počtu publikací, jejichž autorem je daný autor $A$, které odkazují na
+publikace, jejichž autorem je autor $B$. Srozumitelnější popis poskytne
 obrázek:
 %% TODO figure váha hran.
 
-Druhým způsobem ohodnocení hran, který rovněž využívá implementovaná knihovna
+Druhou možností ohodnocení hran, který rovněž využívá implementovaná knihovna
 pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
 je přímá souvislost mezi vahou hrany a vzdáleností mezi uzly. V prvním případě,
 kdy silnější pouto mezi autory vyjadřuje vyšší ohodnocení hrany, v druhém
@@ -211,9 +212,9 @@ nejkratších cest mezi uzly.
 \subsection{Vážené citační sítě}
 Pro citační sítě můžeme uvažovat ohodnocení hran obojího typu. Například mezi
 dvěma autory může být silnější vztah, pokud se citují ve více publikacích.
-Pokud citační síť analyzujeme metodami, které jsou založené na myšlence hledání
-nejkratších cest i v této síti, která nemá v podstatě žádný pojem vzdálenosti,
-použijeme druhý typ ohodnocení - menší váha, silnější pouto.
+Jestliže citační síť analyzujeme metodami, které jsou založené na myšlence
+hledání nejkratších cest i v této síti, která nemá v podstatě žádný pojem
+vzdálenosti, použijeme druhý typ ohodnocení - menší váha, silnější pouto.
 
 
 \subsection{Orientované a neorientované sítě}

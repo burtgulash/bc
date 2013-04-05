@@ -1,21 +1,30 @@
 public class Degree {
-	public static ResultRow[] compute(Graph g, boolean weighted, boolean in) {
+	public static ResultRow[] compute(Graph g, boolean weighted, Direction d) {
 		ResultRow[] result = new ResultRow[g.vSize()];
 
 		int i = 0;
 		for (Vertex v : g.getVertices()) {
-			int deg;
+			int deg = 0;
 
-			if (in) {
+			switch (d) {
+			case IN:
 				if (weighted)
 					deg = v.weightedIndegree();
 				else
 					deg = v.indegree();
-			} else {
+				break;
+			case OUT:
 				if (weighted)
 					deg = v.weightedOutdegree();
 				else
 					deg = v.outdegree();
+				break;
+			case BOTH:
+				if (weighted)
+					deg = v.weightedDegree();
+				else
+					deg = v.degree();
+				break;
 			}
 
 			result[i] = new ResultRow(g.getVertexName(v.id), deg);
@@ -24,5 +33,9 @@ public class Degree {
 		}
 
 		return result;
+	}
+
+	public enum Direction {
+		IN, OUT, BOTH;
 	}
 }

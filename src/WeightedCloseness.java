@@ -4,6 +4,7 @@ public class WeightedCloseness {
 		ResultRow[] result = new ResultRow[n];
 		int[][] links = Links.getIns(g);
 		double[][] ws = Links.getReciprocalWeightsInEdges(g);
+		double total = 0;
 
 		for (int v = 0; v < n; v++) {
 			if (verbose)
@@ -39,12 +40,16 @@ public class WeightedCloseness {
 				assert (false);
 				break;
 			}
+			
+			total += farness;
 
 			double closeness = 0;
 			if (farness > 0)
 				closeness = (n - 1) / farness;
 			result[v] = new ResultRow(g.getVertexName(v), closeness);
 		}
+		
+		System.out.println("Average shortest path: " + (total / n));
 
 		return result;
 	}

@@ -14,12 +14,15 @@ public class Load {
 			System.out.println("Create network of publications.");
 		Graph publications = new Graph();
 
+		int n = 0, coauthor_count = 0;
 		try {
 			r = new BufferedReader(new FileReader(file));
 
 			// remove csv description line
 			r.readLine();
+			
 			while ((line = r.readLine()) != null) {
+				n++;
 				String[] xs = line.split(";");
 				String pubId = xs[0];
 				if (pubId == null)
@@ -27,8 +30,10 @@ public class Load {
 
 				Vertex v = publications.addVertex(pubId);
 
-				for (String author : xs[3].split("#"))
+				for (String author : xs[3].split("#")) {
 					v.addDatum(author.toUpperCase());
+					coauthor_count ++;
+				}
 				if (xs.length >= 6)
 					for (String citationId : xs[5].split("#"))
 						publications.addEdge(pubId, citationId, 1, false);
@@ -49,6 +54,9 @@ public class Load {
 			System.out.println("Network of publications: # of edges: "
 					+ publications.eSize());
 		}
+		
+		if (verbose)
+			System.out.println("Average # of coauthors: " + (coauthor_count / n));
 
 		return publications;
 	}

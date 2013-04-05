@@ -7,12 +7,13 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 	private final static boolean VERBOSE = true;
-	private final static int DONT_APPROXIMATE = -1;
 	private final static int TOP_K = 20;
 	private final static int LIMIT = 30;
 
@@ -29,11 +30,10 @@ public class Main {
 	final static String BIB_DB = dir + DB;
 
 	private static Graph authors;
-	private static ResultRow[][] results = new ResultRow[9][];
 	private static String dbname = null;
+	private static Map<Integer, String> methodName = new HashMap<Integer, String>();
 
 	public static void work() {
-
 		// Create graphs
 		Graph publications = Load.publications(new File(BIB_DB), VERBOSE);
 		authors = Load.authors(publications, VERBOSE);
@@ -46,95 +46,97 @@ public class Main {
 		ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
 		sortAndWrite(hindex, "hindex.csv", LIMIT);
 		printChecksum(hindex);
-		results[0] = hindex;
 
 		System.gc();
 		StatisticalDistribution.printEdgeWeightDistribution(authors);
 
 		// Compute indegree
-		ResultRow[][] btwnsrds = BetweenessRadius.compute(authors, true);
-		sortAndWrite(btwnsrds[0], "betweenessParallel.csv", LIMIT);
-		printChecksum(btwnsrds[0]);
-		printClique(authors, btwnsrds[0], TOP_K);
-		results[1] = btwnsrds[0];
-
-		sortAndWrite(btwnsrds[1], "radius.csv", LIMIT, true);
-		printChecksum(btwnsrds[1]);
-		printClique(authors, btwnsrds[1], TOP_K);
-		results[2] = btwnsrds[1];
-		btwnsrds = null;
-
-		// if (true)
-		// return;
-
-		// Compute indegree
-		ResultRow[] indegree = Degree.compute(authors, false, true);
+		ResultRow[] indegree = Degree.compute(authors, false,
+				Degree.Direction.IN);
 		sortAndWrite(indegree, "indegree.csv", LIMIT);
 		printChecksum(indegree);
 		printClique(authors, indegree, TOP_K);
-		results[3] = indegree;
 
 		// Compute outdegree
-		ResultRow[] outdegree = Degree.compute(authors, false, false);
+		ResultRow[] outdegree = Degree.compute(authors, false,
+				Degree.Direction.OUT);
 		sortAndWrite(outdegree, "outdegree.csv", LIMIT);
 		printChecksum(outdegree);
 		printClique(authors, outdegree, TOP_K);
-		results[4] = outdegree;
+
+		// Compute indegree
+		ResultRow[] degree = Degree.compute(authors, false,
+				Degree.Direction.BOTH);
+		sortAndWrite(degree, "degree.csv", LIMIT);
+		printChecksum(degree);
+		printClique(authors, degree, TOP_K);
 
 		// Compute weighted indegree
-		ResultRow[] wIndegree = Degree.compute(authors, true, true);
+		ResultRow[] wIndegree = Degree.compute(authors, true,
+				Degree.Direction.IN);
 		sortAndWrite(wIndegree, "wIndegree.csv", LIMIT);
 		printChecksum(wIndegree);
 		printClique(authors, wIndegree, TOP_K);
-		results[5] = wIndegree;
 
 		// Compute outdegree
-		ResultRow[] wOutdegree = Degree.compute(authors, true, false);
+		ResultRow[] wOutdegree = Degree.compute(authors, true,
+				Degree.Direction.OUT);
 		sortAndWrite(wOutdegree, "wOutdegree.csv", LIMIT);
 		printChecksum(wOutdegree);
 		printClique(authors, wOutdegree, TOP_K);
-		results[6] = wOutdegree;
+
+		// Compute outdegree
+		ResultRow[] wDegree = Degree.compute(authors, true,
+				Degree.Direction.BOTH);
+		sortAndWrite(wDegree, "wDegree.csv", LIMIT);
+		printChecksum(wDegree);
+		printClique(authors, wDegree, TOP_K);
 
 		// Compute pagerank
 		ResultRow[] pagerank = PageRank.compute(authors);
 		sortAndWrite(pagerank, "pagerank.csv", LIMIT);
 		printChecksum(pagerank);
 		printClique(authors, pagerank, TOP_K);
-		results[7] = pagerank;
 
-		final int BETWEENESS_C = DONT_APPROXIMATE;
+		// Compute parallel exact betweenness
+		ResultRow[] betweennessExact = Betweenness.compute(authors, 1, true);
+		sortAndWrite(betweennessExact, "betweenness.csv", LIMIT);
+		printChecksum(betweennessExact);
+		printClique(authors, betweennessExact, TOP_K);
 
-		// Compute Betweeness
-		ResultRow[] betweeness = Betweeness.compute(authors, 4, VERBOSE);
-		sortAndWrite(betweeness, "approximatedBetweeness_Nover4.csv", LIMIT);
-		printChecksum(betweeness);
-		printClique(authors, betweeness, TOP_K);
-		results[7] = betweeness;
+		// Compute parallel betweenness approximated : n / 4
+		ResultRow[] betweenness4 = Betweenness.compute(authors, 4, true);
+		sortAndWrite(betweenness4, "betweennessA4.csv", LIMIT);
+		printChecksum(betweenness4);
+		printClique(authors, betweenness4, TOP_K);
 
-		// Compute weightedBetweeness
-		ResultRow[] wBetweeness = WeightedBetweeness.compute(authors,
-				BETWEENESS_C, VERBOSE);
-		sortAndWrite(wBetweeness, "wBetweeness.csv", LIMIT);
-		printChecksum(wBetweeness);
-		printClique(authors, wBetweeness, TOP_K);
-		results[8] = wBetweeness;
+		// Compute weightedBetweenness
+		ResultRow[] wBetweenness = WeightedBetweenness.compute(authors, 4,
+				VERBOSE);
+		sortAndWrite(wBetweenness, "wBetweenness.csv", LIMIT);
+		printChecksum(wBetweenness);
+		printClique(authors, wBetweenness, TOP_K);
 
 		// Get largest (main) component of the graph of authors.
 		Graph mainComponent = Components.getLargest(authors);
 		System.out.printf("Main component size (|V|, |E|): %d, %d%n",
 				mainComponent.vSize(), mainComponent.eSize());
+		System.out.println("Percentage: "
+				+ ((double) mainComponent.vSize() * 100)
+				/ (double) authors.vSize());
 
 		// Compute closeness
-		ResultRow[] inCloseness = Closeness.compute(mainComponent, true, VERBOSE);
+		ResultRow[] inCloseness = Closeness.compute(mainComponent, true,
+				VERBOSE);
 		sortAndWrite(inCloseness, "inCloseness.csv", LIMIT);
 		printChecksum(inCloseness);
 		printClique(authors, inCloseness, TOP_K);
-		
-		ResultRow[] outCloseness = Closeness.compute(mainComponent, false, VERBOSE);
+
+		ResultRow[] outCloseness = Closeness.compute(mainComponent, false,
+				VERBOSE);
 		sortAndWrite(outCloseness, "outCloseness.csv", LIMIT);
 		printChecksum(outCloseness);
 		printClique(authors, outCloseness, TOP_K);
-		// results[9] = closeness;
 
 		// Compute weighted closeness
 		ResultRow[] wCloseness = WeightedCloseness.compute(mainComponent,
@@ -142,20 +144,121 @@ public class Main {
 		sortAndWrite(wCloseness, "wCloseness.csv", LIMIT);
 		printChecksum(wCloseness);
 		printClique(authors, wCloseness, TOP_K);
-		// results[10] = wCloseness;
+
+		ResultRow[][] results = new ResultRow[11][];
+		results[0] = hindex;
+		results[1] = indegree;
+		results[2] = outdegree;
+		results[3] = degree;
+		results[4] = wIndegree;
+		results[5] = wOutdegree;
+		results[6] = wDegree;
+		results[7] = pagerank;
+		results[9] = betweennessExact;
+		results[8] = betweenness4;
+		results[10] = wBetweenness;
+
+		methodName.put(0, "hindex    ");
+		methodName.put(1, "indegree  ");
+		methodName.put(2, "outdegree ");
+		methodName.put(3, "degree    ");
+		methodName.put(4, "wIndegree ");
+		methodName.put(5, "wOutdegree");
+		methodName.put(6, "wDegree   ");
+		methodName.put(7, "pagerank  ");
+		methodName.put(8, "betwParall");
+		methodName.put(9, "betwApp4  ");
+		methodName.put(10, "wBetweenne");
+
+		// Correlations for table without closeness
+		printCorrelations(results);
+
+		ResultRow[][] resultsForClosenessCorrelations = new ResultRow[14][];
+
+		for (int i = 0; i < results.length; i++)
+			resultsForClosenessCorrelations[i] = matchResultRows(inCloseness,
+					results[i]);
+
+		resultsForClosenessCorrelations[11] = inCloseness;
+		resultsForClosenessCorrelations[12] = outCloseness;
+		resultsForClosenessCorrelations[13] = wCloseness;
+
+		methodName.put(11, "inClosenes");
+		methodName.put(12, "outClosene");
+		methodName.put(13, "wCloseness");
+
+		// Correlations for table with closeness
+		printCorrelations(resultsForClosenessCorrelations);
+	}
+
+	public static void work2() {
+		// Create graphs
+		Graph publications = Load.publications(new File(BIB_DB), VERBOSE);
+		authors = Load.authors(publications, VERBOSE);
+
+		// free publications
+		publications = null;
+		authors.makeUndirected();
+
+		ResultRow[][] results = new ResultRow[7][];
+		results[0] = Betweenness.compute(authors, 1, true);
+		results[1] = Betweenness.compute(authors, 2, true);
+		results[2] = Betweenness.compute(authors, 4, true);
+		results[3] = Betweenness.compute(authors, 8, true);
+		results[4] = Betweenness.compute(authors, 16, true);
+		results[5] = Betweenness.compute(authors, 32, true);
+		results[6] = Betweenness.compute(authors, 64, true);
+
+		for (int i = 0; i < results.length; i++)
+			sortAndWrite(results[i], "btw_no_" + i + ".csv", 50);
+
+		methodName = new HashMap<Integer, String>();
+		methodName.put(0, "1");
+		methodName.put(1, "2");
+		methodName.put(2, "4");
+		methodName.put(3, "8");
+		methodName.put(4, "16");
+		methodName.put(5, "32");
+		methodName.put(6, "64");
+
+		printCorrelations(results);
+	}
+
+	private static ResultRow[] matchResultRows(ResultRow[] r1, ResultRow[] r2) {
+		ResultRow[] smaller = r1;
+		ResultRow[] larger = r2;
+
+		Map<String, Boolean> exists = new HashMap<String, Boolean>();
+		for (ResultRow r : smaller)
+			exists.put(r.name, true);
+		ResultRow[] newR = new ResultRow[smaller.length];
+
+		int i = 0;
+		for (ResultRow r : larger)
+			if (exists.containsKey(r.name))
+				newR[i++] = r;
+
+		return newR;
 	}
 
 	private static void printCorrelations(ResultRow[][] results) {
 		for (int i = 0; i < results.length; i++)
 			results[i] = removeSingletons(authors, results[i]);
-		
+
 		for (int i = 0; i < results.length; i++) {
-			for (int j = 0; j < i; j++) {
-				System.out.printf("spearman(%d, %d) = %f%n", i, j,
-						Correlation.spearman(results[i], results[j]));
-				System.out.println();
+			for (int j = 0; j < results.length; j++) {
+				if (i != j) {
+					System.out.printf("spearman(%s, %s) = %f",
+							methodName.get(i), methodName.get(j),
+							Correlation.spearman(results[i], results[j]));
+					System.out.println();
+				}
 			}
 		}
+
+		System.out.println();
+		System.out.println();
+		System.out.println();
 	}
 
 	private static void printClique(Graph g, ResultRow[] rs, int limit) {
@@ -186,9 +289,10 @@ public class Main {
 		printDate(start);
 		System.out.println();
 
+		// TODO TODO TODO
 		work();
-
-		printCorrelations(results);
+		// work2();
+		// TODO TODO TODO
 
 		Date end = getTime();
 		printDate(end);
@@ -232,21 +336,15 @@ public class Main {
 			ResultRow[] result) {
 		List<ResultRow> notSingletons = new LinkedList<ResultRow>();
 
-		for (ResultRow r : result) {
+		for (ResultRow r : result)
 			if (authors.getVertex(r.name).degree() > 0)
 				notSingletons.add(r);
-		}
 
 		return notSingletons.toArray(new ResultRow[notSingletons.size()]);
 	}
 
 	private static void sortAndWrite(ResultRow[] result, String fileName,
 			int limit) {
-		sortAndWrite(result, fileName, limit, false);
-	}
-
-	private static void sortAndWrite(ResultRow[] result, String fileName,
-			int limit, boolean reversed) {
 
 		Arrays.sort(result, new Comparator<ResultRow>() {
 			@Override
@@ -255,12 +353,12 @@ public class Main {
 			}
 		});
 
-		if (reversed)
-			for (int i = 0; i < result.length / 2; i++) {
-				ResultRow tmp = result[i];
-				result[i] = result[result.length - 1 - i];
-				result[result.length - 1 - i] = tmp;
-			}
+		// if (reversed)
+		// for (int i = 0; i < result.length / 2; i++) {
+		// ResultRow tmp = result[i];
+		// result[i] = result[result.length - 1 - i];
+		// result[result.length - 1 - i] = tmp;
+		// }
 
 		boolean[] Codd = null, ACMFell = null, ISIHC = null, Turing = null;
 
