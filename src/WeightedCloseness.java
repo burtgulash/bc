@@ -4,7 +4,9 @@ public class WeightedCloseness {
 		ResultRow[] result = new ResultRow[n];
 		int[][] links = Links.getIns(g);
 		double[][] ws = Links.getReciprocalWeightsInEdges(g);
-		double total = 0;
+		double total_length = 0;
+		double nPaths = 0;
+		double diameter = -1;
 
 		for (int v = 0; v < n; v++) {
 			if (verbose)
@@ -23,6 +25,9 @@ public class WeightedCloseness {
 					visited[cur.to] = true;
 
 					farness += cur.w;
+					if (cur.w > diameter)
+						diameter = cur.w;
+					nPaths++;
 
 					for (int i = 0; i < links[cur.to].length; i++) {
 						int e = links[cur.to][i];
@@ -41,7 +46,7 @@ public class WeightedCloseness {
 				break;
 			}
 			
-			total += farness;
+			total_length += farness;
 
 			double closeness = 0;
 			if (farness > 0)
@@ -49,7 +54,8 @@ public class WeightedCloseness {
 			result[v] = new ResultRow(g.getVertexName(v), closeness);
 		}
 		
-		System.out.println("Average shortest path: " + (total / n));
+		System.out.println("Average weighted shortest path: " + (total_length / nPaths));
+		System.out.println("Weighted diameter: " + diameter);
 
 		return result;
 	}

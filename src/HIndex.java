@@ -76,9 +76,9 @@ public class HIndex {
 			});
 
 			// Compute h-index
-			int h = 0;
+			int h = 1;
 			for (Publication pub : pubs) {
-				if (pub.cited < h)
+				if (pub.cited <= h)
 					break;
 				h++;
 			}

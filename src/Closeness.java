@@ -5,6 +5,9 @@ public class Closeness {
 	public static ResultRow[] compute(Graph g, boolean in, boolean verbose) {
 		int n = g.vSize();
 		ResultRow[] result = new ResultRow[n];
+		double nPaths = 0;
+		double diameter = 0;
+		double total_length = 0;
 
 		// FIXME Closeness on IN-edges!!!
 		int[][] links;
@@ -30,6 +33,9 @@ public class Closeness {
 
 				// Update closeness/farness here
 				farness += cur.w;
+				if (cur.w > diameter)
+					diameter = cur.w;
+				nPaths ++;
 
 				for (int e : links[cur.to]) {
 					if (!visited[e]) {
@@ -38,6 +44,8 @@ public class Closeness {
 					}
 				}
 			}
+			
+			total_length += farness;
 
 			double closeness = 0;
 			if (farness > 0)
@@ -45,6 +53,9 @@ public class Closeness {
 
 			result[v] = new ResultRow(g.getVertexName(v), closeness);
 		}
+		
+		System.out.println("Average shortest path: " + (total_length / nPaths));
+		System.out.println("Diameter: " + diameter);
 
 		return result;
 	}

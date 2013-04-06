@@ -44,7 +44,7 @@ public class Main {
 
 		// Compute h-index
 		ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
-		sortAndWrite(hindex, "hindex.csv", LIMIT);
+		sortAndWrite(hindex, "hi.csv", LIMIT);
 		printChecksum(hindex);
 
 		System.gc();
@@ -53,67 +53,67 @@ public class Main {
 		// Compute indegree
 		ResultRow[] indegree = Degree.compute(authors, false,
 				Degree.Direction.IN);
-		sortAndWrite(indegree, "indegree.csv", LIMIT);
+		sortAndWrite(indegree, "ideg.csv", LIMIT);
 		printChecksum(indegree);
 		printClique(authors, indegree, TOP_K);
 
 		// Compute outdegree
 		ResultRow[] outdegree = Degree.compute(authors, false,
 				Degree.Direction.OUT);
-		sortAndWrite(outdegree, "outdegree.csv", LIMIT);
+		sortAndWrite(outdegree, "odeg.csv", LIMIT);
 		printChecksum(outdegree);
 		printClique(authors, outdegree, TOP_K);
 
 		// Compute indegree
 		ResultRow[] degree = Degree.compute(authors, false,
 				Degree.Direction.BOTH);
-		sortAndWrite(degree, "degree.csv", LIMIT);
+		sortAndWrite(degree, "deg.csv", LIMIT);
 		printChecksum(degree);
 		printClique(authors, degree, TOP_K);
 
 		// Compute weighted indegree
 		ResultRow[] wIndegree = Degree.compute(authors, true,
 				Degree.Direction.IN);
-		sortAndWrite(wIndegree, "wIndegree.csv", LIMIT);
+		sortAndWrite(wIndegree, "wideg.csv", LIMIT);
 		printChecksum(wIndegree);
 		printClique(authors, wIndegree, TOP_K);
 
 		// Compute outdegree
 		ResultRow[] wOutdegree = Degree.compute(authors, true,
 				Degree.Direction.OUT);
-		sortAndWrite(wOutdegree, "wOutdegree.csv", LIMIT);
+		sortAndWrite(wOutdegree, "wodeg.csv", LIMIT);
 		printChecksum(wOutdegree);
 		printClique(authors, wOutdegree, TOP_K);
 
 		// Compute outdegree
 		ResultRow[] wDegree = Degree.compute(authors, true,
 				Degree.Direction.BOTH);
-		sortAndWrite(wDegree, "wDegree.csv", LIMIT);
+		sortAndWrite(wDegree, "wdeg.csv", LIMIT);
 		printChecksum(wDegree);
 		printClique(authors, wDegree, TOP_K);
 
 		// Compute pagerank
 		ResultRow[] pagerank = PageRank.compute(authors);
-		sortAndWrite(pagerank, "pagerank.csv", LIMIT);
+		sortAndWrite(pagerank, "pr.csv", LIMIT);
 		printChecksum(pagerank);
 		printClique(authors, pagerank, TOP_K);
 
 		// Compute parallel exact betweenness
 		ResultRow[] betweennessExact = Betweenness.compute(authors, 1, true);
-		sortAndWrite(betweennessExact, "betweenness.csv", LIMIT);
+		sortAndWrite(betweennessExact, "btw.csv", LIMIT);
 		printChecksum(betweennessExact);
 		printClique(authors, betweennessExact, TOP_K);
 
 		// Compute parallel betweenness approximated : n / 4
 		ResultRow[] betweenness4 = Betweenness.compute(authors, 4, true);
-		sortAndWrite(betweenness4, "betweennessA4.csv", LIMIT);
+		sortAndWrite(betweenness4, "btwA.csv", LIMIT);
 		printChecksum(betweenness4);
 		printClique(authors, betweenness4, TOP_K);
 
 		// Compute weightedBetweenness
 		ResultRow[] wBetweenness = WeightedBetweenness.compute(authors, 4,
 				VERBOSE);
-		sortAndWrite(wBetweenness, "wBetweenness.csv", LIMIT);
+		sortAndWrite(wBetweenness, "wBtwA.csv", LIMIT);
 		printChecksum(wBetweenness);
 		printClique(authors, wBetweenness, TOP_K);
 
@@ -128,20 +128,20 @@ public class Main {
 		// Compute closeness
 		ResultRow[] inCloseness = Closeness.compute(mainComponent, true,
 				VERBOSE);
-		sortAndWrite(inCloseness, "inCloseness.csv", LIMIT);
+		sortAndWrite(inCloseness, "ic.csv", LIMIT);
 		printChecksum(inCloseness);
 		printClique(authors, inCloseness, TOP_K);
 
 		ResultRow[] outCloseness = Closeness.compute(mainComponent, false,
 				VERBOSE);
-		sortAndWrite(outCloseness, "outCloseness.csv", LIMIT);
+		sortAndWrite(outCloseness, "oc.csv", LIMIT);
 		printChecksum(outCloseness);
 		printClique(authors, outCloseness, TOP_K);
 
 		// Compute weighted closeness
 		ResultRow[] wCloseness = WeightedCloseness.compute(mainComponent,
 				VERBOSE);
-		sortAndWrite(wCloseness, "wCloseness.csv", LIMIT);
+		sortAndWrite(wCloseness, "wic.csv", LIMIT);
 		printChecksum(wCloseness);
 		printClique(authors, wCloseness, TOP_K);
 

@@ -1053,33 +1053,64 @@ klesá. Hodnota $0$ znamená kompletní náhodnost či nezávislost mezi měřen
 proměnnými.
 
 
-
 \section{Porovnání implementovaných metod}
-% TODO vysvětlení tabulky, jak se to vypočetlo. Co se muselo odstranit za uzly, proč dvě tabulky.
+První tabulka ukazuje vypočtené Spearmanovy koeficienty pořadové korelace mezi
+všemi páry implementovaných metod. Do výpočtu koeficientu korelace byly
+zahrnuty pouze ty uzly, které mají alespoň jednu hranu. Pokud by byly
+zachovány, většina koeficientů korelace by byla velmi vysoká (větší než
+$0.95$), protože většina vrcholů, zejména v databázi DBLP, jsou osamocené
+vrcholy. Protože jsou výsledky seřazeny podle hodnoty centrality a poté podle
+jména autora, všechny tyto izolované vrcholy, které nijak nepřispívají k
+hodnotě centrality, jsou pro všechny metody umístěné na posledních pozicích v
+tomtéž pořadí. Důsledkem je vysoký koeficient korelace, který nám však nic
+nevypoví o podobnosti výsledků metod.
+
+Jelikož výpočet pro centralitu closeness ve všech implementovaných variantách
+(vstupní hrany, výstupní hrany, vážený closeness) byl proveden pouze na
+největší silně spojité komponentě, nelze přímo provést srovnání pomocí
+koeficientu korelace s výsledky metod, které byly aplikovány na celý graf,
+protože se jedná o dvě neporovnatelné proměnné. Proto byli z výsledků metod pro
+celý graf odebráni ti autoři, kteří se nenacházejí v hlavní silně spojité
+komponentě. Pro tyto žebříčky bylo provedeno stejné srovnání pomocí Spearmanova
+koeficientu korelace pořadí křížově mezi všemi metodami.
+
+% TODO vysvětlení tabulky, jak se to vypočetlo. Co se muselo odstranit za uzly,
+% proč dvě tabulky.
 
 \begin{table}[!ht]
 \begin{center}
-\begin{tabular}{l|l|c|c}
+\begin{tabular}{r|l|c|c|c|c}
 \toprule
-zkratka & metoda & $t_{DBLP}$ & $t_{CiteSeer}$ \\
+zkratka & metoda & $t_{DBLP}$ & $t_{CiteSeer}$ & klika$_{DBLP}$\footnotemark & klika$_{CiteSeer}$\footnotemark \\
 \midrule
-hi    & H-index                         \\
-ideg  & indegree                        \\
-odeg  & outdegree                       \\
-deg   & degree                          \\
-wideg & vážený indegree                 \\
-wodeg & vážený outdegree                \\
-wdeg  & vážený degree                   \\
-pr    & PageRank                        \\
-btw   & betweenness                     \\
-btwA  & aproximace betweenness          \\
-wBtw  & aproximace váženého betweenness \\
+hi    & H-index                            \\
+ideg  & indegree                           \\
+odeg  & outdegree                          \\
+deg   & degree                             \\
+wideg & vážený indegree                    \\
+wodeg & vážený outdegree                   \\
+wdeg  & vážený degree                      \\
+pr    & PageRank                           \\
+btw   & betweenness                        \\
+btwA  & aproximace betweenness             \\
+wBtwA & aproximace váženého betweenness    \\
+ic    & closeness pro vstupní hrany        \\
+oc    & closeness pro výstupní hrany       \\
+wic   & vážený closeness pro vstupní hrany \\
 \bottomrule
 \end{tabular}
 \end{center}
 \caption{Implementované metody}
 \label{tab:impmetody}
 \end{table}
+
+\footnotetext{Největší klika mezi prvními 25 autory}
+
+% TODO popsat, proč dělam ideg, odeg, deg. Pak proč vážený degree. Pak proč
+% betweenness exaktní, aproximovanej a váženej dělam jenom aproximovanej.  Pak
+% to samý s closeness a proč dělam closeness i pro in a out hrany. Protože
+% incloseness je super podobný s indegree a všema invěcma, ale betweenness
+% takový pro outhrany. Divný ne?
 
 \subsection{DBLP}
 \begin{table}[!ht]
@@ -1088,7 +1119,7 @@ wBtw  & aproximace váženého betweenness \\
 \begin{small}
 \begin{tabular}{c|cccccccccccc}
 \toprule
-&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtw \\
+&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtwA\\
 \midrule
 hi   &  -  &0.571&0.252&0.508&0.596&0.258&0.525&0.533&0.517&0.513&0.520\\
 ideg &0.571&  -  &0.173&0.669&0.988&0.178&0.669&0.909&0.880&0.873&0.830\\
@@ -1100,7 +1131,7 @@ wdeg &0.525&0.669&0.662&0.992&0.687&0.665&  -  &0.570&0.573&0.579&0.549\\
 pr   &0.533&0.909&0.102&0.570&0.898&0.108&0.570&  -  &0.818&0.810&0.754\\
 btw  &0.517&0.880&0.121&0.566&0.877&0.126&0.573&0.818&  -  &0.993&0.929\\
 btwA &0.513&0.873&0.131&0.573&0.870&0.136&0.579&0.810&0.993&  -  &0.924\\
-wBtw &0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
+wBtwA&0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 \bottomrule
 \end{tabular}
 \end{small}
@@ -1117,7 +1148,7 @@ wBtw &0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 \begin{small}
 \begin{tabular}{c|ccccccccccccccc}
 \toprule
-&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtw &ic   &oc   &wic\\
+&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtwA&ic   &oc   &wic\\
 \midrule
 hi   &  -  &0.718&0.551&0.698&0.752&0.579&0.721&0.674&0.657&0.656&0.679&0.626&0.486&0.674\\
 ideg &0.718&  -  &0.509&0.813&0.984&0.527&0.804&0.940&0.918&0.917&0.865&0.890&0.467&0.844\\
@@ -1129,7 +1160,7 @@ wdeg &0.721&0.804&0.865&0.984&0.831&0.889&  -  &0.701&0.740&0.739&0.766&0.712&0.
 pr   &0.674&0.940&0.389&0.708&0.922&0.410&0.701&  -  &0.894&0.894&0.815&0.891&0.340&0.803\\
 btw  &0.657&0.918&0.458&0.747&0.905&0.475&0.740&0.894&  -  &0.998&0.918&0.961&0.422&0.866\\
 btwA &0.656&0.917&0.457&0.747&0.904&0.475&0.739&0.894&0.998&  -  &0.917&0.960&0.421&0.864\\
-wBtw &0.679&0.865&0.505&0.753&0.889&0.529&0.766&0.815&0.918&0.917&  -  &0.876&0.463&0.930\\
+wBtwA&0.679&0.865&0.505&0.753&0.889&0.529&0.766&0.815&0.918&0.917&  -  &0.876&0.463&0.930\\
 ic   &0.626&0.890&0.435&0.720&0.871&0.453&0.712&0.891&0.961&0.960&0.876&  -  &0.412&0.862\\
 oc   &0.486&0.467&0.892&0.783&0.487&0.884&0.780&0.340&0.422&0.421&0.463&0.412&  -  &0.472\\
 wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.472&  -  \\
@@ -1142,24 +1173,43 @@ wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.
 \label{tab:corr2}
 \end{table}
 
+\clearpage
 \section{Žebříčky významných autorů}
-Viz příloha A \ref{chapter:zebricky}. Hodnoty u metody PageRank jsou
-transformovány z intervalu $[0; 1]$ na $[0; |V|]$.
+Viz příloha \ref{chapter:zebricky}, sekce \ref{section:zebrickydblp} pro
+databázi DBLP a sekce \ref{section:zebrickyciteseer} pro databázi CiteSeer.
+Hodnoty u metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$
+na $[0; |V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny
+hodnoty PageRanku zanedbatelně malé.
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{r|l|c|c}
+\toprule
+zkratka & metoda & $t_{DBLP}$ & $t_{CiteSeer}$ \\
+\midrule
+hi    & H-index                            \\
+ideg  & indegree                           \\
+odeg  & outdegree                          \\
+deg   & degree                             \\
+wideg & vážený indegree                    \\
+wodeg & vážený outdegree                   \\
+wdeg  & vážený degree                      \\
+pr    & PageRank                           \\
+btw   & nevážený betweenness               \\
+btwA  & aproximace neváženého betweenness  \\
+wBtwA & aproximace váženého betweenness    \\
+ic    & closeness pro vstupní hrany        \\
+oc    & closeness pro výstupní hrany       \\
+wic   & vážený closeness pro vstupní hrany \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Implementované metody}
+\label{tab:impmetody}
+\end{table}
+
+
 % FIXME chapter:zebricky
 \section{Porovnání metod s oceněními}
-% \begin{tabular}{|c|c|c|c|c|}
-% H-id & 
-% IDg  & 
-% ODg  & 
-% Dg   & 
-% wIDg &
-% wODg &
-% wDg  &
-% PR   &
-% Btw  &
-% BtwA &  
-% wBtw & 
-% \end{tabular}
 
 \chapter{Diskuse}
 \section{Podobnost výsledků jednotlivých metod}

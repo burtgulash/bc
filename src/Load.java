@@ -56,7 +56,7 @@ public class Load {
 		}
 		
 		if (verbose)
-			System.out.println("Average # of coauthors: " + (coauthor_count / n));
+			System.out.println("Average # of coauthors: " + ((double) coauthor_count / (double) n));
 
 		return publications;
 	}
