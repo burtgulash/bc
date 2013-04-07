@@ -1,0 +1,38 @@
+\begin{thebibliography}{DPV08}
+
+\bibitem[acm]{acmfellows}
+Acm fellows.
+\newblock \url{http://fellows.acm.org/}.
+
+\bibitem[cit]{citeseer}
+Citeseerx.
+\newblock \url{http://citeseerx.ist.psu.edu}.
+
+\bibitem[DBL]{DBLP}
+Dblp bibliography.
+\newblock \url{http://www.informatik.uni-trier.de/~ley/db}.
+
+\bibitem[DPV08]{dasgupta}
+S.~Dasgupta, C.~Papadimitriou, and U.~Vazirani.
+\newblock {\em Algorithms}.
+\newblock McGraw-Hill, 2008.
+
+\bibitem[hig]{highlycited}
+Highly cited research.
+\newblock \url{http://researchanalytics.thomsonreuters.com/highlycited/}.
+
+\bibitem[LM06]{langvillemeyer}
+Amy~N. Langville and Carl~D. Meyer.
+\newblock {\em Google's PageRank and Beyond: The Science of Search Engine
+  Rankings}.
+\newblock Princeton University Press, Princeton, NJ, 2006.
+
+\bibitem[sig]{sigmodinnovations}
+Sigmod awards.
+\newblock \url{http://www.sigmod.org/sigmod-awards}.
+
+\bibitem[tur]{turingaward}
+A.m. turing award.
+\newblock \url{http://amturing.acm.org}.
+
+\end{thebibliography}

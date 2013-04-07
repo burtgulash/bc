@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: thesis.aux
+The style file: alpha.bst
+Database file #1: reference.bib
+Warning--to sort, need author or key in DBLP
+Warning--to sort, need author or key in citeseer
+Warning--to sort, need author or key in turingaward
+Warning--to sort, need author or key in sigmodinnovations
+Warning--to sort, need author or key in acmfellows
+Warning--to sort, need author or key in highlycited
+You've used 8 entries,
+            2543 wiz_defined-function locations,
+            588 strings with 5080 characters,
+and the built_in function-call counts, 1980 in all, are:
+= -- 188
+> -- 50
+< -- 0
++ -- 15
+- -- 15
+* -- 107
+:= -- 271
+add.period$ -- 18
+call.type$ -- 8
+change.case$ -- 35
+chr.to.int$ -- 8
+cite$ -- 20
+duplicate$ -- 90
+empty$ -- 213
+format.name$ -- 17
+if$ -- 441
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 4
+newline$ -- 37
+num.names$ -- 6
+pop$ -- 78
+preamble$ -- 1
+purify$ -- 45
+quote$ -- 0
+skip$ -- 82
+stack$ -- 0
+substring$ -- 62
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 6
+while$ -- 6
+width$ -- 11
+write$ -- 81
+(There were 6 warnings)

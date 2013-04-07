@@ -158,6 +158,9 @@ public class Main {
 		results[8] = betweenness4;
 		results[10] = wBetweenness;
 
+		sortAndWrite(results[0], "test.csv", 30);
+		writeRankTable("table.csv", results);
+
 		methodName.put(0, "hindex    ");
 		methodName.put(1, "indegree  ");
 		methodName.put(2, "outdegree ");
@@ -182,6 +185,10 @@ public class Main {
 		resultsForClosenessCorrelations[11] = inCloseness;
 		resultsForClosenessCorrelations[12] = outCloseness;
 		resultsForClosenessCorrelations[13] = wCloseness;
+		
+		for (int i = 0; i < resultsForClosenessCorrelations.length; i++)
+			sortAndWrite(resultsForClosenessCorrelations[i], "test.csv", 30);
+		writeRankTable("tableCloseness.csv", resultsForClosenessCorrelations);
 
 		methodName.put(11, "inClosenes");
 		methodName.put(12, "outClosene");
@@ -222,6 +229,36 @@ public class Main {
 		methodName.put(6, "64");
 
 		printCorrelations(results);
+	}
+
+	private static void writeRankTable(String fileName, ResultRow[]... methods) {
+		int[][] ranks = new int[methods.length][methods[0].length];
+		Map<String, Integer> firstRank = new HashMap<String, Integer>();
+		PrintWriter w = null;
+		try {
+			w = new PrintWriter(new FileWriter(new File(fileName)));
+		} catch (IOException e) {
+			System.err.println("Error writing to file.");
+			return;
+		}
+
+		for (int i = 0; i < methods[0].length; i++)
+			firstRank.put(methods[0][i].name, i);
+
+		for (int i = 0; i < methods.length; i++)
+			for (int j = 0; j < methods[i].length; j++)
+				ranks[i][firstRank.get(methods[i][j].name)] = j + 1;
+
+		for (int j = 0; j < methods[0].length; j++) {
+			w.print(methods[0][j].name);
+			for (int i = 0; i < methods.length; i++) {
+				w.print(";");
+				w.print(ranks[i][j]);
+			}
+			w.println();
+		}
+
+		w.close();
 	}
 
 	private static ResultRow[] matchResultRows(ResultRow[] r1, ResultRow[] r2) {
