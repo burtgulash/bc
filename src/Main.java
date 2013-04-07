@@ -327,8 +327,8 @@ public class Main {
 		System.out.println();
 
 		// TODO TODO TODO
-		work();
-		// work2();
+//		work();
+		 work2();
 		// TODO TODO TODO
 
 		Date end = getTime();

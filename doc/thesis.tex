@@ -4,7 +4,6 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{graphicx}
 \usepackage{microtype}
 \usepackage[Sonny]{fncychap}
 
@@ -18,6 +17,8 @@
 
 \usepackage{chngpage}
 
+\usepackage{graphicx}
+\usepackage{epstopdf}
 
 \usepackage[pdfborder=0 0 0]{hyperref}
 
@@ -268,6 +269,12 @@ Poloměr grafu\footnotemark[2] & 6.637 \\
 \end{center}
 \end{table}
 
+\begin{figure}[!ht]
+\centering
+	\includegraphics[width=10cm,angle=270]{ewd.eps}
+	\caption{Mocninné rozdělení vah hran ($\frac{1}{w}$) citační sítě autorů DBLP}
+\end{figure}
+
 
 \subsection{CiteSeer}
 CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
@@ -275,28 +282,6 @@ automatizovaný systém shromažďování publikací a autonomní indexace citac
 nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
 V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
 a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
-
-\begin{table}[!ht]
-\begin{center}
-\begin{tabular}{c|c}
-\toprule
-& hodnota \\
-\midrule
-Počet publikací & \\
-Počet hran v síti publikací & \\
-Počet autorů &  \\
-Počet hran v síti autorů &  \\
-Počet samocitací &  \\
-Průměrný počet spoluautorů & \\
-Největší silně spojitá komponenta & \\
-Průměrná nejkratší cesta & \\
-% Clustering coefficient & \\
-\bottomrule
-\end{tabular}
-\caption{Statistiky pro databázi CiteSeer 2005}
-\label{tab:dblpstat}
-\end{center}
-\end{table}
 
 
 \footnotetext[1]{Platí pro neváženou síť autorů}
@@ -1262,6 +1247,29 @@ ALBERTO O. MENDELZON&30&68&34&43&43&40&38&81&90&95&43\\
 
 % FIXME chapter:zebricky
 \section{Porovnání metod s oceněními}
+
+\section{Aproximace betweenness centrality}
+\begin{table}[!ht]
+\begin{center}
+\makebox[\linewidth]{
+\begin{tabular}{r|l}
+\toprule
+zlomek velikosti množiny $V$ & koeficient korelace \\
+\midrule
+1  & 1.000\,000 \\
+2  & 0.998\,151 \\
+4  & 0.996\,191 \\
+8  & 0.990\,510 \\
+16 & 0.979\,103 \\
+32 & 0.976\,887 \\
+64 & 0.976\,745 \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness}
+\label{tab:btwA}
+\end{table}
 
 \chapter{Diskuse}
 \section{Podobnost výsledků jednotlivých metod}
