@@ -42,77 +42,103 @@ public class Main {
 		publications = null;
 		authors.makeUndirected();
 
+		long start;
+
 		// Compute h-index
+		start = System.currentTimeMillis();
 		ResultRow[] hindex = HIndex.compute(new File(BIB_DB));
+		printRunningTime(start);
 		sortAndWrite(hindex, "hi.csv", LIMIT);
+		printClique(authors, hindex, TOP_K);
 		printChecksum(hindex);
 
 		System.gc();
 		StatisticalDistribution.printEdgeWeightDistribution(authors);
 
 		// Compute indegree
+
+		start = System.currentTimeMillis();
 		ResultRow[] indegree = Degree.compute(authors, false,
 				Degree.Direction.IN);
+		printRunningTime(start);
 		sortAndWrite(indegree, "ideg.csv", LIMIT);
 		printChecksum(indegree);
 		printClique(authors, indegree, TOP_K);
 
 		// Compute outdegree
+		start = System.currentTimeMillis();
 		ResultRow[] outdegree = Degree.compute(authors, false,
 				Degree.Direction.OUT);
+		printRunningTime(start);
 		sortAndWrite(outdegree, "odeg.csv", LIMIT);
 		printChecksum(outdegree);
 		printClique(authors, outdegree, TOP_K);
 
 		// Compute indegree
+		start = System.currentTimeMillis();
 		ResultRow[] degree = Degree.compute(authors, false,
 				Degree.Direction.BOTH);
+		printRunningTime(start);
 		sortAndWrite(degree, "deg.csv", LIMIT);
 		printChecksum(degree);
 		printClique(authors, degree, TOP_K);
 
 		// Compute weighted indegree
+		start = System.currentTimeMillis();
 		ResultRow[] wIndegree = Degree.compute(authors, true,
 				Degree.Direction.IN);
+		printRunningTime(start);
 		sortAndWrite(wIndegree, "wideg.csv", LIMIT);
 		printChecksum(wIndegree);
 		printClique(authors, wIndegree, TOP_K);
 
 		// Compute outdegree
+		start = System.currentTimeMillis();
 		ResultRow[] wOutdegree = Degree.compute(authors, true,
 				Degree.Direction.OUT);
+		printRunningTime(start);
 		sortAndWrite(wOutdegree, "wodeg.csv", LIMIT);
 		printChecksum(wOutdegree);
 		printClique(authors, wOutdegree, TOP_K);
 
 		// Compute outdegree
+		start = System.currentTimeMillis();
 		ResultRow[] wDegree = Degree.compute(authors, true,
 				Degree.Direction.BOTH);
+		printRunningTime(start);
 		sortAndWrite(wDegree, "wdeg.csv", LIMIT);
 		printChecksum(wDegree);
 		printClique(authors, wDegree, TOP_K);
 
 		// Compute pagerank
+		start = System.currentTimeMillis();
 		ResultRow[] pagerank = PageRank.compute(authors);
+		printRunningTime(start);
 		sortAndWrite(pagerank, "pr.csv", LIMIT);
 		printChecksum(pagerank);
 		printClique(authors, pagerank, TOP_K);
 
 		// Compute parallel exact betweenness
+		start = System.currentTimeMillis();
 		ResultRow[] betweennessExact = Betweenness.compute(authors, 1, true);
+		printRunningTime(start);
 		sortAndWrite(betweennessExact, "btw.csv", LIMIT);
 		printChecksum(betweennessExact);
 		printClique(authors, betweennessExact, TOP_K);
 
 		// Compute parallel betweenness approximated : n / 4
+		start = System.currentTimeMillis();
 		ResultRow[] betweenness4 = Betweenness.compute(authors, 4, true);
+		printRunningTime(start);
 		sortAndWrite(betweenness4, "btwA.csv", LIMIT);
 		printChecksum(betweenness4);
 		printClique(authors, betweenness4, TOP_K);
 
 		// Compute weightedBetweenness
+		start = System.currentTimeMillis();
 		ResultRow[] wBetweenness = WeightedBetweenness.compute(authors, 4,
 				VERBOSE);
+		printRunningTime(start);
 		sortAndWrite(wBetweenness, "wBtwA.csv", LIMIT);
 		printChecksum(wBetweenness);
 		printClique(authors, wBetweenness, TOP_K);
@@ -126,21 +152,26 @@ public class Main {
 				/ (double) authors.vSize());
 
 		// Compute closeness
+		start = System.currentTimeMillis();
 		ResultRow[] inCloseness = Closeness.compute(mainComponent, true,
 				VERBOSE);
+		printRunningTime(start);
 		sortAndWrite(inCloseness, "ic.csv", LIMIT);
 		printChecksum(inCloseness);
 		printClique(authors, inCloseness, TOP_K);
 
 		ResultRow[] outCloseness = Closeness.compute(mainComponent, false,
 				VERBOSE);
+		printRunningTime(start);
 		sortAndWrite(outCloseness, "oc.csv", LIMIT);
 		printChecksum(outCloseness);
 		printClique(authors, outCloseness, TOP_K);
 
 		// Compute weighted closeness
+		start = System.currentTimeMillis();
 		ResultRow[] wCloseness = WeightedCloseness.compute(mainComponent,
 				VERBOSE);
+		printRunningTime(start);
 		sortAndWrite(wCloseness, "wic.csv", LIMIT);
 		printChecksum(wCloseness);
 		printClique(authors, wCloseness, TOP_K);
@@ -185,7 +216,7 @@ public class Main {
 		resultsForClosenessCorrelations[11] = inCloseness;
 		resultsForClosenessCorrelations[12] = outCloseness;
 		resultsForClosenessCorrelations[13] = wCloseness;
-		
+
 		for (int i = 0; i < resultsForClosenessCorrelations.length; i++)
 			sortAndWrite(resultsForClosenessCorrelations[i], "test.csv", 30);
 		writeRankTable("tableCloseness.csv", resultsForClosenessCorrelations);
@@ -196,6 +227,15 @@ public class Main {
 
 		// Correlations for table with closeness
 		printCorrelations(resultsForClosenessCorrelations);
+	}
+
+	private static void printRunningTime(long start) {
+		long end = System.currentTimeMillis();
+		int seconds = (int) ((end - start) / 1000);
+		int minutes = seconds / 60;
+		int hours = minutes / 60;
+		System.out.printf("Running time: %d:%02d:%02d:%03d%n%n", hours,
+				minutes % 60, seconds % 60, (int) ((end - start) % 1000));
 	}
 
 	public static void work2() {
@@ -233,6 +273,7 @@ public class Main {
 
 	private static void writeRankTable(String fileName, ResultRow[]... methods) {
 		int[][] ranks = new int[methods.length][methods[0].length];
+		int[] sums = new int[methods.length];
 		Map<String, Integer> firstRank = new HashMap<String, Integer>();
 		PrintWriter w = null;
 		try {
@@ -246,8 +287,10 @@ public class Main {
 			firstRank.put(methods[0][i].name, i);
 
 		for (int i = 0; i < methods.length; i++)
-			for (int j = 0; j < methods[i].length; j++)
+			for (int j = 0; j < methods[i].length; j++) {
 				ranks[i][firstRank.get(methods[i][j].name)] = j + 1;
+				sums[i] += j + 1;
+			}
 
 		for (int j = 0; j < methods[0].length; j++) {
 			w.print(methods[0][j].name);
@@ -256,6 +299,11 @@ public class Main {
 				w.print(ranks[i][j]);
 			}
 			w.println();
+		}
+		w.print("sums");
+		for (int i = 0; i < methods.length; i++) {
+			w.print(";");
+			w.print(sums[i]);
 		}
 
 		w.close();
@@ -327,8 +375,8 @@ public class Main {
 		System.out.println();
 
 		// TODO TODO TODO
-//		work();
-		 work2();
+		work();
+		// work2();
 		// TODO TODO TODO
 
 		Date end = getTime();

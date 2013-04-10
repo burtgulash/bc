@@ -24,8 +24,8 @@
 \contentsline {subsubsection}{ISI Highly Cited highlighted}{14}{section*.8}
 \contentsline {section}{\numberline {3.3}M\IeC {\'\i }ry centrality}{14}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Degree}{15}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Eigenvector centrality}{15}{subsection.3.3.2}
-\contentsline {subsubsection}{PageRank}{16}{section*.9}
+\contentsline {subsection}{\numberline {3.3.2}Eigenvector centrality}{16}{subsection.3.3.2}
+\contentsline {subsubsection}{PageRank}{17}{section*.9}
 \contentsline {subsection}{\numberline {3.3.3}Closeness centrality}{18}{subsection.3.3.3}
 \contentsline {subsubsection}{Algoritmus}{19}{section*.10}
 \contentsline {subsubsection}{Aproximace}{21}{section*.11}
@@ -50,12 +50,12 @@
 \contentsline {section}{\numberline {4.3}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{34}{section.4.3}
 \contentsline {section}{\numberline {4.4}Porovn\IeC {\'a}n\IeC {\'\i } metod s ocen\IeC {\v e}n\IeC {\'\i }mi}{34}{section.4.4}
 \contentsline {section}{\numberline {4.5}Aproximace betweenness centrality}{34}{section.4.5}
-\contentsline {chapter}{\numberline {5}Diskuse}{37}{chapter.5}
-\contentsline {section}{\numberline {5.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{37}{section.5.1}
-\contentsline {section}{\numberline {5.2}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{37}{section.5.2}
-\contentsline {section}{\numberline {5.3}Vliv vah na p\IeC {\v r}esnost v\IeC {\'y}sledk\IeC {\r u}}{37}{section.5.3}
-\contentsline {section}{\numberline {5.4}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{37}{section.5.4}
-\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{38}{chapter.6}
-\contentsline {chapter}{\numberline {A}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{41}{appendix.A}
-\contentsline {section}{\numberline {A.1}DBLP}{42}{section.A.1}
-\contentsline {section}{\numberline {A.2}CiteSeer}{43}{section.A.2}
+\contentsline {chapter}{\numberline {5}Diskuse}{38}{chapter.5}
+\contentsline {section}{\numberline {5.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{38}{section.5.1}
+\contentsline {section}{\numberline {5.2}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{38}{section.5.2}
+\contentsline {section}{\numberline {5.3}Vliv vah na p\IeC {\v r}esnost v\IeC {\'y}sledk\IeC {\r u}}{38}{section.5.3}
+\contentsline {section}{\numberline {5.4}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{38}{section.5.4}
+\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{39}{chapter.6}
+\contentsline {chapter}{\numberline {A}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{42}{appendix.A}
+\contentsline {section}{\numberline {A.1}DBLP}{43}{section.A.1}
+\contentsline {section}{\numberline {A.2}CiteSeer}{44}{section.A.2}

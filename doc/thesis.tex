@@ -322,6 +322,13 @@ sebe vázáni více než na jiné lidi v tomtéž prostředí (cite Neil Salkind
 Encyclopedia of educational psychology). Klika je silněji spojená skupina lidí
 než sociální kruh.
 
+Algoritmus pro nalezení největší kliky v grafu je přímočaré otestování $n$
+vrcholů podgrafu pro všech $2^L$ podgrafů grafu, kde $L$ je horní limit
+velikosti podgrafu. Pokud je všech $\frac{n(n - 1)}{2}$ párů vrcholů daného
+podgrafu spojených hranou, pak se jedná o kliku. Problém má exponenciální
+složitost, proto je horní hranice velikosti podgrafu ve výpočtech omezena na
+20.
+
 \section{Významnost uzlů}
 Významnost autorů je jedním předmětem zájmu analýzy sociálních sítí. Kdybychom
 se měli rozhodnout, kterého člena sítě zvolit jako vůdce nebo přes které členy
@@ -1069,20 +1076,20 @@ koeficientu korelace pořadí křížově mezi všemi metodami.
 \toprule
 zkratka & metoda & $t_{DBLP}$ & $t_{CiteSeer}$ & klika$_{DBLP}$\footnotemark & klika$_{CiteSeer}$\footnotemark \\
 \midrule
-hi    & H-index                            \\
-ideg  & indegree                           \\
-odeg  & outdegree                          \\
-deg   & degree                             \\
-wideg & vážený indegree                    \\
-wodeg & vážený outdegree                   \\
-wdeg  & vážený degree                      \\
-pr    & PageRank                           \\
-btw   & betweenness                        \\
-btwA  & aproximace betweenness             \\
-wBtwA & aproximace váženého betweenness    \\
-ic    & closeness pro vstupní hrany        \\
-oc    & closeness pro výstupní hrany       \\
-wic   & vážený closeness pro vstupní hrany \\
+hi    & H-index                            &             & &    & \\
+ideg  & indegree                           & 0:00:00:049 & & 19 & \\
+odeg  & outdegree                          & 0:00:00:036 & & 16 & \\
+deg   & degree                             & 0:00:00:036 & & 19 & \\
+wideg & vážený indegree                    & 0:00:00:099 & & 18 & \\
+wodeg & vážený outdegree                   & 0:00:00:046 & & 17 & \\
+wdeg  & vážený degree                      & 0:00:00:062 & & 17 & \\
+pr    & PageRank                           & 0:00:00:376 & & 18 & \\
+btw   & betweenness                        & 0:24:56:814 & & 19 & \\
+btwA  & aproximace betweenness             & 0:06:51:216 & & 19 & \\
+wBtwA & aproximace váženého betweenness    & 0:08:54:073 & & 16 & \\
+ic    & closeness pro vstupní hrany        & 0:00:05:583 & & 19 & \\
+oc    & closeness pro výstupní hrany       & 0:00:11:313 & & 16 & \\
+wic   & vážený closeness pro vstupní hrany & 0:01:14:054 & & 18 & \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1090,7 +1097,7 @@ wic   & vážený closeness pro vstupní hrany \\
 \label{tab:impmetody}
 \end{table}
 
-\footnotetext{Největší klika mezi prvními 25 autory}
+\footnotetext{Největší klika mezi prvními 20 autory}
 
 % TODO popsat, proč dělam ideg, odeg, deg. Pak proč vážený degree. Pak proč
 % betweenness exaktní, aproximovanej a váženej dělam jenom aproximovanej.  Pak
@@ -1171,36 +1178,6 @@ hodnoty PageRanku zanedbatelně malé.
 \begin{center}
 \makebox[\linewidth]{
 \begin{small}
-\begin{tabular}{r|l|c|c}
-\toprule
-zkratka & metoda & $t_{DBLP}$ & $t_{CiteSeer}$ \\
-\midrule
-hi    & H-index                            \\
-ideg  & indegree                           \\
-odeg  & outdegree                          \\
-deg   & degree                             \\
-wideg & vážený indegree                    \\
-wodeg & vážený outdegree                   \\
-wdeg  & vážený degree                      \\
-pr    & PageRank                           \\
-btw   & nevážený betweenness               \\
-btwA  & aproximace neváženého betweenness  \\
-wBtwA & aproximace váženého betweenness    \\
-ic    & closeness pro vstupní hrany        \\
-oc    & closeness pro výstupní hrany       \\
-wic   & vážený closeness pro vstupní hrany \\
-\bottomrule
-\end{tabular}
-\end{small}
-}
-\end{center}
-\caption{Implementované metody}
-\end{table}
-
-\begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
-\begin{small}
 \begin{tabular}{r|ccccccccccc}
 \toprule
 &hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA\\
@@ -1241,9 +1218,54 @@ ALBERTO O. MENDELZON&30&68&34&43&43&40&38&81&90&95&43\\
 }
 \end{center}
 \caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
-\label{tab:corr1}
 \end{table}
 
+
+\begin{table}[!ht]
+\begin{center}
+\makebox[\linewidth]{
+\begin{footnotesize}
+\begin{tabular}{r|cccccccccccccc}
+\toprule
+&hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA&ic&oc&wic\\
+\midrule
+MICHAEL STONEBRAKER&1&1&7&1&1&6&2&2&2&2&1&1&24&1\\
+AVID J. DEWITT&2&2&5&2&2&3&1&14&3&3&2&3&13&4\\
+JEFFREY D. ULLMAN&3&5&65&9&3&48&5&12&9&9&4&5&58&5\\
+PHILIP A. BERNSTEIN&4&7&119&10&8&87&13&6&1&1&7&6&217&7\\
+RAKESH AGRAWAL&5&14&3&5&10&9&7&38&27&24&16&22&2&25\\
+WON KIM&6&6&39&6&11&12&8&21&11&12&43&9&47&49\\
+CATRIEL BEERI&7&28&66&36&15&57&24&35&18&20&22&24&41&17\\
+UMESHWAR DAYAL&8&10&36&8&16&39&16&26&4&5&48&10&23&37\\
+SERGE ABITEBOUL&9&16&18&11&9&7&6&50&22&23&32&39&14&51\\
+YEHOSHUA SAGIV&10&34&125&47&14&61&21&44&46&48&11&38&97&14\\
+MICHAEL J. CAREY&11&9&4&4&5&1&3&34&12&8&5&11&9&8\\
+CHRISTOS FALOUTSOS&12&36&15&22&18&11&10&84&101&90&45&70&38&83\\
+NATHAN GOODMAN&13&20&71&27&23&47&27&23&16&16&15&15&166&13\\
+JIM GRAY&14&3&279&7&4&256&11&3&6&4&3&2&798&2\\
+JEFFREY F. NAUGHTON&15&25&35&24&22&23&17&67&67&58&20&46&53&20\\
+HECTOR GARCIA-MOLINA&16&11&2&3&7&5&4&31&21&19&18&18&4&15\\
+RONALD FAGIN&17&42&378&73&29&207&57&25&20&21&50&23&701&29\\
+DAVID MAIER&18&12&84&15&12&82&23&30&13&14&14&13&109&9\\
+HAMID PIRAHESH&19&22&33&17&24&19&15&54&33&28&23&32&28&26\\
+RAGHU RAMAKRISHNAN&20&27&8&13&17&10&9&70&47&45&24&52&11&22\\
+BRUCE G. LINDSAY&21&21&38&18&25&32&29&39&23&22&25&20&50&18\\
+JENNIFER WIDOM&22&26&29&23&19&30&19&64&57&57&19&55&19&21\\
+C. MOHAN&23&47&61&44&33&31&34&77&71&68&13&67&116&27\\
+YANNIS E. IOANNIDIS&24&63&9&29&34&17&25&117&81&72&35&85&6&40\\
+RAYMOND A. LORIE&25&4&852&14&6&550&20&5&8&6&6&4&2024&6\\
+SHAMKANT B. NAVATHE&26&30&12&16&44&25&35&51&42&49&150&34&8&327\\
+RICHARD HULL&27&44&26&32&31&18&26&75&55&59&51&73&22&64\\
+FRANCCEDILOIS BANCILHON&28&19&245&42&21&212&43&42&15&15&41&19&294&34\\
+ARIE SHOSHANI&29&104&280&132&80&199&110&57&120&124&143&102&281&232\\
+ALBERTO O. MENDELZON&30&68&34&43&43&40&38&78&90&95&42&90&30&33\\
+\bottomrule
+\end{tabular}
+\end{footnotesize}
+}
+\end{center}
+\caption{Top 30 autorů největší komponenty DBLP podle H-indexu a pořadí podle ostatních metod}
+\end{table}
 
 % FIXME chapter:zebricky
 \section{Porovnání metod s oceněními}
