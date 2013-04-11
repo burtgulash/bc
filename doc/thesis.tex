@@ -1,11 +1,12 @@
-\documentclass[12pt,titlepage]{report}
+%\documentclass[12pt,titlepage]{report}
+\documentclass{bakalarka}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{microtype}
-\usepackage[Sonny]{fncychap}
+%\usepackage[Sonny]{fncychap}
 
 \usepackage{algorithmicx}
 \usepackage{algorithm}
@@ -20,46 +21,71 @@
 \usepackage{graphicx}
 \usepackage{epstopdf}
 
+\usepackage{ae}
+\usepackage{fancyhdr}
+
 \usepackage[pdfborder=0 0 0]{hyperref}
+
+
+\author{Tomáš Maršálek}
+\title{Měření významnosti autorů v citační síti}
+\titlet{}
+\titlett{}
+\university{Západočeská univerzita v Plzni}
+\faculty{Fakulta aplikovaných věd}
+\department{Katedra informatiky a výpočetní techniky}
+\subject{Bakalářská práce}
+\town{Plzeň}
 
 \begin{document}
 \shorthandoff{-}
+\pagestyle{fancy}
 
-\begin{titlepage}
-\begin{center}
-	\Large{Západočeská univerzita v Plzni} \\
-	\Large{Fakulta aplikovaných věd} \\
-	\Large{Katedra infromatiky a výpočetní techniky} \\
-\mbox{} \\[1.6cm]
-	\LARGE{{\bf Bakalářská práce}} \\
-\mbox{} \\
-	\Huge{{\bf Měření významnosti autorů v citační síti}} \\
-\end{center}
-\vfill
-\begin{minipage}{.5\textwidth}
-Plzeň, 2013
-\end{minipage}
-\begin{minipage}{.5\textwidth}
-\hfill Tomáš Maršálek
-\end{minipage}
+% \begin{titlepage}
+% \begin{center}
+% 	\Large{Západočeská univerzita v Plzni} \\
+% 	\Large{Fakulta aplikovaných věd} \\
+% 	\Large{Katedra infromatiky a výpočetní techniky} \\
+% \mbox{} \\[1.6cm]
+% 	\LARGE{{\bf Bakalářská práce}} \\
+% \mbox{} \\
+% 	\Huge{{\bf Měření významnosti autorů v citační síti}} \\
+% \end{center}
+% \vfill
+% \begin{minipage}{.5\textwidth}
+% Plzeň, 2013
+% \end{minipage}
+% \begin{minipage}{.5\textwidth}
+% \hfill Tomáš Maršálek
+% \end{minipage}
+% \thispagestyle{empty}
+% \end{titlepage}
+\renewcommand{\chaptermark}[1]{\markboth{\textit{#1}}{}}
+% \renewcommand{\sectionmark}[1]{\markrigth{\textit{#1}}{}}
+\cfoot{\thepage}
+\lhead{\leftmark}
+\rhead{\rightmark}
+\maketitle
+\chapter*{Prohlášení}
 \thispagestyle{empty}
-\end{titlepage}
 
-\section*{Abstrakt}
-Prvky sociální sítě, které nemají žádné apriorní ohodnocení významnosti, jsou
-různě významné pouze na základě vztahů s okolními prvky. V této práci byly
-prozkoumány a implementovány známé metody centrality a bibliografické metody
-měřící významnost prvků v sociální nebo citační síti. Výsledky aplikování metod
-na volně dostupné citační databáze ukázaly vysokou podobnost jednotlivých metod
-a rovněž shodu nejvýznamnějších autorů dle těchto metod se známými oceněními v
-oblasti informatiky a informační vědy (Turing Award, Codd, ACM Fellows, ISI
-Highly Cited). Bylo zjištěno, že některé implementované metody jsou i přes
-použití nejrychlejších algoritmů výpočetně příliš náročné vzhledem k velikosti
-citačních sítí, vzniklých z těchto citačních databází. Dále bylo empiricky
-potvrzeno, že implementované metody měří významnost, byť může mít více
-interpretací.
+\chapter*{Abstract}
+\thispagestyle{empty}
+% Prvky sociální sítě, které nemají žádné apriorní ohodnocení významnosti, jsou
+% různě významné pouze na základě vztahů s okolními prvky. V této práci byly
+% prozkoumány a implementovány známé metody centrality a bibliografické metody
+% měřící významnost prvků v sociální nebo citační síti. Výsledky aplikování metod
+% na volně dostupné citační databáze ukázaly vysokou podobnost jednotlivých metod
+% a rovněž shodu nejvýznamnějších autorů dle těchto metod se známými oceněními v
+% oblasti informatiky a informační vědy (Turing Award, Codd, ACM Fellows, ISI
+% Highly Cited). Bylo zjištěno, že některé implementované metody jsou i přes
+% použití nejrychlejších algoritmů výpočetně příliš náročné vzhledem k velikosti
+% citačních sítí, vzniklých z těchto citačních databází. Dále bylo empiricky
+% potvrzeno, že implementované metody měří významnost, byť může mít více
+% interpretací.
 
 \tableofcontents
+\pagestyle{fancy}
 
 \chapter{Úvod}
 
@@ -962,7 +988,8 @@ pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty.
 (cite CLRS)
 
 
-\section{Ostatní používané míry významnosti autorů}
+\section{Ostatní míry významnosti autorů}
+%TODO impact factor + kecy??
 \subsection{H-index}
 H-index je metoda pro měření produktivity autora a významu jeho publikované
 vědecké práce.  Metoda byla navržena fyzikem Jorge E. Hirschem pro zjištování
@@ -1047,10 +1074,10 @@ proměnnými.
 
 
 \section{Porovnání implementovaných metod}
-První tabulka ukazuje vypočtené Spearmanovy koeficienty pořadové korelace mezi
-všemi páry implementovaných metod. Do výpočtu koeficientu korelace byly
-zahrnuty pouze ty uzly, které mají alespoň jednu hranu. Pokud by byly
-zachovány, většina koeficientů korelace by byla velmi vysoká (větší než
+Tabulka \ref{tab:corr1} ukazuje vypočtené Spearmanovy koeficienty pořadové
+korelace mezi všemi páry implementovaných metod. Do výpočtu koeficientu
+korelace byly zahrnuty pouze ty uzly, které mají alespoň jednu hranu. Pokud by
+byly zachovány, většina koeficientů korelace by byla velmi vysoká (větší než
 $0.95$), protože většina vrcholů, zejména v databázi DBLP, jsou osamocené
 vrcholy. Protože jsou výsledky seřazeny podle hodnoty centrality a poté podle
 jména autora, všechny tyto izolované vrcholy, které nijak nepřispívají k
@@ -1065,18 +1092,20 @@ koeficientu korelace s výsledky metod, které byly aplikovány na celý graf,
 protože se jedná o dvě neporovnatelné proměnné. Proto byli z výsledků metod pro
 celý graf odebráni ti autoři, kteří se nenacházejí v hlavní silně spojité
 komponentě. Pro tyto žebříčky bylo provedeno stejné srovnání pomocí Spearmanova
-koeficientu korelace pořadí křížově mezi všemi metodami.
+koeficientu korelace pořadí křížově mezi všemi metodami, viz tabulka
+\ref{tab:corr2}
 
 % TODO vysvětlení tabulky, jak se to vypočetlo. Co se muselo odstranit za uzly,
 % proč dvě tabulky.
 
 \begin{table}[!ht]
 \begin{center}
-\begin{tabular}{r|l|c|c|c|c}
+\makebox[\linewidth]{
+\begin{tabular}{r|l|r|r|r|r}
 \toprule
 zkratka & metoda & $t_{DBLP}$ & $t_{CiteSeer}$ & klika$_{DBLP}$\footnotemark & klika$_{CiteSeer}$\footnotemark \\
 \midrule
-hi    & H-index                            &             & &    & \\
+hi    & H-index                            & 0:00:04:627 & & 17 & \\
 ideg  & indegree                           & 0:00:00:049 & & 19 & \\
 odeg  & outdegree                          & 0:00:00:036 & & 16 & \\
 deg   & degree                             & 0:00:00:036 & & 19 & \\
@@ -1092,6 +1121,7 @@ oc    & closeness pro výstupní hrany       & 0:00:11:313 & & 16 & \\
 wic   & vážený closeness pro vstupní hrany & 0:01:14:054 & & 18 & \\
 \bottomrule
 \end{tabular}
+}
 \end{center}
 \caption{Implementované metody}
 \label{tab:impmetody}
@@ -1105,7 +1135,6 @@ wic   & vážený closeness pro vstupní hrany & 0:01:14:054 & & 18 & \\
 % incloseness je super podobný s indegree a všema invěcma, ale betweenness
 % takový pro outhrany. Divný ne?
 
-\subsection{DBLP}
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
@@ -1166,13 +1195,12 @@ wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.
 \label{tab:corr2}
 \end{table}
 
-\clearpage
 \section{Žebříčky významných autorů}
-Viz příloha \ref{chapter:zebricky}, sekce \ref{section:zebrickydblp} pro
-databázi DBLP a sekce \ref{section:zebrickyciteseer} pro databázi CiteSeer.
-Hodnoty u metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$
-na $[0; |V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny
-hodnoty PageRanku zanedbatelně malé.
+Tabulky \ref{tab:ranks1} a \ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
+podle metody h-index. Pro každého autora je zobrazeno jeho umístění podle všech
+zbylých implementovaných metod. Poslední řádek u každé metody označuje
+součet pořadí uvedených 30ti autorů.
+
 
 \begin{table}[!ht]
 \begin{center}
@@ -1212,19 +1240,22 @@ RICHARD HULL&27&44&26&32&31&18&26&78&55&59&46\\
 FRANCCEDILOIS BANCILHON&28&19&245&42&21&212&43&45&15&15&41\\
 ARIE SHOSHANI&29&104&280&132&80&199&110&60&120&124&137\\
 ALBERTO O. MENDELZON&30&68&34&43&43&40&38&81&90&95&43\\
+\midrule
+&465&756&2980&733&586&2144&658&1330&1041&1017&923\\
 \bottomrule
 \end{tabular}
 \end{small}
 }
 \end{center}
 \caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks1}
 \end{table}
 
 
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{r|cccccccccccccc}
 \toprule
 &hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA&ic&oc&wic\\
@@ -1259,18 +1290,57 @@ RICHARD HULL&27&44&26&32&31&18&26&75&55&59&51&73&22&64\\
 FRANCCEDILOIS BANCILHON&28&19&245&42&21&212&43&42&15&15&41&19&294&34\\
 ARIE SHOSHANI&29&104&280&132&80&199&110&57&120&124&143&102&281&232\\
 ALBERTO O. MENDELZON&30&68&34&43&43&40&38&78&90&95&42&90&30&33\\
+\midrule
+&465&756&2978&733&586&2144&658&1274&1041&1017&923&988&5303&1239\\
 \bottomrule
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 }
 \end{center}
 \caption{Top 30 autorů největší komponenty DBLP podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks2}
 \end{table}
 
-% FIXME chapter:zebricky
-\section{Porovnání metod s oceněními}
+Výstupy programu - jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
+příloze \ref{chapter:zebricky}, v sekci \ref{section:zebrickydblp} pro databázi
+DBLP a v sekci \ref{section:zebrickyciteseer} pro databázi CiteSeer.  Hodnoty u
+metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$ na $[0;
+|V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny hodnoty
+PageRanku zanedbatelně malé.
+
+
+\begin{table}[!ht]
+\begin{center}
+\makebox[\linewidth]{
+\begin{tabular}{r|cccc}
+\toprule
+&Codd & ACM Fellows & Turing & ISI HC \\
+\midrule
+hi   & \,819&6\,791\,886&2\,555\,487&725\,373\\
+ideg & \,716& \,801\,295& \,376\,586& 61\,665\\
+odeg &4\,605&3\,904\,308&2\,367\,669&257\,133\\
+deg  & \,741&1\,077\,282& \,525\,324& 84\,191\\
+wideg& \,571& \,802\,148& \,374\,344& 61\,757\\
+wodeg&4\,491&3\,902\,718&2\,365\,245&256\,620\\
+wdeg & \,692&1\,065\,801& \,511\,523& 82\,652\\
+pr   & \,867& \,805\,267& \,403\,109& 41\,735\\
+btw  & \,796& \,828\,571& \,399\,720& 70\,342\\
+btwA & \,821&1\,024\,010& \,428\,133& 68\,996\\
+wBtwA& \,567&1\,057\,788& \,473\,146& 77\,168\\
+ic\footnotemark[1]   & \,805& \, 63\,753& \, 34\,004&  1\,384\\
+oc\footnotemark[1]   &6\,607& \,129\,810& \, 59\,701&  4\,098\\
+wic\footnotemark[1]  & \,512& \, 73\,729& \, 38\,045&  1\,482\\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\caption{Součty pořadí oceněných autorů}
+\label{tab:oceneni1}
+\end{table}
+\footnotetext[1]{Platí pro největší silně spojitou komponentu}
 
 \section{Aproximace betweenness centrality}
+Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod. Pro citační síť autorů pro databázi DBLP není exaktní výpočet problém, ale pro rozsáhlou síť databáze CiteSeer byla použita aproximace pro betweenness centrality. Tabulka \ref{btwA} znázorňuje Spearmanovo koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
@@ -1301,6 +1371,7 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 
 \chapter{Závěr}
 
+\appendix
 \bibliographystyle{alpha}
 \bibliography{reference}
 
@@ -1315,6 +1386,8 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 
 \newpage
 \section{DBLP}
+\label{section:zebrickydblp}
+
 \input{../dblp/tabels/hi}
 \input{../dblp/tabels/ideg}
 \input{../dblp/tabels/odeg}
@@ -1329,8 +1402,9 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 \input{../dblp/tabels/ic}
 \input{../dblp/tabels/oc}
 \input{../dblp/tabels/wic}
+
+
 \section{CiteSeer}
-\begin{footnotesize}
-\end{footnotesize}
+\label{section:zebrickyciteseer}
 
 \end{document}

@@ -1,0 +1,48 @@
+\documentclass{bakalarka}
+\usepackage[utf8]{inputenc} 
+\usepackage[czech]{babel}
+\usepackage{ae}
+\usepackage{fancyhdr}
+%\usepackage[pdftex]{graphicx}
+\author{Maxipes Fík}
+\title{Titul práce}
+\titlet{s podtitulem}
+\titlett{}
+\university{Západočeská univerzita v Plzni}
+\faculty{Fakulta aplikovaných věd}
+\department{Katedra informatiky a výpočetní techniky}
+\subject{Bakalářská práce}
+\town{Plzeň}
+\begin{document}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\textit{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textit{#1}}{}}
+\cfoot{\thepage}
+\lhead{\leftmark}
+\rhead{\rightmark}
+\maketitle
+\chapter*{Prohlášení}
+\thispagestyle{empty}
+Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s~použitím citovaných pramenů.
+\vskip 1.5em
+V Plzni dne \today
+\vskip 0.7em
+\hskip 9cm Maxipes Fík
+\chapter*{Abstract}
+\thispagestyle{empty}
+Text of abstract.
+\tableofcontents
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\textit{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textit{#1}}{}}
+\cfoot{\thepage}
+\lhead{\leftmark}
+\rhead{\rightmark}
+\parskip 1em
+\chapter{Úvod}
+Cílem této práce je (viz \cite{guide}) \dots\appendix
+
+\appendix
+\bibliographystyle{csplainnat}
+\bibliography{bakalarka}
+\end{document}
