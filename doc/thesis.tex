@@ -24,6 +24,8 @@
 \usepackage{ae}
 \usepackage{fancyhdr}
 
+\usepackage[section]{placeins}
+
 \usepackage[pdfborder=0 0 0]{hyperref}
 
 
@@ -88,10 +90,46 @@
 \pagestyle{fancy}
 
 \chapter{Úvod}
+V době, kdy je celý svět propojen internetem...
+
+Přirozeně vyvstávají otázky.  
+Kdo je nejvýznamnější člověk mezi svými přáteli?
+Které město je klíčovým dopravním uzlem v železniční síti?  Představme si, že
+neznáme jednotlivé lidi v síti a žádné informace o nich, jak zjistíme, kdo je
+nejvýznamnější pouze na základě vztahů mezi nimi? 
+
+Tato práce je věnována citačním sítím, kde používáme metody z analýzy
+sociálních, dopravních, komunikačních a jiných sítí. V citační síti hledáme
+nejvýznamnější autory pouze podle toho, jak jsou provázáni s jinými autory
+podle referencí v publikacích, které vydali. Významnost autorů není úplnou
+neznámou, protože existuje množství ocenění, které byly uděleny právě významným
+autorům a vědcům za jejich dílo. Samotné udělení ocenění mohlo tyto autory
+udělat významnými, přestože předtím nebyli. V jiném případě mohlo být důležité
+ocenění příčinou ještě větší významnosti autora. 
+
+Cílem této práce je vytvořit knihovnu pro analýzu citační sítě z hlediska
+významnosti autorů a použít ji k porovnání jednotlivých implementovaných metod
+pro měření významnosti mezi sebou a k porovnání těchto metod s již udělenými
+oceněními. Očekáváme, že pokud měříme významnost autora nebo obecně prvku v
+síti, přestože neznáme její přesnou definici, bude se shodovat s těmito
+oceněními.
+
+V průběhu této práce budou přiblíženy detaily o nejpoužívanějších mírách
+centrality (degree, eigenvector centrality, betweenness centrality, closeness
+centrality), bibliografické metodě h-index a jejich implementaci. Výsledkem
+budou porovnání jednotlivých metod aplikovaných na citační sítě vytvořené z
+citačních databází DBLP a CiteSeer, které zároveň srovnáme s oceněními autorů v
+oblasti informatiky (ACM SIGMOD Edgar F. Codd Innovations Award, ACM Fellows,
+ACM A.M. Turing Award, ISI Highly Cited highlighted).
+
+% TODO Nejsou již někde autoři oceněni za to jak jsou významní? 
+% TODO Nutnost měřit významnost prvků sítě, v tutom případě autorů. I když jediná informace je jak jsou propojený. 
+% TODO Byla proto vytvořena knihovna, která implementue zmíněné metody.
+% TODO Metody budou porovnány mezi sebou a srovnány s oceněními, které se udělují významným autorům.
+% TODO Navazuji na práci Nykla, Fialy a dalších autorů, který mam třeba v referencích.
 
 \chapter{Sociální a citační sítě}
 
-\section{Sociální sítě}
 Myšlenka sociální sítě existovala dlouho předtím, než je pod tímto termínem
 začali lidé rozpoznávat. Jedná se o komplexní struktury vztahů mezi členy
 sociálních uspořádání na všech úrovních - od osobních až po mezinárodní vztahy
@@ -158,7 +196,8 @@ Incidenční matice vyjadřuje vztah mezi vrcholy a hranami tak, že ${\bf B}_{u
 orientovaném grafu rozlišujeme mezi počátečním uzlem ${\bf B}_{ue} = -1$ a
 koncovým uzlem ${\bf B}_{ue} = 1$. Incidenční matice se pro výpočetní teorii
 grafů často nepoužívá z důvodu paměťové náročnosti, která je pro většinu grafů
-výrazně vyšší než u matice sousednosti ($\Theta(|V||E|)$ oproti $\Theta(|V|^2)$, kde množina hran dosahuje velikostí $O(|V|^2)$).
+výrazně vyšší než u matice sousednosti ($\Theta(|V||E|)$ oproti
+$\Theta(|V|^2)$, kde množina hran dosahuje velikostí $O(|V|^2)$).
 
 Nejčastěji používáme myšlenku sousednosti vrcholů, ale namísto reprezentace
 maticí, která je ve většině případů řídká a zbytečně obsahuje velké množství
@@ -166,30 +205,6 @@ nul, použijeme reprezentaci řídké matice - řádek nahradíme seznamem vrcho
 které v matici sousednosti mají nenulovou hodnotu. Tento způsob je známý jako
 graf pomocí spojových seznamů (adjacency list representation of a graph).
 
-\section{Analýza sociálních sítí}
-
-\subsection{Bezškálové sítě}
-Více než 40 let byly považovány všechny komplexní sítě za naprosto náhodné.
-Paul Erdős a Alfréd Rényi v roce 1959 navrhli modelování komunikačních sítí a
-sítí, které se vyskytují v přírodních vědách, spojením uzlů náhodnými hranami.
-Tato jednoduchá metoda vytvoření náhodného grafu způsobí rozložení stupňů
-vrcholů (počet spojení vrcholu s ostatními) podle Poissonova rozdělení s
-charakteristickou křivkou připomínající zvon - většina uzlů má zhruba stejný
-stupeň. 
-V roce 1998 bylo na univerzitě v Notre Dame (Barabási a kolegové) provedeno
-mapování sítě World Wide Web s očekáváním, že výsledkem bude náhodná síť.
-Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo přes všechna
-očekávání, zcela jiné rozdělení stupňů - mocninné. Přes $80\%$ uzlů mělo méně
-než čtyři spojení, ale méně než $0.01\%$ uzlů mělo více než tisíc spojení.
-Sítě, které se řídí mocninným rozdělením, nazvali Barabási a jeho kolegové
-bezškálovými sítěmi (scale-free network). Rozpoznání tohoto jevu vedlo k
-lepšímu porozumění šíření virů a epidemií nebo proč některé sítě fungují takřka
-beze změny i přes poruchu většiny jejich uzlů.  Sociální a citační sítě se řadí
-do kategorie bezškálových sítí. Například autor vědecké literatury, jehož dílo
-je v dané oblasti známé, má velkou šanci, že bude citován dalšími autory,
-především těmi novými. Stejně tak osoba s velkým počtem přátel má velikou
-šanci, že bude představen novým lidem a rozšíří si tak svůj okruh přátel ještě
-více. Tomuto jevu v bezškálových sítí se říká \uv{bohatší se stává bohatším}.
 
 \section{Citační sítě}
 Citační sítě jsou podobné sociálním sítím, pouze místo uzlů, které představují
@@ -243,7 +258,6 @@ Jestliže citační síť analyzujeme metodami, které jsou založené na myšle
 hledání nejkratších cest i v této síti, která nemá v podstatě žádný pojem
 vzdálenosti, použijeme druhý typ ohodnocení - menší váha, silnější pouto.
 
-
 \subsection{Orientované a neorientované sítě}
 V případě sociálních sítí nejčastěji uvažujeme sítě bez orientace, protože
 nejčastěji modelovaný vztah přítel-přítel je ekvivalentní z pohledu obou
@@ -251,8 +265,6 @@ koncových uzlů. Pro citační síť jsou na místě orientované hrany, proto�
 autor odkazujícího na jiného autora nebo publikace citující jinou publikaci
 mají očividně jinou interpretaci z pohledu koncových uzlů. Buďto se jedná o
 citovaného nebo citujícího autora či publikaci.
-
-
 
 
 \chapter{Citační databáze}
@@ -314,8 +326,39 @@ a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 \footnotetext[2]{Platí pro váženou síť autorů}
 
 
+\section{Analýza sítí}
+Více než 40 let byly považovány všechny komplexní sítě za naprosto náhodné.
+Paul Erdős a Alfréd Rényi v roce 1959 navrhli modelování komunikačních sítí a
+sítí, které se vyskytují v přírodních vědách, spojením uzlů náhodnými hranami.
+Tato jednoduchá metoda vytvoření náhodného grafu způsobí rozložení stupňů
+vrcholů (počet spojení vrcholu s ostatními) podle Poissonova rozdělení s
+charakteristickou křivkou připomínající zvon - většina uzlů má zhruba stejný
+stupeň. 
+V roce 1998 bylo na univerzitě v Notre Dame (Barabási a kolegové) provedeno
+mapování sítě World Wide Web s očekáváním, že výsledkem bude náhodná síť.
+Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo přes všechna
+očekávání, zcela jiné rozdělení stupňů - mocninné. Přes $80\%$ uzlů mělo méně
+než čtyři spojení, ale méně než $0.01\%$ uzlů mělo více než tisíc spojení.
+Sítě, které se řídí mocninným rozdělením stupňů, nazvali Barabási a jeho kolegové
+bezškálovými sítěmi (scale-free network). Rozpoznání tohoto jevu vedlo k
+lepšímu porozumění šíření virů a epidemií nebo proč některé sítě fungují takřka
+beze změny i přes poruchu většiny jejich uzlů.  Sociální a citační sítě se řadí
+do kategorie bezškálových sítí. Například autor vědecké literatury, jehož dílo
+je v dané oblasti známé, má velkou šanci, že bude citován dalšími autory,
+především těmi novými. Stejně tak osoba s velkým počtem přátel má velikou
+šanci, že bude představen novým lidem a rozšíří si tak svůj okruh přátel ještě
+více. Tomuto jevu v bezškálových sítí se říká \uv{bohatší se stává bohatším}.
 
-\section{Analýza citačních sítí}
+Rozvinutou disciplínou v oblasti sítí je analýza sociálních sítí, která se
+stala klíčovou technikou v moderní sociologii a stala se významnou v různých
+vědeckých oblastech (antropologie, biologie, komunikace, ekonomie, informační
+věda, geografie, historie, politologie, ...).
+
+Analýza sociálních sítí zkoumá povahu vztahů (homofilie, multiplexita,
+vzájemnost, blízkost vztahů, ...), rozdělení vlastností v síti (míry
+centrality, hustota sítě, ...) nebo segmentaci (souvislost grafu, komponenty
+grafu, kliky, koeficient shlukování, ...).
+
 \subsection{Souvislost a komponenty grafu}
 Neorientovaný graf je souvislý, pokud pro každé jeho dva vrcholy $u$ a $v$
 existuje alespoň jedna cesta z $u$ do $v$. U neorientovaného grafu hovoříme o
@@ -989,7 +1032,14 @@ pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty.
 
 
 \section{Ostatní míry významnosti autorů}
-%TODO impact factor + kecy??
+Míry centrality jsou určeny pro relativní seřazení uzlů pro obecný graf.
+Jelikož zde pracujeme speciálně s citačními sítěmi, zajímá nás, jestli existují
+i jiné metody ohodnocení autorů, které ani nevyžadují konstrukci citačních
+sítí, ale vyžadují pouze údaje v databázi.
+
+Setkáme se s metodami AWCR, AW-index, Eigenfactor, Egghův g-index, E-index,
+I10-index, R-impact, Wu Index a zejména H-index (cite http://hlwiki.slais.ubc.ca/index.php/Author\_impact\_metrics), který zde byl implementován
+jako jediná metoda, která nespadá pod míry centrality.
 \subsection{H-index}
 H-index je metoda pro měření produktivity autora a významu jeho publikované
 vědecké práce.  Metoda byla navržena fyzikem Jorge E. Hirschem pro zjištování
@@ -1045,16 +1095,14 @@ počtu jejích citací. Toto číslo je pak h-index autora.
 
 
 \chapter{Výsledky}
-
 Pro zjištění, jestli se výsledky implementovaných metod shodují s uvedenými
-oceněními, použijeme metodu součtu pořadí oceněných autorů. Tzn. že pro jedno
-ocenění sečteme pořadí všech autorů, kteří byli oceněni danou cenou. Tuto
-jednoduchou míru můžeme porovnat pouze mezi jednotlivými metodami pro jedno
-ocenění, ale ne mezi různými oceněními pro jednu metodu. Jednoduše protože
-např. Turingova cena je ve výsledcích udělena pouze několika autorům, z čehož
-plyne malý součet pořadí, kdežto velké množství autorů je členy ACM Fellows,
-tím pádem velký součet pořadí oceněných.
-
+oceněními, použijeme metodu součtu pořadí oceněných autorů, viz tabulka
+\ref{tab:oceneni1}. Tzn. že pro jedno ocenění sečteme pořadí všech autorů,
+kteří byli oceněni danou cenou. Tuto jednoduchou míru můžeme porovnat pouze
+mezi jednotlivými metodami pro jedno ocenění, ale ne mezi různými oceněními pro
+jednu metodu. Jednoduše protože např. Turingova cena je ve výsledcích udělena
+pouze několika autorům, z čehož plyne malý součet pořadí, kdežto velké množství
+autorů je členy ACM Fellows, tím pádem velký součet pořadí oceněných.
 
 Dále nás zajímá, zda-li jsou metody mezi sebou podobné, či nikoli. Pro
 porovnání metod mezi sebou je použit Spearmanův koeficient pořadové korelace.
@@ -1097,6 +1145,13 @@ koeficientu korelace pořadí křížově mezi všemi metodami, viz tabulka
 
 % TODO vysvětlení tabulky, jak se to vypočetlo. Co se muselo odstranit za uzly,
 % proč dvě tabulky.
+Tabulka \ref{tab:impmetody} popisuje zkratky metod, časy běhu pro sítě DBLP a
+CiteSeer a velikost největší kliky v symetrizovaném grafu autorů. Největší
+klika je nalezena z top 20 autorů pro každou metodu. Výpočty byly vykonány na
+Intel\textregistered Core\texttrademark2 Quad Q8400 přetaktovaném na 3.1\,GHz s
+4\,GB fyzické paměti. Betweenness centrality bylo vypočteno paralalně na
+čtyřech jádrech, zbylé metody byly relativně časově nenáročné, proto nebylo
+nutné paralelizovat výpočet.
 
 \begin{table}[!ht]
 \begin{center}
@@ -1138,7 +1193,7 @@ wic   & vážený closeness pro vstupní hrany & 0:01:14:054 & & 18 & \\
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
-\begin{small}
+\begin{footnotesize}
 \begin{tabular}{c|cccccccccccc}
 \toprule
 &hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtwA\\
@@ -1156,7 +1211,7 @@ btwA &0.513&0.873&0.131&0.573&0.870&0.136&0.579&0.810&0.993&  -  &0.924\\
 wBtwA&0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 \bottomrule
 \end{tabular}
-\end{small}
+\end{footnotesize}
 }
 \end{center}
 \caption{Tabulka korelací pro neizolované uzly}
@@ -1167,7 +1222,7 @@ wBtwA&0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
-\begin{small}
+\begin{footnotesize}
 \begin{tabular}{c|ccccccccccccccc}
 \toprule
 &hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtwA&ic   &oc   &wic\\
@@ -1188,7 +1243,7 @@ oc   &0.486&0.467&0.892&0.783&0.487&0.884&0.780&0.340&0.422&0.421&0.463&0.412&  
 wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.472&  -  \\
 \bottomrule
 \end{tabular}
-\end{small}
+\end{footnotesize}
 }
 \end{center}
 \caption{Tabulka korelací pro hlavní komponentu. Zahrnuty i variace closeness.}
@@ -1205,7 +1260,7 @@ součet pořadí uvedených 30ti autorů.
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
-\begin{small}
+\begin{footnotesize}
 \begin{tabular}{r|ccccccccccc}
 \toprule
 &hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA\\
@@ -1244,7 +1299,7 @@ ALBERTO O. MENDELZON&30&68&34&43&43&40&38&81&90&95&43\\
 &465&756&2980&733&586&2144&658&1330&1041&1017&923\\
 \bottomrule
 \end{tabular}
-\end{small}
+\end{footnotesize}
 }
 \end{center}
 \caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
@@ -1301,13 +1356,14 @@ ALBERTO O. MENDELZON&30&68&34&43&43&40&38&78&90&95&42&90&30&33\\
 \label{tab:ranks2}
 \end{table}
 
-Výstupy programu - jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
+Výstupy programu, tj. jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
 příloze \ref{chapter:zebricky}, v sekci \ref{section:zebrickydblp} pro databázi
 DBLP a v sekci \ref{section:zebrickyciteseer} pro databázi CiteSeer.  Hodnoty u
 metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$ na $[0;
 |V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny hodnoty
 PageRanku zanedbatelně malé.
 
+\section{Porovnání metod s oceněními}
 
 \begin{table}[!ht]
 \begin{center}
@@ -1340,7 +1396,16 @@ wic\footnotemark[1]  & \,512& \, 73\,729& \, 38\,045&  1\,482\\
 \footnotetext[1]{Platí pro největší silně spojitou komponentu}
 
 \section{Aproximace betweenness centrality}
-Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod. Pro citační síť autorů pro databázi DBLP není exaktní výpočet problém, ale pro rozsáhlou síť databáze CiteSeer byla použita aproximace pro betweenness centrality. Tabulka \ref{btwA} znázorňuje Spearmanovo koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
+Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod.
+Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
+rozsáhlou síť databáze CiteSeer je výpočet váženého betweenness časově velmi
+náročný úkol, jak můžeme nahlédnout jen z doby běhu aproximovaného betweenness
+v tabulce \ref{tab:impmetody}.  Tabulka \ref{tab:btwA} znázorňuje Spearmanovo
+koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
+aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
+postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
+
+
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
@@ -1364,19 +1429,29 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 \end{table}
 
 \chapter{Diskuse}
+% TODO tady můžeš napsat, že ta aproximace betweenness je v pořádku.
 \section{Podobnost výsledků jednotlivých metod}
+% TODO jaká je signifikance spearmanovo korelace? 0.1? nebo kolik kurva? ZJISTIT!
+% TODO jsou teda podobný ty metody? Podle tý signifikance, ale na první pohled rozhodně.
 \section{Shoda výsledků s oceněními}
+% TODO proč se DBLP nejvíc shoduje s Codd? protože jsou to databázisti.
+% TODO TUring tam skoro žádnej neni - nedávat tomu výpočtu moc hodnotu.
+% TODO u CiteSeer plno buzíckých SENIOR MEMBERŮ, kazí výpočty?
 \section{Vliv vah na přesnost výsledků}
+% TODO shodujou se vážený výpočty víc s oceněníma?
+% TODO proč váhy nemaj tak velkej vliv? (je velká korelace mezi váženejma a neváženejma).
 \section{Vstupní a výstupní hrany}
+%TODO proč u closeness je lepší použít inhrany a ne outhrany, ale u betweenness se používaj klasicky outhrany?
 
 \chapter{Závěr}
+% TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
 
 \appendix
 \bibliographystyle{alpha}
 \bibliography{reference}
 
 % EMPTY PAGE
-\clearpage\mbox{}\clearpage
+% \clearpage\mbox{}\clearpage
 % EMPTY PAGE
 
 \newpage

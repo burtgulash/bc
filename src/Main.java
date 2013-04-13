@@ -26,7 +26,7 @@ public class Main {
 	final static String test3 = "test3.csv";
 	final static String test3rev = "test3rev.csv";
 	final static String test4 = "test4.csv";
-	final static String DB = dblp;
+	final static String DB = citeseer;
 	final static String BIB_DB = dir + DB;
 
 	private static Graph authors;
@@ -54,6 +54,31 @@ public class Main {
 
 		System.gc();
 		StatisticalDistribution.printEdgeWeightDistribution(authors);
+		
+		// Compute parallel exact betweenness
+		start = System.currentTimeMillis();
+		ResultRow[] betweennessExact = Betweenness.compute(authors, 1, true);
+		printRunningTime(start);
+		sortAndWrite(betweennessExact, "btw.csv", LIMIT);
+		printChecksum(betweennessExact);
+		printClique(authors, betweennessExact, TOP_K);
+
+		// Compute parallel betweenness approximated : n / 4
+		start = System.currentTimeMillis();
+		ResultRow[] betweenness4 = Betweenness.compute(authors, 4, true);
+		printRunningTime(start);
+		sortAndWrite(betweenness4, "btwA.csv", LIMIT);
+		printChecksum(betweenness4);
+		printClique(authors, betweenness4, TOP_K);
+
+		// Compute weightedBetweenness
+		start = System.currentTimeMillis();
+		ResultRow[] wBetweenness = WeightedBetweenness.compute(authors, 4,
+				VERBOSE);
+		printRunningTime(start);
+		sortAndWrite(wBetweenness, "wBtwA.csv", LIMIT);
+		printChecksum(wBetweenness);
+		printClique(authors, wBetweenness, TOP_K);
 
 		// Compute indegree
 
@@ -118,30 +143,6 @@ public class Main {
 		printChecksum(pagerank);
 		printClique(authors, pagerank, TOP_K);
 
-		// Compute parallel exact betweenness
-		start = System.currentTimeMillis();
-		ResultRow[] betweennessExact = Betweenness.compute(authors, 1, true);
-		printRunningTime(start);
-		sortAndWrite(betweennessExact, "btw.csv", LIMIT);
-		printChecksum(betweennessExact);
-		printClique(authors, betweennessExact, TOP_K);
-
-		// Compute parallel betweenness approximated : n / 4
-		start = System.currentTimeMillis();
-		ResultRow[] betweenness4 = Betweenness.compute(authors, 4, true);
-		printRunningTime(start);
-		sortAndWrite(betweenness4, "btwA.csv", LIMIT);
-		printChecksum(betweenness4);
-		printClique(authors, betweenness4, TOP_K);
-
-		// Compute weightedBetweenness
-		start = System.currentTimeMillis();
-		ResultRow[] wBetweenness = WeightedBetweenness.compute(authors, 4,
-				VERBOSE);
-		printRunningTime(start);
-		sortAndWrite(wBetweenness, "wBtwA.csv", LIMIT);
-		printChecksum(wBetweenness);
-		printClique(authors, wBetweenness, TOP_K);
 
 		// Get largest (main) component of the graph of authors.
 		Graph mainComponent = Components.getLargest(authors);
@@ -287,10 +288,12 @@ public class Main {
 			firstRank.put(methods[0][i].name, i);
 
 		for (int i = 0; i < methods.length; i++)
-			for (int j = 0; j < methods[i].length; j++) {
+			for (int j = 0; j < methods[i].length; j++)
 				ranks[i][firstRank.get(methods[i][j].name)] = j + 1;
-				sums[i] += j + 1;
-			}
+
+		for (int i = 0; i < methods.length; i++)
+			for (int j = 0; j < 30; j++)
+				sums[i] += ranks[i][j];
 
 		for (int j = 0; j < methods[0].length; j++) {
 			w.print(methods[0][j].name);
@@ -447,15 +450,16 @@ public class Main {
 
 		boolean[] Codd = null, ACMFell = null, ISIHC = null, Turing = null;
 
+		System.out.println("Codd,ACMFell,ISIHC,Turing:");
 		if (dbname != null) {
 			Codd = Awards.assignAwards(result, dbname, "Codd");
-			System.out.println("Codd sum: " + Awards.getSum(Codd));
+			System.out.println(Awards.getSum(Codd));
 			ACMFell = Awards.assignAwards(result, dbname, "ACMFell");
-			System.out.println("ACMFell sum: " + Awards.getSum(ACMFell));
+			System.out.println(Awards.getSum(ACMFell));
 			ISIHC = Awards.assignAwards(result, dbname, "ISIHC");
-			System.out.println("ISIHC sum: " + Awards.getSum(ISIHC));
+			System.out.println(Awards.getSum(ISIHC));
 			Turing = Awards.assignAwards(result, dbname, "Turing");
-			System.out.println("Turing sum: " + Awards.getSum(Turing));
+			System.out.println(Awards.getSum(Turing));
 		}
 
 		PrintWriter w = null;
