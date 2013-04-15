@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: thesis.aux
-The style file: alpha.bst
+The style file: plain.bst
 Database file #1: reference.bib
 Warning--to sort, need author or key in DBLP
 Warning--to sort, need author or key in citeseer
@@ -9,44 +9,44 @@ Warning--to sort, need author or key in sigmodinnovations
 Warning--to sort, need author or key in acmfellows
 Warning--to sort, need author or key in highlycited
 You've used 8 entries,
-            2543 wiz_defined-function locations,
-            588 strings with 5080 characters,
-and the built_in function-call counts, 1980 in all, are:
-= -- 188
-> -- 50
+            2118 wiz_defined-function locations,
+            527 strings with 4634 characters,
+and the built_in function-call counts, 1511 in all, are:
+= -- 137
+> -- 37
 < -- 0
-+ -- 15
-- -- 15
-* -- 107
-:= -- 271
++ -- 18
+- -- 10
+* -- 62
+:= -- 206
 add.period$ -- 18
 call.type$ -- 8
-change.case$ -- 35
-chr.to.int$ -- 8
-cite$ -- 20
-duplicate$ -- 90
-empty$ -- 213
-format.name$ -- 17
-if$ -- 441
-int.to.chr$ -- 1
-int.to.str$ -- 0
+change.case$ -- 27
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 66
+empty$ -- 183
+format.name$ -- 10
+if$ -- 353
+int.to.chr$ -- 0
+int.to.str$ -- 8
 missing$ -- 4
 newline$ -- 37
-num.names$ -- 6
-pop$ -- 78
+num.names$ -- 4
+pop$ -- 66
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 21
 quote$ -- 0
-skip$ -- 82
+skip$ -- 61
 stack$ -- 0
-substring$ -- 62
+substring$ -- 40
 swap$ -- 8
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
+type$ -- 28
 warning$ -- 6
-while$ -- 6
-width$ -- 11
-write$ -- 81
+while$ -- 4
+width$ -- 9
+write$ -- 65
 (There were 6 warnings)

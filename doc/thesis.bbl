@@ -1,38 +1,38 @@
-\begin{thebibliography}{DPV08}
+\begin{thebibliography}{1}
 
-\bibitem[acm]{acmfellows}
+\bibitem{acmfellows}
 Acm fellows.
 \newblock \url{http://fellows.acm.org/}.
 
-\bibitem[cit]{citeseer}
+\bibitem{turingaward}
+A.m. turing award.
+\newblock \url{http://amturing.acm.org}.
+
+\bibitem{citeseer}
 Citeseerx.
 \newblock \url{http://citeseerx.ist.psu.edu}.
 
-\bibitem[DBL]{DBLP}
+\bibitem{DBLP}
 Dblp bibliography.
 \newblock \url{http://www.informatik.uni-trier.de/~ley/db}.
 
-\bibitem[DPV08]{dasgupta}
+\bibitem{highlycited}
+Highly cited research.
+\newblock \url{http://researchanalytics.thomsonreuters.com/highlycited/}.
+
+\bibitem{sigmodinnovations}
+Sigmod awards.
+\newblock \url{http://www.sigmod.org/sigmod-awards}.
+
+\bibitem{dasgupta}
 S.~Dasgupta, C.~Papadimitriou, and U.~Vazirani.
 \newblock {\em Algorithms}.
 \newblock McGraw-Hill, 2008.
 
-\bibitem[hig]{highlycited}
-Highly cited research.
-\newblock \url{http://researchanalytics.thomsonreuters.com/highlycited/}.
-
-\bibitem[LM06]{langvillemeyer}
+\bibitem{langvillemeyer}
 Amy~N. Langville and Carl~D. Meyer.
 \newblock {\em Google's PageRank and Beyond: The Science of Search Engine
   Rankings}.
 \newblock Princeton University Press, Princeton, NJ, 2006.
-
-\bibitem[sig]{sigmodinnovations}
-Sigmod awards.
-\newblock \url{http://www.sigmod.org/sigmod-awards}.
-
-\bibitem[tur]{turingaward}
-A.m. turing award.
-\newblock \url{http://amturing.acm.org}.
 
 \end{thebibliography}

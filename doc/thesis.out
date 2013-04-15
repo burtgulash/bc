@@ -7,23 +7,23 @@
 \BOOKMARK [2][-]{subsection.2.2.3}{V\341\236en\351 citacn\355 s\355te}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.4}{Orientovan\351 a neorientovan\351 s\355te}{section.2.2}
 \BOOKMARK [0][-]{chapter.3}{Citacn\355 datab\341ze}{}
-\BOOKMARK [1][-]{subsection.3.0.5}{DBLP}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.0.6}{CiteSeer}{subsection.3.0.5}
-\BOOKMARK [1][-]{section.3.1}{Anal\375za s\355t\355}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.1.1}{Souvislost a komponenty grafu}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.2}{Klika v grafu}{section.3.1}
-\BOOKMARK [1][-]{section.3.2}{V\375znamnost uzlu}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.2.1}{Ocenen\355 v\375znamn\375ch autoru}{section.3.2}
-\BOOKMARK [1][-]{section.3.3}{M\355ry centrality}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.3.1}{Degree}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.2}{Eigenvector centrality}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.3}{Closeness centrality}{section.3.3}
-\BOOKMARK [2][-]{subsection.3.3.4}{Betweenness centrality}{section.3.3}
-\BOOKMARK [1][-]{section.3.4}{Hled\341n\355 nejkrat\235\355ch cest}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.4.1}{Single source shortest path}{section.3.4}
-\BOOKMARK [2][-]{subsection.3.4.2}{All-pair shortest paths}{section.3.4}
-\BOOKMARK [1][-]{section.3.5}{Ostatn\355 m\355ry v\375znamnosti autoru}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.5.1}{H-index}{section.3.5}
+\BOOKMARK [1][-]{section.3.1}{DBLP}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{CiteSeer}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Anal\375za s\355t\355}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{Souvislost a komponenty grafu}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{Klika v grafu}{section.3.3}
+\BOOKMARK [1][-]{section.3.4}{V\375znamnost uzlu}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.4.1}{Ocenen\355 v\375znamn\375ch autoru}{section.3.4}
+\BOOKMARK [1][-]{section.3.5}{M\355ry centrality}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.5.1}{Degree}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.2}{Eigenvector centrality}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.3}{Closeness centrality}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.4}{Betweenness centrality}{section.3.5}
+\BOOKMARK [1][-]{section.3.6}{Hled\341n\355 nejkrat\235\355ch cest}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.6.1}{Single source shortest path}{section.3.6}
+\BOOKMARK [2][-]{subsection.3.6.2}{All-pair shortest paths}{section.3.6}
+\BOOKMARK [1][-]{section.3.7}{Ostatn\355 m\355ry v\375znamnosti autoru}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.7.1}{H-index}{section.3.7}
 \BOOKMARK [0][-]{chapter.4}{V\375sledky}{}
 \BOOKMARK [1][-]{section.4.1}{Spearmanuv koeficient poradov\351 korelace}{chapter.4}
 \BOOKMARK [1][-]{section.4.2}{Porovn\341n\355 implementovan\375ch metod}{chapter.4}

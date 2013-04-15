@@ -24,6 +24,9 @@
 \usepackage{ae}
 \usepackage{fancyhdr}
 
+\usepackage{lscape} % horizontal tables
+\usepackage{rotating}
+
 \usepackage[section]{placeins}
 
 \usepackage[pdfborder=0 0 0]{hyperref}
@@ -107,8 +110,7 @@ je klíčovým dopravním uzlem v železniční síti.  Představme si, že nezn
 jednotlivé lidi v síti přátel a žádné informace o nich. Jak zjistíme, kdo je
 nejvýznamnější pouze na základě vztahů mezi nimi? Naším cílem je zjistit nejen,
 které prvky obecné sítě jsou významné a které nikoliv, ale pokusíme se najít
-metody, jak seřadit prvky od nejvýznamnějšího po nejméně významný.  seřadit
-prvky od nejvýznamnějšího po nejméně významný.
+metody, jak seřadit prvky od nejvýznamnějšího po nejméně významný.
 
 Velký díl k zodpovězení otázky relativní významnosti prvků definovali Freeman
 (1979); Bonacich (1972), jehož práce je spojena s Hubbellovo (1965) mírou
@@ -297,7 +299,7 @@ citací. Velké množství z dnešních citačních databází se zaměřuje na 
 Jiné jsou multioborové s možností volby prohledávaného oboru (Scopus, Web of
 Science).
 
-\subsection{DBLP}
+\section{DBLP}
 DBLP \cite{DBLP} je webová bibliografická databáze hostovaná na univerzitě
 Trier. Od 80.  let indexovala literaturu z oblasti databázových systémů a
 logického programovaní, ale postupně se její zaměření zobecnilo a nyní je
@@ -337,7 +339,7 @@ Poloměr grafu\footnotemark[2] & 6.637 \\
 \end{figure}
 
 
-\subsection{CiteSeer}
+\section{CiteSeer}
 CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
 automatizovaný systém shromažďování publikací a autonomní indexace citací v
 nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
@@ -1203,10 +1205,12 @@ wic   & vážený closeness pro vstupní hrany & 0:01:14:054 & & 18 & \\
 % incloseness je super podobný s indegree a všema invěcma, ale betweenness
 % takový pro outhrany. Divný ne?
 
+%\begin{landscape}
 \begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
-\begin{footnotesize}
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
+%\begin{footnotesize}
 \begin{tabular}{c|cccccccccccc}
 \toprule
 &hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtwA\\
@@ -1224,17 +1228,20 @@ btwA &0.513&0.873&0.131&0.573&0.870&0.136&0.579&0.810&0.993&  -  &0.924\\
 wBtwA&0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 \bottomrule
 \end{tabular}
-\end{footnotesize}
-}
-\end{center}
-\caption{Tabulka korelací pro neizolované uzly}
+%\end{footnotesize}
+\end{sideways}
+%}
+\caption{Tabulka korelací pro neizolované uzly pro DBLP}
 \label{tab:corr1}
 \end{table}
+%\end{landscape}
 
 
+%\begin{landscape}
 \begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
 \begin{footnotesize}
 \begin{tabular}{c|ccccccccccccccc}
 \toprule
@@ -1257,11 +1264,82 @@ wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.
 \bottomrule
 \end{tabular}
 \end{footnotesize}
-}
-\end{center}
-\caption{Tabulka korelací pro hlavní komponentu. Zahrnuty i variace closeness.}
+\end{sideways}
+%}
+\caption{Tabulka korelací pro hlavní komponentu pro DBLP. Zahrnuty i variace closeness.}
 \label{tab:corr2}
 \end{table}
+%\end{landscape}
+
+
+
+
+
+\begin{table}[!ht]
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
+%\begin{footnotesize}
+\begin{tabular}{c|cccccccccccc}
+\toprule
+&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtwA\\
+\midrule
+hi   &  -  &0.770&0.315&0.589&0.789&0.354&0.623&0.738&0.731&0.744&0.738\\
+ideg &0.770&  -  &0.314&0.693&0.993&0.344&0.704&0.954&0.928&0.954&0.929\\
+odeg &0.315&0.314&  -  &0.833&0.320&0.981&0.807&0.220&0.319&0.297&0.312\\
+deg  &0.589&0.693&0.833&  -  &0.690&0.833&0.983&0.602&0.660&0.651&0.650\\
+wideg&0.789&0.993&0.320&0.690&  -  &0.354&0.714&0.950&0.928&0.954&0.938\\
+wodeg&0.354&0.344&0.981&0.833&0.354&  -  &0.834&0.257&0.346&0.327&0.343\\
+wdeg &0.623&0.704&0.807&0.983&0.714&0.834&  -  &0.620&0.674&0.667&0.673\\
+pr   &0.738&0.954&0.220&0.602&0.950&0.257&0.620&  -  &0.886&0.920&0.886\\
+btw  &0.731&0.928&0.319&0.660&0.928&0.346&0.674&0.886&  -  &0.980&0.957\\
+btwA &0.744&0.954&0.297&0.651&0.954&0.327&0.667&0.920&0.980&  -  &0.960\\
+wBtwA&0.738&0.929&0.312&0.650&0.938&0.343&0.673&0.886&0.957&0.960&  -  \\
+\bottomrule
+\end{tabular}
+%\end{footnotesize}
+\end{sideways}
+%}
+\caption{Tabulka korelací pro neizolované uzly pro CiteSeer}
+\label{tab:corr3}
+\end{table}
+
+
+
+\begin{table}[!ht]
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
+\begin{footnotesize}
+\begin{tabular}{c|ccccccccccccccc}
+\toprule
+&hi  &ideg &odeg &deg  &wideg&wodeg&wdeg &pr   &btw  &btwA &wBtwA&ic   &oc   &wic\\
+\midrule
+hi   &  -  &0.706&0.452&0.623&0.749&0.503&0.663&0.652&0.605&0.608&0.629&0.562&0.379&0.650\\
+ideg &0.706&  -  &0.484&0.825&0.973&0.505&0.815&0.868&0.823&0.829&0.790&0.783&0.420&0.775\\
+odeg &0.452&0.484&  -  &0.849&0.491&0.966&0.821&0.294&0.416&0.416&0.423&0.457&0.841&0.457\\
+deg  &0.623&0.825&0.849&  -  &0.815&0.838&0.972&0.640&0.698&0.700&0.682&0.710&0.729&0.701\\
+wideg&0.749&0.973&0.491&0.815&  -  &0.528&0.841&0.853&0.817&0.822&0.830&0.768&0.426&0.840\\
+wodeg&0.503&0.505&0.966&0.838&0.528&  -  &0.859&0.336&0.435&0.435&0.456&0.465&0.806&0.493\\
+wdeg &0.663&0.815&0.821&0.972&0.841&0.859&  -  &0.649&0.697&0.700&0.713&0.699&0.703&0.746\\
+pr   &0.652&0.868&0.294&0.640&0.853&0.336&0.649&  -  &0.743&0.748&0.699&0.694&0.207&0.680\\
+btw  &0.605&0.823&0.416&0.698&0.817&0.435&0.697&0.743&  -  &0.996&0.879&0.907&0.421&0.797\\
+btwA &0.608&0.829&0.416&0.700&0.822&0.435&0.700&0.748&0.996&  -  &0.883&0.907&0.420&0.799\\
+wBtwA&0.629&0.790&0.423&0.682&0.830&0.456&0.713&0.699&0.879&0.883&  -  &0.777&0.392&0.831\\
+ic   &0.562&0.783&0.457&0.710&0.768&0.465&0.699&0.694&0.907&0.907&0.777&  -  &0.510&0.827\\
+oc   &0.379&0.420&0.841&0.729&0.426&0.806&0.703&0.207&0.421&0.420&0.392&0.510&  -  &0.479\\
+wic  &0.650&0.775&0.457&0.701&0.840&0.493&0.746&0.680&0.797&0.799&0.831&0.827&0.479&  -  \\
+\bottomrule
+\end{tabular}
+\end{footnotesize}
+\end{sideways}
+%}
+\caption{Tabulka korelací pro hlavní komponentu pro CiteSeer. Zahrnuty i variace closeness.}
+\label{tab:corr4}
+\end{table}
+
+
+
 
 \section{Žebříčky významných autorů}
 Tabulky \ref{tab:ranks1} a \ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
@@ -1271,8 +1349,9 @@ součet pořadí uvedených 30ti autorů.
 
 
 \begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
 \begin{footnotesize}
 \begin{tabular}{r|rrrrrrrrrrr}
 \toprule
@@ -1309,20 +1388,21 @@ FRANCCEDILOIS BANCILHON&28&19&245&42&21&212&43&45&15&15&41\\
 ARIE SHOSHANI&29&104&280&132&80&199&110&60&120&124&137\\
 ALBERTO O. MENDELZON&30&68&34&43&43&40&38&81&90&95&43\\
 \midrule
-&465&756&2980&733&586&2144&658&1330&1041&1017&923\\
+suma&465&756&2980&733&586&2144&658&1330&1041&1017&923\\
 \bottomrule
 \end{tabular}
 \end{footnotesize}
-}
-\end{center}
+%}
+\end{sideways}
 \caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
 \label{tab:ranks1}
 \end{table}
 
 
 \begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
 \begin{scriptsize}
 \begin{tabular}{r|rrrrrrrrrrrrrr}
 \toprule
@@ -1359,12 +1439,12 @@ FRANCCEDILOIS BANCILHON&28&19&245&42&21&212&43&42&15&15&41&19&294&34\\
 ARIE SHOSHANI&29&104&280&132&80&199&110&57&120&124&143&102&281&232\\
 ALBERTO O. MENDELZON&30&68&34&43&43&40&38&78&90&95&42&90&30&33\\
 \midrule
-&465&756&2978&733&586&2144&658&1274&1041&1017&923&988&5303&1239\\
+suma&465&756&2978&733&586&2144&658&1274&1041&1017&923&988&5303&1239\\
 \bottomrule
 \end{tabular}
 \end{scriptsize}
-}
-\end{center}
+\end{sideways}
+%}
 \caption{Top 30 autorů největší komponenty DBLP podle H-indexu a pořadí podle ostatních metod}
 \label{tab:ranks2}
 \end{table}
@@ -1396,6 +1476,7 @@ pr   & \,867& \,805\,267& \,403\,109& 41\,735\\
 btw  & \,796& \,828\,571& \,399\,720& 70\,342\\
 btwA & \,821&1\,024\,010& \,428\,133& 68\,996\\
 wBtwA& \,567&1\,057\,788& \,473\,146& 77\,168\\
+\midrule
 ic\footnotemark[1]   & \,805& \, 63\,753& \, 34\,004&  1\,384\\
 oc\footnotemark[1]   &6\,607& \,129\,810& \, 59\,701&  4\,098\\
 wic\footnotemark[1]  & \,512& \, 73\,729& \, 38\,045&  1\,482\\
@@ -1461,7 +1542,7 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 % TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
 
 \appendix
-\bibliographystyle{alpha}
+\bibliographystyle{plain}
 \bibliography{reference}
 
 % EMPTY PAGE
@@ -1472,6 +1553,11 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 \appendix
 \chapter{Žebříčky významných autorů}
 \label{chapter:zebricky}
+
+Příloha \ref{chapter:zebricky} obsahuje tabulky pro každou implementovanou
+metodu s prvními třiceti autory a vyznačenými oceněními (Codd - ACM SIGMOD
+Edgar F. Codd Innovations Award, Fellows - ACM Fellows, Turing - ACM A.M.
+Turing Award, ISI - ISI Highly Cited highlighted), pokud ji autor obdržel.
 
 \newpage
 \section{DBLP}
@@ -1492,8 +1578,23 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 \input{../dblp/tabels/oc}
 \input{../dblp/tabels/wic}
 
-
 \section{CiteSeer}
 \label{section:zebrickyciteseer}
+
+\input{../citeseer/tabels/hi}
+\input{../citeseer/tabels/ideg}
+\input{../citeseer/tabels/odeg}
+\input{../citeseer/tabels/deg}
+\input{../citeseer/tabels/wideg}
+\input{../citeseer/tabels/wodeg}
+\input{../citeseer/tabels/wdeg}
+\input{../citeseer/tabels/pr}
+\input{../citeseer/tabels/btw}
+\input{../citeseer/tabels/btwA}
+\input{../citeseer/tabels/wBtwA}
+\input{../citeseer/tabels/ic}
+\input{../citeseer/tabels/oc}
+\input{../citeseer/tabels/wic}
+
 
 \end{document}
