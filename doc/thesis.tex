@@ -261,12 +261,27 @@ autorů citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovan
 publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
 publikací, i zde uvažujeme opačné orientace hrany.
 
+\begin{figure}[!ht]
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+	\includegraphics[width=\textwidth]{pubs.eps}
+	\label{fig:pubs}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+	\includegraphics[width=\textwidth]{auths.eps}
+	\label{fig:auths}
+\end{minipage}
+\caption{Transformace z citační sítě publikací na citační síť autorů}
+\label{fig:transform}
+\end{figure}
+
 V síti autorů má pro naše účely smysl uvažovat ohodnocení hran. Existuje více
 způsobů, jak lze přiřadit ohodnocení (váhu) jednotlivým hranám, ale
 nejjednodušším způsobem, který je použitý i v implementaci knihovny, je prosté
 přiřazení počtu publikací, jejichž autorem je daný autor $A$, které odkazují na
-publikace, jejichž autorem je autor $B$. Srozumitelnější popis poskytne
-obrázek:
+publikace, jejichž autorem je autor $B$.
 
 Druhou možností ohodnocení hran, který rovněž využívá implementovaná knihovna
 pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
@@ -282,6 +297,22 @@ dvěma autory může být silnější vztah, pokud se citují ve více publikac�
 Jestliže citační síť analyzujeme metodami, které jsou založené na myšlence
 hledání nejkratších cest i v této síti, která nemá v podstatě žádný pojem
 vzdálenosti, použijeme druhý typ ohodnocení - menší váha, silnější pouto.
+
+\begin{figure}[!ht]
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+	\includegraphics[width=\textwidth]{wNormal.eps}
+	\caption{Vážená síť autorů, kde váha odpovídá vzdálenosti mezi uzly}
+	\label{fig:wNormal}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+	\includegraphics[width=\textwidth]{wRecip.eps}
+	\caption{Stejná síť autorů s převrácenou hodnotou váhy ($\frac{1}{w}$)}
+	\label{fig:wRecip}
+\end{minipage}
+\end{figure}
 
 \subsection{Orientované a neorientované sítě}
 V případě sociálních sítí nejčastěji uvažujeme sítě bez orientace, protože
@@ -1237,6 +1268,150 @@ wic  &vážený closeness vstupní hrany    &1:14.054&33:44:56.355&18&15\\
 % takový pro outhrany. Divný ne?
 
 %\begin{landscape}
+
+
+
+
+\section{Žebříčky významných autorů}
+Tabulky \ref{tab:ranks1} a \ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
+podle metody h-index. Pro každého autora je zobrazeno jeho umístění podle všech
+zbylých implementovaných metod. Poslední řádek u každé metody označuje
+součet pořadí uvedených 30ti autorů.
+
+
+
+Výstupy programu, tj. jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
+příloze \ref{chapter:zebricky}, v sekci \ref{section:zebrickydblp} pro databázi
+DBLP a v sekci \ref{section:zebrickyciteseer} pro databázi CiteSeer.  Hodnoty u
+metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$ na $[0;
+|V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny hodnoty
+PageRanku zanedbatelně malé.
+
+\section{Porovnání metod s oceněními}
+\begin{table}[!ht]
+\begin{center}
+\makebox[\linewidth]{
+\begin{tabular}{r|rrrr}
+\toprule
+&Codd & ACM Fellows & Turing & ISI HC \\
+\midrule
+hi   & \,819&6\,791\,886&2\,555\,487&725\,373\\
+ideg & \,716& \,801\,295& \,376\,586& 61\,665\\
+odeg &4\,605&3\,904\,308&2\,367\,669&257\,133\\
+deg  & \,741&1\,077\,282& \,525\,324& 84\,191\\
+wideg& \,571& \,802\,148& \,374\,344& 61\,757\\
+wodeg&4\,491&3\,902\,718&2\,365\,245&256\,620\\
+wdeg & \,692&1\,065\,801& \,511\,523& 82\,652\\
+pr   & \,867& \,805\,267& \,403\,109& 41\,735\\
+btw  & \,796& \,828\,571& \,399\,720& 70\,342\\
+btwA & \,821&1\,024\,010& \,428\,133& 68\,996\\
+wBtwA& \,567&1\,057\,788& \,473\,146& 77\,168\\
+\midrule
+ic\footnotemark[1]   & \,805& \, 63\,753& \, 34\,004&  1\,384\\
+oc\footnotemark[1]   &6\,607& \,129\,810& \, 59\,701&  4\,098\\
+wic\footnotemark[1]  & \,512& \, 73\,729& \, 38\,045&  1\,482\\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\caption{Součty pořadí oceněných autorů pro DBLP}
+\label{tab:oceneni1}
+\end{table}
+\footnotetext[1]{Platí pro největší silně spojitou komponentu}
+
+\begin{table}[!ht]
+\centering
+\makebox[\linewidth]{
+\begin{tabular}{r|rrrr}
+\toprule
+&Codd & ACM Fellows & Turing & ISI HC \\
+\midrule
+hi   &\\
+ideg &\\
+odeg &\\
+deg  &\\
+wideg&\\
+wodeg&\\
+wdeg &\\
+pr   &\\
+btw  &\\
+btwA &\\
+wBtwA&\\
+\midrule
+ic\footnotemark[1] \\
+oc\footnotemark[1] \\
+wic\footnotemark[1]\\
+\bottomrule
+\end{tabular}
+}
+\caption{Součty pořadí oceněných autorů pro CiteSeer}
+\label{tab:oceneni2}
+\end{table}
+\footnotetext[1]{Platí pro největší silně spojitou komponentu}
+
+
+\section{Aproximace betweenness centrality}
+Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod.
+Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
+rozsáhlou síť databáze CiteSeer je výpočet váženého betweenness časově velmi
+náročný úkol, jak můžeme nahlédnout jen z doby běhu aproximovaného betweenness
+v tabulce \ref{tab:impmetody}.  Tabulka \ref{tab:btwA} znázorňuje Spearmanovo
+koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
+aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
+postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
+
+
+\begin{table}[!ht]
+\begin{center}
+\makebox[\linewidth]{
+\begin{tabular}{r|l}
+\toprule
+zlomek velikosti množiny $V$ & koeficient korelace \\
+\midrule
+1  & 1.000\,000 \\
+2  & 0.998\,151 \\
+4  & 0.996\,191 \\
+8  & 0.990\,510 \\
+16 & 0.979\,103 \\
+32 & 0.976\,887 \\
+64 & 0.976\,745 \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness}
+\label{tab:btwA}
+\end{table}
+
+\chapter{Diskuse}
+% TODO tady můžeš napsat, že ta aproximace betweenness je v pořádku.
+\section{Podobnost výsledků jednotlivých metod}
+% TODO jaká je signifikance spearmanovo korelace? 0.1? nebo kolik kurva? ZJISTIT!
+% TODO jsou teda podobný ty metody? Podle tý signifikance, ale na první pohled rozhodně.
+\section{Shoda výsledků s oceněními}
+% TODO proč se DBLP nejvíc shoduje s Codd? protože jsou to databázisti.
+% TODO TUring tam skoro žádnej neni - nedávat tomu výpočtu moc hodnotu.
+% TODO u CiteSeer plno buzíckých SENIOR MEMBERŮ, kazí výpočty?
+\section{Vliv vah na přesnost výsledků}
+% TODO shodujou se vážený výpočty víc s oceněníma?
+% TODO proč váhy nemaj tak velkej vliv? (je velká korelace mezi váženejma a neváženejma).
+\section{Vstupní a výstupní hrany}
+%TODO proč u closeness je lepší použít inhrany a ne outhrany, ale u betweenness se používaj klasicky outhrany?
+
+\chapter{Závěr}
+% TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
+
+\bibliographystyle{plain}
+\bibliography{reference}
+
+% EMPTY PAGE
+% \clearpage\mbox{}\clearpage
+% EMPTY PAGE
+
+\appendix
+
+\newpage
+\chapter{Tabulky korelací}
 \begin{table}[!ht]
 \centering
 %\makebox[\linewidth]{
@@ -1369,21 +1544,15 @@ wic  &0.650&0.775&0.457&0.701&0.840&0.493&0.746&0.680&0.797&0.799&0.831&0.827&0.
 \label{tab:corr4}
 \end{table}
 
-
-
-
-\section{Žebříčky významných autorů}
-Tabulky \ref{tab:ranks1} a \ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
-podle metody h-index. Pro každého autora je zobrazeno jeho umístění podle všech
-zbylých implementovaných metod. Poslední řádek u každé metody označuje
-součet pořadí uvedených 30ti autorů.
-
-
+\newpage
+\chapter{Porovnání pořadí implementovaných metod}
+\label{chapter:porovnani}
+\section{DBLP}
 \begin{table}[!ht]
 \centering
 %\makebox[\linewidth]{
 \begin{sideways}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{r|r|rrrrrrrrrr}
 \toprule
 &hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA\\
@@ -1422,7 +1591,7 @@ ALBERTO O. MENDELZON&30&68&34&43&43&40&38&81&90&95&43\\
 suma&465&756&2980&733&586&2144&658&1330&1041&1017&923\\
 \bottomrule
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 %}
 \end{sideways}
 \caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
@@ -1480,11 +1649,12 @@ suma&465&756&2978&733&586&2144&658&1274&1041&1017&923&988&5303&1239\\
 \label{tab:ranks2}
 \end{table}
 
+\section{CiteSeer}
 \begin{table}[!ht]
 \centering
 %\makebox[\linewidth]{
 \begin{sideways}
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{tabular}{r|r|rrrrrrrrrr}
 \toprule
 &hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA\\
@@ -1523,7 +1693,7 @@ HENRY M. LEVY&30&26&59&22&45&114&44&62&146&151&212\\
 suma&465&2727&9438&2519&1092&5796&1111&4819&9886&9778&5696\\
 \bottomrule
 \end{tabular}
-\end{footnotesize}
+\end{scriptsize}
 %}
 \end{sideways}
 \caption{Top 30 autorů CiteSeer podle H-indexu a pořadí podle ostatních metod}
@@ -1580,108 +1750,7 @@ suma&465&2645&9422&2472&1092&5796&1111&4493&9468&9367&5636&4300&19582&6626\\
 \label{tab:ranks4}
 \end{table}
 
-Výstupy programu, tj. jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
-příloze \ref{chapter:zebricky}, v sekci \ref{section:zebrickydblp} pro databázi
-DBLP a v sekci \ref{section:zebrickyciteseer} pro databázi CiteSeer.  Hodnoty u
-metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$ na $[0;
-|V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny hodnoty
-PageRanku zanedbatelně malé.
-
-\section{Porovnání metod s oceněními}
-
-\begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
-\begin{tabular}{r|rrrr}
-\toprule
-&Codd & ACM Fellows & Turing & ISI HC \\
-\midrule
-hi   & \,819&6\,791\,886&2\,555\,487&725\,373\\
-ideg & \,716& \,801\,295& \,376\,586& 61\,665\\
-odeg &4\,605&3\,904\,308&2\,367\,669&257\,133\\
-deg  & \,741&1\,077\,282& \,525\,324& 84\,191\\
-wideg& \,571& \,802\,148& \,374\,344& 61\,757\\
-wodeg&4\,491&3\,902\,718&2\,365\,245&256\,620\\
-wdeg & \,692&1\,065\,801& \,511\,523& 82\,652\\
-pr   & \,867& \,805\,267& \,403\,109& 41\,735\\
-btw  & \,796& \,828\,571& \,399\,720& 70\,342\\
-btwA & \,821&1\,024\,010& \,428\,133& 68\,996\\
-wBtwA& \,567&1\,057\,788& \,473\,146& 77\,168\\
-\midrule
-ic\footnotemark[1]   & \,805& \, 63\,753& \, 34\,004&  1\,384\\
-oc\footnotemark[1]   &6\,607& \,129\,810& \, 59\,701&  4\,098\\
-wic\footnotemark[1]  & \,512& \, 73\,729& \, 38\,045&  1\,482\\
-\bottomrule
-\end{tabular}
-}
-\end{center}
-\caption{Součty pořadí oceněných autorů}
-\label{tab:oceneni1}
-\end{table}
-\footnotetext[1]{Platí pro největší silně spojitou komponentu}
-
-
-\section{Aproximace betweenness centrality}
-Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod.
-Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
-rozsáhlou síť databáze CiteSeer je výpočet váženého betweenness časově velmi
-náročný úkol, jak můžeme nahlédnout jen z doby běhu aproximovaného betweenness
-v tabulce \ref{tab:impmetody}.  Tabulka \ref{tab:btwA} znázorňuje Spearmanovo
-koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
-aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
-postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
-
-
-\begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
-\begin{tabular}{r|l}
-\toprule
-zlomek velikosti množiny $V$ & koeficient korelace \\
-\midrule
-1  & 1.000\,000 \\
-2  & 0.998\,151 \\
-4  & 0.996\,191 \\
-8  & 0.990\,510 \\
-16 & 0.979\,103 \\
-32 & 0.976\,887 \\
-64 & 0.976\,745 \\
-\bottomrule
-\end{tabular}
-}
-\end{center}
-\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness}
-\label{tab:btwA}
-\end{table}
-
-\chapter{Diskuse}
-% TODO tady můžeš napsat, že ta aproximace betweenness je v pořádku.
-\section{Podobnost výsledků jednotlivých metod}
-% TODO jaká je signifikance spearmanovo korelace? 0.1? nebo kolik kurva? ZJISTIT!
-% TODO jsou teda podobný ty metody? Podle tý signifikance, ale na první pohled rozhodně.
-\section{Shoda výsledků s oceněními}
-% TODO proč se DBLP nejvíc shoduje s Codd? protože jsou to databázisti.
-% TODO TUring tam skoro žádnej neni - nedávat tomu výpočtu moc hodnotu.
-% TODO u CiteSeer plno buzíckých SENIOR MEMBERŮ, kazí výpočty?
-\section{Vliv vah na přesnost výsledků}
-% TODO shodujou se vážený výpočty víc s oceněníma?
-% TODO proč váhy nemaj tak velkej vliv? (je velká korelace mezi váženejma a neváženejma).
-\section{Vstupní a výstupní hrany}
-%TODO proč u closeness je lepší použít inhrany a ne outhrany, ale u betweenness se používaj klasicky outhrany?
-
-\chapter{Závěr}
-% TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
-
-\appendix
-\bibliographystyle{plain}
-\bibliography{reference}
-
-% EMPTY PAGE
-% \clearpage\mbox{}\clearpage
-% EMPTY PAGE
-
 \newpage
-\appendix
 \chapter{Žebříčky významných autorů}
 \label{chapter:zebricky}
 
