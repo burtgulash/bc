@@ -27,10 +27,11 @@
 \usepackage{lscape} % horizontal tables
 \usepackage{rotating}
 
+\usepackage[left=3.5cm,right=2.5cm,top=4cm,bottom=.1cm]{geometry}
+
 \usepackage[section]{placeins}
 
 \usepackage[pdfborder=0 0 0]{hyperref}
-
 
 \author{Tomáš Maršálek}
 \title{Měření významnosti autorů v citační síti}
@@ -140,12 +141,12 @@ DBLP a CiteSeer, které zároveň srovnáme s oceněními autorů v oblasti
 informatiky (ACM SIGMOD Edgar F. Codd Innovations Award, ACM Fellows, ACM A.M.
 Turing Award, ISI Highly Cited highlighted).
 
-Cílem této práce je vytvořit knihovnu pro analýzu citační sítě z hlediska
-významnosti autorů a použít ji k porovnání jednotlivých implementovaných metod
-pro měření významnosti mezi sebou a k porovnání těchto metod s již udělenými
-oceněními. Očekáváme, že pokud měříme významnost autora nebo obecně prvku v
-síti, přestože neznáme její přesnou definici, bude se shodovat s těmito
-oceněními.
+Cílem této práce je vytvořit knihovnu pro analýzu citační sítě s metodami pro
+měření významnosti autorů, použít ji pro nalezení žebříčků nejvýznamnějších
+autorůpro každou metodu. Tyto žebříčky poté mezi sebou porovnáme a jednotlivé
+metody srovnáme s již udělenými oceněními.  Očekáváme, že pokud měříme
+významnost autora nebo obecně prvku v síti, přestože neznáme její přesnou
+definici, bude se shodovat s těmito oceněními.
 
 % TODO Nejsou již někde autoři oceněni za to jak jsou významní? 
 % TODO Nutnost měřit významnost prvků sítě, v tutom případě autorů. I když jediná informace je jak jsou propojený. 
@@ -266,7 +267,6 @@ nejjednodušším způsobem, který je použitý i v implementaci knihovny, je p
 přiřazení počtu publikací, jejichž autorem je daný autor $A$, které odkazují na
 publikace, jejichž autorem je autor $B$. Srozumitelnější popis poskytne
 obrázek:
-%% TODO figure váha hran.
 
 Druhou možností ohodnocení hran, který rovněž využívá implementovaná knihovna
 pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
@@ -324,7 +324,6 @@ Průměrná nejkratší cesta\footnotemark[1] & 2.894 \\
 Průměrná nejkratší cesta\footnotemark[2] & 1.194 \\
 Poloměr grafu\footnotemark[1] & 8.0 \\
 Poloměr grafu\footnotemark[2] & 6.637 \\
-% Clustering coefficient & \\
 \bottomrule
 \end{tabular}
 \caption{Statistiky pro databázi DBLP 2004}
@@ -334,7 +333,7 @@ Poloměr grafu\footnotemark[2] & 6.637 \\
 
 \begin{figure}[!ht]
 \centering
-	\includegraphics[width=10cm,angle=270]{ewd.eps}
+	\includegraphics[width=10cm,angle=270]{ewd_dblp.eps}
 	\caption{Mocninné rozdělení vah hran ($\frac{1}{w}$) citační sítě autorů DBLP}
 \end{figure}
 
@@ -363,13 +362,18 @@ Průměrná nejkratší cesta\footnotemark[1] & 4.134 \\
 Průměrná nejkratší cesta\footnotemark[2] & 1.592 \\
 Poloměr grafu\footnotemark[1] & 15.0   \\
 Poloměr grafu\footnotemark[2] & 11.489 \\
-% Clustering coefficient & \\
 \bottomrule
 \end{tabular}
 \caption{Statistiky pro databázi CiteSeer 2005}
 \label{tab:citeseerstat}
 \end{center}
 \end{table}
+
+\begin{figure}[!ht]
+\centering
+	\includegraphics[width=10cm,angle=270]{ewd_citeseer.eps}
+	\caption{Mocninné rozdělení vah hran ($\frac{1}{w}$) citační sítě autorů CiteSeer}
+\end{figure}
 
 
 \footnotetext[1]{Platí pro neváženou síť autorů}
@@ -1196,26 +1200,28 @@ nutné paralelizovat výpočet.
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
+\begin{small}
 \begin{tabular}{r|l|r|r|r|r}
 \toprule
-zkratka & metoda & $t_{DBLP}$ & $t_{CiteSeer}$ & klika$_{DBLP}$\footnotemark & klika$_{CiteSeer}$\footnotemark \\
+zkratka & metoda & $t_{DBLP}$ & $t_{CS}$ & k$_{DBLP}$\footnotemark & k$_{CS}$\footnotemark \\
 \midrule
-hi    & H-index                            & 0:00:04:627 & & 17 & \\
-ideg  & indegree                           & 0:00:00:049 & & 19 & \\
-odeg  & outdegree                          & 0:00:00:036 & & 16 & \\
-deg   & degree                             & 0:00:00:036 & & 19 & \\
-wideg & vážený indegree                    & 0:00:00:099 & & 18 & \\
-wodeg & vážený outdegree                   & 0:00:00:046 & & 17 & \\
-wdeg  & vážený degree                      & 0:00:00:062 & & 17 & \\
-pr    & PageRank                           & 0:00:00:376 & & 18 & \\
-btw   & betweenness                        & 0:24:56:814 & & 19 & \\
-btwA  & aproximace betweenness             & 0:06:51:216 & & 19 & \\
-wBtwA & aproximace váženého betweenness    & 0:08:54:073 & & 16 & \\
-ic    & closeness pro vstupní hrany        & 0:00:05:583 & & 19 & \\
-oc    & closeness pro výstupní hrany       & 0:00:11:313 & & 16 & \\
-wic   & vážený closeness pro vstupní hrany & 0:01:14:054 & & 18 & \\
+hi   &H-index                           &0:04.627& 0:00:15.534&17&8\\
+ideg &indegree                          &0:00.049& 0:00:20.372&19&13\\
+odeg &outdegree                         &0:00.036& 0:00:00.343&16&8\\
+deg  &degree                            &0:00.036& 0:00:00.060&19&12\\
+wideg&vážený indegree                   &0:00.099& 0:00:21.899&18&13\\
+wodeg&vážený outdegree                  &0:00.046& 0:00:01.171&17&11\\
+wdeg &vážený degree                     &0:00.062& 0:00:00.214&17&10\\
+pr   &PageRank                          &0:00.376& 0:00:02.758&18&7\\
+btw  &betweenness                       &4:56.814& 7:45:25.904&19&13\\
+btwA &betweenness aproximace            &6:51.216& 1:50:31.412&19&12\\
+wBtwA&vážený betweenness aproximace     &8:54.073&13:01:51.078&16&18\\
+ic   &closeness vstupní hrany           &0:05.583& 1:12:32.345&19&11\\
+oc   &closeness výstupní hrany          &0:11.313& 2:23:36.778&16&6\\
+wic  &vážený closeness vstupní hrany    &1:14.054&33:44:56.355&18&15\\
 \bottomrule
 \end{tabular}
+\end{small}
 }
 \end{center}
 \caption{Implementované metody}
@@ -1378,7 +1384,7 @@ součet pořadí uvedených 30ti autorů.
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{footnotesize}
-\begin{tabular}{r|rrrrrrrrrrr}
+\begin{tabular}{r|r|rrrrrrrrrr}
 \toprule
 &hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA\\
 \midrule
@@ -1429,7 +1435,7 @@ suma&465&756&2980&733&586&2144&658&1330&1041&1017&923\\
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{scriptsize}
-\begin{tabular}{r|rrrrrrrrrrrrrr}
+\begin{tabular}{r|r|rrrrrrrrrrrrr}
 \toprule
 &hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA&ic&oc&wic\\
 \midrule
@@ -1472,6 +1478,106 @@ suma&465&756&2978&733&586&2144&658&1274&1041&1017&923&988&5303&1239\\
 %}
 \caption{Top 30 autorů největší komponenty DBLP podle H-indexu a pořadí podle ostatních metod}
 \label{tab:ranks2}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
+\begin{footnotesize}
+\begin{tabular}{r|r|rrrrrrrrrr}
+\toprule
+&hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA\\
+\midrule
+SCOTT SHENKER&1&2&29&4&1&10&2&7&2&2&3\\
+DEBORAH ESTRIN&2&7&35&7&3&8&4&20&9&9&2\\
+KEN KENNEDY&3&44&404&53&21&244&25&47&20&21&183\\
+DOUGLAS C. SCHMIDT&4&103&92&74&25&4&13&335&1068&1013&1125\\
+DON TOWSLEY&5&13&11&10&8&5&5&58&16&15&12\\
+HECTOR GARCIA-MOLINA&6&14&17&14&15&18&15&66&39&41&21\\
+THOMAS A. HENZINGER&7&46&275&47&13&26&14&95&100&97&55\\
+JENNIFER WIDOM&8&15&109&16&9&43&12&49&8&8&18\\
+RAKESH AGRAWAL&9&10&398&15&4&534&10&19&23&24&39\\
+M. FRANS KAASHOEK&10&6&18&6&6&23&8&44&1&1&9\\
+HUI ZHANG&11&22&163&23&22&153&24&61&25&25&14\\
+WILLY ZWAENEPOEL&12&20&54&18&14&46&17&112&150&161&49\\
+LUCA CARDELLI&13&61&1806&104&67&1532&134&56&114&113&1059\\
+IAN FOSTER&14&12&21&13&7&15&6&77&45&44&76\\
+SALLY FLOYD&15&5&521&9&2&293&7&10&6&5&5\\
+SERGE ABITEBOUL&16&53&637&64&23&165&26&119&18&18&41\\
+SENIOR MEMBER&17&1&1&1&12&1&1&4&3&3&17\\
+MONI NAOR&18&92&231&93&38&65&34&104&69&68&177\\
+BART SELMAN&19&85&1091&122&31&813&59&127&26&27&193\\
+DAVID J. DEWITT&20&38&641&48&28&719&52&33&172&184&276\\
+SEBASTIAN THRUN&21&78&49&54&32&6&18&192&144&149&168\\
+OREN ETZIONI&22&75&110&62&97&351&122&162&36&35&162\\
+DAPHNE KOLLER&23&140&101&103&99&131&94&244&29&31&120\\
+RAJEEV ALUR&24&77&312&83&29&102&29&156&204&200&64\\
+HARI BALAKRISHNAN&25&9&23&8&10&14&9&64&7&7&8\\
+ROBERT HARPER&26&380&306&276&118&74&86&564&2260&2219&832\\
+MAURIZIO LENZERINI&27&713&680&580&124&40&69&1435&3710&3625&197\\
+ODED GOLDREICH&28&481&1033&493&100&73&77&302&1102&1144&198\\
+MARK D. HILL&29&99&211&97&89&174&95&195&334&338&361\\
+HENRY M. LEVY&30&26&59&22&45&114&44&62&146&151&212\\
+\midrule
+suma&465&2727&9438&2519&1092&5796&1111&4819&9886&9778&5696\\
+\bottomrule
+\end{tabular}
+\end{footnotesize}
+%}
+\end{sideways}
+\caption{Top 30 autorů CiteSeer podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks3}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+%\makebox[\linewidth]{
+\begin{sideways}
+\begin{scriptsize}
+\begin{tabular}{r|r|rrrrrrrrrrrrr}
+\toprule
+&hi&ideg&odeg&deg&wideg&wodeg&wdeg&pr&btw&btwA&wBtwA&ic&oc&wic\\
+\midrule
+SCOTT SHENKER&1&2&29&4&1&10&2&7&2&2&3&3&104&1\\
+DEBORAH ESTRIN&2&7&35&7&3&8&4&15&9&9&2&8&35&4\\
+KEN KENNEDY&3&41&404&53&21&244&25&41&20&21&183&79&1272&426\\
+DOUGLAS C. SCHMIDT&4&100&92&74&25&4&13&319&1034&979&1106&235&89&1261\\
+DON TOWSLEY&5&13&11&10&8&5&5&52&16&15&12&26&21&15\\
+HECTOR GARCIA-MOLINA&6&14&17&14&15&18&15&59&39&41&21&9&59&29\\
+THOMAS A. HENZINGER&7&43&275&47&13&26&14&87&97&94&55&92&920&191\\
+JENNIFER WIDOM&8&15&109&16&9&43&12&43&8&8&18&20&375&27\\
+RAKESH AGRAWAL&9&10&398&15&4&534&10&14&23&24&39&6&127&18\\
+M. FRANS KAASHOEK&10&6&18&6&6&23&8&38&1&1&9&4&244&6\\
+HUI ZHANG&11&22&163&23&22&153&24&55&25&25&14&36&242&13\\
+WILLY ZWAENEPOEL&12&20&54&18&14&46&17&100&136&147&49&49&377&62\\
+LUCA CARDELLI&13&58&1798&101&67&1532&134&50&101&100&1041&70&1758&1150\\
+IAN FOSTER&14&12&21&13&7&15&6&70&45&44&76&17&147&96\\
+SALLY FLOYD&15&5&520&9&2&293&7&9&6&5&5&13&638&2\\
+SERGE ABITEBOUL&16&50&636&64&23&165&26&107&18&18&41&62&1491&43\\
+SENIOR MEMBER&17&1&1&1&12&1&1&4&3&3&17&1&1&236\\
+MONI NAOR&18&89&231&90&38&65&34&93&66&65&177&72&939&111\\
+BART SELMAN&19&82&1089&119&31&813&59&115&26&27&193&57&1604&232\\
+DAVID J. DEWITT&20&35&640&48&28&719&52&27&158&170&274&46&1147&73\\
+SEBASTIAN THRUN&21&75&49&54&32&6&18&178&130&135&168&108&30&432\\
+OREN ETZIONI&22&72&110&62&97&351&122&150&36&35&162&30&142&268\\
+DAPHNE KOLLER&23&137&101&100&99&131&94&230&29&31&120&37&114&129\\
+RAJEEV ALUR&24&74&312&80&29&102&29&144&190&186&64&177&282&235\\
+HARI BALAKRISHNAN&25&9&23&8&10&14&9&57&7&7&8&7&155&7\\
+ROBERT HARPER&26&366&306&273&118&74&86&534&2175&2136&814&454&853&732\\
+MAURIZIO LENZERINI&27&698&679&567&124&40&69&1372&3549&3469&197&1955&1610&385\\
+ODED GOLDREICH&28&467&1031&480&100&73&77&286&1067&1109&198&479&3936&155\\
+MARK D. HILL&29&96&211&94&89&174&95&181&320&324&358&107&376&211\\
+HENRY M. LEVY&30&26&59&22&45&114&44&56&132&137&212&41&494&76\\
+\midrule
+suma&465&2645&9422&2472&1092&5796&1111&4493&9468&9367&5636&4300&19582&6626\\
+\bottomrule
+\end{tabular}
+\end{scriptsize}
+\end{sideways}
+%}
+\caption{Top 30 autorů největší komponenty CiteSeer podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks4}
 \end{table}
 
 Výstupy programu, tj. jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
