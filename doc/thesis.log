@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  15 APR 2013 21:21
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  17 APR 2013 07:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -623,11 +623,7 @@ Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count128
-) (./thesis.aux
-
-LaTeX Warning: Label `tab:corr1' multiply defined.
-
-)
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -654,7 +650,8 @@ Package microtype Info: Using default expansion set `basictext'.
 Package microtype Info: No tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
- (/usr/share/texmf-texlive/tex/latex/microtype/mt-cmr.cfg
+
+(/usr/share/texmf-texlive/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2008/02/29 v1.9a microtype config. file: Computer Modern Roman
  (RS)
 )
@@ -872,29 +869,30 @@ File: ewd-eps-converted-to.pdf Graphic file (type pdf)
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 426.
+(hyperref)                removing `\textring' on input line 451.
 
+[10]
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 431.
+(hyperref)                removing `\textasciicaron' on input line 456.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 431.
+(hyperref)                removing `\textring' on input line 456.
 
-[10] [11] [12] [13]
+[11] [12] [13] [14]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 612.
- [14] [15] [16] [17] [18] [19] [20] [21] [22] [23]
+put line 637.
+ [15] [16] [17] [18] [19] [20] [21] [22] [23]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1049.
+(hyperref)                removing `\textring' on input line 1074.
 
 [24]
-Overfull \hbox (227.05284pt too wide) in paragraph at lines 1055--1058
+Overfull \hbox (227.05284pt too wide) in paragraph at lines 1080--1083
 \T1/aer/m/n/12 (-20) index, I10-index, R-impact, Wu In-dex a zejména H-index (c
 ite http://hlwiki.slais.ubc.ca/index.php/Author_impact_metrics),
  []
@@ -904,54 +902,54 @@ Kapitola 4.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1125.
+(hyperref)                removing `\textring' on input line 1150.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1125.
+(hyperref)                removing `\textasciicaron' on input line 1150.
 
 [27
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 1166
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 1191
 .
  (/usr/share/texmf/tex/latex/R/tex/latex/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1166.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1191.
 
 
 
-LaTeX Warning: Float too large for page by 2.68799pt on input line 1271.
+LaTeX Warning: Float too large for page by 2.68799pt on input line 1296.
 
 
-LaTeX Warning: Float too large for page by 2.68799pt on input line 1339.
+LaTeX Warning: Float too large for page by 2.68799pt on input line 1364.
 
 [28] [29] [30] [31] [32]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1344.
+(hyperref)                removing `\textasciicaron' on input line 1369.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1344.
+(hyperref)                removing `\textasciicaron' on input line 1369.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1344.
+(hyperref)                removing `\textring' on input line 1369.
 
 
-Overfull \hbox (13.32983pt too wide) in paragraph at lines 1396--1397
+Overfull \hbox (13.32983pt too wide) in paragraph at lines 1421--1422
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 9.62706pt on input line 1450.
+LaTeX Warning: Float too large for page by 9.62706pt on input line 1475.
 
 [33
 
@@ -959,7 +957,7 @@ LaTeX Warning: Float too large for page by 9.62706pt on input line 1450.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1459.
+(hyperref)                removing `\textasciicaron' on input line 1484.
 
 [36
 
@@ -968,27 +966,27 @@ Kapitola 5.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1528.
+(hyperref)                removing `\textring' on input line 1553.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1531.
+(hyperref)                removing `\textring' on input line 1556.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1531.
+(hyperref)                removing `\textasciicaron' on input line 1556.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1535.
+(hyperref)                removing `\textasciicaron' on input line 1560.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1535.
+(hyperref)                removing `\textring' on input line 1560.
 
 [38
 
@@ -997,7 +995,7 @@ Kapitola 6.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1541.
+(hyperref)                removing `\textasciicaron' on input line 1566.
 
 (./thesis.bbl [39
 
@@ -1012,17 +1010,17 @@ P\v {r}\'{\i }loha A.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1554.
+(hyperref)                removing `\textasciicaron' on input line 1579.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1554.
+(hyperref)                removing `\textasciicaron' on input line 1579.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1554.
+(hyperref)                removing `\textring' on input line 1579.
 
 [41
 
@@ -1047,19 +1045,22 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 10178 strings out of 493848
- 146779 string characters out of 1152823
- 438796 words of memory out of 3000000
- 12510 multiletter control sequences out of 15000+50000
+ 10181 strings out of 493848
+ 146829 string characters out of 1152823
+ 438959 words of memory out of 3000000
+ 12511 multiletter control sequences out of 15000+50000
  94680 words of font info for 458 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  41i,14n,43p,295b,508s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.21} has been referenced but does not 
+exist, replaced by a fixed one
 
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
 /texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
@@ -1077,9 +1078,9 @@ share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-
 texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (74 pages, 512446 bytes).
+Output written on thesis.pdf (74 pages, 513476 bytes).
 PDF statistics:
- 753 PDF objects out of 1000 (max. 8388607)
- 193 named destinations out of 1000 (max. 500000)
+ 755 PDF objects out of 1000 (max. 8388607)
+ 195 named destinations out of 1000 (max. 500000)
  67406 words of extra memory for PDF output out of 74296 (max. 10000000)
 
