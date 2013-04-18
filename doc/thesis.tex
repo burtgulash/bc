@@ -94,9 +94,14 @@ Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s
 % potvrzeno, že implementované metody měří významnost, byť může mít více
 % interpretací.
 
+%\listoffigures
+%\listoftables
+%\thispagestyle{empty}
+\pagestyle{empty}
 \tableofcontents
-\pagestyle{fancy}
 
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagestyle{fancy}
 \chapter{Úvod}
 V době, kdy je celý svět propojen internetem a sociálními sítěmi, si podvědomě
 začínáme uvědomovat provázanost celého světa a všímáme si struktur kolem nás s
@@ -128,7 +133,7 @@ Tato práce je věnována citačním sítím, ale používáme metody z analýzy
 sociálních, dopravních, komunikačních a jiných sítí. V citační síti hledáme
 nejvýznamnější autory pouze podle toho, jak jsou provázáni s jinými autory
 podle referencí v publikacích, které vydali. Významnost autorů není úplnou
-neznámou, protože existuje množství ocenění, které byly uděleny právě významným
+neznámou, protože existuje množství ocenění, která byla udělena právě významným
 autorům a vědcům za jejich dílo. Samotné udělení ocenění mohlo tyto autory
 udělat významnými, přestože předtím nebyli. V jiném případě mohlo být důležité
 ocenění příčinou ještě větší významnosti autora. 
@@ -411,14 +416,14 @@ Poloměr grafu\footnotemark[2] & 11.489 \\
 \footnotetext[2]{Platí pro váženou síť autorů}
 
 
-\section{Analýza sítí}
+\chapter{Analýza sítí}
 Více než 40 let byly považovány všechny komplexní sítě za naprosto náhodné.
 Paul Erdős a Alfréd Rényi v roce 1959 navrhli modelování komunikačních sítí a
 sítí, které se vyskytují v přírodních vědách, spojením uzlů náhodnými hranami.
 Tato jednoduchá metoda vytvoření náhodného grafu způsobí rozložení stupňů
-vrcholů (počet spojení vrcholu s ostatními) podle Poissonova rozdělení s
-charakteristickou křivkou připomínající zvon - většina uzlů má zhruba stejný
-stupeň. 
+vrcholů (počet spojení vrcholu s ostatními) podle Poissonova rozdělení
+pravděpodobnosti s charakteristickou křivkou připomínající zvon - většina uzlů
+má zhruba stejný stupeň. 
 V roce 1998 bylo na univerzitě v Notre Dame (Barabási a kolegové) provedeno
 mapování sítě World Wide Web s očekáváním, že výsledkem bude náhodná síť.
 Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo přes všechna
@@ -444,7 +449,7 @@ vzájemnost, blízkost vztahů, ...), rozdělení vlastností v síti (míry
 centrality, hustota sítě, ...) nebo segmentaci (souvislost grafu, komponenty
 grafu, kliky, koeficient shlukování, ...).
 
-\subsection{Souvislost a komponenty grafu}
+\section{Souvislost a komponenty grafu}
 Neorientovaný graf je souvislý, pokud pro každé jeho dva vrcholy $u$ a $v$
 existuje alespoň jedna cesta z $u$ do $v$. U neorientovaného grafu hovoříme o
 slabé souvislosti. Pro orientovaný uvažujeme silnou souvislost, protože
@@ -467,7 +472,7 @@ Silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do h
 ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, ...), které
 principově vycházejí z prohledávání do hloubky.
 
-\subsection{Klika v grafu}
+\section{Klika v grafu}
 Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
 jsou spojeny přímo hranou.
 
@@ -602,7 +607,7 @@ největšímu vlastnímu číslu $\lambda$ \cite{langvillemeyer}.
 Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
 
 \begin{align} 
-x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf A}_{uv} x_v 
+x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in V} {\bf A}_{uv} x_v 
 \end{align} 
 
 Kde $x_u$ je prvek vlastního vektoru ${\bf x}$
@@ -610,7 +615,7 @@ náležící vrcholu $u$ a ${\bf A}_{uv}$ je prvek matice sousednosti ${\bf A}$,
 který leží na řádku $u$ a sloupci $v$.
 
 \begin{align} 
-{x_u}_{i + 1} &=  \frac{1}{\lambda} \displaystyle\sum_{v \in G} {\bf A}_{uv}
+{x_u}_{i + 1} &=  \frac{1}{\lambda} \displaystyle\sum_{v \in V} {\bf A}_{uv}
 {x_v}_{i}
 \end{align} 
 
@@ -1171,7 +1176,7 @@ počtu jejích citací. Toto číslo je pak h-index autora.
 
 \chapter{Výsledky}
 Pro zjištění, jestli se výsledky implementovaných metod shodují s uvedenými
-oceněními, použijeme metodu součtu pořadí oceněných autorů, viz tabulka
+oceněními, použijeme metodu součtu pořadí oceněných autorů, viz tab.
 \ref{tab:oceneni1}. Tzn. že pro jedno ocenění sečteme pořadí všech autorů,
 kteří byli oceněni danou cenou. Tuto jednoduchou míru můžeme porovnat pouze
 mezi jednotlivými metodami pro jedno ocenění, ale ne mezi různými oceněními pro
@@ -1197,7 +1202,7 @@ proměnnými.
 
 
 \section{Porovnání implementovaných metod}
-Tabulka \ref{tab:corr1} ukazuje vypočtené Spearmanovy koeficienty pořadové
+Tab. \ref{tab:corr1} ukazuje vypočtené Spearmanovy koeficienty pořadové
 korelace mezi všemi páry implementovaných metod. Do výpočtu koeficientu
 korelace byly zahrnuty pouze ty uzly, které mají alespoň jednu hranu. Pokud by
 byly zachovány, většina koeficientů korelace by byla velmi vysoká (větší než
@@ -1215,12 +1220,12 @@ koeficientu korelace s výsledky metod, které byly aplikovány na celý graf,
 protože se jedná o dvě neporovnatelné proměnné. Proto byli z výsledků metod pro
 celý graf odebráni ti autoři, kteří se nenacházejí v hlavní silně spojité
 komponentě. Pro tyto žebříčky bylo provedeno stejné srovnání pomocí Spearmanova
-koeficientu korelace pořadí křížově mezi všemi metodami, viz tabulka
+koeficientu korelace pořadí křížově mezi všemi metodami, viz tab.
 \ref{tab:corr2}
 
 % TODO vysvětlení tabulky, jak se to vypočetlo. Co se muselo odstranit za uzly,
 % proč dvě tabulky.
-Tabulka \ref{tab:impmetody} popisuje zkratky metod, časy běhu pro sítě DBLP a
+Tab. \ref{tab:impmetody} popisuje zkratky metod, časy běhu pro sítě DBLP a
 CiteSeer a velikost největší kliky v symetrizovaném grafu autorů. Největší
 klika je nalezena z top 20 autorů pro každou metodu. Výpočty byly vykonány na
 Intel\textregistered Core\texttrademark2 Quad Q8400 přetaktovaném na 3.1\,GHz s
@@ -1355,7 +1360,7 @@ Výpočet betweenness je časově nejnáročnější ze všech implementovaných
 Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
 rozsáhlou síť databáze CiteSeer je výpočet váženého betweenness časově velmi
 náročný úkol, jak můžeme nahlédnout jen z doby běhu aproximovaného betweenness
-v tabulce \ref{tab:impmetody}.  Tabulka \ref{tab:btwA} znázorňuje Spearmanovo
+v tabulce \ref{tab:impmetody}.  Tab. \ref{tab:btwA} znázorňuje Spearmanovo
 koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
 aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
 postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
@@ -1386,6 +1391,25 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 \chapter{Diskuse}
 % TODO tady můžeš napsat, že ta aproximace betweenness je v pořádku.
 \section{Podobnost výsledků jednotlivých metod}
+Množina autorů je pro obě databáze větší než 300\,000. Pro proměnné o této
+velikosti můžeme uvažovat statistickou signifikanci Spearmanovo koeficientu
+pořadové korelace od hodnoty $0.1$ a výše. Záporné korelace by poukazovaly na
+opačné pořadí, které je nežádoucí a korelace menší než $0.1$ budeme považovat
+za nevýznamné.
+
+Všechny korelace, tj. mezi všemi porovnávanými metodami pro obě databáze a pro
+obě varianty (celý graf, největší silně spojitá komponenta) vyšly větší než
+$0.1$ s minimem .,.,.,. pro DBLP celý graf (1), DBLP největší silně spojitá
+% TODO doplnit MINIMA
+komponenta (2), CiteSeer celý graf (3), CiteSeer největší silně spojitá
+komponenta (4), respektive.
+
+Zcela očekávaně dostáváme vysoké korelace mezi exaktním a aproximovaným
+betweenness a mezi metodami a jejich alternativami pro váženou síť (btwA -
+wBtwA, deg - wdeg, apod.).
+
+
+
 % TODO jaká je signifikance spearmanovo korelace? 0.1? nebo kolik kurva? ZJISTIT!
 % TODO jsou teda podobný ty metody? Podle tý signifikance, ale na první pohled rozhodně.
 \section{Shoda výsledků s oceněními}
@@ -1397,6 +1421,24 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 % TODO proč váhy nemaj tak velkej vliv? (je velká korelace mezi váženejma a neváženejma).
 \section{Vstupní a výstupní hrany}
 %TODO proč u closeness je lepší použít inhrany a ne outhrany, ale u betweenness se používaj klasicky outhrany?
+
+Přestože vstupní a výstupní hrany mají opačný význam, existuje nezanedbatelná
+korelace mezi jejich interpretacemi \uv{cituji} a \uv{jsem citován}, tzn. pokud
+je autor často citován, pak je velká šance, že zároveň cituje ostatní autory.
+% TODO doplnit korelace mezi ideg, odeg, atd.
+
+Zajímavým jevem je použití vstupních a výstupních hran u closeness centrality a
+jejích variantách. Zatímco u betweenness centrality počítáme s přirozenými
+výstupními hranami a získáme vyšší korelace s metodami H-index, indegree,
+PageRank, než s metodami outdegree nebo vážený outdegree, které intuitivně ani
+objektivně neměří významnost autora (rozdíl mezi \uv{cituji} u outdegree a
+\uv{jsem citován} u ostatních, tj. H-index, indegree, PageRank), u closeness
+centrality získáme vyšší korelace naopak při použití vstupních hran namísto
+výstupních.
+% TODO dokázat úryvkama korelací
+
+\section{Aproximace betweenness}
+Jednoduchá lineární extrapolace u aproximace betweenness centrality se zdá být dostatečně přesnou, pokud při velikosti množiny vrcholů, se kterou pracuje Brandesův algoritmus
 
 \chapter{Závěr}
 % TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
