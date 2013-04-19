@@ -355,7 +355,9 @@ V roce 2012 obsahovala více než 2,1 milionu článků. Metody implementované 
 této práci jsou aplikovány na verzi z roku 2004. 
 
 \begin{table}[!ht]
-\begin{center}
+\centering
+\caption{Statistiky pro databázi DBLP 2004}
+\label{tab:dblpstat}
 \begin{tabular}{r|l}
 \toprule
 & hodnota \\
@@ -373,9 +375,6 @@ Poloměr grafu\footnotemark[1] & 8.0 \\
 Poloměr grafu\footnotemark[2] & 6.637 \\
 \bottomrule
 \end{tabular}
-\caption{Statistiky pro databázi DBLP 2004}
-\label{tab:dblpstat}
-\end{center}
 \end{table}
 
 \begin{figure}[!ht]
@@ -394,7 +393,9 @@ V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony
 a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 
 \begin{table}[!ht]
-\begin{center}
+\centering
+\caption{Statistiky pro databázi CiteSeer 2005}
+\label{tab:citeseerstat}
 \begin{tabular}{r|l}
 \toprule
 & hodnota \\
@@ -412,9 +413,6 @@ Poloměr grafu\footnotemark[1] & 15.0   \\
 Poloměr grafu\footnotemark[2] & 11.489 \\
 \bottomrule
 \end{tabular}
-\caption{Statistiky pro databázi CiteSeer 2005}
-\label{tab:citeseerstat}
-\end{center}
 \end{table}
 
 \begin{figure}[!ht]
@@ -606,9 +604,9 @@ doslova znamená \uv{Důležitý uzel má důležité sousedy} (cite An introduc
 Centrality measures, Zweig, Iyengar, 2010). Hodnotu vlivu získáme z vlastního
 vektoru $x$ matice sousednosti grafu:
 
-\begin{align}
+\begin{align*}
 {\bf Ax} &= \lambda {\bf x}
-\end{align}
+\end{align*}
 
 ${\bf A}$ je matice sousednosti, ${\bf x}$ je vlastní vektor matice ${\bf A}$ a
 řešením této rovnice. Rovnice má více řešení. Ke každému řešení náleží vlastní
@@ -619,18 +617,18 @@ největšímu vlastnímu číslu $\lambda$ \cite{langvillemeyer}.
 
 Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
 
-\begin{align} 
+\begin{align*} 
 x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in V} {\bf A}_{uv} x_v 
-\end{align} 
+\end{align*} 
 
 Kde $x_u$ je prvek vlastního vektoru ${\bf x}$
 náležící vrcholu $u$ a ${\bf A}_{uv}$ je prvek matice sousednosti ${\bf A}$,
 který leží na řádku $u$ a sloupci $v$.
 
-\begin{align} 
+\begin{align*} 
 {x_u}_{i + 1} &=  \frac{1}{\lambda} \displaystyle\sum_{v \in V} {\bf A}_{uv}
 {x_v}_{i}
-\end{align} 
+\end{align*} 
 
 V tomto rekurentním tvaru je vidět předpis pro iterační výpočet eigenvector
 centrality. Algoritmus se nazývá mocninná metoda, která se používá pro řešení
@@ -651,10 +649,10 @@ jejich PageRankové významnosti. Sama definice je rekurzivní a po nahlédnutí
 vzorec zjistíme, že se jedná o rozšířenou variantu algoritmu pro eigenvector
 centrality.
 
-\begin{align}
+\begin{align*}
 {x_u}_{i + 1} &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv}
 \frac{{x_v}_{i}}{deg^+ (v)}
-\end{align}
+\end{align*}
 
 ${\bf A}$ je opět matice sousednosti, $V$ je množina vrcholů a $deg^+(v)$ je
 výstupní stupeň vrcholu $v$.  V původní myšlence, kdy PageRank modeluje chování
@@ -679,9 +677,9 @@ iteraci předem vypočítáme součet hodnot PageRanku, které by se ztratily v
 uzlech bez výstupních hran ($D$). Tahle hodnota je v rámci iterace konstantní a
 pouze ji rovnoměrně rozdělíme mezi uzly sítě (s váhou $1/|V|$).
 
-\begin{align}
+\begin{align*}
 {x_u}_{i + 1} &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv} \frac{{x_v}_i}{deg^+ (v)} + \frac{1}{|V|} \displaystyle\sum_{w \in D} {x_w}_i
-\end{align}
+\end{align*}
 
 
 \begin{center}
@@ -1241,8 +1239,10 @@ zbylé metody byly relativně časově nenáročné, proto nebylo nutné paralel
 výpočet.
 
 \begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
+\centering
+%\makebox[\linewidth]{
+\caption{Implementované metody}
+\label{tab:impmetody}
 \begin{small}
 \begin{tabular}{r|l|r|r|r|r}
 \toprule
@@ -1265,10 +1265,7 @@ wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
 \bottomrule
 \end{tabular}
 \end{small}
-}
-\end{center}
-\caption{Implementované metody}
-\label{tab:impmetody}
+%}
 \end{table}
 
 \footnotetext{Největší klika mezi prvními 20 autory}
@@ -1300,9 +1297,24 @@ proměnnými.
 \section{Žebříčky významných autorů}
 Tabulky~\ref{tab:ranks1}~a~\ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
 podle metody h-index. Pro každého autora je zobrazeno jeho umístění podle všech
-zbylých implementovaných metod. Poslední řádek u každé metody označuje
-součet pořadí uvedených 30ti autorů.
+zbylých implementovaných metod. Poslední řádek u každé metody označuje součet
+pořadí uvedených 30ti autorů. Stejná data jsou zobrazena v
+grafech~\ref{fig:poradiDBLP} a~\ref{fig:poradiCS} pro prvních 500 autorů z
+největší silně spojité komponenty, kde porovnáváme metody indegree, PageRank,
+betweenness a closeness.
 
+\begin{figure}[!ht]
+\centering
+	\includegraphics[width=9cm,angle=270]{grafDBLP.eps}
+	\caption{Pořadí prvních 500 autorů DBLP dle H-indexu z největší silně spojité komponenty}
+	\label{fig:poradiDBLP}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+	\includegraphics[width=9cm,angle=270]{grafCS.eps}
+	\caption{Pořadí prvních 500 autorů CiteSeer dle H-indexu z největší silně spojité komponenty}
+	\label{fig:poradiCS}
+\end{figure}
 
 
 Výstupy programu, tj. jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
@@ -1323,8 +1335,9 @@ kdežto velké množství autorů je členy ACM Fellows, tím pádem velký sou�
 pořadí oceněných.
 
 \begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
+\centering
+\caption{Součty pořadí oceněných autorů pro DBLP}
+\label{tab:oceneni1}
 \begin{tabular}{r|rrrr}
 \toprule
 &Codd & ACM Fellows & ISI HC & Turing \\
@@ -1346,16 +1359,13 @@ oc\footnotemark[1]   &6\,607& 129\,810& 59\,701&4\,098\\
 wic\footnotemark[1]  & 512& 73\,729& 38\,045&  1\,482\\
 \bottomrule
 \end{tabular}
-}
-\end{center}
-\caption{Součty pořadí oceněných autorů pro DBLP}
-\label{tab:oceneni1}
 \end{table}
 \footnotetext[1]{Platí pro největší silně spojitou komponentu}
 
 \begin{table}[!ht]
 \centering
-\makebox[\linewidth]{
+\caption{Součty pořadí oceněných autorů pro CiteSeer}
+\label{tab:oceneni2}
 \begin{tabular}{r|rrrr}
 \toprule
 &Codd & ACM Fellows & ISI HC  & Turing \\
@@ -1377,9 +1387,6 @@ oc\footnotemark[1]  &124\,724&9\,108\,426&6\,074\,616&903\,529\\
 wic\footnotemark[1] &86\,773 &7\,576\,984&4\,585\,710&710\,976\\
 \bottomrule
 \end{tabular}
-}
-\caption{Součty pořadí oceněných autorů pro CiteSeer}
-\label{tab:oceneni2}
 \end{table}
 \footnotetext[1]{Platí pro největší silně spojitou komponentu}
 
@@ -1396,8 +1403,9 @@ postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
 
 
 \begin{table}[!ht]
-\begin{center}
-\makebox[\linewidth]{
+\centering
+\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness pro DBLP}
+\label{tab:btwA}
 \begin{tabular}{r|l|c}
 \toprule
 zlomek velikosti množiny $V$ & Spearmanova korelace & doba běhu\,[min:sec.msec] \\
@@ -1411,10 +1419,6 @@ zlomek velikosti množiny $V$ & Spearmanova korelace & doba běhu\,[min:sec.msec
 64 & 0.976\,745 & 00:22.630\\
 \bottomrule
 \end{tabular}
-}
-\end{center}
-\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness pro DBLP}
-\label{tab:btwA}
 \end{table}
 
 \chapter{Diskuse}
@@ -1573,6 +1577,8 @@ vrcholů (tab.~\ref{tab:btwA}).
 \chapter{Tabulky korelací}
 \begin{table}[!ht]
 \centering
+\caption{Tabulka korelací pro neizolované uzly pro DBLP}
+\label{tab:corr1}
 %\makebox[\linewidth]{
 \begin{sideways}
 %\begin{footnotesize}
@@ -1596,8 +1602,6 @@ wBtwA&0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 %\end{footnotesize}
 \end{sideways}
 %}
-\caption{Tabulka korelací pro neizolované uzly pro DBLP}
-\label{tab:corr1}
 \end{table}
 %\end{landscape}
 
@@ -1605,6 +1609,8 @@ wBtwA&0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 %\begin{landscape}
 \begin{table}[!ht]
 \centering
+\caption{Tabulka korelací pro hlavní komponentu pro DBLP. Zahrnuty i variace closeness}
+\label{tab:corr2}
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{footnotesize}
@@ -1631,8 +1637,6 @@ wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.
 \end{footnotesize}
 \end{sideways}
 %}
-\caption{Tabulka korelací pro hlavní komponentu pro DBLP. Zahrnuty i variace closeness}
-\label{tab:corr2}
 \end{table}
 %\end{landscape}
 
@@ -1642,6 +1646,8 @@ wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.
 
 \begin{table}[!ht]
 \centering
+\caption{Tabulka korelací pro neizolované uzly pro CiteSeer}
+\label{tab:corr3}
 %\makebox[\linewidth]{
 \begin{sideways}
 %\begin{footnotesize}
@@ -1665,14 +1671,14 @@ wBtwA&0.738&0.929&0.312&0.650&0.938&0.343&0.673&0.886&0.957&0.960&  -  \\
 %\end{footnotesize}
 \end{sideways}
 %}
-\caption{Tabulka korelací pro neizolované uzly pro CiteSeer}
-\label{tab:corr3}
 \end{table}
 
 
 
 \begin{table}[!ht]
 \centering
+\caption{Tabulka korelací pro hlavní komponentu pro CiteSeer. Zahrnuty i variace closeness}
+\label{tab:corr4}
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{footnotesize}
@@ -1699,16 +1705,17 @@ wic  &0.650&0.775&0.457&0.701&0.840&0.493&0.746&0.680&0.797&0.799&0.831&0.827&0.
 \end{footnotesize}
 \end{sideways}
 %}
-\caption{Tabulka korelací pro hlavní komponentu pro CiteSeer. Zahrnuty i variace closeness}
-\label{tab:corr4}
 \end{table}
 
 \newpage
 \chapter{Porovnání pořadí implementovaných metod}
 \label{chapter:porovnani}
 \section{DBLP}
+
 \begin{table}[!ht]
 \centering
+\caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks1}
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{scriptsize}
@@ -1753,13 +1760,13 @@ suma&465&756&2980&733&586&2144&658&1330&1041&1017&923\\
 \end{scriptsize}
 %}
 \end{sideways}
-\caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
-\label{tab:ranks1}
 \end{table}
 
 
 \begin{table}[!ht]
 \centering
+\caption{Top 30 autorů největší komponenty DBLP podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks2}
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{scriptsize}
@@ -1804,13 +1811,13 @@ suma&465&756&2978&733&586&2144&658&1274&1041&1017&923&988&5303&1239\\
 \end{scriptsize}
 \end{sideways}
 %}
-\caption{Top 30 autorů největší komponenty DBLP podle H-indexu a pořadí podle ostatních metod}
-\label{tab:ranks2}
 \end{table}
 
 \section{CiteSeer}
 \begin{table}[!ht]
 \centering
+\caption{Top 30 autorů CiteSeer podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks3}
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{scriptsize}
@@ -1855,12 +1862,12 @@ suma&465&2727&9438&2519&1092&5796&1111&4819&9886&9778&5696\\
 \end{scriptsize}
 %}
 \end{sideways}
-\caption{Top 30 autorů CiteSeer podle H-indexu a pořadí podle ostatních metod}
-\label{tab:ranks3}
 \end{table}
 
 \begin{table}[!ht]
 \centering
+\caption{Top 30 autorů největší komponenty CiteSeer podle H-indexu a pořadí podle ostatních metod}
+\label{tab:ranks4}
 %\makebox[\linewidth]{
 \begin{sideways}
 \begin{scriptsize}
@@ -1905,8 +1912,6 @@ suma&465&2645&9422&2472&1092&5796&1111&4493&9468&9367&5636&4300&19582&6626\\
 \end{scriptsize}
 \end{sideways}
 %}
-\caption{Top 30 autorů největší komponenty CiteSeer podle H-indexu a pořadí podle ostatních metod}
-\label{tab:ranks4}
 \end{table}
 
 \newpage
