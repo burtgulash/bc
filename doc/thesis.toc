@@ -49,15 +49,15 @@
 \contentsline {section}{\numberline {5.4}Aproximace betweenness centrality}{29}{section.5.4}
 \contentsline {chapter}{\numberline {6}Diskuse}{30}{chapter.6}
 \contentsline {section}{\numberline {6.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{30}{section.6.1}
-\contentsline {section}{\numberline {6.2}Vliv vah na v\IeC {\'y}sledky}{30}{section.6.2}
+\contentsline {section}{\numberline {6.2}Vliv vah na v\IeC {\'y}sledky}{31}{section.6.2}
 \contentsline {section}{\numberline {6.3}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{31}{section.6.3}
-\contentsline {section}{\numberline {6.4}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{31}{section.6.4}
-\contentsline {section}{\numberline {6.5}Aproximace betweenness}{31}{section.6.5}
-\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{32}{chapter.7}
-\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{34}{appendix.A}
-\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{38}{appendix.B}
-\contentsline {section}{\numberline {B.1}DBLP}{38}{section.B.1}
-\contentsline {section}{\numberline {B.2}CiteSeer}{40}{section.B.2}
-\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{42}{appendix.C}
-\contentsline {section}{\numberline {C.1}DBLP}{43}{section.C.1}
-\contentsline {section}{\numberline {C.2}CiteSeer}{57}{section.C.2}
+\contentsline {section}{\numberline {6.4}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{32}{section.6.4}
+\contentsline {section}{\numberline {6.5}Aproximace betweenness}{32}{section.6.5}
+\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{33}{chapter.7}
+\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{35}{appendix.A}
+\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{39}{appendix.B}
+\contentsline {section}{\numberline {B.1}DBLP}{39}{section.B.1}
+\contentsline {section}{\numberline {B.2}CiteSeer}{41}{section.B.2}
+\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{43}{appendix.C}
+\contentsline {section}{\numberline {C.1}DBLP}{44}{section.C.1}
+\contentsline {section}{\numberline {C.2}CiteSeer}{58}{section.C.2}

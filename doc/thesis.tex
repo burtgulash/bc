@@ -527,7 +527,7 @@ nazývána Nobelovou cenou pro informatiku \cite[p.~317]{dasgupta}.
 
 \subsubsection{ACM SIGMOD Edgar F. Codd Innovations Award}
 ACM SIGMOD Edgar F. Codd Innovations Award je ohodnocení životního díla
-skupinou ACM SIGMOD (Special Interest Group on Management of Data)  za
+skupinou ACM SIGMOD (Special Interest Group on Management of Data) za
 inovativní a vysoce ceněné kontribuce k rozvoji, porozumění a použití
 databázových systémů a databází \cite{sigmodinnovations}.
 
@@ -976,11 +976,13 @@ sobě nalezeno několik metod řešení různými lidmi (Shimbel [1955], Ford
 [1956], Dantzig [1958], Bellman [1958], Moore[1959], Dijkstra [1959]).(cite
 schrijver alexander ON THE HISTORY OF THE SHORTEST PATH PROBLEM)
 
+
 Z hlediska metod řešení můžeme uvažovat několik kategorií algoritmů - nalezení
 všech párů nejkratších cest (all-pairs shortest paths problem), nalezení
 nejkratší cesty mezi počátečním a koncovým vrcholem (source-target) nebo
 nalezení stromu nejkratších cest, máme-li zadán počáteční vrchol (single source
 shortest path problem).
+
 
 \subsection{Single source shortest path}
 Pokud hledáme pouze jednu cestu mezi dvěma vrcholy (source-target), nemusíme
@@ -1084,6 +1086,12 @@ fronty ($extract\mbox{-}min(Q)$) bylo rychlejší. Tento způsob je použit v
 algoritmu pro closeness.
 % TODO reference algs
 
+%\subsubsection{Orientovaný acyklický graf}
+%Pro orientovaný acyklický graf (directed acyclic graph), kterým je například
+%citační síť publikací, neboť není možné, aby publikace referencovala publikaci
+%do budoucna, je vhodné využít vlastnost absence cyklů. Algoritmus pro nalezení
+%nejkratších cest z jednoho bodu do všech ostatních pro orientovaný acyklické
+%graf využívá topologického seřazení a principu dynamického programování:
 
 \subsection{All-pair shortest paths}
 Do této kategorie spadají maticové metody, tj. graf je zadán jako matice
@@ -1224,12 +1232,13 @@ koeficientu korelace pořadí křížově mezi všemi metodami, viz tab.~\ref{ta
 % TODO vysvětlení tabulky, jak se to vypočetlo. Co se muselo odstranit za uzly,
 % proč dvě tabulky.
 Tab.~\ref{tab:impmetody} popisuje zkratky metod, časy běhu pro sítě DBLP a
-CiteSeer a velikost největší kliky v symetrizovaném grafu autorů. Největší
-klika je nalezena z top 20 autorů pro každou metodu. Výpočty byly vykonány na
-Intel\textregistered Core\texttrademark2 Quad Q8400 přetaktovaném na 3.1\,GHz s
-4\,GB fyzické paměti. Betweenness centrality bylo vypočteno paralalně na
-čtyřech jádrech, zbylé metody byly relativně časově nenáročné, proto nebylo
-nutné paralelizovat výpočet.
+CiteSeer a velikost největší kliky (k$_{DBLP}$ pro DBLP a k$_CS$ pro CiteSeer)
+v symetrizovaném grafu autorů. Největší klika je nalezena z top 20 autorů pro
+každou metodu. Výpočty byly vykonány na Intel\textregistered
+Core\texttrademark2 Quad Q8400 přetaktovaném na 3.1\,GHz s 4\,GB fyzické
+paměti. Betweenness centrality bylo vypočteno paralalně na čtyřech jádrech,
+zbylé metody byly relativně časově nenáročné, proto nebylo nutné paralelizovat
+výpočet.
 
 \begin{table}[!ht]
 \begin{center}
@@ -1237,22 +1246,22 @@ nutné paralelizovat výpočet.
 \begin{small}
 \begin{tabular}{r|l|r|r|r|r}
 \toprule
-zkratka & metoda & $t_{DBLP}$ & $t_{CS}$ & k$_{DBLP}$\footnotemark & k$_{CS}$\footnotemark \\
+zkratka & metoda & $t_{DBLP}$ & $t_{CS}$ & k$_{DBLP}$ & k$_{CS}$ \\
 \midrule
-hi   &H-index                           &0:04.627& 0:00:15.534&17&8\\
-ideg &indegree                          &0:00.049& 0:00:20.372&19&13\\
-odeg &outdegree                         &0:00.036& 0:00:00.343&16&8\\
-deg  &degree                            &0:00.036& 0:00:00.060&19&12\\
-wideg&vážený indegree                   &0:00.099& 0:00:21.899&18&13\\
-wodeg&vážený outdegree                  &0:00.046& 0:00:01.171&17&11\\
-wdeg &vážený degree                     &0:00.062& 0:00:00.214&17&10\\
-pr   &PageRank                          &0:00.376& 0:00:02.758&18&7\\
-btw  &betweenness                       &4:56.814& 7:45:25.904&19&13\\
-btwA &betweenness aproximace            &6:51.216& 1:50:31.412&19&12\\
-wBtwA&vážený betweenness aproximace     &8:54.073&13:01:51.078&16&18\\
-ic   &closeness vstupní hrany           &0:05.583& 1:12:32.345&19&11\\
-oc   &closeness výstupní hrany          &0:11.313& 2:23:36.778&16&6\\
-wic  &vážený closeness vstupní hrany    &1:14.054&33:44:56.355&18&15\\
+hi   &H-index                           & 0:04.627& 0:00:15.534&17&8\\
+ideg &indegree                          & 0:00.049& 0:00:20.372&19&13\\
+odeg &outdegree                         & 0:00.036& 0:00:00.343&16&8\\
+deg  &degree                            & 0:00.036& 0:00:00.060&19&12\\
+wideg&vážený indegree                   & 0:00.099& 0:00:21.899&18&13\\
+wodeg&vážený outdegree                  & 0:00.046& 0:00:01.171&17&11\\
+wdeg &vážený degree                     & 0:00.062& 0:00:00.214&17&10\\
+pr   &PageRank                          & 0:00.376& 0:00:02.758&18&7\\
+btw  &betweenness                       &24:56.814& 7:45:25.904&19&13\\
+btwA &betweenness aproximace            & 6:51.216& 1:50:31.412&19&12\\
+wBtwA&vážený betweenness aproximace     & 8:54.073&13:01:51.078&16&18\\
+ic   &closeness vstupní hrany           & 0:05.583& 1:12:32.345&19&11\\
+oc   &closeness výstupní hrany          & 0:11.313& 2:23:36.778&16&6\\
+wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
 \bottomrule
 \end{tabular}
 \end{small}
@@ -1367,10 +1376,6 @@ ic\footnotemark[1]  &55\,490 &6\,835\,926&4\,047\,426&560\,873\\
 oc\footnotemark[1]  &124\,724&9\,108\,426&6\,074\,616&903\,529\\
 wic\footnotemark[1] &86\,773 &7\,576\,984&4\,585\,710&710\,976\\
 \bottomrule
-
-
-
-
 \end{tabular}
 }
 \caption{Součty pořadí oceněných autorů pro CiteSeer}
@@ -1393,41 +1398,58 @@ postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
-\begin{tabular}{r|l}
+\begin{tabular}{r|l|c}
 \toprule
-zlomek velikosti množiny $V$ & koeficient korelace \\
+zlomek velikosti množiny $V$ & Spearmanova korelace & doba běhu\,[min:sec.msec] \\
 \midrule
-1  & 1.000\,000 \\
-2  & 0.998\,151 \\
-4  & 0.996\,191 \\
-8  & 0.990\,510 \\
-16 & 0.979\,103 \\
-32 & 0.976\,887 \\
-64 & 0.976\,745 \\
+1  & 1.000\,000 & 23:55.038\\
+2  & 0.998\,151 & 12:05.370\\
+4  & 0.996\,191 & 06:11.010\\
+8  & 0.990\,510 & 03:03.723\\
+16 & 0.979\,103 & 01:30.228\\
+32 & 0.976\,887 & 00:44.870\\
+64 & 0.976\,745 & 00:22.630\\
 \bottomrule
 \end{tabular}
 }
 \end{center}
-\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness}
+\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness pro DBLP}
 \label{tab:btwA}
 \end{table}
 
 \chapter{Diskuse}
+V této kapitole se pokusíme přiblížit, proč jsou jednotlivé metody podobné samy
+sobě a co naznačuje, že skutečně měříme významnost a ne nějakou jinou
+vlastnost. 
+
+Pokud bychom v praktických aplikacích chtěli měřit významnost autorů nebo
+obecně uzlů v jakékoliv komplexní síti, metody založené na nejkratších cestách
+nepřipadají v úvahu, jestliže hledíme na časovou náročnost. Ta se zvyšuje i se
+zvyšující se hustotou grafu, viz doba běhu closeness pro DBLP a CiteSeer (tab.
+\ref{tab:impmetody}).
+
+I použití aproximací, které výrazně urychlí výpočet, může být stejně nebo méně
+přesné než použití jiné metody. V implementaci byla aproximována pouze
+centralita betweenness, ale pro druhou náročnou metodu closeness byl zmíněn
+aproximační algoritmus. Protože tato aproximace nebyla implementována a
+vyzkoušena, nemůžeme o ní poskytnout jakýkoliv závěr.
+
+Z časového hlediska je výhodnější používat metody degree nebo eigenvector.
 
 % TODO tady můžeš napsat, že ta aproximace betweenness je v pořádku.
 \section{Podobnost výsledků jednotlivých metod}
 Množina autorů je pro obě databáze větší než 300\,000. Pro proměnné o této
 velikosti můžeme uvažovat statistickou signifikanci Spearmanovo koeficientu
-pořadové korelace od hodnoty $0.1$ a výše. Záporné korelace by poukazovaly na
-opačné pořadí, které je nežádoucí a korelace menší než $0.1$ budeme považovat
-za nevýznamné.
+pořadové korelace od hodnoty $0.01$ a výše (cite Yan, Ding - Applying
+centrality measures to impact analysis: A coauthorship network analysis).
+Záporné korelace by poukazovaly na opačné pořadí, které je nežádoucí a korelace
+menší než $0.01$ budeme považovat za nevýznamné.
 
 Všechny korelace, tj. mezi všemi porovnávanými metodami pro obě databáze a pro
 obě varianty (celý graf, největší silně spojitá komponenta), vyšly větší než
-$0.1$ s minimem .,.,.,. pro DBLP celý graf (1), DBLP největší silně spojitá
-% TODO doplnit MINIMA
-komponenta (2), CiteSeer celý graf (3), CiteSeer největší silně spojitá
-komponenta (4), respektive.
+$0.1$ s minimem 0.102 (pr - odeg), 0.340 (pr - oc), 0.220 (pr - odeg), 0.207
+(pr - oc) pro DBLP celý graf, DBLP největší silně spojitou komponentu, CiteSeer
+celý graf a CiteSeer největší silně spojitou komponentu, respektive. 
 
 
 Protože je eigenvector centralita rozšířením degree centrality (jednoduše
@@ -1439,7 +1461,9 @@ korelací, přestože je význam odlišný (btw - ic, atd.)
 
 H-index je zcela očekávaně podobnější všem metodám než odeg, wodeg a oc, které
 nemají přímo měřit významnost, ale poukázat na fakt, že významní autoři navíc
-mají tendence ovlivňovat i jiné autory tím, že je citují.
+mají tendence ovlivňovat i jiné autory tím, že je citují. Přestože nepatří do
+metod centrality jako ostatní metody, relativne vysoká korelace s mírami
+centrality poukazuje na jistou podobnost.
 
 
 Z vypočtených koeficientů korelací si můžeme dovolit tvrdit, že všechny
@@ -1481,6 +1505,10 @@ Přestože vstupní a výstupní hrany mají opačný význam, existuje nezanedb
 korelace mezi jejich interpretacemi \uv{cituji} a \uv{jsem citován}, tzn. pokud
 je autor často citován, pak je velká šance, že zároveň cituje ostatní autory.
 % TODO doplnit korelace mezi ideg, odeg, atd.
+Metody odeg, wodeg a oc, které zastupují výstupní hrany \uv{cituji}, jsou spíše
+důsledkem významnosti autora než její příčinou. Pokud je autor dlouho ve své
+branži a vybudoval si významnou pozici, pak můžeme očekávat, že zároveň
+referencoval práci mnoho jiných autorů. 
 
 Zajímavým jevem je použití vstupních a výstupních hran u closeness centrality a
 jejích variantách. Zatímco u betweenness centrality počítáme s přirozenými
@@ -1493,6 +1521,26 @@ výstupních.
 % TODO dokázat úryvkama korelací
 
 \section{Shoda výsledků s oceněními}
+Tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer,
+srovnávají jednotlivé metody s oceněními tak, že menší hodnota znamená méně
+oceněných autorů na nižších pozicích. Tedy oceněné autory nalezneme na vyšších
+pozicích, pokud máme v tabulce nízkou hodnotu. Všechny metody se přibližně v
+hodnotách shodují, vyjma metod odeg, wodeg a oc. Tyto metody ukazují na
+významnost autora, ale jsou více důsledkem než příčinou. Můžeme je použít ke
+srovnání ostatních metod, které mají obecně nižší hodnotu součtu oceněných
+pozic, a znázorňují větší shodu s oceněními.
+
+V žebříčcích nejvýznamnějších autorů jednotlivých implementovaných metod si
+povšimneme koncentraci ocenění na vyšších pozicích. Zejména u databáze DBLP a
+ocenění ACM SIGMOD Edgar F. Codd Innovations Award (Codd), protože DBLP je
+databáze autorů se zaměřením na databázové systémy a ocenění ACM SIGMOD Edgar
+F. Codd Innovations Award je rovněž z oblasti databází a databázových systémů.
+
+Srovnání s Turingovo cenou bychom ani neměli používat pro objektivní závěr,
+protože v databázích DBLP a CiteSeer je autorů, kteří jí byli oceněni, minimum.
+ACM Fellows je na druhou stranu hojně zastoupena mezi autory DBLP a CiteSeer, a
+proto ji s konfidencí můžeme použít jako referenci pro naše pozorování.
+
 % TODO proč se DBLP nejvíc shoduje s Codd? protože jsou to databázisti.
 % TODO TUring tam skoro žádnej neni - nedávat tomu výpočtu moc hodnotu.
 % TODO u CiteSeer plno buzíckých SENIOR MEMBERŮ, kazí výpočty?

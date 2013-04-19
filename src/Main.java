@@ -26,7 +26,7 @@ public class Main {
 	final static String test3 = "test3.csv";
 	final static String test3rev = "test3rev.csv";
 	final static String test4 = "test4.csv";
-	final static String DB = citeseer;
+	final static String DB = dblp;
 	final static String BIB_DB = dir + DB;
 
 	private static Graph authors;
@@ -54,7 +54,7 @@ public class Main {
 
 		System.gc();
 		StatisticalDistribution.printEdgeWeightDistribution(authors);
-		
+
 		// Compute parallel exact betweenness
 		start = System.currentTimeMillis();
 		ResultRow[] betweennessExact = Betweenness.compute(authors, 1, true);
@@ -142,7 +142,6 @@ public class Main {
 		sortAndWrite(pagerank, "pr.csv", LIMIT);
 		printChecksum(pagerank);
 		printClique(authors, pagerank, TOP_K);
-
 
 		// Get largest (main) component of the graph of authors.
 		Graph mainComponent = Components.getLargest(authors);
@@ -247,15 +246,68 @@ public class Main {
 		// free publications
 		publications = null;
 		authors.makeUndirected();
+		long start;
 
-		ResultRow[][] results = new ResultRow[7][];
+		ResultRow[][] results = new ResultRow[19][];
+		start = System.currentTimeMillis();
 		results[0] = Betweenness.compute(authors, 1, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
 		results[1] = Betweenness.compute(authors, 2, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
 		results[2] = Betweenness.compute(authors, 4, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
 		results[3] = Betweenness.compute(authors, 8, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
 		results[4] = Betweenness.compute(authors, 16, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
 		results[5] = Betweenness.compute(authors, 32, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
 		results[6] = Betweenness.compute(authors, 64, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		
+		results[7] = Betweenness.compute(authors, 128, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[8] = Betweenness.compute(authors, 256, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[9] = Betweenness.compute(authors, 512, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[10] = Betweenness.compute(authors, 1024, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[11] = Betweenness.compute(authors, 2048, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[12] = Betweenness.compute(authors, 4096, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[13] = Betweenness.compute(authors, 8192, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		
+		results[14] = Betweenness.compute(authors, 16384, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[15] = Betweenness.compute(authors, 32768, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[16] = Betweenness.compute(authors, 65536, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[17] = Betweenness.compute(authors, 131072, true);
+		printRunningTime(start);
+		start = System.currentTimeMillis();
+		results[18] = Betweenness.compute(authors, 262144, true);
+		printRunningTime(start);
 
 		for (int i = 0; i < results.length; i++)
 			sortAndWrite(results[i], "btw_no_" + i + ".csv", 50);
@@ -268,6 +320,21 @@ public class Main {
 		methodName.put(4, "16");
 		methodName.put(5, "32");
 		methodName.put(6, "64");
+		
+		methodName.put(7, "128");
+		methodName.put(8, "256");
+		methodName.put(9, "512");
+		methodName.put(10, "1024");
+		methodName.put(11, "2048");
+		methodName.put(12, "4096");
+		methodName.put(13, "8192");
+		
+		methodName.put(14, "16384");
+		methodName.put(15, "32768");
+		methodName.put(16, "65536");
+		methodName.put(17, "131072");
+		methodName.put(18, "262144");
+
 
 		printCorrelations(results);
 	}
@@ -378,8 +445,8 @@ public class Main {
 		System.out.println();
 
 		// TODO TODO TODO
-		work();
-		// work2();
+		// work();
+		work2();
 		// TODO TODO TODO
 
 		Date end = getTime();
