@@ -11,7 +11,7 @@
 \usepackage{algorithmicx}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
-\usepackage{caption}
+\usepackage[justification=centering]{caption}
 
 \usepackage{wrapfig} % testing
 \usepackage{booktabs} % beautify tables?
@@ -27,11 +27,18 @@
 \usepackage{lscape} % horizontal tables
 \usepackage{rotating}
 
+\usepackage{tocloft}
+
 \usepackage[left=3.5cm,right=2.5cm,top=4cm,bottom=.1cm]{geometry}
 
 \usepackage[section]{placeins}
 
 \usepackage[pdfborder=0 0 0]{hyperref}
+
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmus}
+\renewcommand{\listalgorithmname}{List of \ALG@name	s}
+\makeatother
 
 \author{Tomáš Maršálek}
 \title{Měření významnosti autorů v citační síti}
@@ -97,10 +104,15 @@ Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s
 %\listoffigures
 %\listoftables
 %\thispagestyle{empty}
+
+\clearpage
 \pagestyle{empty}
+\setlength{\cftbeforetoctitleskip}{-2em}
 \tableofcontents
 
-%\addtocontents{toc}{\protect\thispagestyle{empty}}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\clearpage
+\setcounter{page}{1}
 \pagestyle{fancy}
 \chapter{Úvod}
 V době, kdy je celý svět propojen internetem a sociálními sítěmi, si podvědomě
@@ -243,7 +255,9 @@ osoby, se v citační síti jedná o publikace nebo autory těchto publikací. P
 je uzlem publikace, pak hrany této sítě symbolizují citaci publikace jinou
 publikací. V druhém případě uvažujeme síť, kde uzly reprezentují autory knih,
 vědeckých článků, vědecké literatury a dalších publikací. Prvnímu typu říkáme
-síť publikací, druhému síť autorů.
+síť publikací, druhému síť autorů. Citační sítě patří do kategorie bezškálových
+sítí. Citační síť autorů pro databázi DBLP i CiteSeer mají mocninné rozložení
+stupňů i vah hran (obr.~\ref{fig:scalefreedblp}, \ref{fig:scalefreeciteseer}).
 
 \subsection{Citační síť publikací}
 Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
@@ -262,7 +276,7 @@ formátu, který přímo odpovídá síti publikací, tj. pro každou publikaci 
 seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
 transformací sítě publikací tak, že každou hranu z původní sítě publikací
 přiřadíme každému z autorů citující publikace a duplikujeme ji pro každého z
-autorů citované publikace. Celkově vznikne $nm$ nových hran, pokud odkazovaná
+autorů citované publikace (obr.~\ref{fig:transform}). Celkově vznikne $nm$ nových hran, pokud odkazovaná
 publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
 publikací, i zde uvažujeme opačné orientace hrany.
 
@@ -270,13 +284,11 @@ publikací, i zde uvažujeme opačné orientace hrany.
 \begin{minipage}[b]{0.45\textwidth}
 \centering
 	\includegraphics[width=\textwidth]{pubs.eps}
-	\label{fig:pubs}
 \end{minipage}
 \hspace{0.5cm}
 \begin{minipage}[b]{0.45\textwidth}
 \centering
 	\includegraphics[width=\textwidth]{auths.eps}
-	\label{fig:auths}
 \end{minipage}
 \caption{Transformace z citační sítě publikací na citační síť autorů}
 \label{fig:transform}
@@ -284,17 +296,16 @@ publikací, i zde uvažujeme opačné orientace hrany.
 
 V síti autorů má pro naše účely smysl uvažovat ohodnocení hran. Existuje více
 způsobů, jak lze přiřadit ohodnocení (váhu) jednotlivým hranám, ale
-nejjednodušším způsobem, který je použitý i v implementaci knihovny, je prosté
-přiřazení počtu publikací, jejichž autorem je daný autor $A$, které odkazují na
-publikace, jejichž autorem je autor $B$.
+nejjednodušším způsobem je prosté přiřazení počtu publikací, jejichž autorem je
+daný autor $A$, které odkazují na publikace, jejichž autorem je autor $B$.
 
-Druhou možností ohodnocení hran, který rovněž využívá implementovaná knihovna
-pro některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem
-je přímá souvislost mezi vahou hrany a vzdáleností mezi uzly. V prvním případě,
-kdy silnější pouto mezi autory vyjadřuje vyšší ohodnocení hrany, v druhém
-případě je naopak nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly
-blíže. Tento způsob je používán pro algoritmy, které pracují na myšlence
-nejkratších cest mezi uzly. 
+Druhou možností ohodnocení hran, který využívá implementovaná knihovna pro
+některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem je
+přímá souvislost mezi váhou hrany a vzdáleností mezi uzly. V prvním případě
+(obr.~\ref{fig:wNormal}), kdy silnější pouto mezi autory vyjadřuje vyšší
+ohodnocení hrany, v druhém případě (obr.~\ref{fig:wRecip}) je naopak nižší váha
+vyjádřením silnějšího vztahu, jelikož jsou si uzly blíže.  Tento způsob je
+používán pro algoritmy, které pracují na myšlence nejkratších cest mezi uzly. 
 
 \subsection{Vážené citační sítě}
 Pro citační sítě můžeme uvažovat ohodnocení hran obojího typu. Například mezi
@@ -371,6 +382,7 @@ Poloměr grafu\footnotemark[2] & 6.637 \\
 \centering
 	\includegraphics[width=10cm,angle=270]{ewd_dblp.eps}
 	\caption{Mocninné rozdělení vah hran ($\frac{1}{w}$) citační sítě autorů DBLP}
+	\label{fig:scalefreedblp}
 \end{figure}
 
 
@@ -409,6 +421,7 @@ Poloměr grafu\footnotemark[2] & 11.489 \\
 \centering
 	\includegraphics[width=10cm,angle=270]{ewd_citeseer.eps}
 	\caption{Mocninné rozdělení vah hran ($\frac{1}{w}$) citační sítě autorů CiteSeer}
+	\label{fig:scalefreeciteseer}
 \end{figure}
 
 
@@ -626,7 +639,7 @@ dominantní vlastní číslo a odpovídající vlastní vektor. Pro eigenvector
 centrality nás zajímá právě tohle řešení a žádné jiné.
 
 Z druhé rovnice si navíc povšimneme, že se jedná o přímé rozšíření degree
-centrality (\ref{eq:degree}). Výsledek předchozí iterace použijeme jako vstup
+centrality \eqref{eq:degree}. Výsledek předchozí iterace použijeme jako vstup
 do následující a iterujeme tak dlouho, dokud nedosáhneme požadované přesnosti.
 
 \subsubsection{PageRank}
@@ -878,21 +891,21 @@ standardního algoritmu s tímto (TODO cite Brandes).
 \begin{center}
 \begin{minipage}{\textwidth}
 \begin{algorithm}[H]
-	\caption{Brandesův algoritmus}
+	\caption{Brandes}
 		\label{alg:brandes}
 
 	\begin{algorithmic}[1]
 	\Statex
-	\State $b[v] \gets 0$, $v \in V$
-	\For{$s \in V$}
-		\State $S \gets $prázdný zásobník
-		\State $P[w] \gets $prázdný seznam, $w \in V$
+	\State $b[v] \gets 0$, $v \in V$\Comment{Inicializujeme hodnoty betweenness na 0}
+	\For{$s \in V$}\Comment{V exaktním výpočtu počítáme s celou množinou V}
+		\State $S \gets $prázdný zásobník\Comment{Zásobník pro \uv{dokončené} vrcholy}
+		\State $P[w] \gets $prázdný seznam, $w \in V$\Comment{Seznam předchůdců}
 		\State $\sigma[t] \gets 0$, $t \in V$
 		\State $\sigma[s] \gets 1$
-		\State $d[t] \gets -1$, $t \in V$
+		\State $d[t] \gets -1$, $t \in V$\Comment{Vzdálenosti jsou inicializovány na -1, tj. symbolicky nekonečno}
 		\State $d[s] \gets 0$
-		\State $Q \gets \{s\}$
-		\While{$Q \ne \varnothing$}
+		\State $Q \gets \{s\}$\Comment{Fronta nebo prioritní fronta začíná se startovním vrcholem}
+		\While{$Q \ne \varnothing$}\Comment{Opakujeme, dokud není fronta prázdná}
 			\State $v \gets dequeue(Q)$
 			\State $push(S, v)$
 			\For{sousedící vrchol $w \in Adj[v]$}
@@ -1175,34 +1188,20 @@ počtu jejích citací. Toto číslo je pak h-index autora.
 
 
 \chapter{Výsledky}
-Pro zjištění, jestli se výsledky implementovaných metod shodují s uvedenými
-oceněními, použijeme metodu součtu pořadí oceněných autorů, viz tab.
-\ref{tab:oceneni1}. Tzn. že pro jedno ocenění sečteme pořadí všech autorů,
-kteří byli oceněni danou cenou. Tuto jednoduchou míru můžeme porovnat pouze
-mezi jednotlivými metodami pro jedno ocenění, ale ne mezi různými oceněními pro
-jednu metodu. Jednoduše protože např. Turingova cena je ve výsledcích udělena
-pouze několika autorům, z čehož plyne malý součet pořadí, kdežto velké množství
-autorů je členy ACM Fellows, tím pádem velký součet pořadí oceněných.
+Výsledky této práce jsou znázorněny v tabulkách korelací mezi jednotlivými
+metodami (tab.~\ref{tab:corr1}, \ref{tab:corr2}, \ref{tab:corr3}, \ref{tab:corr4}), tabulkami (tab. ) srovnávající pořadí prvních
+třiceti autorů mezi jednotlivými metodami a porovnání implementovaných metod s
+oceněními (ACM Codd, ...)
 
-Dále nás zajímá, zda-li jsou metody mezi sebou podobné, či nikoli. Pro
-porovnání metod mezi sebou je použit Spearmanův koeficient pořadové korelace.
 
-\section{Spearmanův koeficient pořadové korelace}
-Spearmanův koeficient je klasický Pearsonův koeficient korelace, který je
-aplikovaný na proměnné s pořadím (cite Myers, Jerome L.; Well, Arnold D.
-(2003), Research Design and Statistical Analysis (2nd ed.), Lawrence Erlbaum,
-pp. 508).
-
-Koeficient korelace obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$
-znamená naprostou lineární závislost mezi porovnávanými proměnnými tak, že s
-rostoucí první proměnnou roste i druhá proměnná. Hodnota $-1$ znamená rovněž
-naprostou lineární závislost, ale při rostoucí jedné proměnné druhá proměnná
-klesá. Hodnota $0$ znamená kompletní náhodnost či nezávislost mezi měřenými
-proměnnými.
 
 
 \section{Porovnání implementovaných metod}
-Tab. \ref{tab:corr1} ukazuje vypočtené Spearmanovy koeficienty pořadové
+Zajímá nás, zda-li jsou metody mezi sebou podobné a do jaké míry. Pro porovnání
+metod mezi sebou je použit Spearmanův koeficient pořadové korelace.
+
+
+Tab.~\ref{tab:corr1} ukazuje vypočtené Spearmanovy koeficienty pořadové
 korelace mezi všemi páry implementovaných metod. Do výpočtu koeficientu
 korelace byly zahrnuty pouze ty uzly, které mají alespoň jednu hranu. Pokud by
 byly zachovány, většina koeficientů korelace by byla velmi vysoká (větší než
@@ -1220,12 +1219,11 @@ koeficientu korelace s výsledky metod, které byly aplikovány na celý graf,
 protože se jedná o dvě neporovnatelné proměnné. Proto byli z výsledků metod pro
 celý graf odebráni ti autoři, kteří se nenacházejí v hlavní silně spojité
 komponentě. Pro tyto žebříčky bylo provedeno stejné srovnání pomocí Spearmanova
-koeficientu korelace pořadí křížově mezi všemi metodami, viz tab.
-\ref{tab:corr2}
+koeficientu korelace pořadí křížově mezi všemi metodami, viz tab.~\ref{tab:corr2}
 
 % TODO vysvětlení tabulky, jak se to vypočetlo. Co se muselo odstranit za uzly,
 % proč dvě tabulky.
-Tab. \ref{tab:impmetody} popisuje zkratky metod, časy běhu pro sítě DBLP a
+Tab.~\ref{tab:impmetody} popisuje zkratky metod, časy běhu pro sítě DBLP a
 CiteSeer a velikost největší kliky v symetrizovaném grafu autorů. Největší
 klika je nalezena z top 20 autorů pro každou metodu. Výpočty byly vykonány na
 Intel\textregistered Core\texttrademark2 Quad Q8400 přetaktovaném na 3.1\,GHz s
@@ -1275,10 +1273,23 @@ wic  &vážený closeness vstupní hrany    &1:14.054&33:44:56.355&18&15\\
 %\begin{landscape}
 
 
+\subsection{Spearmanův koeficient pořadové korelace}
+Spearmanův koeficient je klasický Pearsonův koeficient korelace, který je
+aplikovaný na proměnné s pořadím (cite Myers, Jerome L.; Well, Arnold D.
+(2003), Research Design and Statistical Analysis (2nd ed.), Lawrence Erlbaum,
+pp. 508).
+
+Koeficient korelace obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$
+znamená naprostou lineární závislost mezi porovnávanými proměnnými tak, že s
+rostoucí první proměnnou roste i druhá proměnná. Hodnota $-1$ znamená rovněž
+naprostou lineární závislost, ale při rostoucí jedné proměnné druhá proměnná
+klesá. Hodnota $0$ znamená kompletní náhodnost či nezávislost mezi měřenými
+proměnnými.
+
 
 
 \section{Žebříčky významných autorů}
-Tabulky \ref{tab:ranks1} a \ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
+Tabulky~\ref{tab:ranks1}~a~\ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
 podle metody h-index. Pro každého autora je zobrazeno jeho umístění podle všech
 zbylých implementovaných metod. Poslední řádek u každé metody označuje
 součet pořadí uvedených 30ti autorů.
@@ -1286,35 +1297,44 @@ součet pořadí uvedených 30ti autorů.
 
 
 Výstupy programu, tj. jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
-příloze \ref{chapter:zebricky}, v sekci \ref{section:zebrickydblp} pro databázi
-DBLP a v sekci \ref{section:zebrickyciteseer} pro databázi CiteSeer.  Hodnoty u
+příloze~\ref{chapter:zebricky}, v sekci~\ref{section:zebrickydblp} pro databázi
+DBLP a v sekci~\ref{section:zebrickyciteseer} pro databázi CiteSeer.  Hodnoty u
 metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$ na $[0;
 |V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny hodnoty
 PageRanku zanedbatelně malé.
 
 \section{Porovnání metod s oceněními}
+Pro zjištění, jestli se výsledky implementovaných metod shodují s uvedenými
+oceněními, použijeme metodu součtu pořadí oceněných autorů, viz tab.~\ref{tab:oceneni1}. Tzn. že pro každé ocenění a pro každou metodu sečteme
+pořadí všech autorů, kteří byli oceněni danou cenou. Tuto jednoduchou míru
+můžeme porovnat pouze mezi jednotlivými metodami pro jedno ocenění, ale ne mezi
+různými oceněními pro jednu metodu. Jednoduše protože např. Turingova cena je
+ve výsledcích udělena pouze několika autorům, z čehož plyne malý součet pořadí,
+kdežto velké množství autorů je členy ACM Fellows, tím pádem velký součet
+pořadí oceněných.
+
 \begin{table}[!ht]
 \begin{center}
 \makebox[\linewidth]{
 \begin{tabular}{r|rrrr}
 \toprule
-&Codd & ACM Fellows & Turing & ISI HC \\
+&Codd & ACM Fellows & ISI HC & Turing \\
 \midrule
-hi   & \,819&6\,791\,886&2\,555\,487&725\,373\\
-ideg & \,716& \,801\,295& \,376\,586& 61\,665\\
+hi   & 819&6\,791\,886&2\,555\,487&725\,373\\
+ideg & 716& \,801\,295& 376\,586& 61\,665\\
 odeg &4\,605&3\,904\,308&2\,367\,669&257\,133\\
-deg  & \,741&1\,077\,282& \,525\,324& 84\,191\\
-wideg& \,571& \,802\,148& \,374\,344& 61\,757\\
+deg  & 741&1\,077\,282& 525\,324& 84\,191\\
+wideg& 571& \,802\,148& 374\,344& 61\,757\\
 wodeg&4\,491&3\,902\,718&2\,365\,245&256\,620\\
-wdeg & \,692&1\,065\,801& \,511\,523& 82\,652\\
-pr   & \,867& \,805\,267& \,403\,109& 41\,735\\
-btw  & \,796& \,828\,571& \,399\,720& 70\,342\\
-btwA & \,821&1\,024\,010& \,428\,133& 68\,996\\
-wBtwA& \,567&1\,057\,788& \,473\,146& 77\,168\\
+wdeg & 692&1\,065\,801& 511\,523& 82\,652\\
+pr   & 867& 805\,267& 403\,109& 41\,735\\
+btw  & 796& 828\,571& 399\,720& 70\,342\\
+btwA & 821&1\,024\,010& 428\,133& 68\,996\\
+wBtwA& 567&1\,057\,788& 473\,146& 77\,168\\
 \midrule
-ic\footnotemark[1]   & \,805& \, 63\,753& \, 34\,004&  1\,384\\
-oc\footnotemark[1]   &6\,607& \,129\,810& \, 59\,701&  4\,098\\
-wic\footnotemark[1]  & \,512& \, 73\,729& \, 38\,045&  1\,482\\
+ic\footnotemark[1]   & 805& 63\,753& 34\,004&  1\,384\\
+oc\footnotemark[1]   &6\,607& 129\,810& 59\,701&4\,098\\
+wic\footnotemark[1]  & 512& 73\,729& 38\,045&  1\,482\\
 \bottomrule
 \end{tabular}
 }
@@ -1329,24 +1349,28 @@ wic\footnotemark[1]  & \,512& \, 73\,729& \, 38\,045&  1\,482\\
 \makebox[\linewidth]{
 \begin{tabular}{r|rrrr}
 \toprule
-&Codd & ACM Fellows & Turing & ISI HC \\
+&Codd & ACM Fellows & ISI HC  & Turing \\
 \midrule
-hi   &\\
-ideg &\\
-odeg &\\
-deg  &\\
-wideg&\\
-wodeg&\\
-wdeg &\\
-pr   &\\
-btw  &\\
-btwA &\\
-wBtwA&\\
+hi   &174\,280&10\,388\,626& 5\,679\,672&1\,071\,346 \\
+ideg & 46\,997&11\,345\,011& 6\,812\,044&1\,013\,904 \\
+odeg &153\,490&19\,741\,913&13\,189\,294&1\,883\,554 \\
+deg  & 35\,156&13\,989\,257& 8\,822\,049&1\,074\,213 \\
+wideg& 52\,467&11\,589\,445& 6\,857\,195&1\,048\,460 \\
+wodeg&134\,992&19\,751\,885&12\,877\,820&1\,829\,697\\
+wdeg & 43\,918&14\,153\,909& 8\,728\,725&1\,115\,118\\
+pr   & 81\,704&11\,469\,485& 6\,426\,334&   938\,757\\
+btw  & 95\,920&11\,074\,054& 5\,879\,992&   848\,269\\
+btwA & 96\,643&11\,691\,668& 6\,058\,579&1\,007\,215\\
+wBtwA&103\,043&12\,899\,982& 6\,365\,899&1\,224\,576\\
 \midrule
-ic\footnotemark[1] \\
-oc\footnotemark[1] \\
-wic\footnotemark[1]\\
+ic\footnotemark[1]  &55\,490 &6\,835\,926&4\,047\,426&560\,873\\
+oc\footnotemark[1]  &124\,724&9\,108\,426&6\,074\,616&903\,529\\
+wic\footnotemark[1] &86\,773 &7\,576\,984&4\,585\,710&710\,976\\
 \bottomrule
+
+
+
+
 \end{tabular}
 }
 \caption{Součty pořadí oceněných autorů pro CiteSeer}
@@ -1360,7 +1384,7 @@ Výpočet betweenness je časově nejnáročnější ze všech implementovaných
 Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
 rozsáhlou síť databáze CiteSeer je výpočet váženého betweenness časově velmi
 náročný úkol, jak můžeme nahlédnout jen z doby běhu aproximovaného betweenness
-v tabulce \ref{tab:impmetody}.  Tab. \ref{tab:btwA} znázorňuje Spearmanovo
+v tab.~\ref{tab:impmetody}. Tab.~\ref{tab:btwA} znázorňuje Spearmanovo
 koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
 aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
 postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
@@ -1389,6 +1413,7 @@ zlomek velikosti množiny $V$ & koeficient korelace \\
 \end{table}
 
 \chapter{Diskuse}
+
 % TODO tady můžeš napsat, že ta aproximace betweenness je v pořádku.
 \section{Podobnost výsledků jednotlivých metod}
 Množina autorů je pro obě databáze větší než 300\,000. Pro proměnné o této
@@ -1398,29 +1423,59 @@ opačné pořadí, které je nežádoucí a korelace menší než $0.1$ budeme p
 za nevýznamné.
 
 Všechny korelace, tj. mezi všemi porovnávanými metodami pro obě databáze a pro
-obě varianty (celý graf, největší silně spojitá komponenta) vyšly větší než
+obě varianty (celý graf, největší silně spojitá komponenta), vyšly větší než
 $0.1$ s minimem .,.,.,. pro DBLP celý graf (1), DBLP největší silně spojitá
 % TODO doplnit MINIMA
 komponenta (2), CiteSeer celý graf (3), CiteSeer největší silně spojitá
 komponenta (4), respektive.
 
-Zcela očekávaně dostáváme vysoké korelace mezi exaktním a aproximovaným
-betweenness a mezi metodami a jejich alternativami pro váženou síť (btwA -
-wBtwA, deg - wdeg, apod.).
+
+Protože je eigenvector centralita rozšířením degree centrality (jednoduše
+řečeno iterovaný indegree), vskutku si povšimneme vysokých korelací mezi
+indegree a PageRankem ve všech čtyřech případech (. . . .).
+
+Metody založené na nejkratších cestách intuitivně rovněž dosahují vysokých
+korelací, přestože je význam odlišný (btw - ic, atd.)
+
+H-index je zcela očekávaně podobnější všem metodám než odeg, wodeg a oc, které
+nemají přímo měřit významnost, ale poukázat na fakt, že významní autoři navíc
+mají tendence ovlivňovat i jiné autory tím, že je citují.
 
 
+Z vypočtených koeficientů korelací si můžeme dovolit tvrdit, že všechny
+implementované metody měří zhruba stejnou vlastnost - významnost, vyjma metod
+odeg, wodeg a oc, které se shodují s ostatními, jelikož jsou spíše důsledkem
+vysoké významnosti autora.
 
 % TODO jaká je signifikance spearmanovo korelace? 0.1? nebo kolik kurva? ZJISTIT!
 % TODO jsou teda podobný ty metody? Podle tý signifikance, ale na první pohled rozhodně.
-\section{Shoda výsledků s oceněními}
-% TODO proč se DBLP nejvíc shoduje s Codd? protože jsou to databázisti.
-% TODO TUring tam skoro žádnej neni - nedávat tomu výpočtu moc hodnotu.
-% TODO u CiteSeer plno buzíckých SENIOR MEMBERŮ, kazí výpočty?
-\section{Vliv vah na přesnost výsledků}
+\section{Vliv vah na výsledky}
+Intuitivně bychom očekávali, že metody na vážené síti (wideg, wodeg, wBtwA,
+wic) budou vzájemně korelovat výše než ekvivalentní metody na nevážené síti
+(ideg, odeg, btwA, ic). U DBLP například dosahuje korelace mezi wBtwA a wideg
+(0.849), wodeg (0.140) a wdeg (0.549) výše než mezi wBtwaA a ideg (0.830), odeg
+(0.134) a deg (0.529), viz tab.~\ref{tab:corr1}. U výsledků pro DBLP pro
+největší silně spojitou komponentu (tab.~\ref{tab:corr2}) dostáváme stejnou
+podobnost, tj. korelace mezi wBtwA a wideg (0.889), wodeg (0.529) a wdeg
+(0.766) je vyšší než mezi ideg (0.865), odeg (0.505) a deg (0.753).  Korelace
+mezi váženým closeness a váženým betweenness dominují nad korelacemi mezi
+váženým betweenness a neváženým closeness a naopak, tj. korelace mezi wic a
+wBtwA (0.930), wideg (0.887), wodeg (0.527) a wdeg (0.763) jsou vyšší než mezi
+wic a btwA (0.864), ideg (0.884), odeg (0.493) a deg (0.734).  Mohli bychom
+proto dedukovat, že všechny výsledky jsou si podobnější, pokud se aplikují
+výhradně na vážené síti nebo výhradně na nevážené síti, než pokud porovnáváme
+vážené s neváženými.
 % TODO shodujou se vážený výpočty víc s oceněníma?
 % TODO proč váhy nemaj tak velkej vliv? (je velká korelace mezi váženejma a neváženejma).
+
+Nemůžeme ale najisto tvrdit, že metody pro váženou síť jsou přesnější než
+metody pro neváženou síť. Logicky by měly být vážené metody přesnější, protože
+pracují s větších množstvím informace, ale protože není významnost jednoznačně
+definována, nemůžeme tvrdit, která z variant je přesnější.
+
 \section{Vstupní a výstupní hrany}
 %TODO proč u closeness je lepší použít inhrany a ne outhrany, ale u betweenness se používaj klasicky outhrany?
+
 
 Přestože vstupní a výstupní hrany mají opačný význam, existuje nezanedbatelná
 korelace mezi jejich interpretacemi \uv{cituji} a \uv{jsem citován}, tzn. pokud
@@ -1437,8 +1492,22 @@ centrality získáme vyšší korelace naopak při použití vstupních hran nam
 výstupních.
 % TODO dokázat úryvkama korelací
 
+\section{Shoda výsledků s oceněními}
+% TODO proč se DBLP nejvíc shoduje s Codd? protože jsou to databázisti.
+% TODO TUring tam skoro žádnej neni - nedávat tomu výpočtu moc hodnotu.
+% TODO u CiteSeer plno buzíckých SENIOR MEMBERŮ, kazí výpočty?
+
 \section{Aproximace betweenness}
-Jednoduchá lineární extrapolace u aproximace betweenness centrality se zdá být dostatečně přesnou, pokud při velikosti množiny vrcholů, se kterou pracuje Brandesův algoritmus
+Jednoduchá lineární extrapolace u aproximace betweenness centrality se zdá být
+dostatečně přesnou, pokud zmenšujeme velikost množiny vrcholů, se kterou
+pracuje Brandesův algoritmus.
+
+Zcela očekávaně dostáváme vysoké korelace mezi exaktním a aproximovaným
+betweenness a mezi metodami a jejich alternativami pro váženou síť (btwA -
+wBtwA, deg - wdeg, apod.), viz tab.~\ref{tab:corr1}, \ref{tab:corr2},
+\ref{tab:corr3}, \ref{tab:corr4}. Exaktní betweenness se rovněž shoduje
+(korelace $> 0.9$) s aproximacemi, kde používáme různé velikosti množiny
+vrcholů (tab.~\ref{tab:btwA}).
 
 \chapter{Závěr}
 % TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
@@ -1514,7 +1583,7 @@ wic  &0.674&0.844&0.493&0.734&0.887&0.527&0.763&0.803&0.866&0.864&0.930&0.862&0.
 \end{footnotesize}
 \end{sideways}
 %}
-\caption{Tabulka korelací pro hlavní komponentu pro DBLP. Zahrnuty i variace closeness.}
+\caption{Tabulka korelací pro hlavní komponentu pro DBLP. Zahrnuty i variace closeness}
 \label{tab:corr2}
 \end{table}
 %\end{landscape}
@@ -1582,7 +1651,7 @@ wic  &0.650&0.775&0.457&0.701&0.840&0.493&0.746&0.680&0.797&0.799&0.831&0.827&0.
 \end{footnotesize}
 \end{sideways}
 %}
-\caption{Tabulka korelací pro hlavní komponentu pro CiteSeer. Zahrnuty i variace closeness.}
+\caption{Tabulka korelací pro hlavní komponentu pro CiteSeer. Zahrnuty i variace closeness}
 \label{tab:corr4}
 \end{table}
 
@@ -1796,7 +1865,7 @@ suma&465&2645&9422&2472&1092&5796&1111&4493&9468&9367&5636&4300&19582&6626\\
 \chapter{Žebříčky významných autorů}
 \label{chapter:zebricky}
 
-Příloha \ref{chapter:zebricky} obsahuje tabulky pro každou implementovanou
+Příloha~\ref{chapter:zebricky} obsahuje tabulky pro každou implementovanou
 metodu s prvními třiceti autory a vyznačenými oceněními (Codd - ACM SIGMOD
 Edgar F. Codd Innovations Award, Fellows - ACM Fellows, Turing - ACM A.M.
 Turing Award, ISI - ISI Highly Cited highlighted), pokud ji autor obdržel.

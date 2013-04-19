@@ -25,16 +25,16 @@
 \BOOKMARK [1][-]{section.4.6}{Ostatn\355 m\355ry v\375znamnosti autoru}{chapter.4}
 \BOOKMARK [2][-]{subsection.4.6.1}{H-index}{section.4.6}
 \BOOKMARK [0][-]{chapter.5}{V\375sledky}{}
-\BOOKMARK [1][-]{section.5.1}{Spearmanuv koeficient poradov\351 korelace}{chapter.5}
-\BOOKMARK [1][-]{section.5.2}{Porovn\341n\355 implementovan\375ch metod}{chapter.5}
-\BOOKMARK [1][-]{section.5.3}{\231ebr\355cky v\375znamn\375ch autoru}{chapter.5}
-\BOOKMARK [1][-]{section.5.4}{Porovn\341n\355 metod s ocenen\355mi}{chapter.5}
-\BOOKMARK [1][-]{section.5.5}{Aproximace betweenness centrality}{chapter.5}
+\BOOKMARK [1][-]{section.5.1}{Porovn\341n\355 implementovan\375ch metod}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.1.1}{Spearmanuv koeficient poradov\351 korelace}{section.5.1}
+\BOOKMARK [1][-]{section.5.2}{\231ebr\355cky v\375znamn\375ch autoru}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{Porovn\341n\355 metod s ocenen\355mi}{chapter.5}
+\BOOKMARK [1][-]{section.5.4}{Aproximace betweenness centrality}{chapter.5}
 \BOOKMARK [0][-]{chapter.6}{Diskuse}{}
 \BOOKMARK [1][-]{section.6.1}{Podobnost v\375sledku jednotliv\375ch metod}{chapter.6}
-\BOOKMARK [1][-]{section.6.2}{Shoda v\375sledku s ocenen\355mi}{chapter.6}
-\BOOKMARK [1][-]{section.6.3}{Vliv vah na presnost v\375sledku}{chapter.6}
-\BOOKMARK [1][-]{section.6.4}{Vstupn\355 a v\375stupn\355 hrany}{chapter.6}
+\BOOKMARK [1][-]{section.6.2}{Vliv vah na v\375sledky}{chapter.6}
+\BOOKMARK [1][-]{section.6.3}{Vstupn\355 a v\375stupn\355 hrany}{chapter.6}
+\BOOKMARK [1][-]{section.6.4}{Shoda v\375sledku s ocenen\355mi}{chapter.6}
 \BOOKMARK [1][-]{section.6.5}{Aproximace betweenness}{chapter.6}
 \BOOKMARK [0][-]{chapter.7}{Z\341ver}{}
 \BOOKMARK [0][-]{appendix.A}{Tabulky korelac\355}{}
