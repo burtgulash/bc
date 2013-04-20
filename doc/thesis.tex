@@ -498,7 +498,7 @@ Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
 jsou spojeny přímo hranou.
 
 V sociologii slovo klika popisuje skupinu dvou až dvanácti lidí, kteří jsou na
-sebe vázáni více než na jiné lidi v tomtéž prostředí~\citep{salkind2008}. Klika
+sebe vázáni více než na jiné lidi v tomtéž prostředí~\citet{salkind2008}. Klika
 je silněji spojená skupina lidí než sociální kruh.
 
 Algoritmus pro nalezení největší kliky v grafu je přímočaré otestování $n$
@@ -605,10 +605,10 @@ metod pro výpočet významnosti.
 
 \subsection{Eigenvector centrality}
 Eigenvector centrality (také známá jako Gould's index of accessibility of a
-Network~\citep{williams2007} nebo Bonacich's
-centrality~\citep{hannemanriddle2005}.) je míra vlivu vrcholu v grafu, která
+Network~\citet{williams2007} nebo Bonacich's
+centrality~\citet{hannemanriddle2005}.) je míra vlivu vrcholu v grafu, která
 doslova znamená \uv{Důležitý uzel má důležité
-sousedy}~\citep{zweigiyengar2010}. Hodnotu vlivu získáme z vlastního vektoru
+sousedy}~\citet{zweigiyengar2010}. Hodnotu vlivu získáme z vlastního vektoru
 $x$ matice sousednosti grafu:
 
 \begin{align*}
@@ -620,7 +620,7 @@ ${\bf A}$ je matice sousednosti, ${\bf x}$ je vlastní vektor matice ${\bf A}$ a
 číslo $\lambda$. Pro měření významnosti nás však zajímá pouze to řešení, které
 má pouze nezáporné hodnoty. Podle Perron-Frobeniovy věty pro každou nezápornou
 primitivní matici existuje právě jedno takové řešení, které zároveň patří k
-největšímu vlastnímu číslu $\lambda$~\citep{langvillemeyer}.
+největšímu vlastnímu číslu $\lambda$~\citet{langvillemeyer}.
 
 Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
 
@@ -650,7 +650,7 @@ do následující a iterujeme tak dlouho, dokud nedosáhneme požadované přesn
 \subsubsection{PageRank}
 V roce 1998 vyvinuli Sergey Brin a Larry Page algoritmus PageRank (nesoucí
 jméno druhého autora) jako součást výzkumu na novém druhu webového
-vyhledávače~\citep{pagerankoriginal,visemalseed2005,page1997}. PageRank
+vyhledávače~\citet{pagerankoriginal,visemalseed2005,page1997}. PageRank
 přiřazuje relativní hodnocení webovým stránkám podle hypertextových odkazů z
 jiných webových stránek, které na ně směřují, a podle jejich PageRankové
 významnosti. Sama definice je rekurzivní a po nahlédnutí na vzorec zjistíme, že
@@ -723,12 +723,12 @@ Přestože je PageRank původně určený pro webovou síť, lze ho použít na
 jakoukoliv orientovanou váženou i neváženou síť, tedy i na sociální a citační
 sítě, o kterých je zde řeč. Pro neorientovaný graf je hodnota PageRanku pro
 jednotlivé uzly velmi blízká stupňům grafu, ale ne
-totožná~\citep{perrafortunato2008}.
+totožná~\citet{perrafortunato2008}.
 
 
 \subsection{Closeness centrality}
 Closeness neboli \uv{blízkost} je definována jako převrácená hodnota míry
-farness, tedy \uv{dalekost}~\citep{sabidussi1966}. Dalekost je součet všech
+farness, tedy \uv{dalekost}~\citet{sabidussi1966}. Dalekost je součet všech
 vzdáleností od uzlu do všech ostatních, tzn. $f(u) = \sum_{v \in V} d_G(u, v)$
 a $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$. Podle jiné definice je closeness
 převrácená hodnota průměrné nejkratší cesty. V podstatě se od předchozí příliš
@@ -775,7 +775,7 @@ původní definice closeness a výpočet se omezí na největší komponentu.
 \subsubsection{Algoritmus}
 Closeness pro všechny vrcholy můžeme přesně vypočítat v čase $O(|E| +
 |V|^2\log|V|)$, kde $V$ a $E$ jsou množiny vrcholů a hran
-sítě~\cite{fredmantarjan1984}.
+sítě~\cite{fredmantarjan}.
 
 Algoritmus vychází z definice, tedy vyřeší problém všech párů nejkratších cest,
 čímž rovnou získá hodnoty farness $f(u) = \sum_{v \in V} d_G(u, v)$ a zjištění
@@ -823,11 +823,10 @@ pro převrácenou hodnotu closeness (s pravděpodobností alespoň $1 -
 \frac{1}{|V|}$), kde $\epsilon > 0$ a $\delta$ je poloměr sítě (nejdelší z
 nejkratších cest). Na základě tohoto aproximačního algoritmu byl vytvořen jiný
 aproximační algoritmus pro nalezení $k$ nejvýznamnějších uzlů hodnocených podle
-closeness centrality TOPRANK (cite Okamoto, Chen, Li 2008 Ranking of Closeness
-Centrality for Large-Scale Social Networks).
+closeness centrality TOPRANK~\citet{closenessapproximation}.
 
 \subsubsection{Aproximace}
-Algoritmus TOPRANK (Okamoto, Chen, Li) najde prvních $k$ nejvýznamnějších uzlů
+Algoritmus TOPRANK najde prvních $k$ nejvýznamnějších uzlů
 s vysokou přesností a pro každý z nich přesnou hodnotu closeness.  Algoritmus
 pracuje s myšlenkou, že zjistíme přibližné pořadí uzlů tak, že pro jeden strom
 nejkratších cest nebudeme počítat se všemi koncovými uzly, ale jen s dostatečně
@@ -838,7 +837,7 @@ musíme uvažovat, aby se jednalo o dostatečně přesný výsledek. Autoři alg
 uvádějí tento algoritmus s heuristikou, která najde přibližně místo, ve kterém
 je vhodné výpočet ukončit a považovat za dostatečně přesný. Sami uvádějí, že
 tento algoritmus je pouze první krok k návrhu efektivnějšího způsobu jak najít
-prvních $k$ nejvýznamnějších uzlů (cite to co nahoře).
+prvních $k$ nejvýznamnějších uzlů~\citet{closenessapproximation}.
 
 \subsection{Betweenness centrality}
 Betweenness je druhá metoda, která modeluje šíření informace sítí pomocí
@@ -847,11 +846,10 @@ teče nejvíce informace. Pokud uzel $A$ komunikuje s uzlem $C$, můžeme tvrdit
 že uzel $B$, který leží mezi nimi, bude mít roli prostředníka. Být tímto
 prostředníkem mezi více uzly intuitivně napovídá, že takový uzel bude
 centrální. \uv{Čím více lidí na mně závisí k vytvoření spojení s jinými lidmi,
-tím mám větší moc} (cite introductino to social network methods). Betweenness
+tím mám větší moc}~\citet{hannemanriddle2005}. Betweenness
 měří, na kolika nejkratších cestách se uzel nachází. Více se ale setkáme s
 definicí, kde do sumy zahrneme poměr cest, na kterých se uzel nachází, k
-celkovému počtu cest mezi dvěma uzly (Freeman, 1977; Anthonisse, 1971,
-Brandes):
+celkovému počtu cest mezi dvěma uzly~\citet{freeman1977,anthonisse1971,brandes2001}.
 
 \begin{align*}
 C_(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
@@ -864,31 +862,32 @@ $\sigma_{st}(v)$ je počet nejkratších cest, které navíc procházejí uzlem 
 Normalizovaný betweenness je hodnota v intervalu od $0$ do $1$, kterou získáme
 tak, že betweenness vydělíme celkovým počtem možných cest, tj. $(|V| - 1)(|V| -
 2)$ pro orientované grafy a $\frac{(|V| - 1)(|V| - 2)}{2}$ pro neorientované
-grafy. Normalizované hodnoty metod centralit jsou nezávislé na velikosti grafu
-(cite Douglas R. WHite, Stephen P. Borgatti - Betweenness centrality measures
-for directed graphs)
+grafy. Normalizované hodnoty metod centralit jsou nezávislé na velikosti
+grafu~\citet{whiteborgatti1994}.
 
 \begin{align*}
 C_b(v) &= \frac{1}{(|V| - 1)(|V| - 2)} \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
 \end{align*}
 
-Vznik betweenness je připisován sociologovi Lintonu Freemanovi (Freeman 77) a byl původně definován pro neorientované grafy.
+Vznik betweenness je připisován sociologovi Lintonu
+Freemanovi~\citet{freeman1977} a byl původně definován pro neorientované grafy.
 
 \subsubsection{Brandesův algoritmus}
-Ve své práci Ulrik Brandes zmiňuje (do té doby nejrychlejší) algoritmus pro
-výpočet betweenness centrality s časovou náročností $\theta(|V|^3)$ a
-$\theta(|V|^2)$ paměťovými nároky. Tento způsob přistupuje k problému
-nekratších cest způsobem all-pair shortest paths. Brandesův způsob využívá
-algoritmu pro nalezení nejkratších cest z jednoho bodu, kde výsledný algoritmus
-pracuje s paměťovou náročností $O(|V| + |E|)$ a běží v čase $O(|V||E|)$ pro
-nevážený graf nebo $O(|V||E| + |V|^2 \log|V|)$ pro vážený graf. 
+Ve své práci~\citet{brandes2001} Ulrik Brandes zmiňuje (do té doby
+nejrychlejší) algoritmus pro výpočet betweenness centrality s časovou
+náročností $\theta(|V|^3)$ a $\theta(|V|^2)$ paměťovými nároky. Tento způsob
+přistupuje k problému nekratších cest způsobem all-pair shortest paths.
+Brandesův způsob využívá algoritmu pro nalezení nejkratších cest z jednoho
+bodu, kde výsledný algoritmus pracuje s paměťovou náročností $O(|V| + |E|)$ a
+běží v čase $O(|V||E|)$ pro nevážený graf nebo $O(|V||E| + |V|^2 \log|V|)$ pro
+vážený graf. 
 
 %% TODO napsat pár větama brandes alg., aby se dala pochopit aproximace.
 
 Brandes ve své práci o algoritmu uvádí pseudokód pro nevážený graf, který je
 následně snadné pozměnit pro vážený graf drobnými úpravami a zaměněním obyčejné
 fronty za prioritní frontu; kompletní důkaz správnosti algoritmu a porovnání
-standardního algoritmu s tímto (TODO cite Brandes).
+standardního algoritmu s tímto~\citet{brandes2001}.
 
 
 
@@ -976,9 +975,7 @@ výzkum přišel relativně pozdě v porovnání s jinými problémy kombinatori
 optimalizace (nejmenší kostra grafu, přiřazovací a dopravní problém).
 Pravděpodobně byl výzkum opožděn, protože se jedná o intuitivní a relativně
 jednoduchý problém, ale jakmile se dostal do středu zájmu, bylo nezávisle na
-sobě nalezeno několik metod řešení různými lidmi (Shimbel [1955], Ford
-[1956], Dantzig [1958], Bellman [1958], Moore[1959], Dijkstra [1959]).(cite
-schrijver alexander ON THE HISTORY OF THE SHORTEST PATH PROBLEM)
+sobě nalezeno několik metod řešení různými lidmi (Shimbel~\citet{shimbel1955}, Ford~\citet{ford1956}, Dantzig~\citet{dantzig1957}, Bellman~\citet{bellmanford_algorithm}, Moore~\citet{moore1959}, Dijkstra~\citet{dijkstra1959})~\citet{schrijver2012}.
 
 
 Z hlediska metod řešení můžeme uvažovat několik kategorií algoritmů - nalezení
@@ -1047,11 +1044,11 @@ setkáme s prioritní frontou implementovanou pomocí binární haldy, která
 zajišťuje čas běhu právě $O((|E| + |V|)\log|V|)$. Pomocí Fibonacciho haldy
 získáme doposud nejrychlejší Dijkstrův algoritmus s časem běhu $O(|E| + |V|
 \log|V|)$, ale pro běžné účely (grafy menší než miliony vrcholů) je
-nejvýhodnější binární halda (cite CLRS, Fredman \& Tarjan). Pro nevážený graf
+nejvýhodnější binární halda~\citet{CLRS,fredmantarjan}. Pro nevážený graf
 je Dijkstrův algoritmus ekvivalentní prohledávání do šířky.
 
 Dijkstrův algoritmus je klíčovým pro všechny implementované metody založené na
-nejkratších cestách, proto uvedeme pseudokód (cite CLRS):
+nejkratších cestách, proto uvedeme pseudokód~\cite{CLRS}.
 
 \begin{center}
 \begin{minipage}{\textwidth}
@@ -1132,8 +1129,7 @@ Johnsonův algoritmus nepatří mezi maticové metody, protože využívá
 metod single source shortest path pro všechny vrcholy. V principu jednodušše
 použijeme Dijkstrův algoritmus pro každý vrchol zvlášť, ale dovolujeme váhy
 hran i záporné. V případě záporných hran je nutné provést transformaci vah
-pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty. 
-(cite CLRS)
+pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty~\cite{CLRS}.
 
 
 \section{Ostatní míry významnosti autorů}
@@ -1143,11 +1139,12 @@ i jiné metody ohodnocení autorů, které ani nevyžadují konstrukci citační
 sítí, ale vyžadují pouze údaje v databázi.
 
 Setkáme se s metodami AWCR, AW-index, Eigenfactor, Egghův g-index, E-index,
-I10-index, R-impact, Wu Index a zejména H-index (cite http://hlwiki.slais.ubc.ca/index.php/Author\_impact\_metrics), který zde byl implementován
-jako jediná metoda, která nespadá pod míry centrality.
+I10-index, R-impact, Wu Index a zejména H-index~\citet{hlwikiaim}, který zde
+byl implementován jako jediná metoda, která nespadá pod míry centrality.
+
 \subsection{H-index}
 H-index je metoda pro měření produktivity autora a významu jeho publikované
-vědecké práce.  Metoda byla navržena fyzikem Jorge E. Hirschem pro zjištování
+vědecké práce. Metoda byla navržena fyzikem Jorge E. Hirschem pro zjištování
 relativní významnosti vědců publikujících v oboru teoretické fyziky. Původní
 Hirschova definice zní:
 
@@ -1287,15 +1284,12 @@ wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
 
 \subsection{Spearmanův koeficient pořadové korelace}
 Spearmanův koeficient je klasický Pearsonův koeficient korelace, který je
-aplikovaný na proměnné s pořadím (cite Myers, Jerome L.; Well, Arnold D.
-(2003), Research Design and Statistical Analysis (2nd ed.), Lawrence Erlbaum,
-pp. 508).
-
-Koeficient korelace obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$
-znamená naprostou lineární závislost mezi porovnávanými proměnnými tak, že s
-rostoucí první proměnnou roste i druhá proměnná. Hodnota $-1$ znamená rovněž
-naprostou lineární závislost, ale při rostoucí jedné proměnné druhá proměnná
-klesá. Hodnota $0$ znamená kompletní náhodnost či nezávislost mezi měřenými
+aplikovaný na proměnné s pořadím~\cite{myerswell2002}.  Koeficient korelace
+obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$ znamená naprostou
+lineární závislost mezi porovnávanými proměnnými tak, že s rostoucí první
+proměnnou roste i druhá proměnná. Hodnota $-1$ znamená rovněž naprostou
+lineární závislost, ale při rostoucí jedné proměnné druhá proměnná klesá.
+Hodnota $0$ znamená kompletní náhodnost či nezávislost mezi měřenými
 proměnnými.
 
 

@@ -1,15 +1,31 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Anthonisse -- besliskunde(1973)Anthonisse,
+  besliskunde]{anthonisse1971}
+ANTHONISSE, J. -- BESLISKUNDE, S. M. C. A. A.~M.
+\newblock \emph{The rush in a directed graph}.
+\newblock Chicago~: SMC, 1973.
+
+\bibitem[Bellman(1958)]{bellmanford_algorithm}
+BELLMAN, R.
+\newblock {On a Routing Problem}.
+\newblock \emph{Quarterly of Applied Mathematics}. 1958, 16, s.~87--90.
+
 \bibitem[Bonacich(1972)]{bonacich1972}
 BONACICH, P.
 \newblock Factoring and Weighting Approaches to Status Scores and Clique
   Identification.
 \newblock \emph{Journal of Mathematical Sociology}. 1972, 2, s.~113--120.
+
+\bibitem[Brandes(2001)]{brandes2001}
+BRANDES, U.
+\newblock A Faster Algorithm for Betweenness Centrality.
+\newblock \emph{Journal of Mathematical Sociology}. 2001, 25, 2, s.~163--177.
 
 \bibitem[Brin -- Page(1998)Brin, Page]{pagerankoriginal}
 BRIN, S. -- PAGE, L.
@@ -26,10 +42,25 @@ COLEMAN, J.~S.
 \newblock \emph{The Mathematics of Collective Action}.
 \newblock Chicago~: Aldine Pub. Co., 1973.
 
+\bibitem[Cormen et~al.(1990)Cormen, Leiserson,, Rivest]{CLRS}
+CORMEN, T. -- LEISERSON, C. -- RIVEST, R.
+\newblock \emph{{Introduction to Algorithms}}.
+\newblock Cambridge, MA~: The MIT Press, 1990.
+
+\bibitem[Dantzig(1957)]{dantzig1957}
+DANTZIG, G.~B.
+\newblock {Discrete-Variable Extremum Problems}.
+\newblock \emph{Operations Research}. 1957, 5, 2.
+
 \bibitem[Dasgupta et~al.(2008)Dasgupta, Papadimitriou,, Vazirani]{dasgupta}
 DASGUPTA, S. -- PAPADIMITRIOU, C. -- VAZIRANI, U.
 \newblock \emph{Algorithms}.
 \newblock New York, NY~: McGraw-Hill, 2008.
+
+\bibitem[Dijkstra(1959)]{dijkstra1959}
+DIJKSTRA, E.~W.
+\newblock {A note on two problems in connexion with graphs}.
+\newblock \emph{Numerische Mathematik}. December 1959, 1, 1, s.~269--271.
 
 \bibitem[for Computing~Machinery({\natexlab{a}})]{acmfellows}
 COMPUTING~MACHINERY, A.
@@ -41,12 +72,21 @@ COMPUTING~MACHINERY, A.
 \newblock \emph{A.M. Turing Award} [online]. [cit.~15.03.2013].
 \newblock Dostupn{\'{e}} z: \url{http://amturing.acm.org}.
 
-\bibitem[Fredman -- Tarjan(1984)Fredman, Tarjan]{fredmantarjan1984}
+\bibitem[Ford(1956)]{ford1956}
+FORD, L.~R.
+\newblock {Network Flow Theory}.
+\newblock Report P-923, The Rand Corporation, 1956.
+
+\bibitem[Fredman -- Tarjan(1987)Fredman, Tarjan]{fredmantarjan}
 FREDMAN, M.~L. -- TARJAN, R.~E.
 \newblock Fibonacci heaps and their uses in improved network optimization
   algorithms.
-\newblock \emph{25th Annual Symposium on Foundations of Computer Science
-  (IEEE)}. 1984, s.~ 338--346.
+\newblock \emph{J. ACM}. July 1987, 34, 3, s.~596--615.
+
+\bibitem[Freeman(1977)]{freeman1977}
+FREEMAN, L.~C.
+\newblock A set of measures of centrality based on betweenness.
+\newblock \emph{Sociometry}. 1977, 40, s.~35--41.
 
 \bibitem[Freeman(1979)]{freeman1979}
 FREEMAN, L.~C.
@@ -69,6 +109,12 @@ HUBBELL, C.~H.
 \newblock An Input-Output Approach to Clique Identification.
 \newblock \emph{Sociometry}. 1965, 28, s.~377--399.
 
+\bibitem[International(2013)]{hlwikiaim}
+INTERNATIONAL, H.
+\newblock \emph{Author impact metrics} [online]. 2013. [cit.~20.04.2013].
+\newblock Dostupn{\'{e}} z:
+  \url{http://hlwiki.slais.ubc.ca/index.php/Author_impact_metrics}.
+
 \bibitem[Langville -- Meyer(2006)Langville, Meyer]{langvillemeyer}
 LANGVILLE, A.~N. -- MEYER, C.~D.
 \newblock \emph{Google's PageRank and Beyond: The Science of Search Engine
@@ -85,6 +131,20 @@ LIBRARY, A.~R.
 MALSEED, M. -- VISE, D.
 \newblock \emph{The Google Story}.
 \newblock New York, NY~: Delacorte Press, 2005.
+
+\bibitem[Moore(1959)]{moore1959}
+MOORE, E.~F.
+\newblock {The shortest path through a maze}.
+\newblock In \emph{Proceedings of the International Symposium on the Theory of
+  Switching, and Annals of the Computation Laboratory of Harvard University},
+  s.~ 285--292. Harvard University Press, 1959.
+
+\bibitem[Okamoto et~al.(2008)Okamoto, Chen,, Li]{closenessapproximation}
+OKAMOTO, K. -- CHEN, W. -- LI, X.-Y.
+\newblock Ranking of Closeness Centrality for Large-Scale Social Networks.
+\newblock In \emph{Proceedings of the 2nd annual international workshop on
+  Frontiers in Algorithmics}, FAW '08, s.~ 186--195, Berlin, Heidelberg, 2008.
+  Springer-Verlag.
 
 \bibitem[Page(1997)]{page1997}
 PAGE, L.
@@ -115,6 +175,17 @@ SALKIND, N.~J.
 \newblock \emph{Encyclopedia of educational psychology}.
 \newblock Thousand Oaks, CA~: Sage publications, 2008.
 
+\bibitem[Schrijver(2012)]{schrijver2012}
+SCHRIJVER, A.
+\newblock On the history of the shortest path problem.
+\newblock \emph{Documenta Mathematica}. 2012, extra volume, s.~155--167.
+
+\bibitem[Shimbel(1955)]{shimbel1955}
+SHIMBEL, A.
+\newblock {Structure in communication nets}.
+\newblock In \emph{Proceedings of the Symposium on Information Networks (New
+  York, 1954)}, s.~ 199--203, 1955.
+
 \bibitem[SIGMOD()]{sigmodinnovations}
 SIGMOD, A.
 \newblock \emph{SIGMOD Awards} [online]. [cit.~15.03.2013].
@@ -129,6 +200,16 @@ TRIER, U.
 UNIVERSITY, T. P.~S.
 \newblock \emph{CiteSeerX} [online]. [cit.~23.03.2013].
 \newblock Dostupn{\'{e}} z: \url{http://citeseerx.ist.psu.edu}.
+
+\bibitem[Well -- Myers(2002)Well, Myers]{myerswell2002}
+WELL, A. -- MYERS, J.
+\newblock \emph{Research Design \& Statistical Analysis}.
+\newblock Taylor \& Francis, 2002.
+
+\bibitem[White -- Borgatti(1994)White, Borgatti]{whiteborgatti1994}
+WHITE, D.~R. -- BORGATTI, S.~P.
+\newblock Betweenness centrality measures for directed graphs.
+\newblock \emph{Social Networks}. 1994, 16, s.~335--346.
 
 \bibitem[Williams(2007)]{williams2007}
 WILLIAMS, G.
