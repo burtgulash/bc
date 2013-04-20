@@ -2,46 +2,47 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: thesis.aux
 The style file: csplainnat.bst
 Database file #1: ref.bib
+Warning--empty journal in sabidussi1966
 `address' is a missing field, not a string, for entry myerswell2002
 while executing---line 1483 of file csplainnat.bst
 You've used 40 entries,
             2898 wiz_defined-function locations,
-            852 strings with 9788 characters,
-and the built_in function-call counts, 15053 in all, are:
-= -- 1495
-> -- 610
+            855 strings with 9895 characters,
+and the built_in function-call counts, 15111 in all, are:
+= -- 1501
+> -- 606
 < -- 40
-+ -- 209
-- -- 168
-* -- 996
-:= -- 2496
-add.period$ -- 152
++ -- 208
+- -- 167
+* -- 1018
+:= -- 2489
+add.period$ -- 151
 call.type$ -- 40
 change.case$ -- 152
 chr.to.int$ -- 39
-cite$ -- 80
-duplicate$ -- 798
-empty$ -- 1266
-format.name$ -- 284
-if$ -- 3196
+cite$ -- 81
+duplicate$ -- 797
+empty$ -- 1276
+format.name$ -- 282
+if$ -- 3210
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 71
 newline$ -- 208
-num.names$ -- 200
-pop$ -- 308
+num.names$ -- 199
+pop$ -- 311
 preamble$ -- 1
-purify$ -- 96
+purify$ -- 97
 quote$ -- 0
-skip$ -- 516
+skip$ -- 514
 stack$ -- 0
-substring$ -- 495
-swap$ -- 73
+substring$ -- 513
+swap$ -- 75
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 390
-warning$ -- 0
+warning$ -- 1
 while$ -- 155
 width$ -- 0
 write$ -- 513

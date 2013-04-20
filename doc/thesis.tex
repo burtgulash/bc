@@ -135,10 +135,10 @@ které prvky obecné sítě jsou významné a které nikoliv, ale pokusíme se n
 metody, jak seřadit prvky od nejvýznamnějšího po nejméně významný.
 
 Velký díl k zodpovězení otázky relativní významnosti prvků definovali
-Freeman~\citet{freeman1979}; Bonacich~\citet{bonacich1972}, jehož práce je
-spojena s Hubbellovo~\citet{hubbell1965} mírou sociometrického statusu;
-Coleman~\citet{coleman1973} se svou mírou síly a Burt~\citet{burt1982} a jeho
-míra prestiže~\citet{friedkin1991}. Významnost prvku bývá v sociální síti
+Freeman~\citep{freeman1979}; Bonacich~\citep{bonacich1972}, jehož práce je
+spojena s Hubbellovo~\citep{hubbell1965} mírou sociometrického statusu;
+Coleman~\citep{coleman1973} se svou mírou síly a Burt~\citep{burt1982} a jeho
+míra prestiže~\citep{friedkin1991}. Významnost prvku bývá v sociální síti
 označována jako centralita a metody pro zjištění centrality jsou známé jako
 míry centrality (centrality measure). Původně byly vyvinuty v sociologickém
 kontextu pro analýzu sociálních sítí, ale jejich princip lze snadno zobecnit na
@@ -261,7 +261,7 @@ publikací. V druhém případě uvažujeme síť, kde uzly reprezentují autory
 vědeckých článků, vědecké literatury a dalších publikací. Prvnímu typu říkáme
 síť publikací, druhému síť autorů. Citační sítě patří do kategorie bezškálových
 sítí. Citační síť autorů pro databázi DBLP i CiteSeer mají mocninné rozložení
-stupňů i vah hran (obr.~\ref{fig:scalefreedblp}, \ref{fig:scalefreeciteseer}).
+stupňů i vah hran (obr.~\ref{fig:dblpweightsdistribution}, \ref{fig:citeseerweightsdistribution}).
 
 \subsection{Citační síť publikací}
 Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
@@ -346,20 +346,21 @@ citovaného nebo citujícího autora či publikaci.
 \chapter{Citační databáze}
 Bibliografická citační databáze poskytují možnost vyhledávání bibliografických
 citací. Velké množství z dnešních citačních databází se zaměřuje na jeden obor.
-\citet{libraryamnh}.  Jiné jsou multioborové s možností volby prohledávaného
+\citep{libraryamnh}.  Jiné jsou multioborové s možností volby prohledávaného
 oboru (Scopus, Web of Science).
 
 \section{DBLP}
-DBLP \citet{DBLP} je webová bibliografická databáze hostovaná na univerzitě
-Trier. Od 80.  let indexovala literaturu z oblasti databázových systémů a
+DBLP \citep{DBLP} je webová bibliografická databáze hostovaná na univerzitě
+Trier. Od 80. let indexovala literaturu z oblasti databázových systémů a
 logického programovaní, ale postupně se její zaměření zobecnilo a nyní je
 bibliografickou databází obecně pro obor informatiky. 
 V roce 2012 obsahovala více než 2,1 milionu článků. Metody implementované v
 této práci jsou aplikovány na verzi z roku 2004. 
 Tab.~\ref{tab:dblpstat} poskytuje statistiky o vytvořených citačních sítí z
-této databáze.  Obr.~\ref{fig:scalefreedblp} znázorňuje vlastnosti bezškálové
-sítě pro váženou citační síť autorů. Nejfrekventovanější váhou hrany je $1$,
-poté $\frac{1}{2}$ (převrácená hodnota váhy $2$), pak $\frac{1}{3}$, atd.
+této databáze. Obr.~\ref{fig:dblpweightsdistribution} znázorňuje vlastnosti
+bezškálové sítě pro váženou citační síť autorů - čím vyšší váha, tím menší
+pravděpodobnost výskytu v síti. Obr.~\ref{fig:dblpdegreedistribution} znázorňuje
+mocninné rozdělení stupňů uzlů pro stejnou síť.
 
 \begin{table}[!ht]
 \centering
@@ -383,24 +384,34 @@ Poloměr grafu\footnotemark[2] & 6.637 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\footnotetext[1]{Platí pro neváženou síť autorů}
+\footnotetext[2]{Platí pro váženou síť autorů}
 
 \begin{figure}[!ht]
 \centering
-	\includegraphics[width=10cm,angle=270]{ewd_dblp.eps}
-	\caption{Mocninné rozdělení vah hran ($\frac{1}{w}$) citační sítě autorů DBLP}
-	\label{fig:scalefreedblp}
+	\includegraphics[width=9cm,angle=270]{ewd_dblp.eps}
+	\caption{Log-log graf mocninného rozdělení vah hran citační sítě autorů DBLP}
+	\label{fig:dblpweightsdistribution}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+	\includegraphics[width=9cm,angle=270]{dd_dblp.eps}
+	\caption{Log-log graf mocninného rozdělení stupňů uzlů citační sítě autorů DBLP}
+	\label{fig:dblpdegreedistribution}
 \end{figure}
 
 
 \section{CiteSeer}
-CiteSeer~\citet{citeseer} (nyní CiteSeer$^X$) je považován za první
+CiteSeer~\citep{citeseer} (nyní CiteSeer$^X$) je považován za první
 automatizovaný systém shromažďování publikací a autonomní indexace citací v
 nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
 V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
 a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
 Stejně jako u databáze DBLP jsou v tab.~\ref{tab:citeseerstat} uvedeny
-statistiky pro vytvořené citační sítě a v obr.~\ref{fig:scalefreeciteseer}
-ukázka vlastností bezškálové sítě pro citační síť autorů.
+statistiky pro vytvořené citační sítě a v
+obr.~\ref{fig:citeseerweightsdistribution}
+a~\ref{fig:citeseerdegreedistribution} ukázka vlastností bezškálové sítě pro
+citační síť autorů.
 
 \begin{table}[!ht]
 \centering
@@ -424,17 +435,23 @@ Poloměr grafu\footnotemark[2] & 11.489 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\footnotetext[1]{Platí pro neváženou síť autorů}
+\footnotetext[2]{Platí pro váženou síť autorů}
 
 \begin{figure}[!ht]
 \centering
-	\includegraphics[width=10cm,angle=270]{ewd_citeseer.eps}
-	\caption{Mocninné rozdělení vah hran ($\frac{1}{w}$) citační sítě autorů CiteSeer}
-	\label{fig:scalefreeciteseer}
+	\includegraphics[width=9cm,angle=270]{ewd_citeseer.eps}
+	\caption{Log-log graf mocninného rozdělení vah hran citační sítě autorů CiteSeer}
+	\label{fig:citeseerweightsdistribution}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+	\includegraphics[width=9cm,angle=270]{dd_citeseer.eps}
+	\caption{Log-log graf mocninného rozdělení stupňů uzlů citační sítě autorů CiteSeer}
+	\label{fig:citeseerdegreedistribution}
 \end{figure}
 
 
-\footnotetext[1]{Platí pro neváženou síť autorů}
-\footnotetext[2]{Platí pro váženou síť autorů}
 
 
 \chapter{Analýza sítí}
@@ -498,7 +515,7 @@ Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
 jsou spojeny přímo hranou.
 
 V sociologii slovo klika popisuje skupinu dvou až dvanácti lidí, kteří jsou na
-sebe vázáni více než na jiné lidi v tomtéž prostředí~\citet{salkind2008}. Klika
+sebe vázáni více než na jiné lidi v tomtéž prostředí~\citep{salkind2008}. Klika
 je silněji spojená skupina lidí než sociální kruh.
 
 Algoritmus pro nalezení největší kliky v grafu je přímočaré otestování $n$
@@ -605,10 +622,10 @@ metod pro výpočet významnosti.
 
 \subsection{Eigenvector centrality}
 Eigenvector centrality (také známá jako Gould's index of accessibility of a
-Network~\citet{williams2007} nebo Bonacich's
-centrality~\citet{hannemanriddle2005}.) je míra vlivu vrcholu v grafu, která
+Network~\citep{williams2007} nebo Bonacich's
+centrality~\citep{hannemanriddle2005}) je míra vlivu vrcholu v grafu, která
 doslova znamená \uv{Důležitý uzel má důležité
-sousedy}~\citet{zweigiyengar2010}. Hodnotu vlivu získáme z vlastního vektoru
+sousedy}~\citep{zweigiyengar2010}. Hodnotu vlivu získáme z vlastního vektoru
 $x$ matice sousednosti grafu:
 
 \begin{align*}
@@ -620,7 +637,7 @@ ${\bf A}$ je matice sousednosti, ${\bf x}$ je vlastní vektor matice ${\bf A}$ a
 číslo $\lambda$. Pro měření významnosti nás však zajímá pouze to řešení, které
 má pouze nezáporné hodnoty. Podle Perron-Frobeniovy věty pro každou nezápornou
 primitivní matici existuje právě jedno takové řešení, které zároveň patří k
-největšímu vlastnímu číslu $\lambda$~\citet{langvillemeyer}.
+největšímu vlastnímu číslu $\lambda$~\citep{langvillemeyer}.
 
 Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
 
@@ -650,7 +667,7 @@ do následující a iterujeme tak dlouho, dokud nedosáhneme požadované přesn
 \subsubsection{PageRank}
 V roce 1998 vyvinuli Sergey Brin a Larry Page algoritmus PageRank (nesoucí
 jméno druhého autora) jako součást výzkumu na novém druhu webového
-vyhledávače~\citet{pagerankoriginal,visemalseed2005,page1997}. PageRank
+vyhledávače~\citep{pagerankoriginal,visemalseed2005,page1997}. PageRank
 přiřazuje relativní hodnocení webovým stránkám podle hypertextových odkazů z
 jiných webových stránek, které na ně směřují, a podle jejich PageRankové
 významnosti. Sama definice je rekurzivní a po nahlédnutí na vzorec zjistíme, že
@@ -723,12 +740,12 @@ Přestože je PageRank původně určený pro webovou síť, lze ho použít na
 jakoukoliv orientovanou váženou i neváženou síť, tedy i na sociální a citační
 sítě, o kterých je zde řeč. Pro neorientovaný graf je hodnota PageRanku pro
 jednotlivé uzly velmi blízká stupňům grafu, ale ne
-totožná~\citet{perrafortunato2008}.
+totožná~\citep{perrafortunato2008}.
 
 
 \subsection{Closeness centrality}
 Closeness neboli \uv{blízkost} je definována jako převrácená hodnota míry
-farness, tedy \uv{dalekost}~\citet{sabidussi1966}. Dalekost je součet všech
+farness, tedy \uv{dalekost}~\citep{sabidussi1966}. Dalekost je součet všech
 vzdáleností od uzlu do všech ostatních, tzn. $f(u) = \sum_{v \in V} d_G(u, v)$
 a $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$. Podle jiné definice je closeness
 převrácená hodnota průměrné nejkratší cesty. V podstatě se od předchozí příliš
@@ -823,7 +840,7 @@ pro převrácenou hodnotu closeness (s pravděpodobností alespoň $1 -
 \frac{1}{|V|}$), kde $\epsilon > 0$ a $\delta$ je poloměr sítě (nejdelší z
 nejkratších cest). Na základě tohoto aproximačního algoritmu byl vytvořen jiný
 aproximační algoritmus pro nalezení $k$ nejvýznamnějších uzlů hodnocených podle
-closeness centrality TOPRANK~\citet{closenessapproximation}.
+closeness centrality TOPRANK~\citep{closenessapproximation}.
 
 \subsubsection{Aproximace}
 Algoritmus TOPRANK najde prvních $k$ nejvýznamnějších uzlů
@@ -837,7 +854,7 @@ musíme uvažovat, aby se jednalo o dostatečně přesný výsledek. Autoři alg
 uvádějí tento algoritmus s heuristikou, která najde přibližně místo, ve kterém
 je vhodné výpočet ukončit a považovat za dostatečně přesný. Sami uvádějí, že
 tento algoritmus je pouze první krok k návrhu efektivnějšího způsobu jak najít
-prvních $k$ nejvýznamnějších uzlů~\citet{closenessapproximation}.
+prvních $k$ nejvýznamnějších uzlů~\citep{closenessapproximation}.
 
 \subsection{Betweenness centrality}
 Betweenness je druhá metoda, která modeluje šíření informace sítí pomocí
@@ -846,10 +863,10 @@ teče nejvíce informace. Pokud uzel $A$ komunikuje s uzlem $C$, můžeme tvrdit
 že uzel $B$, který leží mezi nimi, bude mít roli prostředníka. Být tímto
 prostředníkem mezi více uzly intuitivně napovídá, že takový uzel bude
 centrální. \uv{Čím více lidí na mně závisí k vytvoření spojení s jinými lidmi,
-tím mám větší moc}~\citet{hannemanriddle2005}. Betweenness
+tím mám větší moc}~\citep{hannemanriddle2005}. Betweenness
 měří, na kolika nejkratších cestách se uzel nachází. Více se ale setkáme s
 definicí, kde do sumy zahrneme poměr cest, na kterých se uzel nachází, k
-celkovému počtu cest mezi dvěma uzly~\citet{freeman1977,anthonisse1971,brandes2001}.
+celkovému počtu cest mezi dvěma uzly~\citep{freeman1977,anthonisse1971,brandes2001}.
 
 \begin{align*}
 C_(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
@@ -863,17 +880,17 @@ Normalizovaný betweenness je hodnota v intervalu od $0$ do $1$, kterou získám
 tak, že betweenness vydělíme celkovým počtem možných cest, tj. $(|V| - 1)(|V| -
 2)$ pro orientované grafy a $\frac{(|V| - 1)(|V| - 2)}{2}$ pro neorientované
 grafy. Normalizované hodnoty metod centralit jsou nezávislé na velikosti
-grafu~\citet{whiteborgatti1994}.
+grafu~\citep{whiteborgatti1994}.
 
 \begin{align*}
 C_b(v) &= \frac{1}{(|V| - 1)(|V| - 2)} \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
 \end{align*}
 
 Vznik betweenness je připisován sociologovi Lintonu
-Freemanovi~\citet{freeman1977} a byl původně definován pro neorientované grafy.
+Freemanovi~\citep{freeman1977} a byl původně definován pro neorientované grafy.
 
 \subsubsection{Brandesův algoritmus}
-Ve své práci~\citet{brandes2001} Ulrik Brandes zmiňuje (do té doby
+Ve své práci~\citep{brandes2001} Ulrik Brandes zmiňuje (do té doby
 nejrychlejší) algoritmus pro výpočet betweenness centrality s časovou
 náročností $\theta(|V|^3)$ a $\theta(|V|^2)$ paměťovými nároky. Tento způsob
 přistupuje k problému nekratších cest způsobem all-pair shortest paths.
@@ -887,7 +904,7 @@ vážený graf.
 Brandes ve své práci o algoritmu uvádí pseudokód pro nevážený graf, který je
 následně snadné pozměnit pro vážený graf drobnými úpravami a zaměněním obyčejné
 fronty za prioritní frontu; kompletní důkaz správnosti algoritmu a porovnání
-standardního algoritmu s tímto~\citet{brandes2001}.
+standardního algoritmu s tímto~\citep{brandes2001}.
 
 
 
@@ -975,7 +992,7 @@ výzkum přišel relativně pozdě v porovnání s jinými problémy kombinatori
 optimalizace (nejmenší kostra grafu, přiřazovací a dopravní problém).
 Pravděpodobně byl výzkum opožděn, protože se jedná o intuitivní a relativně
 jednoduchý problém, ale jakmile se dostal do středu zájmu, bylo nezávisle na
-sobě nalezeno několik metod řešení různými lidmi (Shimbel~\citet{shimbel1955}, Ford~\citet{ford1956}, Dantzig~\citet{dantzig1957}, Bellman~\citet{bellmanford_algorithm}, Moore~\citet{moore1959}, Dijkstra~\citet{dijkstra1959})~\citet{schrijver2012}.
+sobě nalezeno několik metod řešení různými lidmi (Shimbel~\citep{shimbel1955}, Ford~\citep{ford1956}, Dantzig~\citep{dantzig1957}, Bellman~\citep{bellmanford_algorithm}, Moore~\citep{moore1959}, Dijkstra~\citep{dijkstra1959})~\citep{schrijver2012}.
 
 
 Z hlediska metod řešení můžeme uvažovat několik kategorií algoritmů - nalezení
@@ -1044,7 +1061,7 @@ setkáme s prioritní frontou implementovanou pomocí binární haldy, která
 zajišťuje čas běhu právě $O((|E| + |V|)\log|V|)$. Pomocí Fibonacciho haldy
 získáme doposud nejrychlejší Dijkstrův algoritmus s časem běhu $O(|E| + |V|
 \log|V|)$, ale pro běžné účely (grafy menší než miliony vrcholů) je
-nejvýhodnější binární halda~\citet{CLRS,fredmantarjan}. Pro nevážený graf
+nejvýhodnější binární halda~\citep{CLRS,fredmantarjan}. Pro nevážený graf
 je Dijkstrův algoritmus ekvivalentní prohledávání do šířky.
 
 Dijkstrův algoritmus je klíčovým pro všechny implementované metody založené na
@@ -1139,7 +1156,7 @@ i jiné metody ohodnocení autorů, které ani nevyžadují konstrukci citační
 sítí, ale vyžadují pouze údaje v databázi.
 
 Setkáme se s metodami AWCR, AW-index, Eigenfactor, Egghův g-index, E-index,
-I10-index, R-impact, Wu Index a zejména H-index~\citet{hlwikiaim}, který zde
+I10-index, R-impact, Wu Index a zejména H-index~\citep{hlwikiaim}, který zde
 byl implementován jako jediná metoda, která nespadá pod míry centrality.
 
 \subsection{H-index}
@@ -1562,6 +1579,13 @@ wBtwA, deg - wdeg, apod.), viz tab.~\ref{tab:corr1}, \ref{tab:corr2},
 vrcholů (tab.~\ref{tab:btwA}).
 
 \chapter{Závěr}
+%TODO prozkoumali jsme míry centrality
+%TODO ukázali, že všechny metody spolu souvisí až na odeg, wodeg, oc
+%TODO výsledky se shodují s oceněním
+%TODO našli jsme zajímavý fenomén u orientace hran betweenness a closeness
+%TODO nemohli bychom tento fenomén zdůvodnit?
+%TODO SO WHAT?: významnost lze určit. Chceme-li hrubý odhad, stačí degree, protože hodně koreluje s ostatníma metodama.
+
 % TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
 
 % BIBLIOGRAPHY
