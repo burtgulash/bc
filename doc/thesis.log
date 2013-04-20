@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  19 APR 2013 19:00
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  20 APR 2013 15:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -678,24 +678,31 @@ Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count133
+)
+(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
+Package: natbib 2009/07/16 8.31 (PWD, AO)
+\bibhang=\skip95
+\bibsep=\skip96
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count134
 ) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Info: Redefining \microtypecontext on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Info: Redefining \microtypecontext on input line 57.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -718,15 +725,15 @@ Package caption Info: End \AtBeginDocument code.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count134
+\scratchcounter=\count135
 \scratchdimen=\dimen144
 \scratchbox=\box32
-\nofMPsegments=\count135
-\nofMParguments=\count136
+\nofMPsegments=\count136
+\nofMParguments=\count137
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count137
+\MPscratchCnt=\count138
 \MPscratchDim=\dimen145
-\MPnumerator=\count138
+\MPnumerator=\count139
 \everyMPtoPDFconversion=\toks31
 )
 *geometry auto-detecting driver*
@@ -770,45 +777,45 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-Package hyperref Info: Link coloring OFF on input line 53.
+Package hyperref Info: Link coloring OFF on input line 57.
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count139
+\c@section@level=\count140
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
+LaTeX Info: Redefining \ref on input line 57.
+LaTeX Info: Redefining \pageref on input line 57.
  (./thesis.out)
 (./thesis.out)
 \@outlinefile=\write3
 \openout3 = `thesis.out'.
 
 \AtBeginShipoutBox=\box33
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 82.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 86.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 82.
+(Font)              size <17.28> substituted on input line 86.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 82.
+(Font)              size <17.28> substituted on input line 86.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 82.
+(Font)              size <17.28> substituted on input line 86.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 82.
+LaTeX Font Info:    Try loading font information for U+msa on input line 86.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 (/usr/share/texmf-texlive/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 82.
+LaTeX Font Info:    Try loading font information for U+msb on input line 86.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -822,7 +829,7 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.89 \chapter
+l.93 \chapter
              *{Abstract} [1
 
 ] [2
@@ -839,7 +846,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.167 
+l.171 
        [1
 
 
@@ -854,67 +861,67 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.174 \chapter
+l.178 \chapter
               {Soci√°ln√≠ a citaƒçn√≠ s√≠tƒõ} [2]
 Kapitola 2.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 174.
+(hyperref)                removing `\textasciicaron' on input line 178.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 174.
+(hyperref)                removing `\textasciicaron' on input line 178.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.228 
+l.232 
        [3
 
 ]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 252.
+(hyperref)                removing `\textasciicaron' on input line 256.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 252.
+(hyperref)                removing `\textasciicaron' on input line 256.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 262.
+(hyperref)                removing `\textasciicaron' on input line 266.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 262.
+(hyperref)                removing `\textasciicaron' on input line 266.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 272.
+(hyperref)                removing `\textasciicaron' on input line 276.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 272.
+(hyperref)                removing `\textasciicaron' on input line 276.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 272.
+(hyperref)                removing `\textring' on input line 276.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.282 
+l.286 
        [4]
 Package epstopdf Info: Source file: <pubs.eps>
 (epstopdf)                    date: 2013-04-17 13:18:57
@@ -924,9 +931,9 @@ Package epstopdf Info: Source file: <pubs.eps>
 (epstopdf)                    size: 6823 bytes
 (epstopdf)             Command: <epstopdf --outfile=pubs-eps-converted-to.pdf p
 ubs.eps>
-(epstopdf)             \includegraphics on input line 286.
+(epstopdf)             \includegraphics on input line 290.
 Package epstopdf Info: Output file is already uptodate.
- <pubs-eps-converted-to.pdf, id=282, 372.39125pt x 316.18124pt>
+ <pubs-eps-converted-to.pdf, id=294, 372.39125pt x 316.18124pt>
 File: pubs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use pubs-eps-converted-to.pdf>
@@ -938,22 +945,22 @@ Package epstopdf Info: Source file: <auths.eps>
 (epstopdf)                    size: 7015 bytes
 (epstopdf)             Command: <epstopdf --outfile=auths-eps-converted-to.pdf 
 auths.eps>
-(epstopdf)             \includegraphics on input line 291.
+(epstopdf)             \includegraphics on input line 295.
 Package epstopdf Info: Output file is already uptodate.
 
-<auths-eps-converted-to.pdf, id=283, 399.4925pt x 304.13625pt>
+<auths-eps-converted-to.pdf, id=295, 399.4925pt x 304.13625pt>
 File: auths-eps-converted-to.pdf Graphic file (type pdf)
 
 <use auths-eps-converted-to.pdf>
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 310.
+(hyperref)                removing `\textasciicaron' on input line 314.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 310.
+(hyperref)                removing `\textasciicaron' on input line 314.
 
 Package epstopdf Info: Source file: <wNormal.eps>
 (epstopdf)                    date: 2013-04-17 14:01:54
@@ -963,9 +970,9 @@ Package epstopdf Info: Source file: <wNormal.eps>
 (epstopdf)                    size: 10493 bytes
 (epstopdf)             Command: <epstopdf --outfile=wNormal-eps-converted-to.pd
 f wNormal.eps>
-(epstopdf)             \includegraphics on input line 320.
+(epstopdf)             \includegraphics on input line 324.
 Package epstopdf Info: Output file is already uptodate.
-<wNormal-eps-converted-to.pdf, id=286, 387.4475pt x 385.44pt>
+<wNormal-eps-converted-to.pdf, id=298, 387.4475pt x 385.44pt>
 File: wNormal-eps-converted-to.pdf Graphic file (type pdf)
 
 <use wNormal-eps-converted-to.pdf>
@@ -977,10 +984,10 @@ Package epstopdf Info: Source file: <wRecip.eps>
 (epstopdf)                    size: 10635 bytes
 (epstopdf)             Command: <epstopdf --outfile=wRecip-eps-converted-to.pdf
  wRecip.eps>
-(epstopdf)             \includegraphics on input line 327.
+(epstopdf)             \includegraphics on input line 331.
 Package epstopdf Info: Output file is already uptodate.
 
-<wRecip-eps-converted-to.pdf, id=287, 447.6725pt x 332.24126pt>
+<wRecip-eps-converted-to.pdf, id=299, 447.6725pt x 332.24126pt>
 File: wRecip-eps-converted-to.pdf Graphic file (type pdf)
 
 <use wRecip-eps-converted-to.pdf> [5 <./pubs-eps-converted-to.pdf> <./auths-eps
@@ -988,14 +995,14 @@ File: wRecip-eps-converted-to.pdf Graphic file (type pdf)
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 333.
+(hyperref)                removing `\textasciicaron' on input line 337.
 
 [6 <./wNormal-eps-converted-to.pdf> <./wRecip-eps-converted-to.pdf>]
 Kapitola 3.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 342.
+(hyperref)                removing `\textasciicaron' on input line 346.
 
 Package epstopdf Info: Source file: <ewd_dblp.eps>
 (epstopdf)                    date: 2013-04-07 19:19:35
@@ -1005,9 +1012,9 @@ Package epstopdf Info: Source file: <ewd_dblp.eps>
 (epstopdf)                    size: 10846 bytes
 (epstopdf)             Command: <epstopdf --outfile=ewd_dblp-eps-converted-to.p
 df ewd_dblp.eps>
-(epstopdf)             \includegraphics on input line 382.
+(epstopdf)             \includegraphics on input line 389.
 Package epstopdf Info: Output file is already uptodate.
-<ewd_dblp-eps-converted-to.pdf, id=331, 578.16pt x 758.835pt>
+<ewd_dblp-eps-converted-to.pdf, id=347, 578.16pt x 758.835pt>
 File: ewd_dblp-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ewd_dblp-eps-converted-to.pdf> [7
@@ -1021,10 +1028,10 @@ Package epstopdf Info: Source file: <ewd_citeseer.eps>
 (epstopdf)                    size: 11634 bytes
 (epstopdf)             Command: <epstopdf --outfile=ewd_citeseer-eps-converted-
 to.pdf ewd_citeseer.eps>
-(epstopdf)             \includegraphics on input line 420.
+(epstopdf)             \includegraphics on input line 430.
 Package epstopdf Info: Output file is already uptodate.
 
-<ewd_citeseer-eps-converted-to.pdf, id=339, 578.16pt x 758.835pt>
+<ewd_citeseer-eps-converted-to.pdf, id=359, 578.16pt x 758.835pt>
 File: ewd_citeseer-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ewd_citeseer-eps-converted-to.pdf> [8 <./ewd_dblp-eps-converted-to.pdf>]
@@ -1036,62 +1043,53 @@ Kapitola 4.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 502.
+(hyperref)                removing `\textring' on input line 511.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 507.
+(hyperref)                removing `\textasciicaron' on input line 516.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 507.
+(hyperref)                removing `\textring' on input line 516.
 
 [11] [12] [13] [14]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 688.
- [15]
-Overfull \hbox (0.8436pt too wide) in paragraph at lines 770--773
-\T1/aer/m/n/12 (-20) Closeness pro v≤echny vr-choly m∑-∫eme p∞esn• vy-po-£Ì-tat
- v £ase $\OML/cmm/m/it/12 O\OT1/cmr/m/n/12 (-20) (\OMS/cmsy/m/n/12 j\OML/cmm/m/
-it/12 V\OMS/cmsy/m/n/12 jj\OML/cmm/m/it/12 E\OMS/cmsy/m/n/12 j \OT1/cmr/m/n/12 
-(-20) + \OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 V\OMS/cmsy/m/n/12 j[] [] j\OML/cmm/m
-/it/12 V\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 (-20) )$\T1/aer/m/n/12 (-20) ,
- []
-
-[16] [17] [18] [19] [20] [21] [22] [23]
+put line 695.
+ [15] [16] [17] [18] [19] [20] [21] [22] [23]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1133.
+(hyperref)                removing `\textring' on input line 1139.
 
 
-Overfull \hbox (157.3153pt too wide) in paragraph at lines 1139--1142
+Overfull \hbox (157.3153pt too wide) in paragraph at lines 1145--1148
 \T1/aer/m/n/12 (-20) I10-index, R-impact, Wu In-dex a zejmÈna H-index (cite htt
 p://hlwiki.slais.ubc.ca/index.php/Author_impact_metrics),
  []
 
 [24] [25]
 Kapitola 5.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 1235
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 1241
 .
 (/usr/share/texmf/tex/latex/R/tex/latex/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1235.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1241.
 
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1282.
+(hyperref)                removing `\textring' on input line 1288.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1282.
+(hyperref)                removing `\textasciicaron' on input line 1288.
 
 [26
 
@@ -1099,17 +1097,17 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1297.
+(hyperref)                removing `\textasciicaron' on input line 1303.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1297.
+(hyperref)                removing `\textasciicaron' on input line 1303.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1297.
+(hyperref)                removing `\textring' on input line 1303.
 
 Package epstopdf Info: Source file: <grafDBLP.eps>
 (epstopdf)                    date: 2013-04-19 18:39:30
@@ -1119,9 +1117,9 @@ Package epstopdf Info: Source file: <grafDBLP.eps>
 (epstopdf)                    size: 23006 bytes
 (epstopdf)             Command: <epstopdf --outfile=grafDBLP-eps-converted-to.p
 df grafDBLP.eps>
-(epstopdf)             \includegraphics on input line 1308.
+(epstopdf)             \includegraphics on input line 1314.
 Package epstopdf Info: Output file is already uptodate.
-<grafDBLP-eps-converted-to.pdf, id=501, 578.16pt x 758.835pt>
+<grafDBLP-eps-converted-to.pdf, id=544, 578.16pt x 758.835pt>
 File: grafDBLP-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafDBLP-eps-converted-to.pdf>
@@ -1133,10 +1131,10 @@ Package epstopdf Info: Source file: <grafCS.eps>
 (epstopdf)                    size: 22654 bytes
 (epstopdf)             Command: <epstopdf --outfile=grafCS-eps-converted-to.pdf
  grafCS.eps>
-(epstopdf)             \includegraphics on input line 1314.
+(epstopdf)             \includegraphics on input line 1320.
 Package epstopdf Info: Output file is already uptodate.
 
-<grafCS-eps-converted-to.pdf, id=502, 578.16pt x 758.835pt>
+<grafCS-eps-converted-to.pdf, id=545, 578.16pt x 758.835pt>
 File: grafCS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use grafCS-eps-converted-to.pdf> [27] [28 <./grafDBLP-eps-converted-to.pdf> <.
@@ -1144,7 +1142,7 @@ File: grafCS-eps-converted-to.pdf Graphic file (type pdf)
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1327.
+(hyperref)                removing `\textasciicaron' on input line 1333.
 
 [29
 
@@ -1153,7 +1151,7 @@ Kapitola 6.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1444.
+(hyperref)                removing `\textring' on input line 1450.
 
 [31
 
@@ -1161,111 +1159,159 @@ Package hyperref Warning: Composite letter `\textring+u'
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1527.
+(hyperref)                removing `\textring' on input line 1533.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1527.
+(hyperref)                removing `\textasciicaron' on input line 1533.
 
 [32] [33]
 Kapitola 7.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1564.
+(hyperref)                removing `\textasciicaron' on input line 1570.
 
 (./thesis.bbl [34
 
 ]
-LaTeX Font Info:    Try loading font information for T1+aett on input line 5.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 37.
  (/usr/share/texmf-texlive/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-)) [35
+) [35
 
 ]
-P\v {r}\'{\i }loha A.
-[36
+Underfull \hbox (badness 10000) in paragraph at lines 79--83
+[]\T1/aer/m/n/12 (+20) LIBRARY, A. R.  \T1/aer/m/it/12 (+20) Ci-tation & Full-t
+ext Da-ta-bases \T1/aer/m/n/12 (+20) [on-line].
+ []
 
-] [37] [38] [39]
+
+Underfull \hbox (badness 3965) in paragraph at lines 90--96
+\T1/aer/m/n/12 (+20) Do-stupnÈ z: []$\T1/aett/m/n/12 http : / / web . archive .
+ org / web / 20020506051802 / www-[]diglib .
+ []
+
+
+Underfull \hbox (badness 2073) in paragraph at lines 139--145
+\T1/aer/m/n/12 (+20) Do-stupnÈ z: []$\T1/aett/m/n/12 https : / / sites . google
+ . com / site / networkanalysisacourse /
+ []
+
+) [36]
+P\v {r}\'{\i }loha A.
+[37
+
+] [38] [39] [40]
 P\v {r}\'{\i }loha B.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1711.
+(hyperref)                removing `\textasciicaron' on input line 1719.
 
-[40
+[41
 
-] [41] [42
+] [42] [43
 
-] [43]
+] [44]
 P\v {r}\'{\i }loha C.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1918.
+(hyperref)                removing `\textasciicaron' on input line 1926.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1918.
+(hyperref)                removing `\textasciicaron' on input line 1926.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1918.
+(hyperref)                removing `\textring' on input line 1926.
 
-[44
+[45
 
 ] (../dblp/tabels/hi.tex) (../dblp/tabels/ideg.tex) (../dblp/tabels/odeg.tex) (
 ../dblp/tabels/deg.tex) (../dblp/tabels/wideg.tex) (../dblp/tabels/wodeg.tex) (
 ../dblp/tabels/wdeg.tex) (../dblp/tabels/pr.tex) (../dblp/tabels/btw.tex)
 (../dblp/tabels/btwA.tex) (../dblp/tabels/wBtwA.tex) (../dblp/tabels/ic.tex)
-(../dblp/tabels/oc.tex) (../dblp/tabels/wic.tex) [45] [46] [47] [48] [49]
-[50] [51] [52] [53] [54] [55] [56] [57] [58] (../citeseer/tabels/hi.tex)
+(../dblp/tabels/oc.tex) (../dblp/tabels/wic.tex) [46] [47] [48] [49] [50]
+[51] [52] [53] [54] [55] [56] [57] [58] [59] (../citeseer/tabels/hi.tex)
 (../citeseer/tabels/ideg.tex) (../citeseer/tabels/odeg.tex)
 (../citeseer/tabels/deg.tex) (../citeseer/tabels/wideg.tex)
 (../citeseer/tabels/wodeg.tex) (../citeseer/tabels/wdeg.tex)
 (../citeseer/tabels/pr.tex) (../citeseer/tabels/btw.tex)
 (../citeseer/tabels/btwA.tex) (../citeseer/tabels/wBtwA.tex)
 (../citeseer/tabels/ic.tex) (../citeseer/tabels/oc.tex)
-(../citeseer/tabels/wic.tex) [59
+(../citeseer/tabels/wic.tex) [60
 
-] [60] [61] [62] [63] [64] [65] [66] [67]
-[68] [69] [70] [71] [72] (./thesis.aux)
+] [61] [62] [63] [64] [65] [66] [67] [68]
+[69] [70] [71] [72] [73] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 10834 strings out of 493848
- 157102 string characters out of 1152823
- 454336 words of memory out of 3000000
- 13143 multiletter control sequences out of 15000+50000
- 94204 words of font info for 453 fonts, out of 3000000 for 9000
+ 11280 strings out of 493848
+ 162940 string characters out of 1152823
+ 461844 words of memory out of 3000000
+ 13512 multiletter control sequences out of 15000+50000
+ 98322 words of font info for 491 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  41i,13n,43p,315b,508s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
-s/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
-public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb>
-Output written on thesis.pdf (77 pages, 627213 bytes).
+pdfTeX warning (dest): name{table.caption.26} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.24} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.23} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.30} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.6} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.4} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.2} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.7} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.5} has been referenced but does not 
+exist, replaced by a fixed one
+
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/pu
+blic/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb>
+Output written on thesis.pdf (78 pages, 648081 bytes).
 PDF statistics:
- 882 PDF objects out of 1000 (max. 8388607)
- 203 named destinations out of 1000 (max. 500000)
+ 950 PDF objects out of 1000 (max. 8388607)
+ 230 named destinations out of 1000 (max. 500000)
  67481 words of extra memory for PDF output out of 74296 (max. 10000000)
 

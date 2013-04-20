@@ -1,52 +1,45 @@
 This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: thesis.aux
-The style file: plain.bst
-Database file #1: reference.bib
-Warning--to sort, need author or key in DBLP
-Warning--to sort, need author or key in citeseer
-Warning--to sort, need author or key in turingaward
-Warning--to sort, need author or key in sigmodinnovations
-Warning--to sort, need author or key in acmfellows
-Warning--to sort, need author or key in highlycited
-You've used 8 entries,
-            2118 wiz_defined-function locations,
-            527 strings with 4634 characters,
-and the built_in function-call counts, 1511 in all, are:
-= -- 137
-> -- 37
-< -- 0
-+ -- 18
-- -- 10
-* -- 62
-:= -- 206
-add.period$ -- 18
-call.type$ -- 8
-change.case$ -- 27
-chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 66
-empty$ -- 183
-format.name$ -- 10
-if$ -- 353
-int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 4
-newline$ -- 37
-num.names$ -- 4
-pop$ -- 66
+The style file: csplainnat.bst
+Database file #1: ref.bib
+You've used 25 entries,
+            2898 wiz_defined-function locations,
+            759 strings with 7918 characters,
+and the built_in function-call counts, 8901 in all, are:
+= -- 902
+> -- 372
+< -- 25
++ -- 128
+- -- 102
+* -- 589
+:= -- 1515
+add.period$ -- 96
+call.type$ -- 25
+change.case$ -- 93
+chr.to.int$ -- 24
+cite$ -- 50
+duplicate$ -- 462
+empty$ -- 699
+format.name$ -- 175
+if$ -- 1870
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 52
+newline$ -- 133
+num.names$ -- 125
+pop$ -- 175
 preamble$ -- 1
-purify$ -- 21
+purify$ -- 59
 quote$ -- 0
-skip$ -- 61
+skip$ -- 303
 stack$ -- 0
-substring$ -- 40
-swap$ -- 8
-text.length$ -- 0
+substring$ -- 238
+swap$ -- 36
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 6
-while$ -- 4
-width$ -- 9
-write$ -- 65
-(There were 6 warnings)
+type$ -- 240
+warning$ -- 0
+while$ -- 90
+width$ -- 0
+write$ -- 318

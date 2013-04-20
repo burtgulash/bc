@@ -1,38 +1,146 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{25}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{acmfellows}
-Acm fellows.
-\newblock \url{http://fellows.acm.org/}.
+\bibitem[Bonacich(1972)]{bonacich1972}
+BONACICH, P.
+\newblock Factoring and Weighting Approaches to Status Scores and Clique
+  Identification.
+\newblock \emph{Journal of Mathematical Sociology}. 1972, 2, s.~113--120.
 
-\bibitem{turingaward}
-A.m. turing award.
-\newblock \url{http://amturing.acm.org}.
+\bibitem[Brin -- Page(1998)Brin, Page]{pagerankoriginal}
+BRIN, S. -- PAGE, L.
+\newblock The anatomy of a large-scale hypertextual Web search engine.
+\newblock \emph{Computer Networks and ISDN Systems}. 1998, 30, s.~107--117.
 
-\bibitem{citeseer}
-Citeseerx.
-\newblock \url{http://citeseerx.ist.psu.edu}.
+\bibitem[Burt(1982)]{burt1982}
+BURT, R.~S.
+\newblock \emph{Toward a Structural Theory of Action}.
+\newblock New York~: Academic Press, 1982.
 
-\bibitem{DBLP}
-Dblp bibliography.
-\newblock \url{http://www.informatik.uni-trier.de/~ley/db}.
+\bibitem[Coleman(1973)]{coleman1973}
+COLEMAN, J.~S.
+\newblock \emph{The Mathematics of Collective Action}.
+\newblock Chicago~: Aldine Pub. Co., 1973.
 
-\bibitem{highlycited}
-Highly cited research.
-\newblock \url{http://researchanalytics.thomsonreuters.com/highlycited/}.
+\bibitem[Dasgupta et~al.(2008)Dasgupta, Papadimitriou,, Vazirani]{dasgupta}
+DASGUPTA, S. -- PAPADIMITRIOU, C. -- VAZIRANI, U.
+\newblock \emph{Algorithms}.
+\newblock New York, NY~: McGraw-Hill, 2008.
 
-\bibitem{sigmodinnovations}
-Sigmod awards.
-\newblock \url{http://www.sigmod.org/sigmod-awards}.
+\bibitem[for Computing~Machinery({\natexlab{a}})]{acmfellows}
+COMPUTING~MACHINERY, A.
+\newblock \emph{ACM Fellows} [online]. [cit.~15.03.2013].
+\newblock Dostupn{\'{e}} z: \url{http://fellows.acm.org/}.
 
-\bibitem{dasgupta}
-S.~Dasgupta, C.~Papadimitriou, and U.~Vazirani.
-\newblock {\em Algorithms}.
-\newblock McGraw-Hill, 2008.
+\bibitem[for Computing~Machinery({\natexlab{b}})]{turingaward}
+COMPUTING~MACHINERY, A.
+\newblock \emph{A.M. Turing Award} [online]. [cit.~15.03.2013].
+\newblock Dostupn{\'{e}} z: \url{http://amturing.acm.org}.
 
-\bibitem{langvillemeyer}
-Amy~N. Langville and Carl~D. Meyer.
-\newblock {\em Google's PageRank and Beyond: The Science of Search Engine
+\bibitem[Fredman -- Tarjan(1984)Fredman, Tarjan]{fredmantarjan1984}
+FREDMAN, M.~L. -- TARJAN, R.~E.
+\newblock Fibonacci heaps and their uses in improved network optimization
+  algorithms.
+\newblock \emph{25th Annual Symposium on Foundations of Computer Science
+  (IEEE)}. 1984, s.~ 338--346.
+
+\bibitem[Freeman(1979)]{freeman1979}
+FREEMAN, L.~C.
+\newblock Centrality in Social Networks: Conceptual Clarification.
+\newblock \emph{Social Networks}. 1979, 1, s.~215--239.
+
+\bibitem[Friedkin(1991)]{friedkin1991}
+FRIEDKIN, N.~E.
+\newblock Theoretical Foundations for Centrality Measures.
+\newblock \emph{Academic Journal of Sociology}. 1991, 96, 6, s.~1478--1504.
+
+\bibitem[Hanneman -- Riddle(2005)Hanneman, Riddle]{hannemanriddle2005}
+HANNEMAN, R.~A. -- RIDDLE, M.
+\newblock \emph{Introduction to Social Network Methods} [online]. 2005.
+  [cit.~11.03.2013].
+\newblock Dostupn{\'{e}} z: \url{http://faculty.ucr.edu/~hanneman/nettext/}.
+
+\bibitem[Hubbell(1965)]{hubbell1965}
+HUBBELL, C.~H.
+\newblock An Input-Output Approach to Clique Identification.
+\newblock \emph{Sociometry}. 1965, 28, s.~377--399.
+
+\bibitem[Langville -- Meyer(2006)Langville, Meyer]{langvillemeyer}
+LANGVILLE, A.~N. -- MEYER, C.~D.
+\newblock \emph{Google's PageRank and Beyond: The Science of Search Engine
   Rankings}.
-\newblock Princeton University Press, Princeton, NJ, 2006.
+\newblock Princeton, NJ~: Princeton University Press, 2006.
+
+\bibitem[Library()]{libraryamnh}
+LIBRARY, A.~R.
+\newblock \emph{Citation \& Full-text Databases} [online]. [cit.~23.03.2013].
+\newblock Dostupn{\'{e}} z:
+  \url{http://library.amnh.org/research-tools/citation-full-text-databases}.
+
+\bibitem[Malseed -- Vise(2005)Malseed, Vise]{visemalseed2005}
+MALSEED, M. -- VISE, D.
+\newblock \emph{The Google Story}.
+\newblock New York, NY~: Delacorte Press, 2005.
+
+\bibitem[Page(1997)]{page1997}
+PAGE, L.
+\newblock \emph{PageRank: Bringing Order to the Web} [online]. 1997.
+  [cit.~20.04.2013].
+\newblock Dostupn{\'{e}} z:
+  \url{http://web.archive.org/web/20020506051802/www-diglib.stanford.edu/cgi-b%
+in/WP/get/SIDL-WP-1997-0072?1}.
+
+\bibitem[Perra -- Fortunato(2008)Perra, Fortunato]{perrafortunato2008}
+PERRA, N. -- FORTUNATO, S.
+\newblock Spectral centrality measures in complex networks.
+\newblock \emph{Physical Review E}. 2008, 78.
+
+\bibitem[Reuters()]{highlycited}
+REUTERS, T.
+\newblock \emph{Highly Cited Research} [online]. [cit.~15.03.2013].
+\newblock Dostupn{\'{e}} z:
+  \url{http://researchanalytics.thomsonreuters.com/highlycited/}.
+
+\bibitem[Sabidussi(1966)]{sabidussi1966}
+SABIDUSSI, G.
+\newblock The centrality index of a graph.
+\newblock \emph{Psychometrika}. 1966, 31, s.~581--603.
+
+\bibitem[Salkind(2008)]{salkind2008}
+SALKIND, N.~J.
+\newblock \emph{Encyclopedia of educational psychology}.
+\newblock Thousand Oaks, CA~: Sage publications, 2008.
+
+\bibitem[SIGMOD()]{sigmodinnovations}
+SIGMOD, A.
+\newblock \emph{SIGMOD Awards} [online]. [cit.~15.03.2013].
+\newblock Dostupn{\'{e}} z: \url{http://www.sigmod.org/sigmod-awards}.
+
+\bibitem[Trier()]{DBLP}
+TRIER, U.
+\newblock \emph{DBLP Bibliography} [online]. [cit.~19.03.2013].
+\newblock Dostupn{\'{e}} z: \url{http://www.informatik.uni-trier.de/~ley/db}.
+
+\bibitem[University()]{citeseer}
+UNIVERSITY, T. P.~S.
+\newblock \emph{CiteSeerX} [online]. [cit.~23.03.2013].
+\newblock Dostupn{\'{e}} z: \url{http://citeseerx.ist.psu.edu}.
+
+\bibitem[Williams(2007)]{williams2007}
+WILLIAMS, G.
+\newblock \emph{Linear Algebra With Applications}.
+\newblock Burlington, MA~: Jones \& Bartlett Learning, 2007.
+
+\bibitem[Zweig -- Iyengar(2010)Zweig, Iyengar]{zweigiyengar2010}
+ZWEIG, K. -- IYENGAR, S.
+\newblock \emph{An introduction to Centrality measures - An Introductry Course
+  on Network Analysis} [online]. 2010. [cit.~20.04.2013].
+\newblock Dostupn{\'{e}} z:
+  \url{https://sites.google.com/site/networkanalysisacourse/schedule/an-introd%
+uction-to-centrality-measures}.
 
 \end{thebibliography}

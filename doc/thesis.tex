@@ -35,6 +35,10 @@
 
 \usepackage[pdfborder=0 0 0]{hyperref}
 
+%\usepackage[citestyle=numeric,url=true]{biblatex}
+%\addbibresource{ref.bib}
+\usepackage[numbers]{natbib}
+
 \makeatletter
 \renewcommand{\ALG@name}{Algoritmus}
 \renewcommand{\listalgorithmname}{List of \ALG@name	s}
@@ -130,16 +134,16 @@ nejvýznamnější pouze na základě vztahů mezi nimi? Naším cílem je zjist
 které prvky obecné sítě jsou významné a které nikoliv, ale pokusíme se najít
 metody, jak seřadit prvky od nejvýznamnějšího po nejméně významný.
 
-Velký díl k zodpovězení otázky relativní významnosti prvků definovali Freeman
-(1979); Bonacich (1972), jehož práce je spojena s Hubbellovo (1965) mírou
-sociometrického statusu; Coleman (1973) se svou mírou síly a Burt (1982) a jeho
-míra prestiže (cite Noah E. Friedkin, Theoretical Foundations for Centrality
-Measures). Významnost prvku bývá v sociální síti označována jako centralita a
-metody pro zjištění centrality jsou známé jako míry centrality (centrality
-measure). Původně byly vyvinuty v sociologickém kontextu pro analýzu sociálních
-sítí, ale jejich princip lze snadno zobecnit na obecný graf, proto můžeme
-využít těchto metod pro analýzu citačních nebo jiných komplexních sítí, které
-nemají čistě sociologický význam.
+Velký díl k zodpovězení otázky relativní významnosti prvků definovali
+Freeman~\citet{freeman1979}; Bonacich~\citet{bonacich1972}, jehož práce je
+spojena s Hubbellovo~\citet{hubbell1965} mírou sociometrického statusu;
+Coleman~\citet{coleman1973} se svou mírou síly a Burt~\citet{burt1982} a jeho
+míra prestiže~\citet{friedkin1991}. Významnost prvku bývá v sociální síti
+označována jako centralita a metody pro zjištění centrality jsou známé jako
+míry centrality (centrality measure). Původně byly vyvinuty v sociologickém
+kontextu pro analýzu sociálních sítí, ale jejich princip lze snadno zobecnit na
+obecný graf, proto můžeme využít těchto metod pro analýzu citačních nebo jiných
+komplexních sítí, které nemají čistě sociologický význam.
 
 Tato práce je věnována citačním sítím, ale používáme metody z analýzy
 sociálních, dopravních, komunikačních a jiných sítí. V citační síti hledáme
@@ -161,7 +165,7 @@ Turing Award, ISI Highly Cited highlighted).
 Cílem této práce je vytvořit knihovnu pro analýzu citační sítě s metodami pro
 měření významnosti autorů, použít ji pro nalezení žebříčků nejvýznamnějších
 autorůpro každou metodu. Tyto žebříčky poté mezi sebou porovnáme a jednotlivé
-metody srovnáme s již udělenými oceněními.  Očekáváme, že pokud měříme
+metody srovnáme s již udělenými oceněními. Očekáváme, že pokud měříme
 významnost autora nebo obecně prvku v síti, přestože neznáme její přesnou
 definici, bude se shodovat s těmito oceněními.
 
@@ -342,17 +346,20 @@ citovaného nebo citujícího autora či publikaci.
 \chapter{Citační databáze}
 Bibliografická citační databáze poskytují možnost vyhledávání bibliografických
 citací. Velké množství z dnešních citačních databází se zaměřuje na jeden obor.
-(cite http://library.amnh.org/research-tools/citation-full-text-databases).
-Jiné jsou multioborové s možností volby prohledávaného oboru (Scopus, Web of
-Science).
+\citet{libraryamnh}.  Jiné jsou multioborové s možností volby prohledávaného
+oboru (Scopus, Web of Science).
 
 \section{DBLP}
-DBLP \cite{DBLP} je webová bibliografická databáze hostovaná na univerzitě
+DBLP \citet{DBLP} je webová bibliografická databáze hostovaná na univerzitě
 Trier. Od 80.  let indexovala literaturu z oblasti databázových systémů a
 logického programovaní, ale postupně se její zaměření zobecnilo a nyní je
 bibliografickou databází obecně pro obor informatiky. 
 V roce 2012 obsahovala více než 2,1 milionu článků. Metody implementované v
 této práci jsou aplikovány na verzi z roku 2004. 
+Tab.~\ref{tab:dblpstat} poskytuje statistiky o vytvořených citačních sítí z
+této databáze.  Obr.~\ref{fig:scalefreedblp} znázorňuje vlastnosti bezškálové
+sítě pro váženou citační síť autorů. Nejfrekventovanější váhou hrany je $1$,
+poté $\frac{1}{2}$ (převrácená hodnota váhy $2$), pak $\frac{1}{3}$, atd.
 
 \begin{table}[!ht]
 \centering
@@ -386,11 +393,14 @@ Poloměr grafu\footnotemark[2] & 6.637 \\
 
 
 \section{CiteSeer}
-CiteSeer (nyní CiteSeer$^X$) \cite{citeseer} je považován za první
+CiteSeer~\citet{citeseer} (nyní CiteSeer$^X$) je považován za první
 automatizovaný systém shromažďování publikací a autonomní indexace citací v
 nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
 V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
 a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
+Stejně jako u databáze DBLP jsou v tab.~\ref{tab:citeseerstat} uvedeny
+statistiky pro vytvořené citační sítě a v obr.~\ref{fig:scalefreeciteseer}
+ukázka vlastností bezškálové sítě pro citační síť autorů.
 
 \begin{table}[!ht]
 \centering
@@ -488,9 +498,8 @@ Klika (clique) grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
 jsou spojeny přímo hranou.
 
 V sociologii slovo klika popisuje skupinu dvou až dvanácti lidí, kteří jsou na
-sebe vázáni více než na jiné lidi v tomtéž prostředí (cite Neil Salkind -
-Encyclopedia of educational psychology). Klika je silněji spojená skupina lidí
-než sociální kruh.
+sebe vázáni více než na jiné lidi v tomtéž prostředí~\citep{salkind2008}. Klika
+je silněji spojená skupina lidí než sociální kruh.
 
 Algoritmus pro nalezení největší kliky v grafu je přímočaré otestování $n$
 vrcholů podgrafu pro všech $2^L$ podgrafů grafu, kde $L$ je horní limit
@@ -517,8 +526,7 @@ začínajících autorů.
 \subsubsection{ACM A.M. Turing Award}
 ACM A.M. Turing Award je ocenění ročně udělované skupinou ACM (Association for
 Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
-výpočetního světa.
-\cite{turingaward}.
+výpočetního světa~\cite{turingaward}.
 
 Turingova cena je brána jako nejvyšší vyznamenání v informatice a je lidově
 nazývána Nobelovou cenou pro informatiku \cite[p.~317]{dasgupta}.
@@ -597,12 +605,11 @@ metod pro výpočet významnosti.
 
 \subsection{Eigenvector centrality}
 Eigenvector centrality (také známá jako Gould's index of accessibility of a
-Network (Linear Algebra with Applications: Alternate Edition by Gareth
-Williams) nebo Bonacich's centrality (Robert A. Hanneman, Mark Riddle -
-Introduction to social network methods)), je míra vlivu vrcholu v grafu, která
-doslova znamená \uv{Důležitý uzel má důležité sousedy} (cite An introduction to
-Centrality measures, Zweig, Iyengar, 2010). Hodnotu vlivu získáme z vlastního
-vektoru $x$ matice sousednosti grafu:
+Network~\citep{williams2007} nebo Bonacich's
+centrality~\citep{hannemanriddle2005}.) je míra vlivu vrcholu v grafu, která
+doslova znamená \uv{Důležitý uzel má důležité
+sousedy}~\citep{zweigiyengar2010}. Hodnotu vlivu získáme z vlastního vektoru
+$x$ matice sousednosti grafu:
 
 \begin{align*}
 {\bf Ax} &= \lambda {\bf x}
@@ -613,7 +620,7 @@ ${\bf A}$ je matice sousednosti, ${\bf x}$ je vlastní vektor matice ${\bf A}$ a
 číslo $\lambda$. Pro měření významnosti nás však zajímá pouze to řešení, které
 má pouze nezáporné hodnoty. Podle Perron-Frobeniovy věty pro každou nezápornou
 primitivní matici existuje právě jedno takové řešení, které zároveň patří k
-největšímu vlastnímu číslu $\lambda$ \cite{langvillemeyer}.
+největšímu vlastnímu číslu $\lambda$~\citep{langvillemeyer}.
 
 Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
 
@@ -637,17 +644,17 @@ dominantní vlastní číslo a odpovídající vlastní vektor. Pro eigenvector
 centrality nás zajímá právě tohle řešení a žádné jiné.
 
 Z druhé rovnice si navíc povšimneme, že se jedná o přímé rozšíření degree
-centrality \eqref{eq:degree}. Výsledek předchozí iterace použijeme jako vstup
+centrality~\eqref{eq:degree}. Výsledek předchozí iterace použijeme jako vstup
 do následující a iterujeme tak dlouho, dokud nedosáhneme požadované přesnosti.
 
 \subsubsection{PageRank}
 V roce 1998 vyvinuli Sergey Brin a Larry Page algoritmus PageRank (nesoucí
-jméno druhého autora) jako součást výzkumu na novém druhu webového vyhledávače
-(cite něco). PageRank přiřazuje relativní hodnocení webovým stránkám podle
-hypertextových odkazů z jiných webových stránek, které na ně směřují, a podle
-jejich PageRankové významnosti. Sama definice je rekurzivní a po nahlédnutí na
-vzorec zjistíme, že se jedná o rozšířenou variantu algoritmu pro eigenvector
-centrality.
+jméno druhého autora) jako součást výzkumu na novém druhu webového
+vyhledávače~\citep{pagerankoriginal,visemalseed2005,page1997}. PageRank
+přiřazuje relativní hodnocení webovým stránkám podle hypertextových odkazů z
+jiných webových stránek, které na ně směřují, a podle jejich PageRankové
+významnosti. Sama definice je rekurzivní a po nahlédnutí na vzorec zjistíme, že
+se jedná o rozšířenou variantu algoritmu pro eigenvector centrality.
 
 \begin{align*}
 {x_u}_{i + 1} &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv}
@@ -715,18 +722,17 @@ pouze ji rovnoměrně rozdělíme mezi uzly sítě (s váhou $1/|V|$).
 Přestože je PageRank původně určený pro webovou síť, lze ho použít na
 jakoukoliv orientovanou váženou i neváženou síť, tedy i na sociální a citační
 sítě, o kterých je zde řeč. Pro neorientovaný graf je hodnota PageRanku pro
-jednotlivé uzly velmi blízká stupňům grafu, ale ne totožná (cite icola Perra
-and Santo Fortunato.; Fortunato (September 2008). "Spectral centrality measures
-in complex networks")
+jednotlivé uzly velmi blízká stupňům grafu, ale ne
+totožná~\citep{perrafortunato2008}.
 
 
 \subsection{Closeness centrality}
 Closeness neboli \uv{blízkost} je definována jako převrácená hodnota míry
-farness, tedy \uv{dalekost}. Dalekost je součet všech vzdáleností od uzlu do
-všech ostatních, tzn. $f(u) = \sum_{v \in V} d_G(u, v)$ a $c(u) = \sum_{v \in
-V} \frac{1}{d_G(u, v)}$. Podle jiné definice je closeness převrácená hodnota
-průměrné nejkratší cesty. V podstatě se od předchozí příliš neliší, protože
-průměrná nejkratší cesta je rovna $\frac{1}{|V|
+farness, tedy \uv{dalekost}~\citep{sabidussi1966}. Dalekost je součet všech
+vzdáleností od uzlu do všech ostatních, tzn. $f(u) = \sum_{v \in V} d_G(u, v)$
+a $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$. Podle jiné definice je closeness
+převrácená hodnota průměrné nejkratší cesty. V podstatě se od předchozí příliš
+neliší, protože průměrná nejkratší cesta je rovna $\frac{1}{|V|
 - 1} \sum_{v \in V} d_G(u, v)$ a closeness podle této definice:
 
 \begin{align*}
@@ -767,9 +773,9 @@ původní definice closeness a výpočet se omezí na největší komponentu.
 
 
 \subsubsection{Algoritmus}
-Closeness pro všechny vrcholy můžeme přesně vypočítat v čase $O(|V||E| +
-|V|^2\log|V|)$, kde $V$ a $E$ jsou množiny vrcholů a hran sítě (cite JO77,
-FT87). 
+Closeness pro všechny vrcholy můžeme přesně vypočítat v čase $O(|E| +
+|V|^2\log|V|)$, kde $V$ a $E$ jsou množiny vrcholů a hran
+sítě~\cite{fredmantarjan1984}.
 
 Algoritmus vychází z definice, tedy vyřeší problém všech párů nejkratších cest,
 čímž rovnou získá hodnoty farness $f(u) = \sum_{v \in V} d_G(u, v)$ a zjištění
@@ -1564,8 +1570,10 @@ vrcholů (tab.~\ref{tab:btwA}).
 \chapter{Závěr}
 % TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
 
-\bibliographystyle{plain}
-\bibliography{reference}
+% BIBLIOGRAPHY
+\bibliographystyle{csplainnat}
+\bibliography{ref}
+%\printbibliography
 
 % EMPTY PAGE
 % \clearpage\mbox{}\clearpage
