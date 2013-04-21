@@ -543,30 +543,30 @@ začínajících autorů.
 \subsubsection{ACM A.M. Turing Award}
 ACM A.M. Turing Award je ocenění ročně udělované skupinou ACM (Association for
 Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
-výpočetního světa~\cite{turingaward}.
+výpočetního světa~\citep{turingaward}.
 
 Turingova cena je brána jako nejvyšší vyznamenání v informatice a je lidově
-nazývána Nobelovou cenou pro informatiku \cite[p.~317]{dasgupta}.
+nazývána Nobelovou cenou pro informatiku \citep[p.~317]{dasgupta}.
 
 \subsubsection{ACM SIGMOD Edgar F. Codd Innovations Award}
 ACM SIGMOD Edgar F. Codd Innovations Award je ohodnocení životního díla
 skupinou ACM SIGMOD (Special Interest Group on Management of Data) za
 inovativní a vysoce ceněné kontribuce k rozvoji, porozumění a použití
-databázových systémů a databází \cite{sigmodinnovations}.
+databázových systémů a databází \citep{sigmodinnovations}.
 
 \subsubsection{ACM Fellows}
 \uv{The ACM Fellows Program} byl založen v roce 1993, aby našel a ocenil
 vynikající členy ACM za jejich dílo v informatice a informační vědě a pro
 jejich významné kontribuce pro účel ACM. Členové ACM Fellows slouží jako
 význační kolegové, ke kterým ACM a jejich členové vzhlížejí jako k autoritám v
-době rozvoje informačních technologií \cite{acmfellows}.
+době rozvoje informačních technologií \citep{acmfellows}.
 
 \subsubsection{ISI Highly Cited highlighted}
 ISI Highly Cited je databáze často citovaných autorů v článcích posledního
 desetiletí, které byly publikovány institutem ISI (Institute for Scientific
 Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na jejíchž
 webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z let
-2000 až 2008 napříč 21 vědeckými obory \cite{highlycited}.
+2000 až 2008 napříč 21 vědeckými obory \citep{highlycited}.
 
 \section{Míry centrality}
 V sítích dopravní infrastruktury nás zajímá, po které cestě se nejrychleji a
@@ -792,7 +792,7 @@ původní definice closeness a výpočet se omezí na největší komponentu.
 \subsubsection{Algoritmus}
 Closeness pro všechny vrcholy můžeme přesně vypočítat v čase $O(|E| +
 |V|^2\log|V|)$, kde $V$ a $E$ jsou množiny vrcholů a hran
-sítě~\cite{fredmantarjan}.
+sítě~\citep{fredmantarjan}.
 
 Algoritmus vychází z definice, tedy vyřeší problém všech párů nejkratších cest,
 čímž rovnou získá hodnoty farness $f(u) = \sum_{v \in V} d_G(u, v)$ a zjištění
@@ -1065,7 +1065,7 @@ nejvýhodnější binární halda~\citep{CLRS,fredmantarjan}. Pro nevážený gr
 je Dijkstrův algoritmus ekvivalentní prohledávání do šířky.
 
 Dijkstrův algoritmus je klíčovým pro všechny implementované metody založené na
-nejkratších cestách, proto uvedeme pseudokód~\cite{CLRS}.
+nejkratších cestách, proto uvedeme pseudokód~\citep{CLRS}.
 
 \begin{center}
 \begin{minipage}{\textwidth}
@@ -1146,7 +1146,7 @@ Johnsonův algoritmus nepatří mezi maticové metody, protože využívá
 metod single source shortest path pro všechny vrcholy. V principu jednodušše
 použijeme Dijkstrův algoritmus pro každý vrchol zvlášť, ale dovolujeme váhy
 hran i záporné. V případě záporných hran je nutné provést transformaci vah
-pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty~\cite{CLRS}.
+pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty~\citep{CLRS}.
 
 
 \section{Ostatní míry významnosti autorů}
@@ -1220,8 +1220,6 @@ třiceti autorů mezi jednotlivými metodami a porovnání implementovaných met
 oceněními (ACM Codd, ...)
 
 
-
-
 \section{Porovnání implementovaných metod}
 Zajímá nás, zda-li jsou metody mezi sebou podobné a do jaké míry. Pro porovnání
 metod mezi sebou je použit Spearmanův koeficient pořadové korelace.
@@ -1266,7 +1264,7 @@ výpočet.
 \begin{small}
 \begin{tabular}{r|l|r|r|r|r}
 \toprule
-zkratka & metoda & $t_{DBLP}$ & $t_{CS}$ & k$_{DBLP}$ & k$_{CS}$ \\
+zkratka & metoda & $t_{DBLP}$ & $t_{CS}$ & k$_{DBLP}\footnotemark[1]$ & k$_{CS}\footnotemark[2]$ \\
 \midrule
 hi   &H-index                           & 0:04.627& 0:00:15.534&17&8\\
 ideg &indegree                          & 0:00.049& 0:00:20.372&19&13\\
@@ -1279,6 +1277,7 @@ pr   &PageRank                          & 0:00.376& 0:00:02.758&18&7\\
 btw  &betweenness                       &24:56.814& 7:45:25.904&19&13\\
 btwA &betweenness aproximace            & 6:51.216& 1:50:31.412&19&12\\
 wBtwA&vážený betweenness aproximace     & 8:54.073&13:01:51.078&16&18\\
+\midrule
 ic   &closeness vstupní hrany           & 0:05.583& 1:12:32.345&19&11\\
 oc   &closeness výstupní hrany          & 0:11.313& 2:23:36.778&16&6\\
 wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
@@ -1288,7 +1287,6 @@ wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
 %}
 \end{table}
 
-\footnotetext{Největší klika mezi prvními 20 autory}
 
 % TODO popsat, proč dělam ideg, odeg, deg. Pak proč vážený degree. Pak proč
 % betweenness exaktní, aproximovanej a váženej dělam jenom aproximovanej.  Pak
@@ -1301,7 +1299,7 @@ wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
 
 \subsection{Spearmanův koeficient pořadové korelace}
 Spearmanův koeficient je klasický Pearsonův koeficient korelace, který je
-aplikovaný na proměnné s pořadím~\cite{myerswell2002}.  Koeficient korelace
+aplikovaný na proměnné s pořadím~\citep{myerswell2002}.  Koeficient korelace
 obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$ znamená naprostou
 lineární závislost mezi porovnávanými proměnnými tak, že s rostoucí první
 proměnnou roste i druhá proměnná. Hodnota $-1$ znamená rovněž naprostou
@@ -1310,6 +1308,8 @@ Hodnota $0$ znamená kompletní náhodnost či nezávislost mezi měřenými
 proměnnými.
 
 
+\footnotetext[1]{Největší klika mezi prvními 20 autory DBLP}
+\footnotetext[2]{Největší klika mezi prvními 20 autory CiteSeer}
 
 \section{Žebříčky významných autorů}
 Tabulky~\ref{tab:ranks1}~a~\ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
@@ -1351,6 +1351,7 @@ ve výsledcích udělena pouze několika autorům, z čehož plyne malý součet
 kdežto velké množství autorů je členy ACM Fellows, tím pádem velký součet
 pořadí oceněných.
 
+\clearpage
 \begin{table}[!ht]
 \centering
 \caption{Součty pořadí oceněných autorů pro DBLP}
@@ -1405,9 +1406,9 @@ wic\footnotemark[1] &86\,773 &7\,576\,984&4\,585\,710&710\,976\\
 \bottomrule
 \end{tabular}
 \end{table}
-\footnotetext[1]{Platí pro největší silně spojitou komponentu}
 
 
+\clearpage
 \section{Aproximace betweenness centrality}
 Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod.
 Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
@@ -1417,7 +1418,6 @@ v tab.~\ref{tab:impmetody}. Tab.~\ref{tab:btwA} znázorňuje Spearmanovo
 koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
 aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
 postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
-
 
 \begin{table}[!ht]
 \centering
@@ -1461,10 +1461,9 @@ Z časového hlediska je výhodnější používat metody degree nebo eigenvecto
 \section{Podobnost výsledků jednotlivých metod}
 Množina autorů je pro obě databáze větší než 300\,000. Pro proměnné o této
 velikosti můžeme uvažovat statistickou signifikanci Spearmanovo koeficientu
-pořadové korelace od hodnoty $0.01$ a výše (cite Yan, Ding - Applying
-centrality measures to impact analysis: A coauthorship network analysis).
-Záporné korelace by poukazovaly na opačné pořadí, které je nežádoucí a korelace
-menší než $0.01$ budeme považovat za nevýznamné.
+pořadové korelace od hodnoty $0.01$ a výše~\citep{yanding2009}.  Záporné
+korelace by poukazovaly na opačné pořadí, které je nežádoucí a korelace menší
+než $0.01$ budeme považovat za nevýznamné.
 
 Všechny korelace, tj. mezi všemi porovnávanými metodami pro obě databáze a pro
 obě varianty (celý graf, největší silně spojitá komponenta), vyšly větší než
@@ -1475,22 +1474,33 @@ celý graf a CiteSeer největší silně spojitou komponentu, respektive.
 
 Protože je eigenvector centralita rozšířením degree centrality (jednoduše
 řečeno iterovaný indegree), vskutku si povšimneme vysokých korelací mezi
-indegree a PageRankem ve všech čtyřech případech (. . . .).
+indegree a PageRankem ve všech čtyřech případech (0.909, 0.940, 0.954, 0.868).
 
 Metody založené na nejkratších cestách intuitivně rovněž dosahují vysokých
 korelací, přestože je význam odlišný (btw - ic, atd.)
 
-H-index je zcela očekávaně podobnější všem metodám než odeg, wodeg a oc, které
-nemají přímo měřit významnost, ale poukázat na fakt, že významní autoři navíc
-mají tendence ovlivňovat i jiné autory tím, že je citují. Přestože nepatří do
-metod centrality jako ostatní metody, relativne vysoká korelace s mírami
-centrality poukazuje na jistou podobnost.
+H-index je zcela očekávaně podobnější všem ostatním metodám než odeg, wodeg a
+oc, které nemají přímo měřit významnost, ale poukázat na fakt, že významní
+autoři navíc mají tendence ovlivňovat i jiné autory tím, že je citují. Přestože
+nepatří do metod centrality jako ostatní metody, relativně vysoká korelace s
+mírami centrality poukazuje na jistou podobnost.
+
+Obr.~\ref{fig:poradiDBLP} a~\ref{fig:poradiCS} vizuálně reprezentují
+tabulky~\ref{tab:ranks2} a~\ref{tab:ranks4} a názorně ukazují podobnost čtyř
+základních metod centrality mezi sebou a podobnost s metodou H-index.
 
 
 Z vypočtených koeficientů korelací si můžeme dovolit tvrdit, že všechny
 implementované metody měří zhruba stejnou vlastnost - významnost, vyjma metod
 odeg, wodeg a oc, které se shodují s ostatními, jelikož jsou spíše důsledkem
-vysoké významnosti autora.
+vysoké významnosti autora. 
+Yan a Ding rovněž nacházeji vysokou korelaci mezi jednotlivými mírami
+centrality (degree, PageRank, closeness a betweenness) a počtem citací. Počet
+citací měří kvalitu a významnost publikací, kdežto centralita měří jednak
+významnost publikací, jednak významnost autora ve svém oboru. Degree měří
+rozsah spolupráce autora, closeness měří autorovu pozici a virtuální vzdálenost
+mezi ostatními ve svém oboru a betweenness měří důležitost autora při vzájemné
+komunikaci mezi autory v daném oboru~\citep{yanding2009}.
 
 % TODO jaká je signifikance spearmanovo korelace? 0.1? nebo kolik kurva? ZJISTIT!
 % TODO jsou teda podobný ty metody? Podle tý signifikance, ale na první pohled rozhodně.
@@ -1541,7 +1551,24 @@ centrality získáme vyšší korelace naopak při použití vstupních hran nam
 výstupních.
 % TODO dokázat úryvkama korelací
 
-\section{Shoda výsledků s oceněními}
+\section{Významní autoři}
+Pro databázi DBLP se bezkonkurenčně ve většině metod nejvýše umístil Michael
+Stonebraker (tab.~\ref{tab:ranks1} a~\ref{tab:ranks2} a příloha~\ref{chapter:zebricky}) z databázových systémů, který byl jako první oceněn cenou SIGMOD
+Edgar F. Codd, je členem ACM Fellows a mimo jiné drží ocenění IEEE John von
+Neumann Medal a byl zvolen členem NAE (National Academy of Engineering).
+
+U databáze CiteSeer je jedním z nejvýše umístěných autorů profesor informatiky
+na univerzitě UC Berkeley Scott Shenker (tab.~\ref{tab:ranks3}
+a~\ref{tab:ranks4} a příloha~\ref{chapter:zebricky}), který je také členem ACM
+Fellows a NAE. Podle Microsoft Academic Search se jedná o nejvíce citovaného
+autora v informatice.
+
+V CiteSeer je v žebříčcích spousta \uv{autorů}, kteří pouze způsobují šum ve
+výsledcích (SENIOR MEMBER, STUDENT MEMBER, PH. D, PROF DR, ...), ale umisťují
+se na vysokých pozicích převážně v metodách odeg, wodeg, oc, které nepovažujeme
+za přímé indikátory významnosti~\citep{mas}.
+
+\section{Porovnání výsledků s oceněními}
 Tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer,
 srovnávají jednotlivé metody s oceněními tak, že menší hodnota znamená méně
 oceněných autorů na nižších pozicích. Tedy oceněné autory nalezneme na vyšších
@@ -1551,20 +1578,26 @@ významnost autora, ale jsou více důsledkem než příčinou. Můžeme je pou�
 srovnání ostatních metod, které mají obecně nižší hodnotu součtu oceněných
 pozic, a znázorňují větší shodu s oceněními.
 
-V žebříčcích nejvýznamnějších autorů jednotlivých implementovaných metod si
-povšimneme koncentraci ocenění na vyšších pozicích. Zejména u databáze DBLP a
-ocenění ACM SIGMOD Edgar F. Codd Innovations Award (Codd), protože DBLP je
-databáze autorů se zaměřením na databázové systémy a ocenění ACM SIGMOD Edgar
-F. Codd Innovations Award je rovněž z oblasti databází a databázových systémů.
+V žebříčcích nejvýznamnějších autorů jednotlivých implementovaných metod
+(příloha~\ref{chapter:zebricky}) si povšimneme koncentraci ocenění na vyšších
+pozicích. Zejména u databáze DBLP a ocenění ACM SIGMOD Edgar F. Codd
+Innovations Award (Codd), protože DBLP je databáze autorů se zaměřením na
+databázové systémy a ocenění ACM SIGMOD Edgar F. Codd Innovations Award je
+rovněž z oblasti databází a databázových systémů.  Rovněž podle
+tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer jsou
+součty pořadí oceněných autorů nejnižší pro ocenění Codd.
 
-Srovnání s Turingovo cenou bychom ani neměli používat pro objektivní závěr,
-protože v databázích DBLP a CiteSeer je autorů, kteří jí byli oceněni, minimum.
-ACM Fellows je na druhou stranu hojně zastoupena mezi autory DBLP a CiteSeer, a
-proto ji s konfidencí můžeme použít jako referenci pro naše pozorování.
+Srovnání s Turingovo cenou (tab.~\ref{tab:oceneni1} a~\ref{tab:oceneni2})
+bychom ani neměli používat pro objektivní závěr, protože v databázích DBLP a
+CiteSeer je autorů, kteří jí byli oceněni, minimum.  ACM Fellows je na druhou
+stranu hojně zastoupena mezi autory DBLP a CiteSeer, a proto ji s konfidencí
+můžeme použít jako referenci pro naše pozorování.
 
-% TODO proč se DBLP nejvíc shoduje s Codd? protože jsou to databázisti.
-% TODO TUring tam skoro žádnej neni - nedávat tomu výpočtu moc hodnotu.
-% TODO u CiteSeer plno buzíckých SENIOR MEMBERŮ, kazí výpočty?
+Obecně nemůžeme udělat závěr při porovnání jednotlivých implementovaných metod
+s použitými čtyřmi oceněními, protože ani jedna metoda není ostře dominantní
+nad ostatními. Nejblíže je oceněním Codd a ACM Fellows podobná metoda ideg,
+wideg a pr. Pro ocenění ISI Highly Cited se nejlépe umisťují hi, ideg a btw.
+
 
 \section{Aproximace betweenness}
 Jednoduchá lineární extrapolace u aproximace betweenness centrality se zdá být

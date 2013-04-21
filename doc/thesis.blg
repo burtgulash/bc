@@ -5,45 +5,45 @@ Database file #1: ref.bib
 Warning--empty journal in sabidussi1966
 `address' is a missing field, not a string, for entry myerswell2002
 while executing---line 1483 of file csplainnat.bst
-You've used 40 entries,
+You've used 42 entries,
             2898 wiz_defined-function locations,
-            855 strings with 9895 characters,
-and the built_in function-call counts, 15111 in all, are:
-= -- 1501
-> -- 606
-< -- 40
-+ -- 208
-- -- 167
-* -- 1018
-:= -- 2489
-add.period$ -- 151
-call.type$ -- 40
-change.case$ -- 152
-chr.to.int$ -- 39
-cite$ -- 81
-duplicate$ -- 797
-empty$ -- 1276
-format.name$ -- 282
-if$ -- 3210
+            868 strings with 10193 characters,
+and the built_in function-call counts, 15904 in all, are:
+= -- 1589
+> -- 639
+< -- 42
++ -- 219
+- -- 176
+* -- 1067
+:= -- 2622
+add.period$ -- 160
+call.type$ -- 42
+change.case$ -- 160
+chr.to.int$ -- 41
+cite$ -- 85
+duplicate$ -- 834
+empty$ -- 1337
+format.name$ -- 298
+if$ -- 3381
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 71
-newline$ -- 208
-num.names$ -- 199
-pop$ -- 311
+missing$ -- 75
+newline$ -- 218
+num.names$ -- 209
+pop$ -- 321
 preamble$ -- 1
-purify$ -- 97
+purify$ -- 102
 quote$ -- 0
-skip$ -- 514
+skip$ -- 545
 stack$ -- 0
-substring$ -- 513
-swap$ -- 75
+substring$ -- 548
+swap$ -- 72
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 390
+type$ -- 412
 warning$ -- 1
-while$ -- 155
+while$ -- 163
 width$ -- 0
-write$ -- 513
+write$ -- 539
 (There was 1 error message)

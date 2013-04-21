@@ -46,18 +46,19 @@
 \contentsline {subsection}{\numberline {5.1.1}Spearman\IeC {\r u}v koeficient po\IeC {\v r}adov\IeC {\'e} korelace}{27}{subsection.5.1.1}
 \contentsline {section}{\numberline {5.2}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{28}{section.5.2}
 \contentsline {section}{\numberline {5.3}Porovn\IeC {\'a}n\IeC {\'\i } metod s ocen\IeC {\v e}n\IeC {\'\i }mi}{30}{section.5.3}
-\contentsline {section}{\numberline {5.4}Aproximace betweenness centrality}{31}{section.5.4}
-\contentsline {chapter}{\numberline {6}Diskuse}{32}{chapter.6}
-\contentsline {section}{\numberline {6.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{32}{section.6.1}
-\contentsline {section}{\numberline {6.2}Vliv vah na v\IeC {\'y}sledky}{33}{section.6.2}
-\contentsline {section}{\numberline {6.3}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{33}{section.6.3}
-\contentsline {section}{\numberline {6.4}Shoda v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{34}{section.6.4}
-\contentsline {section}{\numberline {6.5}Aproximace betweenness}{34}{section.6.5}
-\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{35}{chapter.7}
-\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{39}{appendix.A}
-\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{43}{appendix.B}
-\contentsline {section}{\numberline {B.1}DBLP}{43}{section.B.1}
-\contentsline {section}{\numberline {B.2}CiteSeer}{45}{section.B.2}
-\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{47}{appendix.C}
-\contentsline {section}{\numberline {C.1}DBLP}{48}{section.C.1}
-\contentsline {section}{\numberline {C.2}CiteSeer}{62}{section.C.2}
+\contentsline {section}{\numberline {5.4}Aproximace betweenness centrality}{32}{section.5.4}
+\contentsline {chapter}{\numberline {6}Diskuse}{33}{chapter.6}
+\contentsline {section}{\numberline {6.1}Podobnost v\IeC {\'y}sledk\IeC {\r u} jednotliv\IeC {\'y}ch metod}{33}{section.6.1}
+\contentsline {section}{\numberline {6.2}Vliv vah na v\IeC {\'y}sledky}{34}{section.6.2}
+\contentsline {section}{\numberline {6.3}Vstupn\IeC {\'\i } a v\IeC {\'y}stupn\IeC {\'\i } hrany}{34}{section.6.3}
+\contentsline {section}{\numberline {6.4}V\IeC {\'y}znamn\IeC {\'\i } auto\IeC {\v r}i}{35}{section.6.4}
+\contentsline {section}{\numberline {6.5}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{35}{section.6.5}
+\contentsline {section}{\numberline {6.6}Aproximace betweenness}{36}{section.6.6}
+\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{37}{chapter.7}
+\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{42}{appendix.A}
+\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{46}{appendix.B}
+\contentsline {section}{\numberline {B.1}DBLP}{46}{section.B.1}
+\contentsline {section}{\numberline {B.2}CiteSeer}{48}{section.B.2}
+\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{50}{appendix.C}
+\contentsline {section}{\numberline {C.1}DBLP}{51}{section.C.1}
+\contentsline {section}{\numberline {C.2}CiteSeer}{65}{section.C.2}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -47,6 +47,12 @@ CORMEN, T.~H. et~al.
 \newblock \emph{Introduction to Algorithms}.
 \newblock Cambridge, MA~: The MIT Press, 2 edition, 2001.
 
+\bibitem[Corporation(2013)]{mas}
+CORPORATION, M.
+\newblock \emph{Microsoft Academic Search} [online]. 2013. [cit.~21.04.2013].
+\newblock Dostupn{\'{e}} z:
+  \url{http://academic.research.microsoft.com/?SearchDomain=2}.
+
 \bibitem[Dantzig(1957)]{dantzig1957}
 DANTZIG, G.~B.
 \newblock {Discrete-Variable Extremum Problems}.
@@ -60,7 +66,7 @@ DASGUPTA, S. -- PAPADIMITRIOU, C. -- VAZIRANI, U.
 \bibitem[Dijkstra(1959)]{dijkstra1959}
 DIJKSTRA, E.~W.
 \newblock {A note on two problems in connexion with graphs}.
-\newblock \emph{Numerische Mathematik}. December 1959, 1, 1, s.~269--271.
+\newblock \emph{Numerische Mathematik}. 1959, 1, 1, s.~269--271.
 
 \bibitem[for Computing~Machinery({\natexlab{a}})]{acmfellows}
 COMPUTING~MACHINERY, A.
@@ -81,17 +87,17 @@ FORD, L.~R.
 FREDMAN, M.~L. -- TARJAN, R.~E.
 \newblock Fibonacci heaps and their uses in improved network optimization
   algorithms.
-\newblock \emph{J. ACM}. July 1987, 34, 3, s.~596--615.
+\newblock \emph{J. ACM}. 1987, 34, 3, s.~596--615.
 
 \bibitem[Freeman(1977)]{freeman1977}
 FREEMAN, L.~C.
 \newblock {A Set of Measures of Centrality Based on Betweenness}.
-\newblock \emph{Sociometry}. March 1977, 40, 1, s.~35--41.
+\newblock \emph{Sociometry}. 1977, 40, 1, s.~35--41.
 
 \bibitem[Freeman(1979)]{freeman1979}
 FREEMAN, L.~C.
 \newblock {Centrality in social networks: Conceptual clarification}.
-\newblock \emph{Social Networks}. January 1979, 1, 3, s.~215--239.
+\newblock \emph{Social Networks}. 1979, 1, 3, s.~215--239.
 
 \bibitem[Friedkin(1991)]{friedkin1991}
 FRIEDKIN, N.~E.
@@ -157,7 +163,7 @@ in/WP/get/SIDL-WP-1997-0072?1}.
 \bibitem[Perra -- Fortunato(2008)Perra, Fortunato]{perrafortunato2008}
 PERRA, N. -- FORTUNATO, S.
 \newblock Spectral centrality measures in complex networks.
-\newblock \emph{Phys. Rev. E}. Sep 2008, 78, s.~036107.
+\newblock \emph{Phys. Rev. E}. 2008, 78, s.~036107.
 
 \bibitem[Reuters()]{highlycited}
 REUTERS, T.
@@ -215,6 +221,12 @@ WHITE, D.~R. -- BORGATTI, S.~P.
 WILLIAMS, G.
 \newblock \emph{Linear Algebra With Applications}.
 \newblock Burlington, MA~: Jones \& Bartlett Learning, 2007.
+
+\bibitem[Yan -- Ding(2009)Yan, Ding]{yanding2009}
+YAN, E. -- DING, Y.
+\newblock Applying centrality measures to impact analysis: A coauthorship
+  network analysis.
+\newblock \emph{J. Am. Soc. Inf. Sci. Technol.} 2009, 60, 10, s.~2107--2118.
 
 \bibitem[Zweig -- Iyengar(2010)Zweig, Iyengar]{zweigiyengar2010}
 ZWEIG, K. -- IYENGAR, S.
