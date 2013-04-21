@@ -1,4 +1,4 @@
-\begin{thebibliography}{42}
+\begin{thebibliography}{48}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -21,6 +21,11 @@ BONACICH, P.
 \newblock {Factoring and weighting approaches to status scores and clique
   identification}.
 \newblock \emph{Journal of Mathematical Sociology}. 1972, 2, 1, s.~113--120.
+
+\bibitem[Bonacich -- Lloyd(2001)Bonacich, Lloyd]{bonacichlloyd2001}
+BONACICH, P. -- LLOYD, P.
+\newblock {Eigenvector-like measures of centrality for asymmetric relations}.
+\newblock \emph{Social Networks}. 2001, 23, 3, s.~191--201.
 
 \bibitem[Brandes(2001)]{brandes2001}
 BRANDES, U.
@@ -68,6 +73,11 @@ DIJKSTRA, E.~W.
 \newblock {A note on two problems in connexion with graphs}.
 \newblock \emph{Numerische Mathematik}. 1959, 1, 1, s.~269--271.
 
+\bibitem[Floyd(1962)]{floydwarshall1962}
+FLOYD, R.~W.
+\newblock {Algorithm 97: Shortest path}.
+\newblock \emph{Commun. ACM}. 1962, 5, 6, s.~345+.
+
 \bibitem[for Computing~Machinery({\natexlab{a}})]{acmfellows}
 COMPUTING~MACHINERY, A.
 \newblock \emph{ACM Fellows} [online]. [cit.~15.03.2013].
@@ -110,6 +120,12 @@ HANNEMAN, R.~A. -- RIDDLE, M.
   [cit.~11.03.2013].
 \newblock Dostupn{\'{e}} z: \url{http://faculty.ucr.edu/~hanneman/nettext/}.
 
+\bibitem[Hirsch(2010)]{hirsch2005}
+HIRSCH, J.~E.
+\newblock An index to quantify an individual's scientific research output that
+  takes into account the effect of multiple coauthorship.
+\newblock \emph{Scientometrics}. 2010, 85, 3, s.~741--754.
+
 \bibitem[Hubbell(1965)]{hubbell1965}
 HUBBELL, C.~H.
 \newblock An Input-Output Approach to Clique Identification.
@@ -120,6 +136,16 @@ INTERNATIONAL, H.
 \newblock \emph{Author impact metrics} [online]. 2013. [cit.~20.04.2013].
 \newblock Dostupn{\'{e}} z:
   \url{http://hlwiki.slais.ubc.ca/index.php/Author_impact_metrics}.
+
+\bibitem[Johnson(1977)]{johnson1977}
+JOHNSON, D.~B.
+\newblock Efficient Algorithms for Shortest Paths in Sparse Networks.
+\newblock \emph{J. ACM}. 1977, 24, 1, s.~1--13.
+
+\bibitem[Katz -- Katz(1953)Katz, Katz]{katz1953}
+KATZ, L. -- KATZ, L.
+\newblock {A new status index derived from sociometric analysis}.
+\newblock \emph{Psychometrika}. 1953, 18, 1, s.~39--43.
 
 \bibitem[Langville -- Meyer(2006)Langville, Meyer]{langvillemeyer}
 LANGVILLE, A.~N. -- MEYER, C.~D.
@@ -196,6 +222,11 @@ SHIMBEL, A.
 SIGMOD, A.
 \newblock \emph{SIGMOD Awards} [online]. [cit.~15.03.2013].
 \newblock Dostupn{\'{e}} z: \url{http://www.sigmod.org/sigmod-awards}.
+
+\bibitem[Stephenson -- Zelen(1989)Stephenson, Zelen]{stephensonzelen1989}
+STEPHENSON, K. -- ZELEN, M.
+\newblock {Rethinking centrality: Methods and examples}.
+\newblock \emph{Social Networks}. 1989, 11, 1, s.~1--37.
 
 \bibitem[Trier()]{DBLP}
 TRIER, U.

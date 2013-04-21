@@ -55,10 +55,10 @@
 \contentsline {section}{\numberline {6.5}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{35}{section.6.5}
 \contentsline {section}{\numberline {6.6}Aproximace betweenness}{36}{section.6.6}
 \contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{37}{chapter.7}
-\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{42}{appendix.A}
-\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{46}{appendix.B}
-\contentsline {section}{\numberline {B.1}DBLP}{46}{section.B.1}
-\contentsline {section}{\numberline {B.2}CiteSeer}{48}{section.B.2}
-\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{50}{appendix.C}
-\contentsline {section}{\numberline {C.1}DBLP}{51}{section.C.1}
-\contentsline {section}{\numberline {C.2}CiteSeer}{65}{section.C.2}
+\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{43}{appendix.A}
+\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{47}{appendix.B}
+\contentsline {section}{\numberline {B.1}DBLP}{47}{section.B.1}
+\contentsline {section}{\numberline {B.2}CiteSeer}{49}{section.B.2}
+\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{51}{appendix.C}
+\contentsline {section}{\numberline {C.1}DBLP}{52}{section.C.1}
+\contentsline {section}{\numberline {C.2}CiteSeer}{66}{section.C.2}

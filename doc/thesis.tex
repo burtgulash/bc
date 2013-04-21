@@ -29,6 +29,7 @@
 
 \usepackage{tocloft}
 
+
 \usepackage[left=3.5cm,right=2.5cm,top=4cm,bottom=.1cm]{geometry}
 
 \usepackage[section]{placeins}
@@ -176,7 +177,6 @@ definici, bude se shodovat s těmito oceněními.
 % TODO Navazuji na práci Nykla, Fialy a dalších autorů, který mam třeba v referencích.
 
 \chapter{Sociální a citační sítě}
-
 Myšlenka sociální sítě existovala dlouho předtím, než je pod tímto termínem
 začali lidé rozpoznávat. Jedná se o komplexní struktury vztahů mezi členy
 sociálních uspořádání na všech úrovních - od osobních až po mezinárodní vztahy
@@ -546,7 +546,7 @@ Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
 výpočetního světa~\citep{turingaward}.
 
 Turingova cena je brána jako nejvyšší vyznamenání v informatice a je lidově
-nazývána Nobelovou cenou pro informatiku \citep[p.~317]{dasgupta}.
+nazývána Nobelovou cenou pro informatiku \citep{dasgupta}.
 
 \subsubsection{ACM SIGMOD Edgar F. Codd Innovations Award}
 ACM SIGMOD Edgar F. Codd Innovations Award je ohodnocení životního díla
@@ -992,7 +992,10 @@ výzkum přišel relativně pozdě v porovnání s jinými problémy kombinatori
 optimalizace (nejmenší kostra grafu, přiřazovací a dopravní problém).
 Pravděpodobně byl výzkum opožděn, protože se jedná o intuitivní a relativně
 jednoduchý problém, ale jakmile se dostal do středu zájmu, bylo nezávisle na
-sobě nalezeno několik metod řešení různými lidmi (Shimbel~\citep{shimbel1955}, Ford~\citep{ford1956}, Dantzig~\citep{dantzig1957}, Bellman~\citep{bellmanford_algorithm}, Moore~\citep{moore1959}, Dijkstra~\citep{dijkstra1959})~\citep{schrijver2012}.
+sobě nalezeno několik metod řešení různými lidmi (Shimbel~\citep{shimbel1955},
+Ford~\citep{ford1956}, Dantzig~\citep{dantzig1957},
+Bellman~\citep{bellmanford_algorithm}, Moore~\citep{moore1959},
+Dijkstra~\citep{dijkstra1959})~\citep{schrijver2012}.
 
 
 Z hlediska metod řešení můžeme uvažovat několik kategorií algoritmů - nalezení
@@ -1044,25 +1047,26 @@ metrika vzálenosti by byla počet skoků mezi uzly.
 \mbox{}
 
 \subsubsection{Bellman-Fordův algoritmus}
-Bellman-Fordův algoritmus je aplikací dynamického programování na nejkratší
-cesty z jednoho vrcholu do všech ostatních. Jeho využití najdeme zejména tam,
-kde se mohou objevit záporné váhy hran. Časová náročnost je $O(|V||E|)$.
+Bellman-Fordův algoritmus~\citep{bellmanford_algorithm} je aplikací dynamického
+programování na nejkratší cesty z jednoho vrcholu do všech ostatních. Jeho
+využití najdeme zejména tam, kde se mohou objevit záporné váhy hran. Časová
+náročnost je $O(|V||E|)$.
 
 \subsubsection{Dijkstrův algoritmus}
-Dijkstrův algoritmus řeší \uv{single source shortest path problém} pomocí greedy
-(žravé) strategie. Časová náročnost běžné implementace $O((|E| + |V|)\log|V|)$
-je lepší než u Bellman-Fordova algoritmu, ale Dijkstrova greedy strategie
-funguje, pouze pokud v grafu neexistují záporně ohodnocené hrany. Časová
-náročnost závisí především na implementaci klíčové datové struktury prioritní
-fronty, která v každém kroku vybírá uzel s nejmenší vzdáleností od zdrojového
-vrcholu (greedy strategie). V případě použití obyčejného spojového seznamu jako
-prioritní fronty získáme kvadratickou náročnost $O(|V|^2)$. Nejčastěji se
-setkáme s prioritní frontou implementovanou pomocí binární haldy, která
-zajišťuje čas běhu právě $O((|E| + |V|)\log|V|)$. Pomocí Fibonacciho haldy
-získáme doposud nejrychlejší Dijkstrův algoritmus s časem běhu $O(|E| + |V|
-\log|V|)$, ale pro běžné účely (grafy menší než miliony vrcholů) je
-nejvýhodnější binární halda~\citep{CLRS,fredmantarjan}. Pro nevážený graf
-je Dijkstrův algoritmus ekvivalentní prohledávání do šířky.
+Dijkstrův algoritmus~\citep{dijkstra1959} řeší \uv{single source shortest path
+problém} pomocí greedy (žravé) strategie. Časová náročnost běžné implementace
+$O((|E| + |V|)\log|V|)$ je lepší než u Bellman-Fordova algoritmu, ale
+Dijkstrova greedy strategie funguje, pouze pokud v grafu neexistují záporně
+ohodnocené hrany. Časová náročnost závisí především na implementaci klíčové
+datové struktury prioritní fronty, která v každém kroku vybírá uzel s nejmenší
+vzdáleností od zdrojového vrcholu (greedy strategie). V případě použití
+obyčejného spojového seznamu jako prioritní fronty získáme kvadratickou
+náročnost $O(|V|^2)$. Nejčastěji se setkáme s prioritní frontou implementovanou
+pomocí binární haldy, která zajišťuje čas běhu právě $O((|E| + |V|)\log|V|)$.
+Pomocí Fibonacciho haldy získáme doposud nejrychlejší Dijkstrův algoritmus s
+časem běhu $O(|E| + |V| \log|V|)$, ale pro běžné účely (grafy menší než miliony
+vrcholů) je nejvýhodnější binární halda~\citep{CLRS,fredmantarjan}. Pro
+nevážený graf je Dijkstrův algoritmus ekvivalentní prohledávání do šířky.
 
 Dijkstrův algoritmus je klíčovým pro všechny implementované metody založené na
 nejkratších cestách, proto uvedeme pseudokód~\citep{CLRS}.
@@ -1101,15 +1105,8 @@ Princip Dijkstrova algoritmu se objevuje i u algoritmů pro closeness,
 betweenness a BFS. V tomto případě do prioritní fronty prvotně zahrneme všechny
 vrcholy. Jinou možností je přidávat je postupně, aby vybírání z prioritní
 fronty ($extract\mbox{-}min(Q)$) bylo rychlejší. Tento způsob je použit v
-algoritmu pro closeness.
-% TODO reference algs
+algoritmu pro closeness~\ref{alg:closeness}.
 
-%\subsubsection{Orientovaný acyklický graf}
-%Pro orientovaný acyklický graf (directed acyclic graph), kterým je například
-%citační síť publikací, neboť není možné, aby publikace referencovala publikaci
-%do budoucna, je vhodné využít vlastnost absence cyklů. Algoritmus pro nalezení
-%nejkratších cest z jednoho bodu do všech ostatních pro orientovaný acyklické
-%graf využívá topologického seřazení a principu dynamického programování:
 
 \subsection{All-pair shortest paths}
 Do této kategorie spadají maticové metody, tj. graf je zadán jako matice
@@ -1117,10 +1114,11 @@ sousednosti nebo matice sousednost s váhami hran.
 
 
 \subsubsection{Shimbelova metoda}
-Shimbelova metoda (1955) používá upravené maticové násobení k získání $|V|$-té
-mocniny matice sousednosti. Celková časová náročnost je $O(|V|^4)$, protože
-provedeme $|V|$ \uv{násobení} čtvercové matice o složitosti $O(|V|^3)$.
-Shimbelovo upravené násobení nahrazuje sčítání a násobení za minimum a sčítání:
+Shimbelova metoda~\citep{shimbel1955} používá upravené maticové násobení k
+získání $|V|$-té mocniny matice sousednosti. Celková časová náročnost je
+$O(|V|^4)$, protože provedeme $|V|$ \uv{násobení} čtvercové matice o složitosti
+$O(|V|^3)$.  Shimbelovo upravené násobení nahrazuje sčítání a násobení za
+minimum a sčítání:
 
 \begin{align*}
 x + y &\equiv \min(x, y) \\
@@ -1128,9 +1126,10 @@ xy &\equiv x + y
 \end{align*}
 
 \subsubsection{Floyd-Warshallův algoritmus}
-Floyd-Warshallův algoritmus snižuje časovou náročnost na $O(|V|^3)$
-použitím dynamického programování. Graf je opět zadán jako vážená matice
-sousednosti. Rekurentní vzorec dynamického programování pro tento algoritmus je:
+Floyd-Warshallův algoritmus~\citep{CLRS,floydwarshall1962} snižuje časovou
+náročnost na $O(|V|^3)$ použitím dynamického programování. Graf je opět zadán
+jako vážená matice sousednosti. Rekurentní vzorec dynamického programování pro
+tento algoritmus je:
 
 \begin{align*}
 d_0(u, v) &= {\bf A}_{uv} \\
@@ -1142,11 +1141,12 @@ známe, nebo jiná cesta za použití nějakého vrcholu $k$, který leží mezi
 Výpočet provádíme pro všechny páry vrcholů pro každý vrchol $k$ ($|V|^2 |V|$).
 
 \subsubsection{Johnsonův algoritmus}
-Johnsonův algoritmus nepatří mezi maticové metody, protože využívá
-metod single source shortest path pro všechny vrcholy. V principu jednodušše
-použijeme Dijkstrův algoritmus pro každý vrchol zvlášť, ale dovolujeme váhy
-hran i záporné. V případě záporných hran je nutné provést transformaci vah
-pomocí Bellman-Fordova algoritmu, která v grafu nepozmění nejkratší cesty~\citep{CLRS}.
+Johnsonův algoritmus~\citep{johnson1977} nepatří mezi maticové metody, protože
+využívá metod single source shortest path pro všechny vrcholy. V principu
+jednodušše použijeme Dijkstrův algoritmus pro každý vrchol zvlášť, ale
+dovolujeme váhy hran i záporné. V případě záporných hran je nutné provést
+transformaci vah pomocí Bellman-Fordova algoritmu, která v grafu nepozmění
+nejkratší cesty~\citep{CLRS}.
 
 
 \section{Ostatní míry významnosti autorů}
@@ -1160,7 +1160,7 @@ I10-index, R-impact, Wu Index a zejména H-index~\citep{hlwikiaim}, který zde
 byl implementován jako jediná metoda, která nespadá pod míry centrality.
 
 \subsection{H-index}
-H-index je metoda pro měření produktivity autora a významu jeho publikované
+H-index~\citep{hirsch2005} je metoda pro měření produktivity autora a významu jeho publikované
 vědecké práce. Metoda byla navržena fyzikem Jorge E. Hirschem pro zjištování
 relativní významnosti vědců publikujících v oboru teoretické fyziky. Původní
 Hirschova definice zní:
@@ -1215,14 +1215,17 @@ počtu jejích citací. Toto číslo je pak h-index autora.
 
 \chapter{Výsledky}
 Výsledky této práce jsou znázorněny v tabulkách korelací mezi jednotlivými
-metodami (tab.~\ref{tab:corr1}, \ref{tab:corr2}, \ref{tab:corr3}, \ref{tab:corr4}), tabulkami (tab. ) srovnávající pořadí prvních
-třiceti autorů mezi jednotlivými metodami a porovnání implementovaných metod s
-oceněními (ACM Codd, ...)
+metodami (tab.~\ref{tab:corr1}, \ref{tab:corr2}, \ref{tab:corr3} a
+\ref{tab:corr4}), tabulkami (tab.~\ref{tab:ranks1} a \ref{tab:ranks2})
+srovnávající pořadí prvních třiceti autorů mezi jednotlivými metodami a
+porovnání implementovaných metod s oceněními (SIGMOD Edgar F. Codd, ACM
+Fellows, ISI Highly Cited, ACM Turing).
 
 
 \section{Porovnání implementovaných metod}
 Zajímá nás, zda-li jsou metody mezi sebou podobné a do jaké míry. Pro porovnání
-metod mezi sebou je použit Spearmanův koeficient pořadové korelace.
+metod mezi sebou je použit Spearmanův koeficient pořadové korelace
+(sekce~\ref{sec:spearman}).
 
 
 Tab.~\ref{tab:corr1} ukazuje vypočtené Spearmanovy koeficienty pořadové
@@ -1298,6 +1301,7 @@ wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
 
 
 \subsection{Spearmanův koeficient pořadové korelace}
+\label{sec:spearman}
 Spearmanův koeficient je klasický Pearsonův koeficient korelace, který je
 aplikovaný na proměnné s pořadím~\citep{myerswell2002}.  Koeficient korelace
 obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$ znamená naprostou
@@ -1535,11 +1539,16 @@ definována, nemůžeme tvrdit, která z variant je přesnější.
 Přestože vstupní a výstupní hrany mají opačný význam, existuje nezanedbatelná
 korelace mezi jejich interpretacemi \uv{cituji} a \uv{jsem citován}, tzn. pokud
 je autor často citován, pak je velká šance, že zároveň cituje ostatní autory.
-% TODO doplnit korelace mezi ideg, odeg, atd.
+Korelace mezi metodami ideg a odeg jsou jedny z nižších mezi porovnávanými
+(0.173, 0.509, 0.314, 0.484), podobně mezi wideg a wodeg (0.192, 0.557, 0.354,
+0.528), ale nejsou nezanedbatelné.
+
 Metody odeg, wodeg a oc, které zastupují výstupní hrany \uv{cituji}, jsou spíše
 důsledkem významnosti autora než její příčinou. Pokud je autor dlouho ve své
 branži a vybudoval si významnou pozici, pak můžeme očekávat, že zároveň
-referencoval práci mnoho jiných autorů. 
+referencoval práci mnoho jiných autorů.  Takový autor ve svém oboru již získal
+pozici významného člena a svými hodnotnými citacemi ostatních prací přispívá na
+jejich významnosti.
 
 Zajímavým jevem je použití vstupních a výstupních hran u closeness centrality a
 jejích variantách. Zatímco u betweenness centrality počítáme s přirozenými
@@ -1562,6 +1571,10 @@ na univerzitě UC Berkeley Scott Shenker (tab.~\ref{tab:ranks3}
 a~\ref{tab:ranks4} a příloha~\ref{chapter:zebricky}), který je také členem ACM
 Fellows a NAE. Podle Microsoft Academic Search se jedná o nejvíce citovaného
 autora v informatice.
+
+Obecně se na prvních pozicích v případě obou databází umístili na prvních
+příčkách autoři, kteří byli oceněni cenou SIGMOD Edgar F. Codd. Jedná se více o
+výsledky u DBLP, ale u CiteSeer jsou také hojně zasoupeni.
 
 V CiteSeer je v žebříčcích spousta \uv{autorů}, kteří pouze způsobují šum ve
 výsledcích (SENIOR MEMBER, STUDENT MEMBER, PH. D, PROF DR, ...), ale umisťují
@@ -1612,14 +1625,61 @@ wBtwA, deg - wdeg, apod.), viz tab.~\ref{tab:corr1}, \ref{tab:corr2},
 vrcholů (tab.~\ref{tab:btwA}).
 
 \chapter{Závěr}
-%TODO prozkoumali jsme míry centrality
-%TODO ukázali, že všechny metody spolu souvisí až na odeg, wodeg, oc
-%TODO výsledky se shodují s oceněním
-%TODO našli jsme zajímavý fenomén u orientace hran betweenness a closeness
-%TODO nemohli bychom tento fenomén zdůvodnit?
-%TODO SO WHAT?: významnost lze určit. Chceme-li hrubý odhad, stačí degree, protože hodně koreluje s ostatníma metodama.
+Sociální sítě jsou z velké části zodpovědné za rapidní internetovou globalizaci
+poslední doby. Největší podíl patří těm nejvýznamnějším osobám, které spojí
+menší díly sítě dohromady. Podobně u dopravních sítí se setkáme s klíčovými
+dopravními uzly, kam se lidé a zboží přepravují kvůli výhodnějším spojům do
+vzdálenějších destinací. Jako příklad citačních sítí by mezi vědeckými pracemi
+do jisté míry koloval chaos a autoři by nenásledovali práci předchozích, nebýt
+významných jedinců, kteří svým dílem ovlivňují celý svůj obor.
 
-% TODO další práce: prozkoumat víc rozdíl mezi in a out hranami (třeba u betweenness, pagerank a jiných metod).
+V této práci jsme prozkoumali nejznámější míry centrality a bibliografickou
+metodu H-index, na základě kterých jsme vytvořili knihovnu pro analýzu
+citačních sítí. Poukázali jsme na možné problémy při implementaci některých
+metod a analyzovali metody pro získání nejkratších cest v obecném nebo
+specializovaném grafu. Pro všechny výpočty byl použit Dijkstrův algoritmus,
+protože citační síť autorů splňuje kritéria pro jeho nasazení. Pokud bychom
+prováděli podobnou analýzu na citační síti publikací, mohli bychom použít ještě
+rychlejší algoritmus pro nalezení nejkratších cest založený na topologickém
+seřazení grafu, protože citační síť publikací je případem orientovaného
+acyklického grafu (directed acyclic graph), na který lze tuto metodu použít. 
+
+Následná analýza citačních sítí autorů vytvořených z databází DBLP a CiteSeer
+ukázala podobnost jednotlivých implementovaných metod a potvrdila očekávané
+jevy jako odlišnost metod využívajících výstupní hrany, jelikož tyto metody
+neberou v potaz vliv ostatních autorů na daného autora, ale měří pouze
+příspěvek vlivu, který daný autor odevzdá zpět do sítě.  Jiným pozoruhodným
+zjištěním byl rozdíl mezi orientací hran při použití metody closeness a
+betweenness, kde první dosahovala lepších výsledků při použití vstupních hran a
+druhá při použití výstupních. Tento jev se nám kromě pozorování nepodařilo
+vysvětlit.
+
+Dále jsme ukázali dostatečnou přesnost aproximace výpočtu betweenness
+centrality pomocí lineární extrapolace a použili pro výpočet betweenness
+centrality pro váženou citační síť autorů u obou databází.
+
+Ačkoli každá z analyzovaných metod měří do jisté míry významnost autora, stále
+každá z nich má přesnější interpretaci, kterou splňuje více (degree měří rozsah
+spolupráce autora, closeness autorovu pozici a virtuální vzdálenost mezi
+ostatními ve svém oboru a betweenness měří důležitost autora při vzájemné
+komunikaci mezi autory v daném oboru~\citep{yanding2009}). Pokud by nám bylo
+lhostejné, která metoda nejblíže měří pravou významnost, mohli bychom se
+rozhodovat podle jiných vlastností jako např. doba běhu, protože v praktických
+aplikacích můžeme požadovat výpočty v omezeném čase nebo výpočty v reálném
+čase. V takovém případě by bylo nejvýhodnější použít metodu indegree nebo
+PageRank.
+
+Přestože jsme prozkoumali nemalé množství různých metod pro měření významnosti,
+stále se jedná o nejznámější míry centrality a jejich variace. V kontextu
+analýzy sítí existuje více metod měřících centralitu (Katz
+centrality~\citep{katz1953}, Bonacich alpha
+centrality~\citep{bonacichlloyd2001}, Information
+centrality~\citep{stephensonzelen1989}, ...) a v bibliografických metodách jiné
+metody pro zjištění významnosti nebo produktivity autorů. Některé z těchto
+metod jsme prozkoumali a shledali nevhodnými pro naše účely, ale navazující
+práce v této oblasti by mohla při možných úpravách tyto metody implementovat a
+analyzovat pro stejné sítě jako zde.
+
 
 % BIBLIOGRAPHY
 \bibliographystyle{csplainnat}
