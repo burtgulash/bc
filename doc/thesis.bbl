@@ -1,15 +1,27 @@
-\begin{thebibliography}{48}
+\begin{thebibliography}{53}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Anthonisse -- besliskunde(1973)Anthonisse,
-  besliskunde]{anthonisse1971}
-ANTHONISSE, J. -- BESLISKUNDE, S. M. C. A. A.~M.
-\newblock \emph{The rush in a directed graph}.
-\newblock Chicago~: SMC, 1973.
+\bibitem[Anthonisse(1971)]{anthonisse1971}
+ANTHONISSE, J.~M.
+\newblock {The rush in a directed graph}.
+\newblock Technical report, Stichting Mathemastisch Centrum, Amsterdam, The
+  Netherlands, 1971.
+
+\bibitem[Barab\'asi(2003)]{barabasi2005}
+BARAB\'ASI, A.-L.
+\newblock \emph{Linked: How Everything Is Connected to Everything Else and What
+  It Means for Business, Science, and Everyday Life}.
+\newblock {Plume Books}, 2003.
+
+\bibitem[Barab\'asi -- Bonabeau(2003)Barab\'asi,
+  Bonabeau]{barabasibonabeau2003}
+BARAB\'ASI, A.-L. -- BONABEAU, E.
+\newblock {Scale-free networks}.
+\newblock \emph{Sci.~Am.} 2003, 288, 5, s.~50--59.
 
 \bibitem[Bellman(1958)]{bellmanford_algorithm}
 BELLMAN, R.
@@ -57,6 +69,12 @@ CORPORATION, M.
 \newblock \emph{Microsoft Academic Search} [online]. 2013. [cit.~21.04.2013].
 \newblock Dostupn{\'{e}} z:
   \url{http://academic.research.microsoft.com/?SearchDomain=2}.
+
+\bibitem[Dangalchev(2006)]{dangalchev2006}
+DANGALCHEV, C.
+\newblock Residual closeness in networks.
+\newblock \emph{Physica A: Statistical Mechanics and its Applications}. 2006,
+  365, 2, s.~556--564.
 
 \bibitem[Dantzig(1957)]{dantzig1957}
 DANTZIG, G.~B.
@@ -171,12 +189,25 @@ MOORE, E.~F.
   Switching, and Annals of the Computation Laboratory of Harvard University},
   s.~ 285--292. Harvard University Press, 1959.
 
+\bibitem[Noh -- Rieger(2004)Noh, Rieger]{nohrieger2004}
+NOH, J.~D. -- RIEGER, H.
+\newblock Random Walks on Complex Networks.
+\newblock \emph{Physical Review Letters}. 2004, 92, s.~118701.
+
 \bibitem[Okamoto et~al.(2008)Okamoto, Chen,, Li]{closenessapproximation}
 OKAMOTO, K. -- CHEN, W. -- LI, X.-Y.
 \newblock Ranking of Closeness Centrality for Large-Scale Social Networks.
 \newblock In \emph{Proceedings of the 2nd annual international workshop on
   Frontiers in Algorithmics}, FAW '08, s.~ 186--195, Berlin, Heidelberg, 2008.
   Springer-Verlag.
+
+\bibitem[Opsahl(2010)]{opsahl}
+OPSAHL, T.
+\newblock \emph{Closeness centrality in networks with disconnected components}
+  [online]. 2010. [cit.~22.04.2013].
+\newblock Dostupn{\'{e}} z:
+  \url{http://toreopsahl.com/2010/03/20/closeness-centrality-in-networks-with-%
+disconnected-components/}.
 
 \bibitem[Page(1997)]{page1997}
 PAGE, L.

@@ -2,48 +2,50 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: thesis.aux
 The style file: csplainnat.bst
 Database file #1: ref.bib
+`address' is a missing field, not a string, for entry barabasi2005
+while executing---line 1483 of file csplainnat.bst
 Warning--empty journal in sabidussi1966
 `address' is a missing field, not a string, for entry myerswell2002
 while executing---line 1483 of file csplainnat.bst
-You've used 48 entries,
+You've used 53 entries,
             2898 wiz_defined-function locations,
-            905 strings with 10939 characters,
-and the built_in function-call counts, 18444 in all, are:
-= -- 1844
-> -- 738
-< -- 48
-+ -- 252
-- -- 203
-* -- 1247
-:= -- 3030
-add.period$ -- 184
-call.type$ -- 48
-change.case$ -- 184
-chr.to.int$ -- 47
-cite$ -- 97
-duplicate$ -- 963
-empty$ -- 1569
-format.name$ -- 346
-if$ -- 3924
+            937 strings with 11626 characters,
+and the built_in function-call counts, 20279 in all, are:
+= -- 2035
+> -- 804
+< -- 53
++ -- 275
+- -- 221
+* -- 1366
+:= -- 3339
+add.period$ -- 204
+call.type$ -- 53
+change.case$ -- 202
+chr.to.int$ -- 52
+cite$ -- 107
+duplicate$ -- 1058
+empty$ -- 1727
+format.name$ -- 377
+if$ -- 4313
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 81
-newline$ -- 248
-num.names$ -- 239
-pop$ -- 363
+missing$ -- 87
+newline$ -- 273
+num.names$ -- 264
+pop$ -- 392
 preamble$ -- 1
-purify$ -- 117
+purify$ -- 128
 quote$ -- 0
-skip$ -- 626
+skip$ -- 686
 stack$ -- 0
-substring$ -- 673
-swap$ -- 78
+substring$ -- 745
+swap$ -- 82
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 478
+type$ -- 533
 warning$ -- 1
-while$ -- 192
+while$ -- 212
 width$ -- 0
-write$ -- 617
-(There was 1 error message)
+write$ -- 683
+(There were 2 error messages)

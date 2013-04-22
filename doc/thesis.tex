@@ -45,6 +45,7 @@
 \renewcommand{\listalgorithmname}{List of \ALG@name	s}
 \makeatother
 
+
 \author{Tomáš Maršálek}
 \title{Měření významnosti autorů v citační síti}
 \titlet{}
@@ -280,9 +281,10 @@ formátu, který přímo odpovídá síti publikací, tj. pro každou publikaci 
 seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
 transformací sítě publikací tak, že každou hranu z původní sítě publikací
 přiřadíme každému z autorů citující publikace a duplikujeme ji pro každého z
-autorů citované publikace (obr.~\ref{fig:transform}). Celkově vznikne $nm$ nových hran, pokud odkazovaná
-publikace obsahuje $n$ autorů a odkazující $m$ autorů. Stejně jako v síti
-publikací, i zde uvažujeme opačné orientace hrany.
+autorů citované publikace (obr.~\ref{fig:transform}). Celkově vznikne $nm$
+nových hran, pokud odkazovaná publikace obsahuje $n$ autorů a odkazující $m$
+autorů. 
+% Stejně jako v síti publikací, i zde uvažujeme opačné orientace hrany.
 
 \begin{figure}[!ht]
 \begin{minipage}[b]{0.45\textwidth}
@@ -303,13 +305,15 @@ způsobů, jak lze přiřadit ohodnocení (váhu) jednotlivým hranám, ale
 nejjednodušším způsobem je prosté přiřazení počtu publikací, jejichž autorem je
 daný autor $A$, které odkazují na publikace, jejichž autorem je autor $B$.
 
-Druhou možností ohodnocení hran, který využívá implementovaná knihovna pro
+Druhou možností ohodnocení hran, kterou využívá implementovaná knihovna pro
 některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem je
-přímá souvislost mezi váhou hrany a vzdáleností mezi uzly. V prvním případě
-(obr.~\ref{fig:wNormal}), kdy silnější pouto mezi autory vyjadřuje vyšší
-ohodnocení hrany, v druhém případě (obr.~\ref{fig:wRecip}) je naopak nižší váha
-vyjádřením silnějšího vztahu, jelikož jsou si uzly blíže.  Tento způsob je
-používán pro algoritmy, které pracují na myšlence nejkratších cest mezi uzly. 
+přímá souvislost mezi váhou hrany a vzdáleností mezi uzly. 
+
+V prvním případě (obr.~\ref{fig:wNormal}) silnější pouto mezi autory vyjadřuje
+vyšší ohodnocení hrany, v druhém případě (obr.~\ref{fig:wRecip}) je naopak
+nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly blíže.  Tento
+způsob je používán pro algoritmy, které pracují na myšlence nejkratších cest
+mezi uzly. 
 
 \subsection{Vážené citační sítě}
 Pro citační sítě můžeme uvažovat ohodnocení hran obojího typu. Například mezi
@@ -461,40 +465,44 @@ sítí, které se vyskytují v přírodních vědách, spojením uzlů náhodný
 Tato jednoduchá metoda vytvoření náhodného grafu způsobí rozložení stupňů
 vrcholů (počet spojení vrcholu s ostatními) podle Poissonova rozdělení
 pravděpodobnosti s charakteristickou křivkou připomínající zvon - většina uzlů
-má zhruba stejný stupeň. 
-V roce 1998 bylo na univerzitě v Notre Dame (Barabási a kolegové) provedeno
+má zhruba stejný stupeň~\citep{barabasibonabeau2003,barabasi2005}.
+
+V roce 1998 bylo na univerzitě v Notre Dame (Barabási et al.) provedeno
 mapování sítě World Wide Web s očekáváním, že výsledkem bude náhodná síť.
 Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo přes všechna
 očekávání, zcela jiné rozdělení stupňů - mocninné. Přes $80\%$ uzlů mělo méně
 než čtyři spojení, ale méně než $0.01\%$ uzlů mělo více než tisíc spojení.
-Sítě, které se řídí mocninným rozdělením stupňů, nazvali Barabási a jeho kolegové
-bezškálovými sítěmi (scale-free network). Rozpoznání tohoto jevu vedlo k
-lepšímu porozumění šíření virů a epidemií nebo proč některé sítě fungují takřka
-beze změny i přes poruchu většiny jejich uzlů.  Sociální a citační sítě se řadí
-do kategorie bezškálových sítí. Například autor vědecké literatury, jehož dílo
-je v dané oblasti známé, má velkou šanci, že bude citován dalšími autory,
-především těmi novými. Stejně tak osoba s velkým počtem přátel má velikou
-šanci, že bude představen novým lidem a rozšíří si tak svůj okruh přátel ještě
-více. Tomuto jevu v bezškálových sítí se říká \uv{bohatší se stává bohatším}.
+Sítě, které se řídí mocninným rozdělením stupňů, nazvali Barabási a jeho
+kolegové bezškálovými sítěmi (scale-free network). Rozpoznání tohoto jevu vedlo
+k lepšímu porozumění šíření virů a epidemií nebo proč některé sítě fungují
+takřka beze změny i přes poruchu většiny jejich uzlů.  Sociální a citační sítě
+se řadí do kategorie bezškálových sítí. Například autor vědecké literatury,
+jehož dílo je v dané oblasti známé, má velkou šanci, že bude citován dalšími
+autory, především těmi novými. Stejně tak osoba s velkým počtem přátel má
+velikou šanci, že bude představen novým lidem a rozšíří si tak svůj okruh
+přátel ještě více. Tomuto jevu v bezškálových sítí se říká \uv{bohatší se stává
+bohatším}~\citep{barabasibonabeau2003}.
 
 Rozvinutou disciplínou v oblasti sítí je analýza sociálních sítí, která se
 stala klíčovou technikou v moderní sociologii a stala se významnou v různých
 vědeckých oblastech (antropologie, biologie, komunikace, ekonomie, informační
-věda, geografie, historie, politologie, ...).
+věda, geografie, historie, politologie, atd.).
 
 Analýza sociálních sítí zkoumá povahu vztahů (homofilie, multiplexita,
-vzájemnost, blízkost vztahů, ...), rozdělení vlastností v síti (míry
-centrality, hustota sítě, ...) nebo segmentaci (souvislost grafu, komponenty
-grafu, kliky, koeficient shlukování, ...).
+vzájemnost, blízkost vztahů, atd.) rozdělení vlastností v síti (míry
+centrality, hustota sítě, atd.) nebo segmentaci (souvislost grafu, komponenty
+grafu, kliky, koeficient shlukování, atd.).
 
 \section{Souvislost a komponenty grafu}
 Neorientovaný graf je souvislý, pokud pro každé jeho dva vrcholy $u$ a $v$
 existuje alespoň jedna cesta z $u$ do $v$. U neorientovaného grafu hovoříme o
-slabé souvislosti. Pro orientovaný uvažujeme silnou souvislost, protože
-přestože existuje cesta z $u$ do $v$, není zaručeno, že existuje cesta z $v$ do
-$u$.  Slabě souvislý orientovaný graf znamená, že neorientovaný graf, který by
-vznikl nahrazením orientovaných hran neorientovanými (symetrizace grafu), by
-byl souvislý.
+slabé souvislosti. 
+
+Pro orientovaný graf uvažujeme silnou souvislost, protože přestože existuje
+cesta z $u$ do $v$, není zaručeno, že existuje cesta z $v$ do $u$.  Slabě
+souvislý orientovaný graf znamená, že neorientovaný graf, který by vznikl
+nahrazením orientovaných hran neorientovanými (symetrizace grafu), by byl
+souvislý.
 
 Komponenta maximálně souvislý podgraf. Jinak řečeno komponenta je podgraf
 takový, že všechny jeho vrcholy jsou spojeny nějakou cestou. Komponentou je i
@@ -507,7 +515,7 @@ které vrcholy byly nalezeny, a spustíme prohledávání ze všech nenalezenýc
 vrcholů, najdeme všechny komponenty. 
 
 Silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do hloubky,
-ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, ...), které
+ale použijeme sofistikovanější algoritmy (Kosarajův, Tarjanův, atd.), které
 principově vycházejí z prohledávání do hloubky.
 
 \section{Klika v grafu}
@@ -526,7 +534,7 @@ složitost, proto je horní hranice velikosti podgrafu ve výpočtech omezena na
 20.
 
 \section{Významnost uzlů}
-Významnost autorů je jedním předmětem zájmu analýzy sociálních sítí. Kdybychom
+Významnost autorů je jedním z předmětů zájmu analýzy sociálních sítí. Kdybychom
 se měli rozhodnout, kterého člena sítě zvolit jako vůdce nebo přes které členy
 nejrychleji rozšíříme zprávu, koho bychom měli vybrat? 
 
@@ -577,7 +585,7 @@ sociální síti může znamenat přes které přátele se mezi nimi nejpravděp
 šíří informace. V sítích spolupráce vědeckých autorů se například setkáme s
 tzv. Erdősovým číslem, které vyjadřuje nejkratší vzdálenost mezi osobou a
 matematikem Paulem Erdősem v rámci spolupráce na vědeckých článcích v oboru
-matematiky.
+matematiky~\citep{barabasi2005}.
 
 Použijeme-li metody z dopravních sítí pro analýzu sociálních a citačních sítí,
 které v jádře spočívají v hledání nejkratších cest, setkáme se se dvěma
@@ -764,10 +772,10 @@ pro ni aproximační algoritmus, který si zde uvedeme.
 Closeness, stejně jako ostatní míry centrality, modeluje rozptýlení informace
 napříč sítí. Výše uvedené klasické definici je vytýkáno, že pro přenos
 informace uvažuje pouze nejkratší cesty, které nejsou vždy jedinou komunikační
-cestou v síti. Alternativu navrhli Noh a Rieger (2004), kde namísto nejkratších
-cest používají náhodné procházky (random walk closeness centrality). Náhodná
-procházka (random walk) je cesta, kde v každém uzlu je náhodně vybrán směr
-dalšího postupu.
+cestou v síti. Alternativu navrhli Noh a Rieger~\citep{nohrieger2004}, kde
+namísto nejkratších cest používají náhodné procházky (random walk closeness
+centrality). Náhodná procházka (random walk) je cesta, kde v každém uzlu je
+náhodně vybrán směr dalšího postupu.
 
 Příkladem může být oběh mincí mezi lidmi. Tento jev nemá s nejkratšími cestami
 mnoho společného, proto je vhodnější ho modelovat náhodnými procházkami. Oproti
@@ -784,9 +792,10 @@ automaticky nekonečná a closeness, tedy převrácená hodnota, by byla nulová
 Existuje několik upravených definic, které se mají vypořádat s problémem
 konektivity a druhotně jsou numericky stabilnější. Jedna z nich zaměňuje
 převrácenou hodnotu součtu vzdáleností za součet převrácených hodnot
-vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$ (Opsahl) a druhá $c(u)
-= \sum_{v \in V} 2^{-d_G(u, v)}$ (Dangalchev). Přesto se nejvíce používá
-původní definice closeness a výpočet se omezí na největší komponentu.
+vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$~\citep{opsahl} a druhá
+$c(u) = \sum_{v \in V} 2^{-d_G(u, v)}$~\citep{dangalchev2006}. Přesto se
+nejvíce používá původní definice closeness a výpočet se omezí na největší
+komponentu.
 
 
 \subsubsection{Algoritmus}
@@ -809,7 +818,7 @@ složitost platí při použití Dijkstrova algoritmu pro všechny páry cest.
 	\Statex
 	\For{$s \in V$}
 		\State $f \gets 0$\Comment{Farness}
-		\State $d[v] \gets \infty$, $v \in V$\Comment{Zpočátku jsou uzly nedosažitelné}
+		\State $d[v] \gets -1$, $v \in V$\Comment{Zpočátku jsou uzly nedosažitelné}
 		\State $d[u] \gets 0$
 		\State $Q \gets \{s\}$\Comment{Prioritní fronta $Q$ začíná se zdrojovým vrcholem}
 		\While{$Q \ne \varnothing$}\Comment{Dokud není fronta prázdná}
@@ -843,18 +852,18 @@ aproximační algoritmus pro nalezení $k$ nejvýznamnějších uzlů hodnocený
 closeness centrality TOPRANK~\citep{closenessapproximation}.
 
 \subsubsection{Aproximace}
-Algoritmus TOPRANK najde prvních $k$ nejvýznamnějších uzlů
-s vysokou přesností a pro každý z nich přesnou hodnotu closeness.  Algoritmus
-pracuje s myšlenkou, že zjistíme přibližné pořadí uzlů tak, že pro jeden strom
-nejkratších cest nebudeme počítat se všemi koncovými uzly, ale jen s dostatečně
-velkým vzorkem této množiny.  Přesné hodnoty closeness dosáhneme použitím
-exaktního algoritmu, který použijeme jen na nejvýznamnější uzly získané z
-prvního aproximovaného kroku. Klíčovou otázkou je, kolik nejvýznamnějších uzlů
-musíme uvažovat, aby se jednalo o dostatečně přesný výsledek. Autoři algoritmu
-uvádějí tento algoritmus s heuristikou, která najde přibližně místo, ve kterém
-je vhodné výpočet ukončit a považovat za dostatečně přesný. Sami uvádějí, že
-tento algoritmus je pouze první krok k návrhu efektivnějšího způsobu jak najít
-prvních $k$ nejvýznamnějších uzlů~\citep{closenessapproximation}.
+Algoritmus TOPRANK najde prvních $k$ nejvýznamnějších uzlů s vysokou přesností
+a pro každý z nich přesnou hodnotu closeness.  Algoritmus pracuje s myšlenkou,
+že zjistíme přibližné pořadí uzlů tak, že pro jeden strom nejkratších cest
+nebudeme počítat se všemi koncovými uzly, ale jen s dostatečně velkým vzorkem
+této množiny.  Přesné hodnoty closeness dosáhneme použitím exaktního algoritmu,
+který použijeme jen na nejvýznamnější uzly získané z prvního aproximovaného
+kroku. Klíčovou otázkou je, kolik nejvýznamnějších uzlů musíme uvažovat, aby se
+jednalo o dostatečně přesný výsledek. Autoři algoritmu uvádějí tento algoritmus
+s heuristikou, která najde přibližně místo, ve kterém je vhodné výpočet ukončit
+a považovat za dostatečně přesný. Sami uvádějí, že tento algoritmus je pouze
+první krok k návrhu efektivnějšího způsobu jak najít prvních $k$
+nejvýznamnějších uzlů~\citep{closenessapproximation}.
 
 \subsection{Betweenness centrality}
 Betweenness je druhá metoda, která modeluje šíření informace sítí pomocí
@@ -1319,7 +1328,7 @@ proměnnými.
 Tabulky~\ref{tab:ranks1}~a~\ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
 podle metody h-index. Pro každého autora je zobrazeno jeho umístění podle všech
 zbylých implementovaných metod. Poslední řádek u každé metody označuje součet
-pořadí uvedených 30ti autorů. Stejná data jsou zobrazena v
+pořadí uvedených třiceti autorů. Stejná data jsou zobrazena v
 grafech~\ref{fig:poradiDBLP} a~\ref{fig:poradiCS} pro prvních 500 autorů z
 největší silně spojité komponenty, kde porovnáváme metody indegree, PageRank,
 betweenness a closeness.
@@ -1577,7 +1586,7 @@ příčkách autoři, kteří byli oceněni cenou SIGMOD Edgar F. Codd. Jedná s
 výsledky u DBLP, ale u CiteSeer jsou také hojně zasoupeni.
 
 V CiteSeer je v žebříčcích spousta \uv{autorů}, kteří pouze způsobují šum ve
-výsledcích (SENIOR MEMBER, STUDENT MEMBER, PH. D, PROF DR, ...), ale umisťují
+výsledcích (SENIOR MEMBER, STUDENT MEMBER, PH. D, PROF DR, atd.), ale umisťují
 se na vysokých pozicích převážně v metodách odeg, wodeg, oc, které nepovažujeme
 za přímé indikátory významnosti~\citep{mas}.
 
@@ -1674,7 +1683,7 @@ stále se jedná o nejznámější míry centrality a jejich variace. V kontextu
 analýzy sítí existuje více metod měřících centralitu (Katz
 centrality~\citep{katz1953}, Bonacich alpha
 centrality~\citep{bonacichlloyd2001}, Information
-centrality~\citep{stephensonzelen1989}, ...) a v bibliografických metodách jiné
+centrality~\citep{stephensonzelen1989}, atd.) a v bibliografických metodách jiné
 metody pro zjištění významnosti nebo produktivity autorů. Některé z těchto
 metod jsme prozkoumali a shledali nevhodnými pro naše účely, ale navazující
 práce v této oblasti by mohla při možných úpravách tyto metody implementovat a
