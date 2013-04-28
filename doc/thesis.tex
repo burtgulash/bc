@@ -94,11 +94,11 @@ Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s
 
 \chapter*{Abstract}
 \thispagestyle{empty}
-Elements of complex networks without any prior assignment of importance can
-still be ranked by importance determined by connections with other elements.
+Nodes of complex networks without any prior assignment of importance can
+still be ranked by importance determined by connections with other nodes.
 
 We discuss the notion of importance of a node in network and explore various
-existing methods for measuring node's importance (centrality measures and
+methods for measuring node's importance (centrality measures and
 bibliographical methods). We then implement these methods as a Java library for
 analysis of complex networks and use it for analysis of citation networks
 created from bibliographical databases DBLP and CiteSeer.
@@ -108,6 +108,8 @@ are given to influential researchers in computer science (ACM SIGMOD Edgar F.
 Codd Innovations Award, ACM Fellows, ACM A.M. Turing Award, ISI Highly Cited
 highlighted). We also discuss difference between in and outedges and difference
 between weighted and non-weighted networks and their impact on our results.
+
+
 
 % Prvky sociální sítě, které nemají žádné apriorní ohodnocení významnosti, jsou
 % různě významné pouze na základě vztahů s okolními prvky. V této práci byly
@@ -1688,6 +1690,10 @@ práce v této oblasti by mohla při možných úpravách tyto metody implemento
 analyzovat pro stejné sítě jako zde.
 
 
+% BIBLIOGRAPHY
+\bibliographystyle{csplainnat}
+\bibliography{ref}
+%\printbibliography
 
 % EMPTY PAGE
 % \clearpage\mbox{}\clearpage
@@ -2092,9 +2098,5 @@ Zkratky metod nalezneme v tabulce~\ref{tab:impmetody}.
 \input{../citeseer/tabels/oc}
 \input{../citeseer/tabels/wic}
 
-% BIBLIOGRAPHY
-\bibliographystyle{csplainnat}
-\bibliography{ref}
-%\printbibliography
 
 \end{document}
