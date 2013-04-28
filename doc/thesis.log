@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  28 APR 2013 13:06
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  28 APR 2013 14:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1195,7 +1195,7 @@ Kapitola 6.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1465.
+(hyperref)                removing `\textring' on input line 1464.
 
 [33
 
@@ -1203,24 +1203,24 @@ Package hyperref Warning: Composite letter `\textring+u'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1563.
+(hyperref)                removing `\textasciicaron' on input line 1554.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1584.
+(hyperref)                removing `\textring' on input line 1577.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1584.
+(hyperref)                removing `\textasciicaron' on input line 1577.
 
 [35] [36]
 Kapitola 7.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1627.
+(hyperref)                removing `\textasciicaron' on input line 1619.
 
 [37
 
@@ -1233,7 +1233,7 @@ P\v {r}\'{\i }loha B.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1832.
+(hyperref)                removing `\textasciicaron' on input line 1824.
 
 [43
 
@@ -1244,17 +1244,17 @@ P\v {r}\'{\i }loha C.
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 2042.
+(hyperref)                removing `\textasciicaron' on input line 2034.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 2042.
+(hyperref)                removing `\textasciicaron' on input line 2034.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 2042.
+(hyperref)                removing `\textring' on input line 2034.
 
 [48
 
@@ -1356,7 +1356,7 @@ mf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on thesis.pdf (85 pages, 794400 bytes).
+Output written on thesis.pdf (85 pages, 794317 bytes).
 PDF statistics:
  1117 PDF objects out of 1200 (max. 8388607)
  260 named destinations out of 1000 (max. 500000)

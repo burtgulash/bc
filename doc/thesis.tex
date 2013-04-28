@@ -94,6 +94,21 @@ Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s
 
 \chapter*{Abstract}
 \thispagestyle{empty}
+Elements of complex networks without any prior assignment of importance can
+still be ranked by importance determined by connections with other elements.
+
+We discuss the notion of importance of a node in network and explore various
+existing methods for measuring node's importance (centrality measures and
+bibliographical methods). We then implement these methods as a Java library for
+analysis of complex networks and use it for analysis of citation networks
+created from bibliographical databases DBLP and CiteSeer.
+
+Our findings show similarity between implemented methods and with awards which
+are given to influential researchers in computer science (ACM SIGMOD Edgar F.
+Codd Innovations Award, ACM Fellows, ACM A.M. Turing Award, ISI Highly Cited
+highlighted). We also discuss difference between in and outedges and difference
+between weighted and non-weighted networks and their impact on our results.
+
 % Prvky sociální sítě, které nemají žádné apriorní ohodnocení významnosti, jsou
 % různě významné pouze na základě vztahů s okolními prvky. V této práci byly
 % prozkoumány a implementovány známé metody centrality a bibliografické metody
@@ -1347,9 +1362,10 @@ PageRanku zanedbatelně malé.
 
 \section{Porovnání metod s oceněními}
 Pro zjištění, jestli se výsledky implementovaných metod shodují s uvedenými
-oceněními, použijeme metodu součtu pořadí oceněných autorů, viz tab.~\ref{tab:oceneni1}. Tzn. že pro každé ocenění a pro každou metodu sečteme
-pořadí všech autorů, kteří byli oceněni danou cenou. Tuto jednoduchou míru
-můžeme porovnat pouze mezi jednotlivými metodami pro jedno ocenění, ale ne mezi
+oceněními, použijeme metodu součtu pořadí oceněných autorů, viz
+tab.~\ref{tab:oceneni1}. Pro každé ocenění a pro každou metodu sečteme pořadí
+všech autorů, kteří byli oceněni danou cenou. Tuto jednoduchou míru můžeme
+porovnat pouze mezi jednotlivými metodami pro jedno ocenění, ale ne mezi
 různými oceněními pro jednu metodu. Jednoduše protože např. Turingova cena je
 ve výsledcích udělena pouze několika autorům, z čehož plyne malý součet pořadí,
 kdežto velké množství autorů je členy ACM Fellows, tím pádem velký součet
@@ -1417,8 +1433,8 @@ wic\footnotemark[1] &86\,773 &7\,576\,984&4\,585\,710&710\,976\\
 Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod.
 Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
 rozsáhlou síť databáze CiteSeer je výpočet váženého betweenness časově velmi
-náročný úkol, jak můžeme nahlédnout jen z doby běhu aproximovaného betweenness
-v tab.~\ref{tab:impmetody}. Tab.~\ref{tab:btwA} znázorňuje Spearmanovy
+náročný úkol, jak můžeme nahlédnout z doby běhu aproximovaného betweenness v
+tab.~\ref{tab:impmetody}. Tab.~\ref{tab:btwA} znázorňuje Spearmanovy
 koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
 aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
 postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
@@ -1444,8 +1460,7 @@ zlomek velikosti množiny $V$ & Spearmanova korelace & doba běhu\,[min:sec.msec
 
 \chapter{Diskuse}
 V této kapitole se pokusíme přiblížit, proč jsou jednotlivé metody podobné samy
-sobě a co naznačuje, že skutečně měříme významnost a ne nějakou jinou
-vlastnost. 
+sobě a co naznačuje, že skutečně měříme významnost.
 
 Pokud bychom v praktických aplikacích chtěli měřit významnost autorů nebo
 obecně uzlů v jakékoliv komplexní síti, metody založené na nejkratších cestách
@@ -1459,9 +1474,8 @@ centralita betweenness, ale pro druhou náročnou metodu closeness byl zmíněn
 aproximační algoritmus. Protože tato aproximace nebyla implementována a
 vyzkoušena, nemůžeme o ní poskytnout jakýkoliv závěr.
 
-Z časového hlediska je výhodnější používat metody degree nebo eigenvector.
+Z časového hlediska je nejvýhodnější používat metody degree nebo eigenvector.
 
-% TODO tady můžeš napsat, že ta aproximace betweenness je v pořádku.
 \section{Podobnost výsledků jednotlivých metod}
 Množina autorů je pro obě databáze větší než 300\,000. Pro proměnné o této
 velikosti můžeme uvažovat statistickou signifikanci Spearmanovo koeficientu
@@ -1494,10 +1508,10 @@ tabulky~\ref{tab:ranks2} a~\ref{tab:ranks4} a názorně ukazují podobnost čty�
 základních metod centrality mezi sebou a podobnost s metodou H-index.
 
 
-Z vypočtených koeficientů korelací si můžeme dovolit tvrdit, že všechny
-implementované metody měří zhruba stejnou vlastnost - významnost, vyjma metod
-odeg, wodeg a oc, které se shodují s ostatními, jelikož jsou spíše důsledkem
-vysoké významnosti autora. 
+Z vypočtených signifikantních koeficientů korelací si můžeme dovolit tvrdit, že
+všechny implementované metody měří zhruba stejnou vlastnost - významnost, vyjma
+metod odeg, wodeg a oc, které se shodují s ostatními, jelikož jsou spíše
+důsledkem vysoké významnosti autora. 
 Yan a Ding rovněž nacházeji vysokou korelaci mezi jednotlivými mírami
 centrality (degree, PageRank, closeness a betweenness) a počtem citací. Počet
 citací měří kvalitu a významnost publikací, kdežto centralita měří jednak
@@ -1506,8 +1520,6 @@ rozsah spolupráce autora, closeness měří autorovu pozici a virtuální vzdá
 mezi ostatními ve svém oboru a betweenness měří důležitost autora při vzájemné
 komunikaci mezi autory v daném oboru~\citep{yanding2009}.
 
-% TODO jaká je signifikance spearmanovo korelace? 0.1? nebo kolik kurva? ZJISTIT!
-% TODO jsou teda podobný ty metody? Podle tý signifikance, ale na první pohled rozhodně.
 \section{Vliv vah na výsledky}
 Intuitivně bychom očekávali, že metody na vážené síti (wideg, wodeg, wBtwA,
 wic) budou vzájemně korelovat výše než ekvivalentní metody na nevážené síti
@@ -1516,16 +1528,14 @@ wic) budou vzájemně korelovat výše než ekvivalentní metody na nevážené 
 (0.134) a deg (0.529), viz tab.~\ref{tab:corr1}. U výsledků pro DBLP pro
 největší silně spojitou komponentu (tab.~\ref{tab:corr2}) dostáváme stejnou
 podobnost, tj. korelace mezi wBtwA a wideg (0.889), wodeg (0.529) a wdeg
-(0.766) je vyšší než mezi ideg (0.865), odeg (0.505) a deg (0.753).  Korelace
-mezi váženým closeness a váženým betweenness dominují nad korelacemi mezi
-váženým betweenness a neváženým closeness a naopak, tj. korelace mezi wic a
-wBtwA (0.930), wideg (0.887), wodeg (0.527) a wdeg (0.763) jsou vyšší než mezi
-wic a btwA (0.864), ideg (0.884), odeg (0.493) a deg (0.734).  Mohli bychom
-proto dedukovat, že všechny výsledky jsou si podobnější, pokud se aplikují
+(0.766) je vyšší než mezi wBtwA a ideg (0.865), odeg (0.505) a deg (0.753).
+Korelace mezi váženým closeness a váženým betweenness dominují nad korelacemi
+mezi váženým betweenness a neváženým closeness a naopak, tj. korelace mezi wic
+a wBtwA (0.930), wideg (0.887), wodeg (0.527) a wdeg (0.763) jsou vyšší než
+mezi wic a btwA (0.864), ideg (0.884), odeg (0.493) a deg (0.734). Mohli bychom
+proto usoudit, že všechny výsledky jsou si podobnější, pokud se aplikují
 výhradně na vážené síti nebo výhradně na nevážené síti, než pokud porovnáváme
 vážené s neváženými.
-% TODO shodujou se vážený výpočty víc s oceněníma?
-% TODO proč váhy nemaj tak velkej vliv? (je velká korelace mezi váženejma a neváženejma).
 
 Nemůžeme ale najisto tvrdit, že metody pro váženou síť jsou přesnější než
 metody pro neváženou síť. Logicky by měly být vážené metody přesnější, protože
@@ -1533,9 +1543,6 @@ pracují s větších množstvím informace, ale protože není významnost jedn
 definována, nemůžeme tvrdit, která z variant je přesnější.
 
 \section{Vstupní a výstupní hrany}
-%TODO proč u closeness je lepší použít inhrany a ne outhrany, ale u betweenness se používaj klasicky outhrany?
-
-
 Přestože vstupní a výstupní hrany mají opačný význam, existuje nezanedbatelná
 korelace mezi jejich interpretacemi \uv{cituji} a \uv{jsem citován}, tzn. pokud
 je autor často citován, pak je velká šance, že zároveň cituje ostatní autory.
@@ -1546,7 +1553,7 @@ Korelace mezi metodami ideg a odeg jsou jedny z nižších mezi porovnávanými
 Metody odeg, wodeg a oc, které zastupují výstupní hrany \uv{cituji}, jsou spíše
 důsledkem významnosti autora než její příčinou. Pokud je autor dlouho ve své
 branži a vybudoval si významnou pozici, pak můžeme očekávat, že zároveň
-referencoval práci mnoho jiných autorů.  Takový autor ve svém oboru již získal
+referencoval práci mnoha jiných autorů. Takový autor ve svém oboru již získal
 pozici významného člena a svými hodnotnými citacemi ostatních prací přispívá na
 jejich významnosti.
 
@@ -1558,13 +1565,14 @@ objektivně neměří významnost autora (rozdíl mezi \uv{cituji} u outdegree a
 \uv{jsem citován} u ostatních, tj. H-index, indegree, PageRank), u closeness
 centrality získáme vyšší korelace naopak při použití vstupních hran namísto
 výstupních.
-% TODO dokázat úryvkama korelací
 
 \section{Významní autoři}
 Pro databázi DBLP se bezkonkurenčně ve většině metod nejvýše umístil Michael
-Stonebraker (tab.~\ref{tab:ranks1} a~\ref{tab:ranks2} a příloha~\ref{chapter:zebricky}) z databázových systémů, který byl jako první oceněn cenou SIGMOD
-Edgar F. Codd, je členem ACM Fellows a mimo jiné drží ocenění IEEE John von
-Neumann Medal a byl zvolen členem NAE (National Academy of Engineering).
+Stonebraker (tab.~\ref{tab:ranks1} a~\ref{tab:ranks2} a
+příloha~\ref{chapter:zebricky}) z databázových systémů, který byl jako první
+oceněn cenou SIGMOD Edgar F. Codd, je členem ACM Fellows a mimo jiné drží
+ocenění IEEE John von Neumann Medal a byl zvolen členem NAE (National Academy
+of Engineering).
 
 U databáze CiteSeer je jedním z nejvýše umístěných autorů profesor informatiky
 na univerzitě UC Berkeley Scott Shenker (tab.~\ref{tab:ranks3}
@@ -1582,27 +1590,26 @@ se na vysokých pozicích převážně v metodách odeg, wodeg, oc, které nepov
 za přímé indikátory významnosti~\citep{mas}.
 
 \section{Porovnání výsledků s oceněními}
-Tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer,
-srovnávají jednotlivé metody s oceněními tak, že menší hodnota znamená méně
-oceněných autorů na nižších pozicích. Tedy oceněné autory nalezneme na vyšších
-pozicích, pokud máme v tabulce nízkou hodnotu. Všechny metody se přibližně v
-hodnotách shodují, vyjma metod odeg, wodeg a oc. Tyto metody ukazují na
-významnost autora, ale jsou více důsledkem než příčinou. Můžeme je použít ke
-srovnání ostatních metod, které mají obecně nižší hodnotu součtu oceněných
-pozic, a znázorňují větší shodu s oceněními.
+Tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer
+srovnávají jednotlivé metody s oceněními tak, že menší hodnota znamená více
+oceněných autorů na lepších pozicích. Všechny metody se přibližně v hodnotách
+shodují, vyjma metod odeg, wodeg a oc. Tyto metody ukazují na významnost
+autora, ale jsou více důsledkem než příčinou. Můžeme je použít ke srovnání
+ostatních metod, které mají obecně nižší hodnotu součtu oceněných pozic, a
+znázorňují větší shodu s oceněními.
 
 V žebříčcích nejvýznamnějších autorů jednotlivých implementovaných metod
 (příloha~\ref{chapter:zebricky}) si povšimneme koncentraci ocenění na vyšších
 pozicích. Zejména u databáze DBLP a ocenění ACM SIGMOD Edgar F. Codd
 Innovations Award (Codd), protože DBLP je databáze autorů se zaměřením na
 databázové systémy a ocenění ACM SIGMOD Edgar F. Codd Innovations Award je
-rovněž z oblasti databází a databázových systémů.  Rovněž podle
+rovněž z oblasti databází a databázových systémů. Rovněž podle
 tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer jsou
 součty pořadí oceněných autorů nejnižší pro ocenění Codd.
 
 Srovnání s Turingovo cenou (tab.~\ref{tab:oceneni1} a~\ref{tab:oceneni2})
 bychom ani neměli používat pro objektivní závěr, protože v databázích DBLP a
-CiteSeer je autorů, kteří jí byli oceněni, minimum.  ACM Fellows je na druhou
+CiteSeer je autorů, kteří jí byli oceněni, minimum. ACM Fellows je na druhou
 stranu hojně zastoupena mezi autory DBLP a CiteSeer, a proto ji s konfidencí
 můžeme použít jako referenci pro naše pozorování.
 
@@ -1648,7 +1655,7 @@ Následná analýza citačních sítí autorů vytvořených z databází DBLP a
 ukázala podobnost jednotlivých implementovaných metod a potvrdila očekávané
 jevy jako odlišnost metod využívajících výstupní hrany, jelikož tyto metody
 neberou v potaz vliv ostatních autorů na daného autora, ale měří pouze
-příspěvek vlivu, který daný autor odevzdá zpět do sítě.  Jiným pozoruhodným
+příspěvek vlivu, který daný autor odevzdá zpět do sítě. Jiným pozoruhodným
 zjištěním byl rozdíl mezi orientací hran při použití metody closeness a
 betweenness, kde první dosahovala lepších výsledků při použití vstupních hran a
 druhá při použití výstupních. Tento jev se nám kromě pozorování nepodařilo
