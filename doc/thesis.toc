@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {4.4.1}Degree}{14}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Eigenvector centrality}{14}{subsection.4.4.2}
 \contentsline {subsubsection}{PageRank}{15}{section*.15}
-\contentsline {subsection}{\numberline {4.4.3}Closeness centrality}{16}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.3}Closeness centrality}{17}{subsection.4.4.3}
 \contentsline {subsubsection}{Algoritmus}{17}{section*.16}
 \contentsline {subsubsection}{Aproximace}{18}{section*.17}
 \contentsline {subsection}{\numberline {4.4.4}Betweenness centrality}{19}{subsection.4.4.4}
@@ -55,10 +55,10 @@
 \contentsline {section}{\numberline {6.5}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} s ocen\IeC {\v e}n\IeC {\'\i }mi}{35}{section.6.5}
 \contentsline {section}{\numberline {6.6}Aproximace betweenness}{36}{section.6.6}
 \contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{37}{chapter.7}
-\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{43}{appendix.A}
-\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{47}{appendix.B}
-\contentsline {section}{\numberline {B.1}DBLP}{47}{section.B.1}
-\contentsline {section}{\numberline {B.2}CiteSeer}{49}{section.B.2}
-\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{51}{appendix.C}
-\contentsline {section}{\numberline {C.1}DBLP}{52}{section.C.1}
-\contentsline {section}{\numberline {C.2}CiteSeer}{66}{section.C.2}
+\contentsline {chapter}{\numberline {A}Tabulky korelac\IeC {\'\i }}{39}{appendix.A}
+\contentsline {chapter}{\numberline {B}Porovn\IeC {\'a}n\IeC {\'\i } po\IeC {\v r}ad\IeC {\'\i } implementovan\IeC {\'y}ch metod}{43}{appendix.B}
+\contentsline {section}{\numberline {B.1}DBLP}{43}{section.B.1}
+\contentsline {section}{\numberline {B.2}CiteSeer}{46}{section.B.2}
+\contentsline {chapter}{\numberline {C}\IeC {\v Z}eb\IeC {\v r}\IeC {\'\i }\IeC {\v c}ky v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{48}{appendix.C}
+\contentsline {section}{\numberline {C.1}DBLP}{49}{section.C.1}
+\contentsline {section}{\numberline {C.2}CiteSeer}{63}{section.C.2}

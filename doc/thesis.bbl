@@ -1,4 +1,4 @@
-\begin{thebibliography}{53}
+\begin{thebibliography}{55}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,11 +11,16 @@ ANTHONISSE, J.~M.
 \newblock Technical report, Stichting Mathemastisch Centrum, Amsterdam, The
   Netherlands, 1971.
 
+\bibitem[Bader et~al.(2007)Bader, Kintali, Madduri,, Mihail]{bkmm2007}
+BADER, D. et~al.
+\newblock {Approximating Betweenness Centrality}.
+\newblock \emph{Algorithms and Models for the Web-Graph}. 2007, s.~ 124--137.
+
 \bibitem[Barab\'asi(2003)]{barabasi2005}
 BARAB\'ASI, A.-L.
 \newblock \emph{Linked: How Everything Is Connected to Everything Else and What
   It Means for Business, Science, and Everyday Life}.
-\newblock {Plume Books}, 2003.
+\newblock New York, NY~: {Plume Books}, 2003.
 
 \bibitem[Barab\'asi -- Bonabeau(2003)Barab\'asi,
   Bonabeau]{barabasibonabeau2003}
@@ -258,6 +263,11 @@ SIGMOD, A.
 STEPHENSON, K. -- ZELEN, M.
 \newblock {Rethinking centrality: Methods and examples}.
 \newblock \emph{Social Networks}. 1989, 11, 1, s.~1--37.
+
+\bibitem[Tarjan(1972)]{tarjan1972}
+TARJAN, R.
+\newblock {Depth-First Search and Linear Graph Algorithms}.
+\newblock \emph{SIAM Journal on Computing}. 1972, 1, 2, s.~146--160.
 
 \bibitem[Trier()]{DBLP}
 TRIER, U.
