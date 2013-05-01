@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  1 MAY 2013 19:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.30)  1 MAY 2013 23:37
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -829,7 +829,7 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.95 \chapter
+l.97 \chapter
              *{Abstract} [1
 
 ] [2
@@ -846,7 +846,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.190 
+l.192 
        [1
 
 
@@ -861,67 +861,67 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.191 \chapter
-              {Sociální a citační sítě} [2]
+l.193 \chapter
+              {Sociální a~citační sítě} [2]
 Kapitola 2.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 191.
+(hyperref)                removing `\textasciicaron' on input line 193.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 191.
+(hyperref)                removing `\textasciicaron' on input line 193.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.243 
+l.245 
        [3
 
 ]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 268.
+(hyperref)                removing `\textasciicaron' on input line 270.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 268.
+(hyperref)                removing `\textasciicaron' on input line 270.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 280.
+(hyperref)                removing `\textasciicaron' on input line 282.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 280.
+(hyperref)                removing `\textasciicaron' on input line 282.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 290.
+(hyperref)                removing `\textasciicaron' on input line 292.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 290.
+(hyperref)                removing `\textasciicaron' on input line 292.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 290.
+(hyperref)                removing `\textring' on input line 292.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.300 
+l.302 
        [4]
 Package epstopdf Info: Source file: <pubs.eps>
 (epstopdf)                    date: 2013-04-17 13:18:57
@@ -931,7 +931,7 @@ Package epstopdf Info: Source file: <pubs.eps>
 (epstopdf)                    size: 6823 bytes
 (epstopdf)             Command: <epstopdf --outfile=pubs-eps-converted-to.pdf p
 ubs.eps>
-(epstopdf)             \includegraphics on input line 304.
+(epstopdf)             \includegraphics on input line 306.
 Package epstopdf Info: Output file is already uptodate.
  <pubs-eps-converted-to.pdf, id=303, 372.39125pt x 316.18124pt>
 File: pubs-eps-converted-to.pdf Graphic file (type pdf)
@@ -945,7 +945,7 @@ Package epstopdf Info: Source file: <auths.eps>
 (epstopdf)                    size: 7015 bytes
 (epstopdf)             Command: <epstopdf --outfile=auths-eps-converted-to.pdf 
 auths.eps>
-(epstopdf)             \includegraphics on input line 309.
+(epstopdf)             \includegraphics on input line 311.
 Package epstopdf Info: Output file is already uptodate.
 
 <auths-eps-converted-to.pdf, id=304, 399.4925pt x 304.13625pt>
@@ -955,12 +955,12 @@ File: auths-eps-converted-to.pdf Graphic file (type pdf)
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 315.
+(hyperref)                removing `\textasciicaron' on input line 317.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 315.
+(hyperref)                removing `\textasciicaron' on input line 317.
 
 Package epstopdf Info: Source file: <wNormal.eps>
 (epstopdf)                    date: 2013-04-17 14:01:54
@@ -970,7 +970,7 @@ Package epstopdf Info: Source file: <wNormal.eps>
 (epstopdf)                    size: 10493 bytes
 (epstopdf)             Command: <epstopdf --outfile=wNormal-eps-converted-to.pd
 f wNormal.eps>
-(epstopdf)             \includegraphics on input line 335.
+(epstopdf)             \includegraphics on input line 337.
 Package epstopdf Info: Output file is already uptodate.
 <wNormal-eps-converted-to.pdf, id=307, 387.4475pt x 385.44pt>
 File: wNormal-eps-converted-to.pdf Graphic file (type pdf)
@@ -984,7 +984,7 @@ Package epstopdf Info: Source file: <wRecip.eps>
 (epstopdf)                    size: 10635 bytes
 (epstopdf)             Command: <epstopdf --outfile=wRecip-eps-converted-to.pdf
  wRecip.eps>
-(epstopdf)             \includegraphics on input line 342.
+(epstopdf)             \includegraphics on input line 344.
 Package epstopdf Info: Output file is already uptodate.
 
 <wRecip-eps-converted-to.pdf, id=308, 447.6725pt x 332.24126pt>
@@ -994,7 +994,7 @@ File: wRecip-eps-converted-to.pdf Graphic file (type pdf)
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 348.
+(hyperref)                removing `\textasciicaron' on input line 350.
 
 [5 <./pubs-eps-converted-to.pdf> <./auths-eps-converted-to.pdf>] [6 <./wNormal-
 eps-converted-to.pdf> <./wRecip-eps-converted-to.pdf>]
@@ -1002,7 +1002,7 @@ Kapitola 3.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 357.
+(hyperref)                removing `\textasciicaron' on input line 359.
 
 Package epstopdf Info: Source file: <ewd_dblp.eps>
 (epstopdf)                    date: 2013-04-20 19:41:31
@@ -1012,7 +1012,7 @@ Package epstopdf Info: Source file: <ewd_dblp.eps>
 (epstopdf)                    size: 10267 bytes
 (epstopdf)             Command: <epstopdf --outfile=ewd_dblp-eps-converted-to.p
 df ewd_dblp.eps>
-(epstopdf)             \includegraphics on input line 404.
+(epstopdf)             \includegraphics on input line 406.
 Package epstopdf Info: Output file is already uptodate.
 <ewd_dblp-eps-converted-to.pdf, id=356, 578.16pt x 758.835pt>
 File: ewd_dblp-eps-converted-to.pdf Graphic file (type pdf)
@@ -1026,7 +1026,7 @@ Package epstopdf Info: Source file: <dd_dblp.eps>
 (epstopdf)                    size: 11472 bytes
 (epstopdf)             Command: <epstopdf --outfile=dd_dblp-eps-converted-to.pd
 f dd_dblp.eps>
-(epstopdf)             \includegraphics on input line 410.
+(epstopdf)             \includegraphics on input line 412.
 Package epstopdf Info: Output file is already uptodate.
 
 <dd_dblp-eps-converted-to.pdf, id=357, 578.16pt x 758.835pt>
@@ -1047,7 +1047,7 @@ Package epstopdf Info: Source file: <ewd_citeseer.eps>
 (epstopdf)                    size: 11034 bytes
 (epstopdf)             Command: <epstopdf --outfile=ewd_citeseer-eps-converted-
 to.pdf ewd_citeseer.eps>
-(epstopdf)             \includegraphics on input line 455.
+(epstopdf)             \includegraphics on input line 457.
 Package epstopdf Info: Output file is already uptodate.
 
 <ewd_citeseer-eps-converted-to.pdf, id=394, 578.16pt x 758.835pt>
@@ -1062,7 +1062,7 @@ Package epstopdf Info: Source file: <dd_citeseer.eps>
 (epstopdf)                    size: 14502 bytes
 (epstopdf)             Command: <epstopdf --outfile=dd_citeseer-eps-converted-t
 o.pdf dd_citeseer.eps>
-(epstopdf)             \includegraphics on input line 461.
+(epstopdf)             \includegraphics on input line 463.
 Package epstopdf Info: Output file is already uptodate.
 
 <dd_citeseer-eps-converted-to.pdf, id=395, 578.16pt x 758.835pt>
@@ -1080,52 +1080,52 @@ Kapitola 4.
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 542.
+(amsmath)                 on input line 544.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 548.
+(hyperref)                removing `\textring' on input line 550.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 553.
+(hyperref)                removing `\textasciicaron' on input line 555.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 553.
+(hyperref)                removing `\textring' on input line 555.
 
 [12] [13] [14] [15]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 732.
+put line 734.
  [16] [17] [18] [19] [20] [21] [22] [23] [24]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1176.
+(hyperref)                removing `\textring' on input line 1178.
 
 [25] [26]
 Kapitola 5.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 1280
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 1282
 .
 (/usr/share/texmf/tex/latex/R/tex/latex/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1280.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1282.
 
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1318.
+(hyperref)                removing `\textring' on input line 1320.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1318.
+(hyperref)                removing `\textasciicaron' on input line 1320.
 
 [27
 
@@ -1133,17 +1133,17 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1332.
+(hyperref)                removing `\textasciicaron' on input line 1334.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1332.
+(hyperref)                removing `\textasciicaron' on input line 1334.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1332.
+(hyperref)                removing `\textring' on input line 1334.
 
 Package epstopdf Info: Source file: <grafDBLP.eps>
 (epstopdf)                    date: 2013-04-21 10:37:22
@@ -1153,7 +1153,7 @@ Package epstopdf Info: Source file: <grafDBLP.eps>
 (epstopdf)                    size: 64231 bytes
 (epstopdf)             Command: <epstopdf --outfile=grafDBLP-eps-converted-to.p
 df grafDBLP.eps>
-(epstopdf)             \includegraphics on input line 1343.
+(epstopdf)             \includegraphics on input line 1345.
 Package epstopdf Info: Output file is already uptodate.
 <grafDBLP-eps-converted-to.pdf, id=653, 578.16pt x 758.835pt>
 File: grafDBLP-eps-converted-to.pdf Graphic file (type pdf)
@@ -1167,7 +1167,7 @@ Package epstopdf Info: Source file: <grafCS.eps>
 (epstopdf)                    size: 64313 bytes
 (epstopdf)             Command: <epstopdf --outfile=grafCS-eps-converted-to.pdf
  grafCS.eps>
-(epstopdf)             \includegraphics on input line 1349.
+(epstopdf)             \includegraphics on input line 1351.
 Package epstopdf Info: Output file is already uptodate.
 
 <grafCS-eps-converted-to.pdf, id=654, 578.16pt x 758.835pt>
@@ -1178,7 +1178,7 @@ File: grafCS-eps-converted-to.pdf Graphic file (type pdf)
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1362.
+(hyperref)                removing `\textasciicaron' on input line 1364.
 
 [30
 
@@ -1191,7 +1191,7 @@ Kapitola 6.
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1477.
+(hyperref)                removing `\textring' on input line 1479.
 
 [33
 
@@ -1199,24 +1199,24 @@ Package hyperref Warning: Composite letter `\textring+u'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1569.
+(hyperref)                removing `\textasciicaron' on input line 1571.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 1592.
+(hyperref)                removing `\textring' on input line 1594.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1592.
+(hyperref)                removing `\textasciicaron' on input line 1594.
 
 [35] [36]
 Kapitola 7.
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1634.
+(hyperref)                removing `\textasciicaron' on input line 1636.
 
 [37
 
@@ -1325,11 +1325,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 11444 strings out of 493848
- 165862 string characters out of 1152823
+ 11446 strings out of 493848
+ 165876 string characters out of 1152823
  462176 words of memory out of 3000000
  13614 multiletter control sequences out of 15000+50000
- 101623 words of font info for 520 fonts, out of 3000000 for 9000
+ 101672 words of font info for 521 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  41i,14n,43p,326b,506s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
@@ -1349,7 +1349,7 @@ mf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on thesis.pdf (85 pages, 796502 bytes).
+Output written on thesis.pdf (85 pages, 796639 bytes).
 PDF statistics:
  1120 PDF objects out of 1200 (max. 8388607)
  257 named destinations out of 1000 (max. 500000)

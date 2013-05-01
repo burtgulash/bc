@@ -47,12 +47,12 @@
 
 
 \author{Tomáš Maršálek}
-\title{Měření významnosti autorů v citační síti}
+\title{Měření významnosti autorů v~citační síti}
 \titlet{}
 \titlett{}
-\university{Západočeská univerzita v Plzni}
+\university{Západočeská univerzita v~Plzni}
 \faculty{Fakulta aplikovaných věd}
-\department{Katedra informatiky a výpočetní techniky}
+\department{Katedra informatiky a~výpočetní techniky}
 \subject{Bakalářská práce}
 \town{Plzeň}
 
@@ -62,13 +62,13 @@
 
 % \begin{titlepage}
 % \begin{center}
-% 	\Large{Západočeská univerzita v Plzni} \\
+% 	\Large{Západočeská univerzita v~Plzni} \\
 % 	\Large{Fakulta aplikovaných věd} \\
-% 	\Large{Katedra infromatiky a výpočetní techniky} \\
+% 	\Large{Katedra infromatiky a~výpočetní techniky} \\
 % \mbox{} \\[1.6cm]
 % 	\LARGE{{\bf Bakalářská práce}} \\
 % \mbox{} \\
-% 	\Huge{{\bf Měření významnosti autorů v citační síti}} \\
+% 	\Huge{{\bf Měření významnosti autorů v~citační síti}} \\
 % \end{center}
 % \vfill
 % \begin{minipage}{.5\textwidth}
@@ -88,7 +88,9 @@
 
 \chapter*{Prohlášení}
 \thispagestyle{empty}
-Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s~použitím citovaných pramenů.
+Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a~výhradně s~použitím citovaných pramenů.
+\vskip 1.5em
+V Plzni dne \today
 \vskip 0.7em
 \hskip 9cm Tomáš Maršálek
 
@@ -97,9 +99,9 @@ Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s
 Nodes of complex networks without any prior assignment of importance can
 still be ranked by importance determined by connections with other nodes.
 
-We discuss the notion of importance of a node in network and explore various
+We discuss the notion of importance of a~node in network and explore various
 methods for measuring node's importance (centrality measures and
-bibliographical methods). We then implement these methods as a Java library for
+bibliographical methods). We then implement these methods as a~Java library for
 analysis of complex networks and use it for analysis of citation networks
 created from bibliographical databases DBLP and CiteSeer.
 
@@ -112,15 +114,15 @@ between weighted and non-weighted networks and their impact on our results.
 
 
 % Prvky sociální sítě, které nemají žádné apriorní ohodnocení významnosti, jsou
-% různě významné pouze na základě vztahů s okolními prvky. V této práci byly
-% prozkoumány a implementovány známé metody centrality a bibliografické metody
-% měřící významnost prvků v sociální nebo citační síti. Výsledky aplikování metod
+% různě významné pouze na základě vztahů s~okolními prvky. V~této práci byly
+% prozkoumány a~implementovány známé metody centrality a~bibliografické metody
+% měřící významnost prvků v~sociální nebo citační síti. Výsledky aplikování metod
 % na volně dostupné citační databáze ukázaly vysokou podobnost jednotlivých metod
-% a rovněž shodu nejvýznamnějších autorů dle těchto metod se známými oceněními v
-% oblasti informatiky a informační vědy (Turing Award, Codd, ACM Fellows, ISI
-% Highly Cited). Bylo zjištěno, že některé implementované metody jsou i přes
-% použití nejrychlejších algoritmů výpočetně příliš náročné vzhledem k velikosti
-% citačních sítí, vzniklých z těchto citačních databází. Dále bylo empiricky
+% a~rovněž shodu nejvýznamnějších autorů dle těchto metod se známými oceněními v
+% oblasti informatiky a~informační vědy (Turing Award, Codd, ACM Fellows, ISI
+% Highly Cited). Bylo zjištěno, že některé implementované metody jsou i~přes
+% použití nejrychlejších algoritmů výpočetně příliš náročné vzhledem k~velikosti
+% citačních sítí, vzniklých z~těchto citačních databází. Dále bylo empiricky
 % potvrzeno, že implementované metody měří významnost, byť může mít více
 % interpretací.
 
@@ -138,164 +140,164 @@ between weighted and non-weighted networks and their impact on our results.
 \setcounter{page}{1}
 \pagestyle{fancy}
 \chapter{Úvod}
-V době, kdy je celý svět propojen internetem a sociálními sítěmi, si podvědomě
-začínáme uvědomovat provázanost celého světa a všímáme si struktur s
-charakterem sítě kolem nás. Úspěchem je rozpoznat síťovou strukturu a popsat
-ji, ale můžeme jít s myšlenkou dál? Jaké informace zjistíme, pokud budeme blíže
-zkoumat uzly a jejich spojení? V této práci nás bude zajímat jedna konkrétní
+V době, kdy je celý svět propojen internetem a~sociálními sítěmi, si podvědomě
+začínáme uvědomovat provázanost celého světa a~všímáme si struktur s
+charakterem sítě kolem nás. Úspěchem je rozpoznat síťovou strukturu a~popsat
+ji, ale můžeme jít s~myšlenkou dál? Jaké informace zjistíme, pokud budeme blíže
+zkoumat uzly a~jejich spojení? V~této práci nás bude zajímat jedna konkrétní
 kvalitativní vlastnost uzlů - významnost.
 
 Významnost není jednoznačně definována, ale intuitivně cítíme, když je
 například člověk významný mezi svými přáteli nebo můžeme zjistit, které město
-je klíčovým dopravním uzlem v železniční síti.  Představme si, že neznáme
-jednotlivé osoby v síti přátel a žádné informace o nich. Jak zjistíme, kdo je
+je klíčovým dopravním uzlem v~železniční síti.  Představme si, že neznáme
+jednotlivé osoby v~síti přátel a~žádné informace o~nich. Jak zjistíme, kdo je
 nejvýznamnější, pouze na základě vztahů mezi nimi? Naším cílem je zjistit nejen,
-které prvky obecné sítě jsou významné a které nikoliv, ale pokusíme se najít
+které prvky obecné sítě jsou významné a~které nikoliv, ale pokusíme se najít
 metody, jak seřadit prvky od nejvýznamnějšího po nejméně významný.
 
-Velký díl k zodpovězení otázky relativní významnosti prvků definovali
+Velký díl k~zodpovězení otázky relativní významnosti prvků definovali
 Freeman~\citep{freeman1979}; Bonacich~\citep{bonacich1972}, jehož práce je
-spojena s Hubbellovo~\citep{hubbell1965} mírou sociometrického statusu;
-Coleman~\citep{coleman1973} se svou mírou síly a Burt~\citep{burt1982} a jeho
-míra prestiže~\citep{friedkin1991}. Významnost prvku bývá v sociální síti často
-označována jako centralita a metody pro zjištění centrality jsou známé jako
-míry centrality (centrality measure). Původně byly vyvinuty v sociologickém
+spojena s~Hubbellovo~\citep{hubbell1965} mírou sociometrického statusu;
+Coleman~\citep{coleman1973} se svou mírou síly a~Burt~\citep{burt1982} a~jeho
+míra prestiže~\citep{friedkin1991}. Významnost prvku bývá v~sociální síti často
+označována jako centralita a~metody pro zjištění centrality jsou známé jako
+míry centrality (centrality measure). Původně byly vyvinuty v~sociologickém
 kontextu pro analýzu sociálních sítí, ale jejich princip lze snadno zobecnit na
 obecný graf, proto můžeme využít těchto metod pro analýzu citačních nebo jiných
 komplexních sítí, které nemají čistě sociologický význam.
 
-Tato práce je věnována citačním sítím, ale používáme metody z analýzy
-sociálních, dopravních, komunikačních a jiných sítí. V citační síti hledáme
-nejvýznamnější autory pouze podle toho, jak jsou provázáni s jinými autory
-podle referencí v publikacích, které napsali. Významnost autorů není úplnou
+Tato práce je věnována citačním sítím, ale používáme metody z~analýzy
+sociálních, dopravních, komunikačních a~jiných sítí. V~citační síti hledáme
+nejvýznamnější autory pouze podle toho, jak jsou provázáni s~jinými autory
+podle referencí v~publikacích, které napsali. Významnost autorů není úplnou
 neznámou, protože existuje množství ocenění, která byla udělena právě významným
-autorům a vědcům za jejich dílo. Samotné udělení ocenění mohlo tyto autory
-udělat významnými, přestože předtím nebyli. V jiném případě mohlo být důležité
+autorům a~vědcům za jejich dílo. Samotné udělení ocenění mohlo tyto autory
+udělat významnými, přestože předtím nebyli. V~jiném případě mohlo být důležité
 ocenění příčinou ještě větší významnosti autora. 
 
-V této práci budou přiblíženy detaily o nejpoužívanějších mírách centrality
+V této práci budou přiblíženy detaily o~nejpoužívanějších mírách centrality
 (degree, eigenvector centrality, betweenness centrality, closeness centrality),
-bibliografické metodě H-index a jejich implementaci. Výsledkem budou porovnání
-jednotlivých metod aplikovaných na citační sítě vytvořené z citačních databází
-DBLP a CiteSeer, které zároveň srovnáme s oceněními autorů v oblasti
+bibliografické metodě H-index a~jejich implementaci. Výsledkem budou porovnání
+jednotlivých metod aplikovaných na citační sítě vytvořené z~citačních databází
+DBLP a~CiteSeer, které zároveň srovnáme s~oceněními autorů v~oblasti
 informatiky (ACM SIGMOD Edgar F. Codd Innovations Award, ACM Fellows, ACM A.M.
 Turing Award, ISI Highly Cited highlighted).
 
-Cílem této práce je vytvořit knihovnu pro analýzu citační sítě s metodami pro
+Cílem této práce je vytvořit knihovnu pro analýzu citační sítě s~metodami pro
 měření významnosti autorů, použít ji pro nalezení žebříčků nejvýznamnějších
-autorůpro každou metodu. Tyto žebříčky poté mezi sebou porovnáme a jednotlivé
-metody srovnáme s již udělenými oceněními. Očekáváme, že pokud měříme
+autorůpro každou metodu. Tyto žebříčky poté mezi sebou porovnáme a~jednotlivé
+metody srovnáme s~již udělenými oceněními. Očekáváme, že pokud měříme
 významnost autora, přestože neznáme její přesnou definici, bude se shodovat s
 těmito oceněními.
 
-\chapter{Sociální a citační sítě}
+\chapter{Sociální a~citační sítě}
 Myšlenka sociální sítě existovala dlouho předtím, než je pod tímto termínem
-začali lidé rozpoznávat. Jedná se o komplexní struktury vztahů mezi členy
+začali lidé rozpoznávat. Jedná se o~komplexní struktury vztahů mezi členy
 sociálních uspořádání na všech úrovních - od osobních až po mezinárodní vztahy
 mezi organizacemi.
 
 Nejčastěji se ale setkáme se sociální sítí jako strukturou tvořenou lidmi,
-kteří jsou svázáni nějakým sociálním vztahem, zejména v poslední době s
+kteří jsou svázáni nějakým sociálním vztahem, zejména v~poslední době s
 rozmachem populárních webových sociálních sítí (MySpace, Facebook, G+, Lidé),
 jím bývá přátelství.
 
 \section{Reprezentace sítí}
-Abychom mohli pracovat s doposud abstraktním konceptem sítě, musíme být schopni
+Abychom mohli pracovat s~doposud abstraktním konceptem sítě, musíme být schopni
 ji reprezentovat jako datovou strukturu, na níž poté provedeme jakoukoliv
 analýzu.
 V odvětví matematiky teorie grafů je síť (graf) dvojice množin uzlů $V$
-(vrcholů) a spojení uzlů $E$ (hran) $G = (V, E)$.  Obecně můžeme uvažovat grafy
-s hranami s orientací či bez orientace. V obou případech se stále jedná o
+(vrcholů) a~spojení uzlů $E$ (hran) $G = (V, E)$.  Obecně můžeme uvažovat grafy
+s hranami s~orientací či bez orientace. V~obou případech se stále jedná o
 dvojici $(V, E)$, pouze pro orientovaný graf je množina hran množinou
-uspořádaných dvojic oproti množině neuspořádaných dvojic u neorientovaného
+uspořádaných dvojic oproti množině neuspořádaných dvojic u~neorientovaného
 grafu.
 
 V definici grafu je množina hran $E$ soubor dvojic, které označují koncové uzly
 hrany. Samotné spojení uzlů je jediná informace, kterou množina hran nese.
 Chceme-li zaznamenat nějakou další informaci, která je spojená se spojením dvou
 uzlů, namísto hrany jako dvojice koncových uzlů nadefinujeme hranu jako n-tici,
-kde první dvě hodnoty jsou koncové uzly a zbylé hodnoty nesou libovolnou
-informaci.  Ve většině případů si vystačíme s jednou dodatečnou informací a
+kde první dvě hodnoty jsou koncové uzly a~zbylé hodnoty nesou libovolnou
+informaci.  Ve většině případů si vystačíme s~jednou dodatečnou informací a
 nazýváme ji váha hrany. Jiná možnost pro zavedení vah hran je váhová funkce $f:
 E \mapsto \mathbb{R}$, kde $f(e) = w$ je ohodnocení konkrétní hrany $e \in E$.
-V případě zavedení vah hovoříme o vážených sítích.
+V případě zavedení vah hovoříme o~vážených sítích.
 
 Při zavedení vah máme například možnost používat síť jako multigraf, tedy graf,
 u kterého je povoleno více spojení mezi dvěma stejnými uzly. Počet stejných
 hran pak pouze zaznamenáme celočíselnou hodnotou ve váze hrany.
 
 Síť World Wide Web tvořená webovými stránkami je příkladem
-multigrafu, protože je povoleno z jedné stránky odkazovat na jinou na více
-místech. Při analýze takovýchto sítí využijeme právě vah hran a počet
+multigrafu, protože je povoleno z~jedné stránky odkazovat na jinou na více
+místech. Při analýze takovýchto sítí využijeme právě vah hran a~počet
 hypertextových odkazů mezi dvěma stránkami zaznamenáme vyšším ohodnocením
-hrany. V tomhle případě znamená vyšší váha silnější pouto mezi uzly.
+hrany. V~tomhle případě znamená vyšší váha silnější pouto mezi uzly.
 
-Jiným případem může být např. síť, kde sledujeme města a dopravní spojení
-mezi nimi. V tomto případě nás může zajímat vzdálenost nebo časová náročnost
+Jiným případem může být např. síť, kde sledujeme města a~dopravní spojení
+mezi nimi. V~tomto případě nás může zajímat vzdálenost nebo časová náročnost
 na dopravu mezi dvěma městy, které budou znamenat silnější pouto, pokud budou
 mít naopak menší váhu. Hledáme totiž nejkratší či nejrychlejší spojení.
 
 
-Pro reprezentaci v paměti počítače se nejčastěji používají dva způsoby - matice
-sousednosti a graf pomocí spojových seznamů. Z pohledu uzlu se hrany v případě
-orientovaného grafu liší. Pokud hrana vychází z uzlu, nazveme ji výstupní
-hrana, v opačném případě se bude jednat o vstupní hranu.
+Pro reprezentaci v~paměti počítače se nejčastěji používají dva způsoby - matice
+sousednosti a~graf pomocí spojových seznamů. Z~pohledu uzlu se hrany v~případě
+orientovaného grafu liší. Pokud hrana vychází z~uzlu, nazveme ji výstupní
+hrana, v~opačném případě se bude jednat o~vstupní hranu.
 
 
-Matice sousednosti (adjacency matrix) je čtvercová matice $A$ o velikosti počtu
-vrcholů grafu $|V|$, ve které prvek ${\bf A}_{uv}$ na řádku $u$ a sloupci $v$
+Matice sousednosti (adjacency matrix) je čtvercová matice $A$ o~velikosti počtu
+vrcholů grafu $|V|$, ve které prvek ${\bf A}_{uv}$ na řádku $u$ a~sloupci $v$
 určuje, jestli existuje hrana od vrcholu $u$ do vrcholu $v$. Pokud je hodnota
 ${\bf A}_{uv}$ $1$, pak hrana existuje; pokud je hodnota $0$, pak hrana
-neexistuje a pokud je hodnota $w$, pak hrana existuje s váhou $w$.
+neexistuje a~pokud je hodnota $w$, pak hrana existuje s~váhou $w$.
 
 Jiným maticovým způsobem uchování grafu je incidenční matice (incidence matrix)
-${\bf B}$.  Incidenční matice vyjadřuje vztah mezi vrcholy a hranami tak, že
-${\bf B}_{ue} = 1$, pokud je vrchol $u$ spojený s hranou $e$, a $0$ v opačném
-případě. V orientovaném grafu rozlišujeme mezi počátečním uzlem ${\bf B}_{ue} =
--1$ a koncovým uzlem ${\bf B}_{ue} = 1$. Incidenční matice se pro výpočetní
-teorii grafů často nepoužívá z důvodu paměťové náročnosti, která je pro většinu
-grafů výrazně vyšší než u matice sousednosti ($\Theta(|V||E|)$ oproti
+${\bf B}$.  Incidenční matice vyjadřuje vztah mezi vrcholy a~hranami tak, že
+${\bf B}_{ue} = 1$, pokud je vrchol $u$ spojený s~hranou $e$, a~$0$ v~opačném
+případě. V~orientovaném grafu rozlišujeme mezi počátečním uzlem ${\bf B}_{ue} =
+-1$ a~koncovým uzlem ${\bf B}_{ue} = 1$. Incidenční matice se pro výpočetní
+teorii grafů často nepoužívá z~důvodu paměťové náročnosti, která je pro většinu
+grafů výrazně vyšší než u~matice sousednosti ($\Theta(|V||E|)$ oproti
 $\Theta(|V|^2)$, kde množina hran dosahuje velikostí $O(|V|^2)$).
 
 Nejčastěji tedy používáme myšlenku sousednosti vrcholů, ale namísto
-reprezentace maticí, která je ve většině případů řídká a obsahuje zbytečně
+reprezentace maticí, která je ve většině případů řídká a~obsahuje zbytečně
 velké množství nul, použijeme reprezentaci řídké matice - řádek nahradíme
-seznamem vrcholů, které v matici sousednosti mají nenulovou hodnotu. Tento
+seznamem vrcholů, které v~matici sousednosti mají nenulovou hodnotu. Tento
 způsob je známý jako graf pomocí spojových seznamů (adjacency list
-representation of a graph).
+representation of a~graph).
 
 
 \section{Citační sítě}
 Citační sítě jsou podobné sociálním sítím, pouze místo uzlů, které představují
-osoby, se v citační síti jedná o publikace nebo autory těchto publikací. Pokud
+osoby, se v~citační síti jedná o~publikace nebo autory těchto publikací. Pokud
 je uzlem publikace, pak hrany této sítě symbolizují citaci publikace jinou
-publikací. V druhém případě uvažujeme síť, kde uzly reprezentují autory knih,
-vědeckých článků, vědecké literatury a dalších publikací. Prvnímu typu říkáme
+publikací. V~druhém případě uvažujeme síť, kde uzly reprezentují autory knih,
+vědeckých článků, vědecké literatury a~dalších publikací. Prvnímu typu říkáme
 citační síť publikací, druhému citační síť autorů. Citační sítě patří do
-kategorie bezškálových sítí. Citační síť autorů pro databázi DBLP i CiteSeer
-mají mocninné rozložení stupňů i vah hran
+kategorie bezškálových sítí. Citační síť autorů pro databázi DBLP i~CiteSeer
+mají mocninné rozložení stupňů i~vah hran
 (obr.~\ref{fig:dblpweightsdistribution}, \ref{fig:citeseerweightsdistribution},
 \ref{fig:dblpdegreedistribution}, \ref{fig:citeseerdegreedistribution}).
 
 \subsection{Citační síť publikací}
-Uvažujeme-li první případ, kde uzly reprezentují publikace a hrany přímo citace
-mezi těmito publikacemi, jedná se o síť publikací. Pokud publikace $A$ odkazuje
-na publikaci $B$, budou existovat stejnojmenné uzly $A$ a $B$ a hrana mezi
+Uvažujeme-li první případ, kde uzly reprezentují publikace a~hrany přímo citace
+mezi těmito publikacemi, jedná se o~síť publikací. Pokud publikace $A$ odkazuje
+na publikaci $B$, budou existovat stejnojmenné uzly $A$ a~$B$ a~hrana mezi
 těmito uzly může mít dvě různé orientace podle svého uplatnění. Směr od
-citující publikace k citované (v našem příkladě od $A$ do $B$) bude mít hrana,
-kterou označíme jako výstupní pro uzel $A$ a vstupní pro uzel $B$.  Výstupní
+citující publikace k~citované (v~našem příkladě od $A$ do $B$) bude mít hrana,
+kterou označíme jako výstupní pro uzel $A$ a~vstupní pro uzel $B$.  Výstupní
 hrana, laicky řečeno, označuje vztah \uv{cituji}, kdežto vstupní hrana znamená
 \uv{jsem citován}.
 
 \subsection{Citační síť autorů}
 Druhou citační sítí je citační síť autorů. Zde je uzel reprezentací autora a
-hrany spojují autory mezi sebou. Ve většině případech máme k dispozici data ve
+hrany spojují autory mezi sebou. Ve většině případech máme k~dispozici data ve
 formátu, který přímo odpovídá síti publikací, tj. pro každou publikaci známe
-seznam jejích autorů a odkazů na další publikace. Síť autorů lze získat
-transformací sítě publikací tak, že každou hranu z původní sítě publikací
-přiřadíme každému z autorů citující publikace a duplikujeme ji pro každého z
+seznam jejích autorů a~odkazů na další publikace. Síť autorů lze získat
+transformací sítě publikací tak, že každou hranu z~původní sítě publikací
+přiřadíme každému z~autorů citující publikace a~duplikujeme ji pro každého z
 autorů citované publikace (obr.~\ref{fig:transform}). Celkově vznikne $nm$
-nových hran, pokud odkazovaná publikace obsahuje $n$ autorů a odkazující $m$
+nových hran, pokud odkazovaná publikace obsahuje $n$ autorů a~odkazující $m$
 autorů. 
 
 \begin{figure}[!ht]
@@ -308,7 +310,7 @@ autorů.
 \centering
 	\includegraphics[width=\textwidth]{auths.eps}
 \end{minipage}
-\caption{Transformace z citační sítě publikací na citační síť autorů}
+\caption{Transformace z~citační sítě publikací na citační síť autorů}
 \label{fig:transform}
 \end{figure}
 
@@ -320,10 +322,10 @@ daný autor $A$, které odkazují na publikace, jejichž autorem je autor $B$.
 
 Druhou možností ohodnocení hran, kterou využívá implementovaná knihovna pro
 některé metody, je převrácená hodnota prvního způsobu ohodnocení. Důvodem je
-přímá souvislost mezi váhou hrany a vzdáleností mezi uzly. 
+přímá souvislost mezi váhou hrany a~vzdáleností mezi uzly. 
 
 V prvním případě (obr.~\ref{fig:wNormal}) silnější pouto mezi autory vyjadřuje
-vyšší ohodnocení hrany, v druhém případě (obr.~\ref{fig:wRecip}) je naopak
+vyšší ohodnocení hrany, v~druhém případě (obr.~\ref{fig:wRecip}) je naopak
 nižší váha vyjádřením silnějšího vztahu, jelikož jsou si uzly blíže.  Tento
 způsob je používán pro algoritmy, které pracují na myšlence nejkratších cest
 mezi uzly. 
@@ -340,38 +342,38 @@ mezi uzly.
 \begin{minipage}[b]{0.45\textwidth}
 \centering
 	\includegraphics[width=\textwidth]{wRecip.eps}
-	\caption{Stejná síť autorů s převrácenou hodnotou váhy ($\frac{1}{w}$)}
+	\caption{Stejná síť autorů s~převrácenou hodnotou váhy ($\frac{1}{w}$)}
 	\label{fig:wRecip}
 \end{minipage}
 \end{figure}
 
-\subsection{Orientované a neorientované sítě}
+\subsection{Orientované a~neorientované sítě}
 V případě sociálních sítí nejčastěji uvažujeme sítě bez orientace, protože
-nejčastěji modelovaný vztah \uv{přítel-přítel} je ekvivalentní z pohledu obou
+nejčastěji modelovaný vztah \uv{přítel-přítel} je ekvivalentní z~pohledu obou
 koncových uzlů. Pro citační síť jsou namístě orientované hrany, protože vztahy
 \uv{autor odkazujícího na jiného autora} nebo \uv{publikace citující jinou
-publikaci} mají očividně jinou interpretaci z pohledu koncových uzlů. Buďto se
-jedná o citovaného nebo citujícího autora či publikaci.
+publikaci} mají očividně jinou interpretaci z~pohledu koncových uzlů. Buďto se
+jedná o~citovaného nebo citujícího autora či publikaci.
 
 
 \chapter{Citační databáze}
 Bibliografická citační databáze poskytují možnost vyhledávání bibliografických
-citací. Velké množství z dnešních citačních databází se zaměřuje na jeden obor.
-\citep{libraryamnh}.  Jiné jsou multioborové s možností volby prohledávaného
+citací. Velké množství z~dnešních citačních databází se zaměřuje na jeden obor.
+\citep{libraryamnh}.  Jiné jsou multioborové s~možností volby prohledávaného
 oboru (Scopus, Web of Science).
 
 \section{DBLP}
 DBLP \citep{DBLP} je webová bibliografická databáze hostovaná Trierské
-univerzitě. Od 80. let indexovala literaturu z oblasti databázových systémů a
-logického programovaní, ale postupně se její zaměření zobecnilo a nyní je
-bibliografickou databází obecně pro obor informatiky.  V roce 2012 obsahovala
-více než dva miliony článků. Metody implementované v této práci jsou aplikovány
-na verzi z roku 2004. Tab.~\ref{tab:dblpstat} poskytuje statistiky o citačních
-sítí vytvořených z této databáze.  
+univerzitě. Od 80. let indexovala literaturu z~oblasti databázových systémů a
+logického programovaní, ale postupně se její zaměření zobecnilo a~nyní je
+bibliografickou databází obecně pro obor informatiky.  V~roce 2012 obsahovala
+více než dva miliony článků. Metody implementované v~této práci jsou aplikovány
+na verzi z~roku 2004. Tab.~\ref{tab:dblpstat} poskytuje statistiky o~citačních
+sítí vytvořených z~této databáze.  
 
 Obr.~\ref{fig:dblpweightsdistribution} znázorňuje vlastnosti bezškálové sítě
 pro váženou citační síť autorů - čím vyšší váha, tím menší pravděpodobnost
-výskytu v síti.  Obr.~\ref{fig:dblpdegreedistribution} znázorňuje mocninné
+výskytu v~síti.  Obr.~\ref{fig:dblpdegreedistribution} znázorňuje mocninné
 rozdělení stupňů uzlů pro stejnou síť.
 
 \begin{table}[!ht]
@@ -383,9 +385,9 @@ rozdělení stupňů uzlů pro stejnou síť.
 & hodnota \\
 \midrule
 Počet publikací & 470\,554 \\
-Počet hran v síti publikací & 109\,130 \\
+Počet hran v~síti publikací & 109\,130 \\
 Počet autorů & 315\,485 \\
-Počet hran v síti autorů & 331\,245 \\
+Počet hran v~síti autorů & 331\,245 \\
 Počet samocitací & 3\,095 \\
 Průměrný počet spoluautorů & 2.278 \\
 Největší silně spojitá komponenta & 1.637\% \\
@@ -415,12 +417,12 @@ Poloměr grafu\footnotemark[2] & 6.637 \\
 
 \section{CiteSeer}
 CiteSeer~\citep{citeseer} (nyní CiteSeer$^X$) je považován za první
-automatizovaný systém shromažďování publikací a autonomní indexace citací v
-nich obsažených. Publikace jsou zejména z oboru informatiky a informační vědy.
-V dnešní době obsahuje přes dva miliony dokumentů s téměř dvěma miliony autorů
-a čtyřiceti miliony citací. Zde používáme verzi z roku 2005.
-Stejně jako u databáze DBLP jsou v tab.~\ref{tab:citeseerstat} uvedeny
-statistiky pro vytvořené citační sítě a v
+automatizovaný systém shromažďování publikací a~autonomní indexace citací v
+nich obsažených. Publikace jsou zejména z~oboru informatiky a~informační vědy.
+V dnešní době obsahuje přes dva miliony dokumentů s~téměř dvěma miliony autorů
+a čtyřiceti miliony citací. Zde používáme verzi z~roku 2005.
+Stejně jako u~databáze DBLP jsou v~tab.~\ref{tab:citeseerstat} uvedeny
+statistiky pro vytvořené citační sítě a~v
 obr.~\ref{fig:citeseerweightsdistribution}
 a~\ref{fig:citeseerdegreedistribution} ukázka vlastností bezškálové sítě pro
 citační síť autorů.
@@ -434,9 +436,9 @@ citační síť autorů.
 & hodnota \\
 \midrule
 Počet publikací & 659\,814 \\
-Počet hran v síti publikací & 1\,624\,758 \\
+Počet hran v~síti publikací & 1\,624\,758 \\
 Počet autorů & 406\,465 \\
-Počet hran v síti autorů & 5\,398\,239 \\
+Počet hran v~síti autorů & 5\,398\,239 \\
 Počet samocitací & 60\,639 \\
 Průměrný počet spoluautorů & 2.525 \\
 Největší silně spojitá komponenta & 29.763\% \\
@@ -468,85 +470,85 @@ Poloměr grafu\footnotemark[2] & 11.489 \\
 
 \chapter{Analýza sítí}
 Více než 40 let byly považovány všechny komplexní sítě za naprosto náhodné.
-Paul Erdős a Alfréd Rényi v roce 1959 navrhli modelování komunikačních sítí a
-sítí, které se vyskytují v přírodních vědách, spojením uzlů náhodnými hranami.
+Paul Erdős a~Alfréd Rényi v~roce 1959 navrhli modelování komunikačních sítí a
+sítí, které se vyskytují v~přírodních vědách, spojením uzlů náhodnými hranami.
 Tato jednoduchá metoda vytvoření náhodného grafu způsobí rozložení stupňů
-vrcholů (počet spojení vrcholu s ostatními) podle Poissonova rozdělení
-pravděpodobnosti s charakteristickou křivkou připomínající zvon - většina uzlů
+vrcholů (počet spojení vrcholu s~ostatními) podle Poissonova rozdělení
+pravděpodobnosti s~charakteristickou křivkou připomínající zvon - většina uzlů
 má zhruba stejný stupeň~\citep{barabasi2005,barabasibonabeau2003}.
 
-V roce 1998 bylo na univerzitě v Notre Dame (Barabási et al.) provedeno
-mapování sítě World Wide Web s očekáváním, že výsledkem bude náhodná síť.
+V roce 1998 bylo na univerzitě v~Notre Dame (Barabási et al.) provedeno
+mapování sítě World Wide Web s~očekáváním, že výsledkem bude náhodná síť.
 Přestože byl zmapován pouze zlomek celé sítě, výsledkem bylo přes všechna
 očekávání zcela jiné rozdělení stupňů - mocninné. Přes $80\%$ uzlů mělo méně
 než čtyři spojení, ale méně než $0.01\%$ uzlů mělo více než tisíc spojení.
-Sítě, které se řídí mocninným rozdělením stupňů, nazvali Barabási a jeho
+Sítě, které se řídí mocninným rozdělením stupňů, nazvali Barabási a~jeho
 kolegové bezškálovými sítěmi (scale-free network). Rozpoznání tohoto jevu vedlo
-k lepšímu porozumění šíření virů a epidemií nebo proč některé sítě fungují
-takřka beze změny i přes poruchu většiny jejich
+k lepšímu porozumění šíření virů a~epidemií nebo proč některé sítě fungují
+takřka beze změny i~přes poruchu většiny jejich
 uzlů~\citep{barabasibonabeau2003}.  
 
-Sociální a citační sítě se řadí do kategorie bezškálových sítí. Například autor
-vědecké literatury, jehož dílo je v dané oblasti známé, má velkou šanci, že
-bude citován dalšími autory, především těmi novými. Stejně tak osoba s velkým
-počtem přátel má velikou šanci, že bude představen novým lidem a rozšíří si tak
-svůj okruh přátel ještě více. Tomuto jevu se v bezškálových sítí říká
+Sociální a~citační sítě se řadí do kategorie bezškálových sítí. Například autor
+vědecké literatury, jehož dílo je v~dané oblasti známé, má velkou šanci, že
+bude citován dalšími autory, především těmi novými. Stejně tak osoba s~velkým
+počtem přátel má velikou šanci, že bude představen novým lidem a~rozšíří si tak
+svůj okruh přátel ještě více. Tomuto jevu se v~bezškálových sítí říká
 \uv{bohatší se stává bohatším}~\citep{barabasibonabeau2003}.
 
-Rozvinutou disciplínou v oblasti sítí je analýza sociálních sítí, která se
-stala klíčovou technikou v moderní sociologii a stala se významnou v různých
+Rozvinutou disciplínou v~oblasti sítí je analýza sociálních sítí, která se
+stala klíčovou technikou v~moderní sociologii a~stala se významnou v~různých
 vědeckých oblastech (antropologie, biologie, komunikace, ekonomie, informační
 věda, geografie, historie, politologie, atd.).
 
 Analýza sociálních sítí zkoumá povahu vztahů (homofilie, multiplexita,
-vzájemnost, blízkost vztahů, atd.) rozdělení vlastností v síti (míry
+vzájemnost, blízkost vztahů, atd.) rozdělení vlastností v~síti (míry
 centrality, hustota sítě, atd.) nebo segmentaci (souvislost grafu, komponenty
 grafu, kliky, koeficient shlukování, atd.).
 
-\section{Souvislost a komponenty grafu}
-Neorientovaný graf je souvislý, pokud pro každé jeho dva vrcholy $u$ a $v$
-existuje alespoň jedna cesta z $u$ do $v$. U neorientovaného grafu hovoříme o
+\section{Souvislost a~komponenty grafu}
+Neorientovaný graf je souvislý, pokud pro každé jeho dva vrcholy $u$ a~$v$
+existuje alespoň jedna cesta z~$u$ do $v$. U~neorientovaného grafu hovoříme o
 slabé souvislosti. 
 
 Pro orientovaný graf uvažujeme silnou souvislost, protože ačkoli existuje
-cesta z $u$ do $v$, není zaručeno, že existuje cesta z $v$ do $u$.  Slabě
+cesta z~$u$ do $v$, není zaručeno, že existuje cesta z~$v$ do $u$.  Slabě
 souvislý orientovaný graf znamená, že neorientovaný graf, který by vznikl
 nahrazením orientovaných hran neorientovanými (symetrizace grafu), by byl
 souvislý.
 
 Komponenta je pak maximálně souvislý podgraf. Jinak řečeno komponenta je
 podgraf takový, kdy všechny jeho vrcholy jsou spojeny nějakou cestou.
-Komponentou je i samostatný vrchol.
+Komponentou je i~samostatný vrchol.
 
 
 Všechny slabě souvislé komponenty grafu najdeme pomocí jednoduchých algoritmů
 \uv{prohledávání do šířky} nebo \uv{do hloubky}. Spuštění prohledávání najde
 celou komponentu, ve které se výchozí vrchol nachází. Pokud zaznamenáváme,
-které vrcholy byly nalezeny a spustíme prohledávání ze všech nenalezených
+které vrcholy byly nalezeny a~spustíme prohledávání ze všech nenalezených
 vrcholů, najdeme všechny komponenty. 
 
 Silně spojité komponenty nenajdeme pouhým prohledáním do šířky nebo do hloubky,
 ale použijeme sofistikovanější algoritmy (Kosarajův,
-Tarjanův~\citep{tarjan1972}, atd.), které principově vycházejí z prohledávání
+Tarjanův~\citep{tarjan1972}, atd.), které principově vycházejí z~prohledávání
 do hloubky.
 
-\section{Klika v grafu}
-Klika (clique) v grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
+\section{Klika v~grafu}
+Klika (clique) v~grafu je úplný podgraf. To znamená, že všechny vrcholy kliky
 jsou spojeny přímo hranou.
 
 V sociologii slovo klika popisuje skupinu dvou až dvanácti lidí, kteří jsou na
-sebe vázáni více než na jiné lidi v tomtéž prostředí~\citep{salkind2008}.
+sebe vázáni více než na jiné lidi v~tomtéž prostředí~\citep{salkind2008}.
 Klika je spojení lidí silnější než sociální kruh.
 
-Algoritmus pro nalezení největší kliky v grafu je přímočaré otestování $n$
+Algoritmus pro nalezení největší kliky v~grafu je přímočaré otestování $n$
 vrcholů podgrafu pro všech $\sum_{k = 0}^L {|V| \choose k}$ podgrafů grafu,
 kde $L$ je horní limit velikosti podgrafu. Pokud je všech $\frac{n(n - 1)}{2}$
-párů vrcholů daného podgrafu spojených hranou, pak se jedná o kliku. Problém má
+párů vrcholů daného podgrafu spojených hranou, pak se jedná o~kliku. Problém má
 exponenciální složitost, proto je horní hranice velikosti podgrafu ve výpočtech
 omezena na 20.
 
 \section{Významnost uzlů}
-Významnost autorů je jedním z předmětů zájmu analýzy sociálních sítí. Kdybychom
+Významnost autorů je jedním z~předmětů zájmu analýzy sociálních sítí. Kdybychom
 se měli rozhodnout, kterého člena sítě zvolit jako vůdce nebo přes které členy
 nejrychleji rozšíříme zprávu, koho bychom měli vybrat? 
 
@@ -554,8 +556,8 @@ nejrychleji rozšíříme zprávu, koho bychom měli vybrat?
 Významní autoři vědecké literatury bývají za své dílo oceněni významnou cenou
 nebo zařazeni do seznamů významných členů.
 
-Autory, kteří byli oceněni těmito cenami, můžeme považovat za významné a
-častokrát citované už jen proto, že přítomností jejich jména v seznamu
+Autory, kteří byli oceněni těmito cenami, můžeme považovat za významné
+a~častokrát citované už jen proto, že přítomností jejich jména v~seznamu
 oceněných prestižní cenou se dostanou do podvědomí mnoha jiných, zejména
 začínajících autorů.
 
@@ -564,61 +566,61 @@ ACM A.M. Turing Award je ocenění ročně udělované skupinou ACM (Association
 Computing Machinery) jedincům vybraným pro kontribuce technického ducha do
 výpočetního světa~\citep{turingaward}.
 
-Turingova cena je brána jako nejvyšší vyznamenání v informatice a je lidově
+Turingova cena je brána jako nejvyšší vyznamenání v~informatice a~je lidově
 nazývána Nobelovou cenou pro informatiku \citep{dasgupta}.
 
 \subsubsection{ACM SIGMOD Edgar F. Codd Innovations Award}
 ACM SIGMOD Edgar F. Codd Innovations Award je ohodnocení životního díla
 skupinou ACM SIGMOD (Special Interest Group on Management of Data) za
-inovativní a vysoce ceněné kontribuce k rozvoji, porozumění a použití
-databázových systémů a databází \citep{sigmodinnovations}.
+inovativní a~vysoce ceněné kontribuce k~rozvoji, porozumění a~použití
+databázových systémů a~databází \citep{sigmodinnovations}.
 
 \subsubsection{ACM Fellows}
-\uv{The ACM Fellows Program} byl založen v roce 1993, aby našel a ocenil
-vynikající členy ACM za jejich dílo v informatice a informační vědě a pro
+\uv{The ACM Fellows Program} byl založen v~roce 1993, aby našel a~ocenil
+vynikající členy ACM za jejich dílo v~informatice a~informační vědě a~pro
 jejich významné kontribuce pro účel ACM. Členové ACM Fellows slouží jako
-význační kolegové, ke kterým ACM a jejich členové vzhlížejí jako k autoritám v
+význační kolegové, ke kterým ACM a~jejich členové vzhlížejí jako k~autoritám v
 době rozvoje informačních technologií \citep{acmfellows}.
 
 \subsubsection{ISI Highly Cited highlighted}
-ISI Highly Cited je databáze často citovaných autorů v článcích posledního
+ISI Highly Cited je databáze často citovaných autorů v~článcích posledního
 desetiletí, které byly publikovány institutem ISI (Institute for Scientific
-Information). Ten v dnešní době spadá pod agenturu Thomson Reuters, na jejíchž
-webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z let
+Information). Ten v~dnešní době spadá pod agenturu Thomson Reuters, na jejíchž
+webových stránkách nalezneme seznam autorů ISI Highly Cited highlighted z~let
 2000 až 2008 napříč 21 vědeckými obory \citep{highlycited}.
 
 \section{Míry centrality}
 V sítích dopravní infrastruktury nás zajímá, po které cestě se nejrychleji a
-nejvýhodněji dostat z bodu $A$ do bodu $B$. V sociálních a citačních sítích
-nemůžeme intuitivně hovořit o nějakých cestách mezi uzly, protože ani přesně
+nejvýhodněji dostat z~bodu $A$ do bodu $B$. V~sociálních a~citačních sítích
+nemůžeme intuitivně hovořit o~nějakých cestách mezi uzly, protože ani přesně
 nevíme, jak takovou cestu interpretovat. Nejkratší cesta mezi přáteli v
 sociální síti může znamenat, přes které přátele se mezi nimi nejpravděpodobněji
-šíří informace. V sítích spolupráce vědeckých autorů se například setkáme s
+šíří informace. V~sítích spolupráce vědeckých autorů se například setkáme s
 tzv. Erdősovým číslem, které vyjadřuje nejkratší vzdálenost mezi osobou a
-matematikem Paulem Erdősem v rámci spolupráce na vědeckých článcích v oboru
+matematikem Paulem Erdősem v~rámci spolupráce na vědeckých článcích v~oboru
 matematiky~\citep{barabasi2005}.
 
-Použijeme-li metody z dopravních sítí pro analýzu sociálních a citačních sítí,
-které v jádře spočívají v hledání nejkratších cest, setkáme se se dvěma
-nejznámějšími mírami centrality, a to closeness centrality a betweenness
+Použijeme-li metody z~dopravních sítí pro analýzu sociálních a~citačních sítí,
+které v~jádře spočívají v~hledání nejkratších cest, setkáme se se dvěma
+nejznámějšími mírami centrality, a~to closeness centrality a~betweenness
 centrality.
 
-Nechť cesta z bodu $u \in V$ do bodu $v \in V$ je střídající se posloupnost
-vrcholů a hran takových, že spojují předcházející a následující vrchol v této
+Nechť cesta z~bodu $u \in V$ do bodu $v \in V$ je střídající se posloupnost
+vrcholů a~hran takových, že spojují předcházející a~následující vrchol v~této
 posloupnosti. Délka cesty je pak součet vah hran této cesty nebo pouze počet
-hran v případě neváženého grafu. Vzdálenost vrcholů $d_G(u, v)$ je délka
-nejkratší z cest, která spojuje vrcholy $u$ a $v$.
+hran v~případě neváženého grafu. Vzdálenost vrcholů $d_G(u, v)$ je délka
+nejkratší z~cest, která spojuje vrcholy $u$ a~$v$.
 
-Jiné míry jsou založeny na počtu spojení jednoho uzlu s ostatními a nejkratší
+Jiné míry jsou založeny na počtu spojení jednoho uzlu s~ostatními a~nejkratší
 cesty pro výpočet neuvažují (degree, eigenvector).
 
 
 \subsection{Degree}
-Stupeň (degree) je počet hran spojených s uzlem. Pro orientovaný graf můžeme
-uvažovat vstupní (indegree) a výstupní stupeň (outdegree) vrcholu nebo obecný
+Stupeň (degree) je počet hran spojených s~uzlem. Pro orientovaný graf můžeme
+uvažovat vstupní (indegree) a~výstupní stupeň (outdegree) vrcholu nebo obecný
 stupeň (degree), tedy součet těchto dvou. Vstupní stupeň se často označuje jako
-$deg^-$ a výstupní jako $deg^+$. Nechť $C_D$ označuje míru centrality degree a
-${C_D}_{in}$, ${C_D}_{out}$ centralitry indegree a outdegree, respektive. Pak
+$deg^-$ a~výstupní jako $deg^+$. Nechť $C_D$ označuje míru centrality degree a
+${C_D}_{in}$, ${C_D}_{out}$ centralitry indegree a~outdegree, respektive. Pak
 můžeme vyjádřit hodnoty centrality pomocí matice sousednosti ${\bf A}$.
 
 \begin{align*}
@@ -631,18 +633,18 @@ Pokud uvažujeme pouze vstupní stupeň, vypočtená hodnota určuje významnost
 kdežto výstupní stupeň ukazuje jakousi společenskost či otevřenost uzlu. 
 
 Degree centrality je výpočetně velmi jednoduchý způsob, jak změřit významnost
-prvku v síti. Tato metoda je však příliš jednoduchá, protože do výpočtu hodnoty
+prvku v~síti. Tato metoda je však příliš jednoduchá, protože do výpočtu hodnoty
 centrality nezahrnuje uzly, které jsou od daného uzlu vzdálenější než jeden
-krok. Tento fakt je známý problém a důvod pro zavedení dalších a složitějších
+krok. Tento fakt je známý problém a~důvod pro zavedení dalších a~složitějších
 metod pro výpočet významnosti.
 
 
 \subsection{Eigenvector centrality}
 Eigenvector centrality (také známá jako Gould's index of accessibility of a
 Network~\citep{williams2007} nebo Bonacich's
-centrality~\citep{hannemanriddle2005}) je míra vlivu vrcholu v grafu, která
+centrality~\citep{hannemanriddle2005}) je míra vlivu vrcholu v~grafu, která
 doslova znamená \uv{Důležitý uzel má důležité
-sousedy}~\citep{zweigiyengar2010}. Hodnotu vlivu získáme z vlastního vektoru
+sousedy}~\citep{zweigiyengar2010}. Hodnotu vlivu získáme z~vlastního vektoru
 $x$ matice sousednosti grafu:
 
 \begin{align*}
@@ -653,16 +655,16 @@ ${\bf A}$ je matice sousednosti, ${\bf x}$ je vlastní vektor matice ${\bf A}$ a
 řešením této rovnice. Rovnice má více řešení. Ke každému řešení náleží vlastní
 číslo $\lambda$. Pro měření významnosti nás však zajímá pouze to řešení, které
 má pouze nezáporné hodnoty. Podle Perron-Frobeniovy věty pro každou nezápornou
-primitivní matici existuje právě jedno takové řešení, které zároveň patří k
-největšímu vlastnímu číslu $\lambda$~\citep{langvillemeyer}.
+primitivní matici existuje právě jedno takové řešení, které zároveň patří
+k~největšímu vlastnímu číslu $\lambda$~\citep{langvillemeyer}.
 
-Rovnici můžeme rozepsat z maticového tvaru do jednotlivých složek:
+Rovnici můžeme rozepsat z~maticového tvaru do jednotlivých složek:
 
 \begin{align*} 
 x_u &=  \frac{1}{\lambda} \displaystyle\sum_{v \in V} {\bf A}_{uv} x_v 
 \end{align*} 
 
-Kde $x_u$ je prvek vlastního vektoru ${\bf x}$ náležící vrcholu $u$ a ${\bf
+Kde $x_u$ je prvek vlastního vektoru ${\bf x}$ náležící vrcholu $u$ a~${\bf
 A}_{uv}$ je prvek matice sousednosti ${\bf A}$, který leží na řádku $u$ a
 sloupci $v$.
 
@@ -673,22 +675,22 @@ sloupci $v$.
 
 V tomto rekurentním tvaru je vidět předpis pro iterační výpočet eigenvector
 centrality. Algoritmus se nazývá mocninná metoda, která se používá pro řešení
-problému vlastních čísel v numerické matematice. Výsledkem mocninné metody je
-dominantní vlastní číslo a odpovídající vlastní vektor. Pro eigenvector
-centrality nás zajímá právě tohle řešení a žádné jiné.
+problému vlastních čísel v~numerické matematice. Výsledkem mocninné metody je
+dominantní vlastní číslo a~odpovídající vlastní vektor. Pro eigenvector
+centrality nás zajímá právě tohle řešení a~žádné jiné.
 
-Z druhé rovnice si navíc povšimneme, že se jedná o přímé rozšíření degree
+Z druhé rovnice si navíc povšimneme, že se jedná o~přímé rozšíření degree
 centrality. Výsledek předchozí iterace použijeme jako vstup do následující a
 iterujeme tak dlouho, dokud nedosáhneme požadované přesnosti.
 
 \subsubsection{PageRank}
-V roce 1998 vyvinuli Sergey Brin a Larry Page algoritmus PageRank (nesoucí
+V roce 1998 vyvinuli Sergey Brin a~Larry Page algoritmus PageRank (nesoucí
 jméno druhého autora) (alg.~\ref{alg:pagerank}) jako součást výzkumu na novém
 druhu webového vyhledávače~\citep{pagerankoriginal,visemalseed2005,page1997}.
 PageRank přiřazuje relativní hodnocení webovým stránkám podle hypertextových
-odkazů z jiných webových stránek, které na ně směřují, a podle jejich
-PageRankové významnosti. Sama definice je rekurzivní a po nahlédnutí na vzorec
-zjistíme, že se jedná o rozšířenou variantu algoritmu pro eigenvector
+odkazů z~jiných webových stránek, které na ně směřují, a~podle jejich
+PageRankové významnosti. Sama definice je rekurzivní a~po nahlédnutí na vzorec
+zjistíme, že se jedná o~rozšířenou variantu algoritmu pro eigenvector
 centrality.
 
 \begin{align*}
@@ -696,30 +698,30 @@ centrality.
 \frac{{x_v}_{i}}{deg^+ (v)}
 \end{align*}
 
-${\bf A}$ je opět matice sousednosti, $V$ je množina vrcholů a $deg^+(v)$ je
-výstupní stupeň vrcholu $v$. V původní myšlence, kde PageRank modeluje chování
-náhodného surfaře, je damping factor $d$ svázaný s myšlenkou, že daný surfař,
+${\bf A}$ je opět matice sousednosti, $V$ je množina vrcholů a~$deg^+(v)$ je
+výstupní stupeň vrcholu $v$. V~původní myšlence, kde PageRank modeluje chování
+náhodného surfaře, je damping factor $d$ svázaný s~myšlenkou, že daný surfař,
 který kliká na odkazy, které najde na webové stránce, na kterou se dostal z
-předchozího odkazu, eventuelně přestane a otevře zcela novou stránku, ze které
+předchozího odkazu, eventuelně přestane a~otevře zcela novou stránku, ze které
 povede podobný sled surfování přes odkazy. Damping factor $d$ je
-pravděpodobnost, že surfař pokračuje v klikání a $1 - d$ je pravděpodobnost, že
+pravděpodobnost, že surfař pokračuje v~klikání a~$1 - d$ je pravděpodobnost, že
 skočí na novou stránku. Damping factor bývá ze zkušenosti nastavován na
 $85\%$~\citep{pagerankoriginal}.
 
-Hodnota PageRanku je z matematického hlediska pravděpodobnost, že surfař, který
+Hodnota PageRanku je z~matematického hlediska pravděpodobnost, že surfař, který
 náhodně kliká na odkazy, se dostane na konkrétní stránku. Součet hodnot
-PageRanku všech uzlů v síti je tedy $1$, protože PageRank je rozdělení
+PageRanku všech uzlů v~síti je tedy $1$, protože PageRank je rozdělení
 pravděpodobnosti.
 
 Jedním problémem algoritmu PageRank jsou tzv. visící uzly (dangling nodes), tj.
-uzly bez výstupních hran. Protože musíme v každé iteraci algoritmu zachovat
+uzly bez výstupních hran. Protože musíme v~každé iteraci algoritmu zachovat
 vlastnost rozdělení pravděpodobnosti, tj. suma všech pravděpodobností je $1$,
 je třeba zajistit, aby se přenášená hodnota mezi iteracemi neztrácela právě v
-uzlech bez výstupních hran. Problém lze řešit tak, že se tyto uzly z výpočtu
-vynechají, nebo přidáním zpětných odkazů z těchto uzlů zpět do sítě. V každé
+uzlech bez výstupních hran. Problém lze řešit tak, že se tyto uzly z~výpočtu
+vynechají, nebo přidáním zpětných odkazů z~těchto uzlů zpět do sítě. V~každé
 iteraci předem vypočítáme součet hodnot PageRanku, které by se ztratily v
-uzlech bez výstupních hran ($D$). Tahle hodnota je v rámci iterace konstantní a
-pouze ji rovnoměrně rozdělíme mezi uzly sítě (s váhou $1/|V|$).
+uzlech bez výstupních hran ($D$). Tahle hodnota je v~rámci iterace konstantní a
+pouze ji rovnoměrně rozdělíme mezi uzly sítě (s~váhou $1/|V|$).
 
 \begin{align*}
 {x_u}_{i + 1} &= \frac{1 - d}{|V|} + d \displaystyle\sum_{v \in V} {\bf A}_{uv} \frac{{x_v}_i}{deg^+ (v)} + \frac{1}{|V|} \displaystyle\sum_{w \in D} {x_w}_i
@@ -739,10 +741,10 @@ pouze ji rovnoměrně rozdělíme mezi uzly sítě (s váhou $1/|V|$).
 		\State $s \gets 0$\Comment{$s$ je suma PageRanků pro dangling nodes}
 		\For{$v \in V$}
 			\If{$deg^+(v) = 0$}
-				\State $s \gets s + x_{i}[v]$
+				\State $s \gets s~+ x_{i}[v]$
 			\EndIf
 		\EndFor
-		\State $x_{i + 1}[v] \gets \frac{s}{|V|}$, $v \in V$\Comment{Každý uzel začíná s přebytkem z dangling nodes}
+		\State $x_{i + 1}[v] \gets \frac{s}{|V|}$, $v \in V$\Comment{Každý uzel začíná s~přebytkem z~dangling nodes}
 		\For{$v \in V$}
 			\For{$k \in inLinks[v]$}
 				\State $x_{i + 1}[v] \gets x_{i + 1} + \frac{x_i[k]}{deg^+(k)}$
@@ -757,7 +759,7 @@ pouze ji rovnoměrně rozdělíme mezi uzly sítě (s váhou $1/|V|$).
 \mbox{}
 
 Přestože je PageRank původně určený pro web, lze ho použít na jakoukoliv
-orientovanou váženou i neváženou síť, tedy i na sociální a citační sítě, o
+orientovanou váženou i~neváženou síť, tedy i~na sociální a~citační sítě, o
 kterých je zde řeč. Pro neorientovaný graf je hodnota PageRanku pro jednotlivé
 uzly velmi blízká stupňům grafu, ale ne totožná~\citep{perrafortunato2008}.
 
@@ -767,9 +769,9 @@ Closeness neboli \uv{blízkost} je definována jako převrácená hodnota míry
 farness, tedy \uv{dalekost}~\citep{sabidussi1966}. Dalekost je součet všech
 vzdáleností od uzlu do všech ostatních, tzn. $f(u) = \sum_{v \in V} d_G(u, v)$
 a $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$. Podle jiné definice je closeness
-převrácená hodnota průměrné nejkratší cesty. V podstatě se od předchozí příliš
+převrácená hodnota průměrné nejkratší cesty. V~podstatě se od předchozí příliš
 neliší, protože průměrná nejkratší cesta je rovna $\frac{1}{|V|
-- 1} \sum_{v \in V} d_G(u, v)$ a closeness podle této definice:
+- 1} \sum_{v \in V} d_G(u, v)$ a~closeness podle této definice:
 
 \begin{align*}
 c(u) &= \frac{|V| - 1}{\sum_{v \in V} d_G(u, v)}
@@ -777,46 +779,46 @@ c(u) &= \frac{|V| - 1}{\sum_{v \in V} d_G(u, v)}
 
 Pro obě definice platí, že čím vyšší hodnota $c(u)$, tím je uzel $u$
 významnější podle této míry. Zde se budeme soustředit na druhou definici,
-protože je častou volbou autorů zabývajících se touto problematikou a existuje
+protože je častou volbou autorů zabývajících se touto problematikou a~existuje
 pro ni aproximační algoritmus, který si zde uvedeme.
 
 Closeness, stejně jako ostatní míry centrality, modeluje rozptýlení informace
 napříč sítí. Výše uvedené klasické definici je vytýkáno, že pro přenos
 informace uvažuje pouze nejkratší cesty, které nejsou vždy jedinou komunikační
-cestou v síti. Alternativu navrhli Noh a Rieger~\citep{nohrieger2004}, kde
+cestou v~síti. Alternativu navrhli Noh a~Rieger~\citep{nohrieger2004}, kde
 namísto nejkratších cest používají náhodné procházky (random walk closeness
-centrality). Náhodná procházka (random walk) je cesta, kde v každém uzlu je
+centrality). Náhodná procházka (random walk) je cesta, kde v~každém uzlu je
 náhodně vybrán směr dalšího postupu.
 
-Příkladem může být oběh mincí mezi lidmi. Tento jev nemá s nejkratšími cestami
+Příkladem může být oběh mincí mezi lidmi. Tento jev nemá s~nejkratšími cestami
 mnoho společného, proto je vhodnější ho modelovat náhodnými procházkami. Oproti
 tomu například poštovní zásilky zřejmě cestují po nejkratších cestách. Pokud
-uvažujeme citační sítě, nemáme jasnou představu o významu náhodných procházek
-nebo nejkratších cest jako v případě mince nebo dopisu. I přesto očekáváme
-vysokou podobnost této metody s ostatními.
+uvažujeme citační sítě, nemáme jasnou představu o~významu náhodných procházek
+nebo nejkratších cest jako v~případě mince nebo dopisu. I~přesto očekáváme
+vysokou podobnost této metody s~ostatními.
 
 Nevýhodou closeness centrality je nutnost uvažovat souvislý graf, tedy takový,
 který obsahuje pouze jednu komponentu. Pokud by měl více komponent, pak by vždy
-existovala cesta s nekonečnou vzdáleností. Hodnota farness by pak byla
-automaticky nekonečná a closeness, tedy převrácená hodnota, by byla nulová. 
+existovala cesta s~nekonečnou vzdáleností. Hodnota farness by pak byla
+automaticky nekonečná a~closeness, tedy převrácená hodnota, by byla nulová. 
 
-Existuje několik upravených definic, které se mají vypořádat s problémem
-konektivity a druhotně jsou numericky stabilnější. Jedna z nich zaměňuje
+Existuje několik upravených definic, které se mají vypořádat s~problémem
+konektivity a~druhotně jsou numericky stabilnější. Jedna z~nich zaměňuje
 převrácenou hodnotu součtu vzdáleností za součet převrácených hodnot
-vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$~\citep{opsahl} a druhá
+vzdáleností $c(u) = \sum_{v \in V} \frac{1}{d_G(u, v)}$~\citep{opsahl} a~druhá
 $c(u) = \sum_{v \in V} 2^{-d_G(u, v)}$~\citep{dangalchev2006}. Přesto se
-nejvíce používá původní definice closeness a výpočet se omezí na největší
+nejvíce používá původní definice closeness a~výpočet se omezí na největší
 komponentu.
 
 
 \subsubsection{Algoritmus}
 Closeness pro všechny vrcholy můžeme přesně vypočítat
-(alg.~\ref{alg:closeness}) v čase $O(|E| + |V|^2\log|V|)$, kde $V$ a $E$ jsou
-množiny vrcholů a hran sítě~\citep{fredmantarjan}.
+(alg.~\ref{alg:closeness}) v~čase $O(|E| + |V|^2\log|V|)$, kde $V$ a~$E$ jsou
+množiny vrcholů a~hran sítě~\citep{fredmantarjan}.
 
-Algoritmus vychází z definice, tedy vyřeší problém všech párů nejkratších cest,
-čímž rovnou získá hodnoty farness $f(u) = \sum_{v \in V} d_G(u, v)$ a zjištění
-closeness je poté triviální podle jedné z výše uvedených definic. Výše uvedená
+Algoritmus vychází z~definice, tedy vyřeší problém všech párů nejkratších cest,
+čímž rovnou získá hodnoty farness $f(u) = \sum_{v \in V} d_G(u, v)$ a~zjištění
+closeness je poté triviální podle jedné z~výše uvedených definic. Výše uvedená
 složitost platí při použití Dijkstrova algoritmu pro všechny páry cest.
 
 \begin{center}
@@ -833,7 +835,7 @@ složitost platí při použití Dijkstrova algoritmu pro všechny páry cest.
 		\State $d[u] \gets 0$
 		\State $Q \gets \{s\}$\Comment{Prioritní fronta $Q$ začíná se zdrojovým vrcholem}
 		\While{$Q \ne \varnothing$}\Comment{Dokud není fronta prázdná}
-			\State $u \gets extract\mbox{-}min(Q)$\Comment{Vytáhneme uzel s min. vzdáleností $d$}
+			\State $u \gets extract\mbox{-}min(Q)$\Comment{Vytáhneme uzel s~min. vzdáleností $d$}
 			\State $f \gets f + d[u]$\Comment{Zvýšíme farness pro nový uzel}
 			\For{sousedící vrchol $v \in Adj[u]$}\Comment{Přidáme nově nalezené vrcholy}
 				\If{$d[v] > d[u] + w(u, v)$}
@@ -851,81 +853,81 @@ složitost platí při použití Dijkstrova algoritmu pro všechny páry cest.
 \mbox{}
 
 Výpočet closeness lze snadno paralelizovat, jelikož výpočet stromu nejkratších
-cest je nezávislá úloha pro každý z $|V|$ vrcholů.
+cest je nezávislá úloha pro každý z~$|V|$ vrcholů.
 
-Pro rozsáhlé sítě s miliony uzlů (např. sociální sítě k dnešnímu datu) je tato
-metoda příliš náročná. Eppstein a Wang~\citep{closenessapproximation} vyvinuli
-aproximační algoritmus s náročností $O(\frac{\log|V|}{\epsilon}^2 (|V| \log |V|
-+ |E|))$ s chybou $\epsilon \delta$ pro převrácenou hodnotu closeness (s
-pravděpodobností alespoň $1 - \frac{1}{|V|}$), kde $\epsilon > 0$ a $\delta$ je
-poloměr sítě (nejdelší z nejkratších cest). Na základě tohoto aproximačního
+Pro rozsáhlé sítě s~miliony uzlů (např. sociální sítě k~dnešnímu datu) je tato
+metoda příliš náročná. Eppstein a~Wang~\citep{closenessapproximation} vyvinuli
+aproximační algoritmus s~náročností $O(\frac{\log|V|}{\epsilon}^2 (|V| \log |V|
++ |E|))$ s~chybou $\epsilon \delta$ pro převrácenou hodnotu closeness
+(s~pravděpodobností alespoň $1 - \frac{1}{|V|}$), kde $\epsilon > 0$ a~$\delta$
+je poloměr sítě (nejdelší z~nejkratších cest). Na základě tohoto aproximačního
 algoritmu byl vytvořen jiný aproximační algoritmus pro nalezení $k$
 nejvýznamnějších uzlů hodnocených podle closeness centrality
 TOPRANK~\citep{closenessapproximation}.
 
 \subsubsection{Aproximace}
-Algoritmus TOPRANK najde prvních $k$ nejvýznamnějších uzlů s vysokou přesností
-a pro každý z nich přesnou hodnotu closeness. Algoritmus pracuje s myšlenkou,
+Algoritmus TOPRANK najde prvních $k$ nejvýznamnějších uzlů s~vysokou přesností
+a pro každý z~nich přesnou hodnotu closeness. Algoritmus pracuje s~myšlenkou,
 že zjistíme přibližné pořadí uzlů tak, že pro jeden strom nejkratších cest
-nebudeme počítat se všemi koncovými uzly, ale jen s dostatečně velkým vzorkem
+nebudeme počítat se všemi koncovými uzly, ale jen s~dostatečně velkým vzorkem
 této množiny. Přesné hodnoty closeness dosáhneme použitím exaktního algoritmu,
-který použijeme jen na nejvýznamnější uzly získané z prvního aproximovaného
+který použijeme jen na nejvýznamnější uzly získané z~prvního aproximovaného
 kroku. Klíčovou otázkou je, kolik nejvýznamnějších uzlů musíme uvažovat, aby se
-jednalo o dostatečně přesný výsledek. Autoři algoritmu uvádějí tento algoritmus
+jednalo o~dostatečně přesný výsledek. Autoři algoritmu uvádějí tento algoritmus
 s heuristikou, která najde přibližně místo, ve kterém je vhodné výpočet ukončit
 a považovat za dostatečně přesný. Sami uvádějí, že tento algoritmus je pouze
-první krok k návrhu efektivnějšího způsobu jak najít prvních $k$
+první krok k~návrhu efektivnějšího způsobu jak najít prvních $k$
 nejvýznamnějších uzlů~\citep{closenessapproximation}.
 
 \subsection{Betweenness centrality}
 Betweenness je druhá metoda, která modeluje šíření informace sítí pomocí
 nejkratších cest. Princip betweenness spočívá ve zvýhodnění uzlů, přes kterou
-teče nejvíce informace. Pokud uzel $A$ komunikuje s uzlem $C$, můžeme tvrdit,
+teče nejvíce informace. Pokud uzel $A$ komunikuje s~uzlem $C$, můžeme tvrdit,
 že uzel $B$, který leží mezi nimi, bude mít roli prostředníka. Být tímto
 prostředníkem mezi více uzly intuitivně napovídá, že takový uzel bude
-centrální. \uv{Čím více lidí na mně závisí k vytvoření spojení s jinými lidmi,
+centrální. \uv{Čím více lidí na mně závisí k~vytvoření spojení s~jinými lidmi,
 tím mám větší moc}~\citep{hannemanriddle2005}. Betweenness měří, na kolika
-nejkratších cestách se uzel nachází. Více se ale setkáme s definicí, kde do
-sumy zahrneme poměr cest, na kterých se uzel nachází, k celkovému počtu cest
+nejkratších cestách se uzel nachází. Více se ale setkáme s~definicí, kde do
+sumy zahrneme poměr cest, na kterých se uzel nachází, k~celkovému počtu cest
 mezi dvěma uzly~\citep{freeman1977,anthonisse1971,brandes2001}.
 
 \begin{align*}
-C_b(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
+C_b(v) &= \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V~\backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
 \end{align*}
 
-$C_b(v)$ značí hodnotu betweenness centrality pro uzel $v$, V množinu všech
-uzlů grafu, $\sigma_{st}$ je počet nejkratších cest mezi uzly $s$ a $t$ a
+$C_b(v)$ značí hodnotu betweenness centrality pro uzel $v$, V~množinu všech
+uzlů grafu, $\sigma_{st}$ je počet nejkratších cest mezi uzly $s$ a~$t$ a
 $\sigma_{st}(v)$ je počet nejkratších cest, které navíc procházejí uzlem $v$.
 
-Normalizovaný betweenness je hodnota v intervalu od $0$ do $1$, kterou získáme
+Normalizovaný betweenness je hodnota v~intervalu od $0$ do $1$, kterou získáme
 tak, že betweenness vydělíme celkovým počtem možných cest, tj. $(|V| - 1)(|V| -
-2)$ pro orientované grafy a $\frac{(|V| - 1)(|V| - 2)}{2}$ pro neorientované
+2)$ pro orientované grafy a~$\frac{(|V| - 1)(|V| - 2)}{2}$ pro neorientované
 grafy. Normalizované hodnoty metod centralit jsou nezávislé na velikosti
 grafu~\citep{whiteborgatti1994}.
 
 \begin{align*}
-C_b(v) &= \frac{1}{(|V| - 1)(|V| - 2)} \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V \backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
+C_b(v) &= \frac{1}{(|V| - 1)(|V| - 2)} \displaystyle\sum\limits_{s \in V} \displaystyle\sum\limits_{t \in V~\backslash s} \frac{\sigma_{st}(v)}{\sigma_{st}} \\
 \end{align*}
 
 Vznik betweenness je připisován sociologovi Lintonu
-Freemanovi~\citep{freeman1977} a byl původně definován pro neorientované grafy.
+Freemanovi~\citep{freeman1977} a~byl původně definován pro neorientované grafy.
 
 \subsubsection{Brandesův algoritmus}
 Ve své práci~\citep{brandes2001} Ulrik Brandes zmiňuje (do té doby
 nejrychlejší) algoritmus (alg.~\ref{alg:brandes}) pro výpočet betweenness
-centrality s časovou náročností $\theta(|V|^3)$ a $\theta(|V|^2)$ paměťovými
-nároky. Tento způsob přistupuje k problému nekratších cest způsobem all-pair
+centrality s~časovou náročností $\theta(|V|^3)$ a~$\theta(|V|^2)$ paměťovými
+nároky. Tento způsob přistupuje k~problému nekratších cest způsobem all-pair
 shortest paths.  Brandesův způsob využívá algoritmu pro nalezení nejkratších
-cest z jednoho bodu, kde výsledný algoritmus pracuje s paměťovou náročností
-$O(|V| + |E|)$ a běží v čase $O(|V||E|)$ pro nevážený graf nebo $O(|V||E| +
+cest z~jednoho bodu, kde výsledný algoritmus pracuje s~paměťovou náročností
+$O(|V| + |E|)$ a~běží v~čase $O(|V||E|)$ pro nevážený graf nebo $O(|V||E| +
 |V|^2 \log|V|)$ pro vážený graf. 
 
 %% TODO napsat pár větama brandes alg., aby se dala pochopit aproximace.
 
-Brandes ve své práci o algoritmu uvádí pseudokód pro nevážený graf, který je
-následně snadné pozměnit pro vážený graf drobnými úpravami a zaměněním obyčejné
-fronty za prioritní frontu; kompletní důkaz správnosti algoritmu a porovnání
-standardního algoritmu s tímto~\citep{brandes2001}.
+Brandes ve své práci o~algoritmu uvádí pseudokód pro nevážený graf, který je
+následně snadné pozměnit pro vážený graf drobnými úpravami a~zaměněním obyčejné
+fronty za prioritní frontu; kompletní důkaz správnosti algoritmu a~porovnání
+standardního algoritmu s~tímto~\citep{brandes2001}.
 
 
 
@@ -938,7 +940,7 @@ standardního algoritmu s tímto~\citep{brandes2001}.
 	\begin{algorithmic}[1]
 	\Statex
 	\State $b[v] \gets 0$, $v \in V$\Comment{Inicializujeme hodnoty betweenness na 0}
-	\For{$s \in V$}\Comment{V exaktním výpočtu počítáme s celou množinou V}
+	\For{$s \in V$}\Comment{V exaktním výpočtu počítáme s~celou množinou V}
 		\State $S \gets $prázdný zásobník\Comment{Zásobník pro \uv{dokončené} vrcholy}
 		\State $P[w] \gets $prázdný seznam, $w \in V$\Comment{Seznam předchůdců}
 		\State $\sigma[t] \gets 0$, $t \in V$
@@ -961,7 +963,7 @@ standardního algoritmu s tímto~\citep{brandes2001}.
 			\EndFor
 		\EndWhile
 		\State $\delta[v] \gets 0$,$v \in V$\Comment{$\delta$ je závislost uzlu $s$ na ostatních}
-		\While{$S \ne \varnothing$} \Comment{$S$ vrátí vrcholy v pořadí s nezvyšující se vzdáleností od $s$}
+		\While{$S \ne \varnothing$} \Comment{$S$ vrátí vrcholy v~pořadí s~nezvyšující se vzdáleností od $s$}
 			\State $w \gets pop(S)$
 			\For{$v \in P[w]$}
 				\State $\delta[v] \gets \delta[v] + \frac{\sigma[v]}{\sigma[w]}(1 + \delta[w])$
@@ -985,21 +987,21 @@ standardního algoritmu s tímto~\citep{brandes2001}.
 % \end{align*}
 
 Algoritmus lze paralelizovat stejně jako algoritmus pro closeness centrality,
-pokud zajistíme synchronizaci vláken při přístupu k hodnotám betweenness.
+pokud zajistíme synchronizaci vláken při přístupu k~hodnotám betweenness.
 Narozdíl od algoritmu pro closeness, kde výpočet pro jeden uzel ovlivňuje
-hodnotu closeness pouze pro tento uzel, u betweenness výpočet vycházející z
-jednoho uzlu ovlivňuje hodnotu betweenness potencionálně i pro všechny ostatní
+hodnotu closeness pouze pro tento uzel, u~betweenness výpočet vycházející z
+jednoho uzlu ovlivňuje hodnotu betweenness potencionálně i~pro všechny ostatní
 uzly.
 
 \subsubsection{Aproximace}
 I přes použití rychlejšího Brandesova algoritmu je výpočet betweenness
 centrality příliš náročný pro sítě reálného světa (např. biologické, dopravní
-sítě nebo web) a pokud nám jde více o relativní pořadí uzlů podle hodnoty
-betweenness než o hodnotu samotnou, lze oželit přesný výpočet přibližným, který
-příliš nezmění výsledné umístění v žebříčku nejvýznamnějších uzlů.
+sítě nebo web) a~pokud nám jde více o~relativní pořadí uzlů podle hodnoty
+betweenness než o~hodnotu samotnou, lze oželit přesný výpočet přibližným, který
+příliš nezmění výsledné umístění v~žebříčku nejvýznamnějších uzlů.
 
 Bader, Kintali, Madduri, Mihail~\citep{bkmm2007} ukazují aproximační algoritmus
-pro betweenness s odhadem chyby.  Myšlenkou je jednoduchá lineární extrapolace
+pro betweenness s~odhadem chyby.  Myšlenkou je jednoduchá lineární extrapolace
 Brandesova algoritmu, pokud do výpočtu zahrneme pouze náhodný vzorek namísto
 celé množiny vrcholů. Nechť $k$ je velikost vzorku množiny vrcholů, se kterým
 počítáme, pak extrapolovaná hodnota betweenness je $\frac{|V| S}{k}$, kde $S$
@@ -1007,10 +1009,10 @@ je vypočtená přibližná hodnota.
 
 
 \section{Hledání nejkratších cest}
-Hledání nejkratších cest v grafu je historicky starý problém, jehož matematický
-výzkum přišel relativně pozdě v porovnání s jinými problémy kombinatorické
-optimalizace (nejmenší kostra grafu, přiřazovací a dopravní problém).
-Pravděpodobně byl výzkum opožděn, protože se jedná o intuitivní a relativně
+Hledání nejkratších cest v~grafu je historicky starý problém, jehož matematický
+výzkum přišel relativně pozdě v~porovnání s~jinými problémy kombinatorické
+optimalizace (nejmenší kostra grafu, přiřazovací a~dopravní problém).
+Pravděpodobně byl výzkum opožděn, protože se jedná o~intuitivní a~relativně
 jednoduchý problém, ale jakmile se dostal do středu zájmu, bylo nezávisle na
 sobě nalezeno několik metod řešení různými lidmi (Shimbel~\citep{shimbel1955},
 Ford~\citep{ford1956}, Dantzig~\citep{dantzig1957},
@@ -1020,7 +1022,7 @@ Dijkstra~\citep{dijkstra1959})~\citep{schrijver2012}.
 
 Z hlediska metod řešení můžeme uvažovat několik kategorií algoritmů - nalezení
 všech párů nejkratších cest (all-pairs shortest paths problem), nalezení
-nejkratší cesty mezi počátečním a koncovým vrcholem (source-target) nebo
+nejkratší cesty mezi počátečním a~koncovým vrcholem (source-target) nebo
 nalezení stromu nejkratších cest, máme-li zadán počáteční vrchol (single source
 shortest path problem).
 
@@ -1031,9 +1033,9 @@ počítat celý strom nejkratších cest, ale můžeme zastavit výpočet při d
 požadovaného vrcholu. 
 
 \subsubsection{Prohledávání do šířky}
-Prohledávání do šířky (alg.~\ref{alg:bfs}) z jednoho bodu (breadth first
-search) je algoritmus, který najde nejkratší cesty z jednoho bodu do všech
-ostatních v případě neváženého grafu v čase $O(E)$. Pro vážený graf by zjistil
+Prohledávání do šířky (alg.~\ref{alg:bfs}) z~jednoho bodu (breadth first
+search) je algoritmus, který najde nejkratší cesty z~jednoho bodu do všech
+ostatních v~případě neváženého grafu v~čase $O(E)$. Pro vážený graf by zjistil
 nejkratší cesty, kde metrika vzálenosti by byla počet skoků mezi uzly.
 
 \begin{center}
@@ -1047,7 +1049,7 @@ nejkratší cesty, kde metrika vzálenosti by byla počet skoků mezi uzly.
 		\State $d[v] \gets -1$,$v \in V$\Comment{Uzly jsou zpočátku nedosažitelné}
 		\State $d[s] \gets 0$
 		\State $p[v] \gets $ NIL,$v \in V$\Comment{A nemají implicitně žádné předchůdce}
-		\State $Q \gets \{s\}$\Comment{Fronta začíná s počátečním vrcholem}
+		\State $Q \gets \{s\}$\Comment{Fronta začíná s~počátečním vrcholem}
 		\While{$Q \ne \varnothing$}\Comment{Dokud není prázdná}
 			\State $u \gets dequeue(Q)$
 			\For{sousedící vrchol $v \in Adj[u]$}
@@ -1068,7 +1070,7 @@ nejkratší cesty, kde metrika vzálenosti by byla počet skoků mezi uzly.
 
 \subsubsection{Bellman-Fordův algoritmus}
 Bellman-Fordův algoritmus~\citep{bellmanford_algorithm} je aplikací dynamického
-programování na nejkratší cesty z jednoho vrcholu do všech ostatních. Jeho
+programování na nejkratší cesty z~jednoho vrcholu do všech ostatních. Jeho
 využití najdeme zejména tam, kde se mohou objevit záporné váhy
 hran~\citep{CLRS}. Časová náročnost je $O(|V||E|)$.
 
@@ -1078,13 +1080,13 @@ Dijkstrův algoritmus~\citep{dijkstra1959} (alg.~\ref{alg:dijkstra}) řeší
 Časová náročnost běžné implementace $O((|E| + |V|)\log|V|)$ je lepší než u
 Bellman-Fordova algoritmu, ale Dijkstrova greedy strategie funguje, pouze pokud
 v grafu neexistují záporně ohodnocené hrany. Časová náročnost závisí především
-na implementaci klíčové datové struktury prioritní fronty, která v každém kroku
-vybírá uzel s nejmenší vzdáleností od zdrojového vrcholu (greedy strategie). V
+na implementaci klíčové datové struktury prioritní fronty, která v~každém kroku
+vybírá uzel s~nejmenší vzdáleností od zdrojového vrcholu (greedy strategie). V
 případě použití obyčejného spojového seznamu jako prioritní fronty získáme
-kvadratickou náročnost $O(|V|^2)$. Nejčastěji se setkáme s prioritní frontou
+kvadratickou náročnost $O(|V|^2)$. Nejčastěji se setkáme s~prioritní frontou
 implementovanou pomocí binární haldy, která zajišťuje čas běhu právě $O((|E| +
 |V|)\log|V|)$.  Pomocí Fibonacciho haldy získáme doposud nejrychlejší Dijkstrův
-algoritmus s časem běhu $O(|E| + |V| \log|V|)$, ale pro běžné účely (grafy
+algoritmus s~časem běhu $O(|E| + |V| \log|V|)$, ale pro běžné účely (grafy
 menší než miliony vrcholů) je nejvýhodnější binární
 halda~\citep{CLRS,fredmantarjan}. Pro nevážený graf je Dijkstrův algoritmus
 ekvivalentní prohledávání do šířky.
@@ -1099,13 +1101,13 @@ nejkratších cestách, proto uvedeme pseudokód~\citep{CLRS}.
 		\label{alg:dijkstra}
 	\begin{algorithmic}[1]
 	\Statex
-	\Function{Dijkstra}{$G, w, s$}  \Comment{$s$ je zdrojový vrchol a $w$ je váhová funkce}
+	\Function{Dijkstra}{$G, w, s$}  \Comment{$s$ je zdrojový vrchol a~$w$ je váhová funkce}
 		\State $d[v] \gets \infty$,$v \in V$\Comment{Vrcholy jsou zpočátku nedosažitelné}
 		\State $d[s] \gets 0$
 		\State $p[v] \gets $ NIL,$v \in V$\Comment{Předchůdci vrcholů zpočátku neexistují}
 		\State $Q \gets V$\Comment{Prioritní fronta $Q$ obsahuje všechny vrcholy}
 		\While{$Q \ne \varnothing$}\Comment{Postupujeme, dokud není prázdná}
-			\State $u \gets extract\mbox{-}min(Q)$\Comment{Vytáhneme z fronty vrchol s nejmenší hodnotou $d[u]$}
+			\State $u \gets extract\mbox{-}min(Q)$\Comment{Vytáhneme z~fronty vrchol s~nejmenší hodnotou $d[u]$}
 			\For{sousedící vrchol $v \in Adj[u]$}
 				\If{$d[v] > d[u] + w(u, v)$}
 					\State $d[v] \gets d[u] + w(u, v)$\Comment{Relaxace hrany $\{u, v\}$}
@@ -1122,27 +1124,27 @@ nejkratších cestách, proto uvedeme pseudokód~\citep{CLRS}.
 \mbox{}
 
 V tomto případě do prioritní fronty prvotně zahrneme všechny vrcholy. Jinou
-možností je přidávat je postupně, aby vybírání z prioritní fronty
-($extract\mbox{-}min(Q)$) bylo rychlejší. Tento způsob je použit v algoritmu
+možností je přidávat je postupně, aby vybírání z~prioritní fronty
+($extract\mbox{-}min(Q)$) bylo rychlejší. Tento způsob je použit v~algoritmu
 pro closeness (algoritmus \ref{alg:closeness}).
 
 Výsledkem je strom předchůdců, který reprezentuje strom nejkratších cest.
-Princip Dijkstrova algoritmu se objevuje i u algoritmů pro closeness,
-betweenness a BFS. 
+Princip Dijkstrova algoritmu se objevuje i~u~algoritmů pro closeness,
+betweenness a~BFS. 
 
 
 
 \subsection{All-pair shortest paths}
 Do této kategorie spadají maticové metody, tj. graf je zadán jako matice
-sousednosti nebo matice sousednosti s váhami hran.
+sousednosti nebo matice sousednosti s~váhami hran.
 
 
 \subsubsection{Shimbelova metoda}
 Shimbelova metoda~\citep{shimbel1955} používá upravené maticové násobení k
 získání $|V|$-té mocniny matice sousednosti. Celková časová náročnost je
-$O(|V|^4)$, protože provedeme $|V|$ \uv{násobení} čtvercové matice o složitosti
-$O(|V|^3)$.  Shimbelovo upravené násobení nahrazuje sčítání a násobení za
-minimum a sčítání:
+$O(|V|^4)$, protože provedeme $|V|$ \uv{násobení} čtvercové matice o~složitosti
+$O(|V|^3)$.  Shimbelovo upravené násobení nahrazuje sčítání a~násobení za
+minimum a~sčítání:
 
 \begin{align*}
 x + y &\equiv \min(x, y) \\
@@ -1160,47 +1162,47 @@ d_0(u, v) &= {\bf A}_{uv} \\
 d_{k + 1}(u, v) &= \min(d_k(u, v), d_k(u, k) + d_k(k, v)) \\
 \end{align*}
 
-Jednoduše zkoušíme, zda je kratší cesta mezi vrcholy $u$ a $v$, kterou již
+Jednoduše zkoušíme, zda je kratší cesta mezi vrcholy $u$ a~$v$, kterou již
 známe, nebo jiná cesta za použití nějakého vrcholu $k$, který leží mezi nimi.
 Výpočet provádíme pro všechny páry vrcholů pro každý vrchol $k$ ($|V|^2 |V|$).
 
 \subsubsection{Johnsonův algoritmus}
 Johnsonův algoritmus~\citep{johnson1977} nepatří mezi maticové metody, protože
-využívá metod single source shortest path pro všechny vrcholy. V principu
+využívá metod single source shortest path pro všechny vrcholy. V~principu
 jednodušše použijeme Dijkstrův algoritmus pro každý vrchol zvlášť, ale
-dovolujeme váhy hran i záporné. V případě záporných hran je nutné provést
-speciální transformaci vah pomocí Bellman-Fordova algoritmu, která v grafu
+dovolujeme váhy hran i~záporné. V~případě záporných hran je nutné provést
+speciální transformaci vah pomocí Bellman-Fordova algoritmu, která v~grafu
 nepozmění nejkratší cesty~\citep{CLRS}.
 
 
 \section{Ostatní míry významnosti autorů}
 Míry centrality jsou určeny pro relativní seřazení uzlů pro obecný graf.
-Jelikož zde pracujeme speciálně s citačními sítěmi, zajímá nás, jestli existují
+Jelikož zde pracujeme speciálně s~citačními sítěmi, zajímá nás, jestli existují
 i jiné metody ohodnocení autorů, které ani nevyžadují konstrukci citačních
-sítí, ale vyžadují pouze údaje v databázi.
+sítí, ale vyžadují pouze údaje v~databázi.
 
-Setkáme se s metodami AWCR, AW-index, Eigenfactor, Egghův g-index, E-index,
-I10-index, R-impact, Wu Index a zejména H-index~\citep{hlwikiaim}, který zde
+Setkáme se s~metodami AWCR, AW-index, Eigenfactor, Egghův g-index, E-index,
+I10-index, R-impact, Wu Index a~zejména H-index~\citep{hlwikiaim}, který zde
 byl implementován jako jediná metoda, která nespadá pod míry centrality.
 
 \subsection{H-index}
-H-index~\citep{hirsch2005} je metoda pro měření produktivity autora a významu
+H-index~\citep{hirsch2005} je metoda pro měření produktivity autora a~významu
 jeho publikované vědecké práce. Metoda byla navržena fyzikem Jorge E. Hirschem
-pro zjištování relativní významnosti vědců publikujících v oboru teoretické
+pro zjištování relativní významnosti vědců publikujících v~oboru teoretické
 fyziky. Původní Hirschova definice zní:
 
 \begin{quote}\textit{
-Vědec má index $h$ pokud $h$ z jeho $N_p$ publikací má každá alespoň $h$ citací
+Vědec má index $h$ pokud $h$ z~jeho $N_p$ publikací má každá alespoň $h$ citací
 a žádná ze zbylých ($N_p - h$) publikací nemá více než $h$ citací.
 }
 \end{quote}
 
-Tato metoda je specifická pro citační sítě a nelze ji aplikovat na sociální
+Tato metoda je specifická pro citační sítě a~nelze ji aplikovat na sociální
 nebo obecnou komplexní síť.
 
 Výpočet (alg~\ref{alg:hindex}) probíhá tak, že seřadíme autorovy publikace $P$
-sestupně podle počtu citací $c: P \mapsto \mathbb{N}$ a poté od začátku tohoto
-seřazeného seznamu hledáme tu publikaci, jejíž pořadové číslo v tomto seznamu
+sestupně podle počtu citací $c: P \mapsto \mathbb{N}$ a~poté od začátku tohoto
+seřazeného seznamu hledáme tu publikaci, jejíž pořadové číslo v~tomto seznamu
 je nižší než počet jejích citací. Toto číslo minus jedna je pak H-index autora.
 
 \begin{center}
@@ -1239,16 +1241,16 @@ je nižší než počet jejích citací. Toto číslo minus jedna je pak H-index
 
 
 \chapter{Výsledky}
-Výsledky této práce jsou znázorněny v tabulkách korelací mezi jednotlivými
+Výsledky této práce jsou znázorněny v~tabulkách korelací mezi jednotlivými
 metodami (tab.~\ref{tab:corr1}, \ref{tab:corr2}, \ref{tab:corr3} a
-\ref{tab:corr4}), tabulkami (tab.~\ref{tab:ranks1} a \ref{tab:ranks2})
+\ref{tab:corr4}), tabulkami (tab.~\ref{tab:ranks1} a~\ref{tab:ranks2})
 srovnávajícími pořadí prvních třiceti autorů mezi jednotlivými metodami a
-porovnání implementovaných metod s oceněními (tab.~\ref{tab:oceneni1}
+porovnání implementovaných metod s~oceněními (tab.~\ref{tab:oceneni1}
 a~\ref{tab:oceneni2}).
 
 
 \section{Porovnání implementovaných metod}
-Zajímá nás, zdali jsou metody mezi sebou podobné a do jaké míry. Pro porovnání
+Zajímá nás, zdali jsou metody mezi sebou podobné a~do jaké míry. Pro porovnání
 metod mezi sebou je použit Spearmanův koeficient pořadové korelace
 (sekce~\ref{sec:spearman}).
 
@@ -1257,28 +1259,28 @@ Tab.~\ref{tab:corr1} ukazuje vypočtené Spearmanovy koeficienty pořadové
 korelace mezi všemi páry implementovaných metod. Do výpočtu koeficientu
 korelace byly zahrnuty pouze ty uzly, které mají alespoň jednu hranu. Pokud by
 byly zachovány, většina koeficientů korelace by byla velmi vysoká (větší než
-$0.90$), protože většina vrcholů, zejména v databázi DBLP, jsou osamocené
-vrcholy. Protože jsou výsledky seřazeny podle hodnoty centrality a poté podle
+$0.90$), protože většina vrcholů, zejména v~databázi DBLP, jsou osamocené
+vrcholy. Protože jsou výsledky seřazeny podle hodnoty centrality a~poté podle
 jména autora, všechny tyto izolované vrcholy, které nijak nepřispívají k
 hodnotě centrality, jsou pro všechny metody umístěné na posledních pozicích v
 tomtéž pořadí. Důsledkem je vysoký koeficient korelace, který nám však nic
-nevypoví o podobnosti výsledků metod.
+nevypoví o~podobnosti výsledků metod.
 
 Jelikož výpočet pro centralitu closeness ve všech implementovaných variantách
 (vstupní hrany - ic, výstupní hrany - oc, vážený closeness - wic) byl proveden
 pouze na největší silně spojité komponentě, nelze přímo provést srovnání pomocí
-koeficientu korelace s výsledky metod, které byly aplikovány na celý graf,
-protože se jedná o dvě neporovnatelné proměnné. Proto byli z výsledků metod pro
-celý graf odebráni ti autoři, kteří se nenacházejí v hlavní silně spojité
+koeficientu korelace s~výsledky metod, které byly aplikovány na celý graf,
+protože se jedná o~dvě neporovnatelné proměnné. Proto byli z~výsledků metod pro
+celý graf odebráni ti autoři, kteří se nenacházejí v~hlavní silně spojité
 komponentě. Pro tyto žebříčky bylo provedeno stejné srovnání pomocí Spearmanova
 koeficientu korelace pořadí křížově mezi všemi metodami, viz
 tab.~\ref{tab:corr2}
 
 Tab.~\ref{tab:impmetody} popisuje zkratky metod, časy běhu pro sítě DBLP a
-CiteSeer a velikost největší kliky (k$_{DBLP}$ pro DBLP a k$_{CS}$ pro
-CiteSeer) v symetrizovaném grafu autorů. Největší klika je nalezena z top 20
+CiteSeer a~velikost největší kliky (k$_{DBLP}$ pro DBLP a~k$_{CS}$ pro
+CiteSeer) v~symetrizovaném grafu autorů. Největší klika je nalezena z~top 20
 autorů pro každou metodu. Výpočty byly vykonány na Intel\textregistered
-Core\texttrademark2 Quad Q8400 přetaktovaném na 3.1\,GHz s 4\,GB fyzické
+Core\texttrademark2 Quad Q8400 přetaktovaném na 3.1\,GHz s~4\,GB fyzické
 paměti. Betweenness centrality bylo vypočteno paralalně na čtyřech jádrech.
 Zbylé metody byly relativně časově nenáročné, proto nebylo nutné paralelizovat
 výpočet.
@@ -1318,10 +1320,10 @@ wic  &vážený closeness vstupní hrany    & 1:14.054&33:44:56.355&18&15\\
 \subsection{Spearmanův koeficient pořadové korelace}
 \label{sec:spearman}
 Spearmanův koeficient je klasický Pearsonův koeficient korelace, který je
-aplikovaný na proměnné s pořadím~\citep{myerswell2002}. Koeficient korelace
+aplikovaný na proměnné s~pořadím~\citep{myerswell2002}. Koeficient korelace
 obecně dosahuje hodnot od $-1$ do $1$, přičemž hodnota $1$ znamená naprostou
-lineární závislost mezi porovnávanými proměnnými tak, že s rostoucí první
-proměnnou roste i druhá. Hodnota $-1$ znamená rovněž naprostou lineární
+lineární závislost mezi porovnávanými proměnnými tak, že s~rostoucí první
+proměnnou roste i~druhá. Hodnota $-1$ znamená rovněž naprostou lineární
 závislost, ale při rostoucí jedné proměnné druhá proměnná klesá. Hodnota $0$
 znamená kompletní náhodnost či nezávislost mezi měřenými proměnnými.
 
@@ -1330,43 +1332,43 @@ znamená kompletní náhodnost či nezávislost mezi měřenými proměnnými.
 \footnotetext[2]{Největší klika mezi prvními 20 autory CiteSeer}
 
 \section{Žebříčky významných autorů}
-Tabulky~\ref{tab:ranks1}~a~\ref{tab:ranks2} ukazují prvních 30 autorů v pořadí
+Tabulky~\ref{tab:ranks1}~a~\ref{tab:ranks2} ukazují prvních 30 autorů v~pořadí
 podle metody H-index. Pro každého autora je zobrazeno jeho umístění podle všech
-zbylých implementovaných metod. Poslední řádek u každé metody označuje součet
+zbylých implementovaných metod. Poslední řádek u~každé metody označuje součet
 pořadí uvedených třiceti autorů. Stejná data jsou zobrazena v
-grafech~\ref{fig:poradiDBLP} a~\ref{fig:poradiCS} pro prvních 500 autorů z
-největší silně spojité komponenty, kde porovnáváme metody indegree, PageRank,
-betweenness a closeness.
+grafech~\ref{fig:poradiDBLP} a~\ref{fig:poradiCS} pro prvních 500 autorů
+z~největší silně spojité komponenty, kde porovnáváme metody indegree, PageRank,
+betweenness a~closeness.
 
 \begin{figure}[!ht]
 \centering
 	\includegraphics[width=9cm,angle=270]{grafDBLP.eps}
-	\caption{Pořadí prvních 500 autorů DBLP dle H-indexu z největší silně spojité komponenty}
+	\caption{Pořadí prvních 500 autorů DBLP dle H-indexu z~největší silně spojité komponenty}
 	\label{fig:poradiDBLP}
 \end{figure}
 \begin{figure}[!ht]
 \centering
 	\includegraphics[width=9cm,angle=270]{grafCS.eps}
-	\caption{Pořadí prvních 500 autorů CiteSeer dle H-indexu z největší silně spojité komponenty}
+	\caption{Pořadí prvních 500 autorů CiteSeer dle H-indexu z~největší silně spojité komponenty}
 	\label{fig:poradiCS}
 \end{figure}
 
 
-Výstupy programu, tj. jednotlivá pořadí autorů a jejich ocenění jsou uvedeny v
-příloze~\ref{chapter:zebricky}, v sekci~\ref{section:zebrickydblp} pro databázi
-DBLP a v sekci~\ref{section:zebrickyciteseer} pro databázi CiteSeer. Hodnoty u
-metody PageRank jsou v žebříčcích transformovány z intervalu $[0; 1]$ na $[0;
+Výstupy programu, tj. jednotlivá pořadí autorů a~jejich ocenění jsou uvedeny v
+příloze~\ref{chapter:zebricky}, v~sekci~\ref{section:zebrickydblp} pro databázi
+DBLP a~v~sekci~\ref{section:zebrickyciteseer} pro databázi CiteSeer. Hodnoty u
+metody PageRank jsou v~žebříčcích transformovány z~intervalu $[0; 1]$ na $[0;
 |V|]$, protože při zaokrouhlení na tři desetinná místa jsou všechny hodnoty
 PageRanku zanedbatelně malé.
 
-\section{Porovnání metod s oceněními}
-Pro zjištění jestli se výsledky implementovaných metod shodují s uvedenými
+\section{Porovnání metod s~oceněními}
+Pro zjištění jestli se výsledky implementovaných metod shodují s~uvedenými
 oceněními, použijeme metodu součtu pořadí oceněných autorů, viz
-tab.~\ref{tab:oceneni1}. Pro každé ocenění a pro každou metodu sečteme pořadí
+tab.~\ref{tab:oceneni1}. Pro každé ocenění a~pro každou metodu sečteme pořadí
 všech autorů, kteří byli oceněni danou cenou. Tuto jednoduchou míru můžeme
 porovnat pouze mezi jednotlivými metodami pro jedno ocenění, ale ne mezi
 různými oceněními pro jednu metodu. Jednoduše protože např. Turingova cena je
-ve výsledcích udělena pouze několika autorům, z čehož plyne malý součet pořadí,
+ve výsledcích udělena pouze několika autorům, z~čehož plyne malý součet pořadí,
 kdežto velké množství autorů je členy ACM Fellows, tím pádem velký součet
 pořadí oceněných.
 
@@ -1432,7 +1434,7 @@ wic\footnotemark[1] &86\,773 &7\,576\,984&4\,585\,710&710\,976\\
 Výpočet betweenness je časově nejnáročnější ze všech implementovaných metod.
 Pro citační síť autorů databáze DBLP není exaktní výpočet problém, ale pro
 rozsáhlou síť databáze CiteSeer je výpočet váženého betweenness časově velmi
-náročný úkol, jak můžeme nahlédnout z doby běhu aproximovaného betweenness v
+náročný úkol, jak můžeme nahlédnout z~doby běhu aproximovaného betweenness v
 tab.~\ref{tab:impmetody}. Tab.~\ref{tab:btwA} znázorňuje Spearmanovy
 koeficienty korelace pořadí autorů DBLP mezi exaktním betweenness a
 aproximovanými, kde velikost množiny vrcholů, kterou uvažujeme ve výpočtu, je
@@ -1440,7 +1442,7 @@ postupně $\frac{|V|}{2}, \frac{|V|}{4}, \frac{|V|}{8}, \ldots$.
 
 \begin{table}[!ht]
 \centering
-\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a aproximovaným betweenness pro DBLP}
+\caption{Tabulka Spearmano koeficientů korelace mezi exaktním a~aproximovaným betweenness pro DBLP}
 \label{tab:btwA}
 \begin{tabular}{r|l|c}
 \toprule
@@ -1458,192 +1460,192 @@ zlomek velikosti množiny $V$ & Spearmanova korelace & doba běhu\,[min:sec.msec
 \end{table}
 
 \chapter{Diskuse}
-V této kapitole se pokusíme přiblížit, proč jsou jednotlivé metody vzájemně podobné a co naznačuje, že skutečně měříme významnost.
+V této kapitole se pokusíme přiblížit, proč jsou jednotlivé metody vzájemně podobné a~co naznačuje, že skutečně měříme významnost.
 
-Pokud bychom v praktických aplikacích chtěli měřit významnost autorů nebo
-obecně uzlů v jakékoliv komplexní síti, metody založené na nejkratších cestách
-nepřipadají v úvahu, jestliže hledíme na časovou náročnost. Ta se zvyšuje i se
-zvyšující se hustotou grafu, viz doba běhu closeness pro DBLP a CiteSeer (tab.
+Pokud bychom v~praktických aplikacích chtěli měřit významnost autorů nebo
+obecně uzlů v~jakékoliv komplexní síti, metody založené na nejkratších cestách
+nepřipadají v~úvahu, jestliže hledíme na časovou náročnost. Ta se zvyšuje i~se
+zvyšující se hustotou grafu, viz doba běhu closeness pro DBLP a~CiteSeer (tab.
 \ref{tab:impmetody}).
 
 I použití aproximací, které výrazně urychlí výpočet, může být stejně nebo méně
-přesné než použití jiné metody. V implementaci byla aproximována pouze
+přesné než použití jiné metody. V~implementaci byla aproximována pouze
 centralita betweenness, ale pro druhou náročnou metodu closeness byl zmíněn
 aproximační algoritmus. Protože tato aproximace nebyla implementována a
-vyzkoušena, nemůžeme o ní poskytnout jakýkoliv závěr.
+vyzkoušena, nemůžeme o~ní poskytnout jakýkoliv závěr.
 
 Z časového hlediska je nejvýhodnější používat metody degree nebo eigenvector.
 
 \section{Podobnost výsledků jednotlivých metod}
-Množina autorů je pro obě databáze větší než 300\,000. Pro proměnné o této
+Množina autorů je pro obě databáze větší než 300\,000. Pro proměnné o~této
 velikosti můžeme uvažovat statistickou signifikanci Spearmanovo koeficientu
-pořadové korelace od hodnoty $0.01$ a výše~\citep{yanding2009}.  Záporné
-korelace by poukazovaly na opačné pořadí, které je nežádoucí a korelace menší
+pořadové korelace od hodnoty $0.01$ a~výše~\citep{yanding2009}.  Záporné
+korelace by poukazovaly na opačné pořadí, které je nežádoucí a~korelace menší
 než $0.01$ budeme považovat za nevýznamné.
 
-Všechny korelace, tj. mezi všemi porovnávanými metodami pro obě databáze a pro
-obě varianty (celý graf a největší silně spojitá komponenta), vyšly větší než
-$0.1$ s minimem 0.102 (pr - odeg) pro DBLP celý graf, 0.340 (pr - oc) pro DBLP
+Všechny korelace, tj. mezi všemi porovnávanými metodami pro obě databáze a~pro
+obě varianty (celý graf a~největší silně spojitá komponenta), vyšly větší než
+$0.1$ s~minimem 0.102 (pr - odeg) pro DBLP celý graf, 0.340 (pr - oc) pro DBLP
 největší silně spojitou komponentu, 0.220 (pr - odeg) pro CiteSeer celý graf a
 0.207 (pr - oc) pro CiteSeer největší silně spojitou komponentu.
 
 
 Protože je eigenvector centralita rozšířením degree centrality (jednoduše
 řečeno iterovaný indegree), vskutku si povšimneme vysokých korelací mezi
-indegree a PageRankem ve všech čtyřech případech (0.909, 0.940, 0.954, 0.868).
+indegree a~PageRankem ve všech čtyřech případech (0.909, 0.940, 0.954, 0.868).
 
 Metody založené na nejkratších cestách intuitivně rovněž dosahují vysokých
 korelací, přestože je význam odlišný (btw - ic, atd.)
 
 H-index je zcela očekávaně podobnější všem ostatním metodám než odeg, wodeg a
 oc, které nemají přímo měřit významnost, ale poukázat na fakt, že významní
-autoři navíc mají tendence ovlivňovat i jiné autory tím, že je citují. Přestože
+autoři navíc mají tendence ovlivňovat i~jiné autory tím, že je citují. Přestože
 nepatří do metod centrality jako ostatní metody, relativně vysoká korelace s
 mírami centrality poukazuje na jistou podobnost.
 
 Obr.~\ref{fig:poradiDBLP} a~\ref{fig:poradiCS} vizuálně reprezentují
-tabulky~\ref{tab:ranks2} a~\ref{tab:ranks4} a názorně ukazují podobnost čtyř
-základních metod centrality mezi sebou a podobnost s metodou H-index.
+tabulky~\ref{tab:ranks2} a~\ref{tab:ranks4} a~názorně ukazují podobnost čtyř
+základních metod centrality mezi sebou a~podobnost s~metodou H-index.
 
 
 Z vypočtených signifikantních koeficientů korelací si můžeme dovolit tvrdit, že
 všechny implementované metody měří zhruba stejnou vlastnost - významnost, vyjma
-metod odeg, wodeg a oc, které se shodují s ostatními, jelikož jsou spíše
+metod odeg, wodeg a~oc, které se shodují s~ostatními, jelikož jsou spíše
 důsledkem vysoké významnosti autora. 
 
-Yan a Ding~\citep{yanding2009} rovněž nacházeji vysokou korelaci mezi
-jednotlivými mírami centrality (degree, PageRank, closeness a betweenness) a
-počtem citací. V sítích spolupráce počet citací měří kvalitu a významnost
+Yan a~Ding~\citep{yanding2009} rovněž nacházeji vysokou korelaci mezi
+jednotlivými mírami centrality (degree, PageRank, closeness a~betweenness) a
+počtem citací. V~sítích spolupráce počet citací měří kvalitu a~významnost
 publikací, kdežto centralita měří jednak významnost publikací, jednak
 významnost autora ve svém oboru. Degree měří rozsah spolupráce autora,
-closeness měří autorovu pozici a virtuální vzdálenost mezi ostatními ve svém
-oboru a betweenness měří důležitost autora při vzájemné komunikaci mezi autory
+closeness měří autorovu pozici a~virtuální vzdálenost mezi ostatními ve svém
+oboru a~betweenness měří důležitost autora při vzájemné komunikaci mezi autory
 v daném oboru~\citep{yanding2009}.
 
 \section{Vliv vah na výsledky}
 Intuitivně bychom očekávali, že metody na vážené síti (wideg, wodeg, wBtwA,
 wic) budou vzájemně korelovat výše než ekvivalentní metody na nevážené síti
-(ideg, odeg, btwA, ic). U DBLP například dosahuje korelace mezi wBtwA a wideg
-(0.849), wodeg (0.140) a wdeg (0.549) výše než mezi wBtwaA a ideg (0.830), odeg
-(0.134) a deg (0.529), viz tab.~\ref{tab:corr1}. U výsledků pro DBLP pro
+(ideg, odeg, btwA, ic). U~DBLP například dosahuje korelace mezi wBtwA a~wideg
+(0.849), wodeg (0.140) a~wdeg (0.549) výše než mezi wBtwaA a~ideg (0.830), odeg
+(0.134) a~deg (0.529), viz tab.~\ref{tab:corr1}. U~výsledků pro DBLP pro
 největší silně spojitou komponentu (tab.~\ref{tab:corr2}) dostáváme stejnou
-podobnost, tj. korelace mezi wBtwA a wideg (0.889), wodeg (0.529) a wdeg
-(0.766) je vyšší než mezi wBtwA a ideg (0.865), odeg (0.505) a deg (0.753).
-Korelace mezi váženým closeness a váženým betweenness dominují nad korelacemi
-mezi váženým betweenness a neváženým closeness a naopak, tj. korelace mezi wic
-a wBtwA (0.930), wideg (0.887), wodeg (0.527) a wdeg (0.763) jsou vyšší než
-mezi wic a btwA (0.864), ideg (0.884), odeg (0.493) a deg (0.734). Mohli bychom
+podobnost, tj. korelace mezi wBtwA a~wideg (0.889), wodeg (0.529) a~wdeg
+(0.766) je vyšší než mezi wBtwA a~ideg (0.865), odeg (0.505) a~deg (0.753).
+Korelace mezi váženým closeness a~váženým betweenness dominují nad korelacemi
+mezi váženým betweenness a~neváženým closeness a~naopak, tj. korelace mezi wic
+a wBtwA (0.930), wideg (0.887), wodeg (0.527) a~wdeg (0.763) jsou vyšší než
+mezi wic a~btwA (0.864), ideg (0.884), odeg (0.493) a~deg (0.734). Mohli bychom
 proto usoudit, že všechny výsledky jsou si podobnější, pokud se aplikují
 výhradně na vážené síti nebo výhradně na nevážené síti, než pokud porovnáváme
-vážené s neváženými.
+vážené s~neváženými.
 
 Nemůžeme ale najisto tvrdit, že metody pro váženou síť jsou přesnější než
 metody pro neváženou síť. Logicky by měly být vážené metody přesnější, protože
-pracují s větších množstvím informace, ale protože není významnost jednoznačně
-definována, nemůžeme tvrdit, která z variant je přesnější.
+pracují s~větších množstvím informace, ale protože není významnost jednoznačně
+definována, nemůžeme tvrdit, která z~variant je přesnější.
 
-\section{Vstupní a výstupní hrany}
-Přestože vstupní a výstupní hrany mají opačný význam, existuje nezanedbatelná
-korelace mezi jejich interpretacemi \uv{cituji} a \uv{jsem citován}, tzn. pokud
+\section{Vstupní a~výstupní hrany}
+Přestože vstupní a~výstupní hrany mají opačný význam, existuje nezanedbatelná
+korelace mezi jejich interpretacemi \uv{cituji} a~\uv{jsem citován}, tzn. pokud
 je autor často citován, pak je velká šance, že zároveň cituje ostatní autory.
-Korelace mezi metodami ideg a odeg jsou jedny z nižších mezi porovnávanými
-(0.173, 0.509, 0.314, 0.484), podobně mezi wideg a wodeg (0.192, 0.557, 0.354,
+Korelace mezi metodami ideg a~odeg jsou jedny z~nižších mezi porovnávanými
+(0.173, 0.509, 0.314, 0.484), podobně mezi wideg a~wodeg (0.192, 0.557, 0.354,
 0.528), ale nejsou nezanedbatelné.
 
-Metody odeg, wodeg a oc, které zastupují výstupní hrany \uv{cituji}, jsou spíše
+Metody odeg, wodeg a~oc, které zastupují výstupní hrany \uv{cituji}, jsou spíše
 důsledkem významnosti autora než její příčinou. Pokud je autor dlouho ve své
-branži a vybudoval si významnou pozici, pak můžeme očekávat, že zároveň
+branži a~vybudoval si významnou pozici, pak můžeme očekávat, že zároveň
 referencoval práci mnoha jiných autorů. Takový autor ve svém oboru již získal
-pozici významného člena a svými hodnotnými citacemi ostatních prací přispívá na
+pozici významného člena a~svými hodnotnými citacemi ostatních prací přispívá na
 jejich významnosti.
 
-Zajímavým jevem je použití vstupních a výstupních hran u closeness centrality a
-jejích variantách. Zatímco u betweenness centrality přirozeně počítáme
-výstupními hranami a získáme vyšší korelace s metodami H-index, indegree,
-PageRank, než s metodami outdegree nebo vážený outdegree, které intuitivně ani
-objektivně neměří významnost autora (rozdíl mezi \uv{cituji} u outdegree a
-\uv{jsem citován} u ostatních, tj. H-index, indegree, PageRank), u closeness
+Zajímavým jevem je použití vstupních a~výstupních hran u~closeness centrality
+a~jejích variantách. Zatímco u~betweenness centrality přirozeně počítáme
+výstupními hranami a~získáme vyšší korelace s~metodami H-index, indegree,
+PageRank, než s~metodami outdegree nebo vážený outdegree, které intuitivně ani
+objektivně neměří významnost autora (rozdíl mezi \uv{cituji} u~outdegree
+a~\uv{jsem citován} u~ostatních, tj. H-index, indegree, PageRank), u~closeness
 centrality získáme vyšší korelace naopak při použití vstupních hran namísto
 výstupních.
 
 \section{Významní autoři}
 Pro databázi DBLP se bezkonkurenčně ve většině metod nejvýše umístil Michael
 Stonebraker (tab.~\ref{tab:ranks1} a~\ref{tab:ranks2} a
-příloha~\ref{chapter:zebricky}) z databázových systémů, který byl jako první
-oceněn cenou SIGMOD Edgar F. Codd, je členem ACM Fellows a mimo jiné drží
-ocenění IEEE John von Neumann Medal a byl zvolen členem NAE (National Academy
+příloha~\ref{chapter:zebricky}) z~databázových systémů, který byl jako první
+oceněn cenou SIGMOD Edgar F. Codd, je členem ACM Fellows a~mimo jiné drží
+ocenění IEEE John von Neumann Medal a~byl zvolen členem NAE (National Academy
 of Engineering).
 
-U databáze CiteSeer je jedním z nejvýše umístěných autorů profesor informatiky
+U databáze CiteSeer je jedním z~nejvýše umístěných autorů profesor informatiky
 na univerzitě UC Berkeley Scott Shenker (tab.~\ref{tab:ranks3}
-a~\ref{tab:ranks4} a příloha~\ref{chapter:zebricky}), který je také členem ACM
-Fellows a NAE. Podle Microsoft Academic Search se jedná o nejvíce citovaného
-autora v informatice.
+a~\ref{tab:ranks4} a~příloha~\ref{chapter:zebricky}), který je také členem ACM
+Fellows a~NAE. Podle Microsoft Academic Search se jedná o~nejvíce citovaného
+autora v~informatice~\citep{mas}.
 
-Obecně se na prvních pozicích v případě obou databází umístili na prvních
-příčkách autoři, kteří byli oceněni cenou SIGMOD Edgar F. Codd. Jedná se více o
-výsledky u DBLP, ale u CiteSeer jsou také hojně zasoupeni.
+Obecně se na prvních pozicích v~případě obou databází umístili na prvních
+příčkách autoři, kteří byli oceněni cenou SIGMOD Edgar F. Codd. Jedná se více
+o~výsledky u~DBLP, ale u~CiteSeer jsou také hojně zasoupeni.
 
-V CiteSeer je v žebříčcích spousta \uv{autorů}, kteří pouze způsobují šum ve
+V CiteSeer je v~žebříčcích spousta \uv{autorů}, kteří pouze způsobují šum ve
 výsledcích (SENIOR MEMBER, STUDENT MEMBER, PH. D, PROF DR, atd.), ale umisťují
-se na vysokých pozicích převážně v metodách odeg, wodeg, oc, které nepovažujeme
-za přímé indikátory významnosti~\citep{mas}.
+se na vysokých pozicích převážně v~metodách odeg, wodeg, oc, které nepovažujeme
+za přímé indikátory významnosti.
 
-\section{Porovnání výsledků s oceněními}
-Tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer
-srovnávají jednotlivé metody s oceněními tak, že menší hodnota znamená více
-oceněných autorů na lepších pozicích. Všechny metody se přibližně v hodnotách
-shodují, vyjma metod odeg, wodeg a oc. Tyto metody ukazují na významnost
+\section{Porovnání výsledků s~oceněními}
+Tab.~\ref{tab:oceneni1} pro DBLP a~tab.~\ref{tab:oceneni2} pro CiteSeer
+srovnávají jednotlivé metody s~oceněními tak, že menší hodnota znamená více
+oceněných autorů na lepších pozicích. Všechny metody se přibližně v~hodnotách
+shodují, vyjma metod odeg, wodeg a~oc. Tyto metody ukazují na významnost
 autora, ale jsou více důsledkem než příčinou. Můžeme je použít ke srovnání
-ostatních metod, které mají obecně nižší hodnotu součtu oceněných pozic, a
-znázorňují větší shodu s oceněními.
+ostatních metod, které mají obecně nižší hodnotu součtu oceněných pozic,
+a~znázorňují větší shodu s~oceněními.
 
 V žebříčcích nejvýznamnějších autorů jednotlivých implementovaných metod
 (příloha~\ref{chapter:zebricky}) si povšimneme koncentraci ocenění na vyšších
-pozicích. Zejména u databáze DBLP a ocenění ACM SIGMOD Edgar F. Codd
+pozicích. Zejména u~databáze DBLP a~ocenění ACM SIGMOD Edgar F. Codd
 Innovations Award (Codd), protože DBLP je databáze autorů se zaměřením na
-databázové systémy a ocenění ACM SIGMOD Edgar F. Codd Innovations Award je
-rovněž z oblasti databází a databázových systémů. Rovněž podle
-tab.~\ref{tab:oceneni1} pro DBLP a tab.~\ref{tab:oceneni2} pro CiteSeer jsou
+databázové systémy a~ocenění ACM SIGMOD Edgar F. Codd Innovations Award je
+rovněž z~oblasti databází a~databázových systémů. Rovněž podle
+tab.~\ref{tab:oceneni1} pro DBLP a~tab.~\ref{tab:oceneni2} pro CiteSeer jsou
 součty pořadí oceněných autorů nejnižší pro ocenění Codd.
 
-Srovnání s Turingovo cenou (tab.~\ref{tab:oceneni1} a~\ref{tab:oceneni2})
-bychom ani neměli používat pro objektivní závěr, protože v databázích DBLP a
-CiteSeer je autorů, kteří jí byli oceněni, minimum. ACM Fellows je na druhou
-stranu hojně zastoupena mezi autory DBLP a CiteSeer, a proto ji s konfidencí
+Srovnání s~Turingovo cenou (tab.~\ref{tab:oceneni1} a~\ref{tab:oceneni2})
+bychom ani neměli používat pro objektivní závěr, protože v~databázích DBLP
+a~CiteSeer je autorů, kteří jí byli oceněni, minimum. ACM Fellows je na druhou
+stranu hojně zastoupena mezi autory DBLP a~CiteSeer, a~proto ji s~konfidencí
 můžeme použít jako referenci pro naše pozorování.
 
 Obecně nemůžeme udělat závěr při porovnání jednotlivých implementovaných metod
 s použitými čtyřmi oceněními, protože ani jedna metoda není ostře dominantní
-nad ostatními. Nejblíže je oceněním Codd a ACM Fellows podobná metoda ideg,
-wideg a pr. Pro ocenění ISI Highly Cited se nejlépe umisťují hi, ideg a btw.
+nad ostatními. Nejblíže je oceněním Codd a~ACM Fellows podobná metoda ideg,
+wideg a~pr. Pro ocenění ISI Highly Cited se nejlépe umisťují hi, ideg a~btw.
 
 
 \section{Aproximace betweenness}
-Jednoduchá lineární extrapolace u aproximace betweenness centrality se zdá být
+Jednoduchá lineární extrapolace u~aproximace betweenness centrality se zdá být
 dostatečně přesnou, pokud zmenšujeme velikost množiny vrcholů, se kterou
 pracuje Brandesův algoritmus.
 
-Zcela očekávaně dostáváme vysoké korelace mezi exaktním a aproximovaným
-betweenness a mezi metodami a jejich alternativami pro váženou síť (btwA -
+Zcela očekávaně dostáváme vysoké korelace mezi exaktním a~aproximovaným
+betweenness a~mezi metodami a~jejich alternativami pro váženou síť (btwA -
 wBtwA, deg - wdeg, apod.), viz tab.~\ref{tab:corr1}, \ref{tab:corr2},
 \ref{tab:corr3}, \ref{tab:corr4}. Exaktní betweenness se rovněž shoduje
-(korelace $> 0.9$) s aproximacemi, kde používáme různé velikosti množiny
+(korelace $> 0.9$) s~aproximacemi, kde používáme různé velikosti množiny
 vrcholů (tab.~\ref{tab:btwA}).
 
 \chapter{Závěr}
-Sociální sítě jsou z velké části zodpovědné za rapidní internetovou globalizaci
+Sociální sítě jsou z~velké části zodpovědné za rapidní internetovou globalizaci
 poslední doby. Největší podíl patří těm nejvýznamnějším osobám, které spojí
-menší díly sítě dohromady. Podobně u dopravních sítí se setkáme s klíčovými
-dopravními uzly, kam se lidé a zboží přepravují kvůli výhodnějším spojům do
+menší díly sítě dohromady. Podobně u~dopravních sítí se setkáme s~klíčovými
+dopravními uzly, kam se lidé a~zboží přepravují kvůli výhodnějším spojům do
 vzdálenějších destinací. Jako příklad citačních sítí by mezi vědeckými pracemi
-do jisté míry koloval chaos a autoři by nenásledovali práci předchozích, nebýt
+do jisté míry koloval chaos a~autoři by nenásledovali práci předchozích, nebýt
 významných jedinců, kteří svým dílem ovlivňují celý svůj obor.
 
-V této práci jsme prozkoumali nejznámější míry centrality a bibliografickou
+V této práci jsme prozkoumali nejznámější míry centrality a~bibliografickou
 metodu H-index, na základě kterých jsme vytvořili knihovnu pro analýzu
 citačních sítí. Poukázali jsme na možné problémy při implementaci některých
-metod a analyzovali metody pro získání nejkratších cest v obecném nebo
+metod a~analyzovali metody pro získání nejkratších cest v~obecném nebo
 specializovaném grafu. Pro všechny výpočty byl použit Dijkstrův algoritmus,
 protože citační síť autorů splňuje kritéria pro jeho nasazení. Pokud bychom
 prováděli podobnou analýzu na citační síti publikací, mohli bychom použít ještě
@@ -1651,41 +1653,39 @@ rychlejší algoritmus pro nalezení nejkratších cest založený na topologick
 seřazení grafu, protože citační síť publikací je případem orientovaného
 acyklického grafu (directed acyclic graph), na který lze tuto metodu použít. 
 
-Následná analýza citačních sítí autorů vytvořených z databází DBLP a CiteSeer
-ukázala podobnost jednotlivých implementovaných metod a potvrdila očekávané
+Následná analýza citačních sítí autorů vytvořených z~databází DBLP a~CiteSeer
+ukázala podobnost jednotlivých implementovaných metod a~potvrdila očekávané
 jevy jako odlišnost metod využívajících výstupní hrany, jelikož tyto metody
-neberou v potaz vliv ostatních autorů na daného autora, ale měří pouze
+neberou v~potaz vliv ostatních autorů na daného autora, ale měří pouze
 příspěvek vlivu, který daný autor odevzdá zpět do sítě. Jiným pozoruhodným
-zjištěním byl rozdíl mezi orientací hran při použití metody closeness a
-betweenness, kde první dosahovala lepších výsledků při použití vstupních hran a
-druhá při použití hran výstupních. Tento jev se nám kromě pozorování nepodařilo
+zjištěním byl rozdíl mezi orientací hran při použití metody closeness a~betweenness, kde první dosahovala lepších výsledků při použití vstupních hran a~druhá při použití hran výstupních. Tento jev se nám kromě pozorování nepodařilo
 vysvětlit.
 
 Dále jsme ukázali dostatečnou přesnost aproximace výpočtu betweenness
-centrality pomocí lineární extrapolace a použili jí pro výpočet betweenness
-centrality pro váženou citační síť autorů u obou databází.
+centrality pomocí lineární extrapolace a~použili jí pro výpočet betweenness
+centrality pro váženou citační síť autorů u~obou databází.
 
-Ačkoli každá z analyzovaných metod měří do jisté míry významnost autora, stále
-každá z nich má přesnější interpretaci, kterou splňuje více (degree měří rozsah
-spolupráce autora, closeness autorovu pozici a virtuální vzdálenost mezi
-ostatními ve svém oboru a betweenness měří důležitost autora při vzájemné
-komunikaci mezi autory v daném oboru~\citep{yanding2009}). Pokud by nám bylo
+Ačkoli každá z~analyzovaných metod měří do jisté míry významnost autora, stále
+každá z~nich má přesnější interpretaci, kterou splňuje více (degree měří rozsah
+spolupráce autora, closeness autorovu pozici a~virtuální vzdálenost mezi
+ostatními ve svém oboru a~betweenness měří důležitost autora při vzájemné
+komunikaci mezi autory v~daném oboru~\citep{yanding2009}). Pokud by nám bylo
 lhostejné, která metoda nejblíže měří pravou významnost, mohli bychom se
-rozhodovat podle jiných vlastností jako např. doba běhu, protože v praktických
-aplikacích můžeme požadovat výpočty v omezeném čase nebo výpočty v reálném
-čase. V takovém případě by bylo nejvýhodnější použít metodu indegree nebo
+rozhodovat podle jiných vlastností jako např. doba běhu, protože v~praktických
+aplikacích můžeme požadovat výpočty v~omezeném čase nebo výpočty v~reálném
+čase. V~takovém případě by bylo nejvýhodnější použít metodu indegree nebo
 PageRank.
 
 Přestože jsme prozkoumali nemalé množství různých metod pro měření významnosti,
-stále se jedná o nejznámější míry centrality a jejich variace. V kontextu
+stále se jedná o~nejznámější míry centrality a~jejich variace. V~kontextu
 analýzy sítí existuje více metod měřících centralitu (Katz
 centrality~\citep{katz1953}, Bonacich alpha
 centrality~\citep{bonacichlloyd2001}, Information
-centrality~\citep{stephensonzelen1989}, atd.) a v bibliografických metodách jiné
-metody pro zjištění významnosti nebo produktivity autorů. Některé z těchto
-metod jsme prozkoumali a shledali nevhodnými pro naše účely, ale navazující
-práce v této oblasti by mohla při možných úpravách tyto metody implementovat a
-analyzovat pro stejné sítě jako zde.
+centrality~\citep{stephensonzelen1989}, atd.) a~v~bibliografických metodách
+jiné metody pro zjištění významnosti nebo produktivity autorů. Některé z~těchto
+metod jsme prozkoumali a~shledali nevhodnými pro naše účely, ale navazující
+práce v~této oblasti by mohla při možných úpravách tyto metody implementovat
+a~analyzovat pro stejné sítě jako zde.
 
 
 % BIBLIOGRAPHY
@@ -1741,7 +1741,7 @@ wBtwA&0.520&0.830&0.134&0.529&0.849&0.140&0.549&0.754&0.929&0.924&  -  \\
 %\begin{landscape}
 \begin{table}[!ht]
 \centering
-\caption{Tabulka korelací pro hlavní komponentu pro DBLP. Zahrnuty i variace closeness}
+\caption{Tabulka korelací pro hlavní komponentu pro DBLP. Zahrnuty i~variace closeness}
 \label{tab:corr2}
 %\makebox[\linewidth]{
 \begin{sideways}
@@ -1809,7 +1809,7 @@ wBtwA&0.738&0.929&0.312&0.650&0.938&0.343&0.673&0.886&0.957&0.960&  -  \\
 
 \begin{table}[!ht]
 \centering
-\caption{Tabulka korelací pro hlavní komponentu pro CiteSeer. Zahrnuty i variace closeness}
+\caption{Tabulka korelací pro hlavní komponentu pro CiteSeer. Zahrnuty i~variace closeness}
 \label{tab:corr4}
 %\makebox[\linewidth]{
 \begin{sideways}
@@ -1843,13 +1843,13 @@ wic  &0.650&0.775&0.457&0.701&0.840&0.493&0.746&0.680&0.797&0.799&0.831&0.827&0.
 \chapter{Porovnání pořadí implementovaných metod}
 \label{chapter:porovnani}
 V příloze~\ref{chapter:porovnani} se nachází tabulky nejvýše umístěných autorů
-podle metody H-index a jejich pořadí podle ostatních metod. Zkratky metod
-nalezneme v tabulce~\ref{tab:impmetody}.
+podle metody H-index a~jejich pořadí podle ostatních metod. Zkratky metod
+nalezneme v~tabulce~\ref{tab:impmetody}.
 \section{DBLP}
 
 \begin{table}[!ht]
 \centering
-\caption{Top 30 autorů DBLP podle H-indexu a pořadí podle ostatních metod}
+\caption{Top 30 autorů DBLP podle H-indexu a~pořadí podle ostatních metod}
 \label{tab:ranks1}
 %\makebox[\linewidth]{
 \begin{sideways}
@@ -1900,7 +1900,7 @@ suma&465&756&2980&733&586&2144&658&1330&1041&1017&923\\
 
 \begin{table}[!ht]
 \centering
-\caption{Top 30 autorů největší komponenty DBLP podle H-indexu a pořadí podle ostatních metod}
+\caption{Top 30 autorů největší komponenty DBLP podle H-indexu a~pořadí podle ostatních metod}
 \label{tab:ranks2}
 %\makebox[\linewidth]{
 \begin{sideways}
@@ -1951,7 +1951,7 @@ suma&465&756&2978&733&586&2144&658&1274&1041&1017&923&988&5303&1239\\
 \section{CiteSeer}
 \begin{table}[!ht]
 \centering
-\caption{Top 30 autorů CiteSeer podle H-indexu a pořadí podle ostatních metod}
+\caption{Top 30 autorů CiteSeer podle H-indexu a~pořadí podle ostatních metod}
 \label{tab:ranks3}
 %\makebox[\linewidth]{
 \begin{sideways}
@@ -2001,7 +2001,7 @@ suma&465&2727&9438&2519&1092&5796&1111&4819&9886&9778&5696\\
 
 \begin{table}[!ht]
 \centering
-\caption{Top 30 autorů největší komponenty CiteSeer podle H-indexu a pořadí podle ostatních metod}
+\caption{Top 30 autorů největší komponenty CiteSeer podle H-indexu a~pořadí podle ostatních metod}
 \label{tab:ranks4}
 %\makebox[\linewidth]{
 \begin{sideways}
@@ -2054,10 +2054,10 @@ suma&465&2645&9422&2472&1092&5796&1111&4493&9468&9367&5636&4300&19582&6626\\
 \label{chapter:zebricky}
 
 Příloha~\ref{chapter:zebricky} obsahuje tabulky pro každou implementovanou
-metodu s prvními třiceti autory a vyznačenými oceněními (Codd - ACM SIGMOD
+metodu s~prvními třiceti autory a~vyznačenými oceněními (Codd - ACM SIGMOD
 Edgar F. Codd Innovations Award, Fellows - ACM Fellows, Turing - ACM A.M.
 Turing Award, ISI - ISI Highly Cited highlighted), pokud ji autor obdržel.
-Zkratky metod nalezneme v tabulce~\ref{tab:impmetody}.
+Zkratky metod nalezneme v~tabulce~\ref{tab:impmetody}.
 
 \newpage
 \section{DBLP}
