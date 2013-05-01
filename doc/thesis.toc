@@ -16,29 +16,29 @@
 \contentsline {section}{\numberline {4.2}Klika v~grafu}{12}{section.4.2}
 \contentsline {section}{\numberline {4.3}V\IeC {\'y}znamnost uzl\IeC {\r u}}{12}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Ocen\IeC {\v e}n\IeC {\'\i } v\IeC {\'y}znamn\IeC {\'y}ch autor\IeC {\r u}}{12}{subsection.4.3.1}
-\contentsline {subsubsection}{ACM A.M. Turing Award}{12}{section*.11}
-\contentsline {subsubsection}{ACM SIGMOD Edgar F. Codd Innovations Award}{13}{section*.12}
-\contentsline {subsubsection}{ACM Fellows}{13}{section*.13}
-\contentsline {subsubsection}{ISI Highly Cited highlighted}{13}{section*.14}
+\contentsline {subsubsection}{ACM A.M. Turing Award}{12}{section*.12}
+\contentsline {subsubsection}{ACM SIGMOD Edgar F. Codd Innovations Award}{13}{section*.13}
+\contentsline {subsubsection}{ACM Fellows}{13}{section*.14}
+\contentsline {subsubsection}{ISI Highly Cited highlighted}{13}{section*.15}
 \contentsline {section}{\numberline {4.4}M\IeC {\'\i }ry centrality}{13}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Degree}{14}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Eigenvector centrality}{14}{subsection.4.4.2}
-\contentsline {subsubsection}{PageRank}{15}{section*.15}
+\contentsline {subsubsection}{PageRank}{15}{section*.16}
 \contentsline {subsection}{\numberline {4.4.3}Closeness centrality}{17}{subsection.4.4.3}
-\contentsline {subsubsection}{Algoritmus}{17}{section*.16}
-\contentsline {subsubsection}{Aproximace}{18}{section*.17}
+\contentsline {subsubsection}{Algoritmus}{17}{section*.17}
+\contentsline {subsubsection}{Aproximace}{18}{section*.18}
 \contentsline {subsection}{\numberline {4.4.4}Betweenness centrality}{19}{subsection.4.4.4}
-\contentsline {subsubsection}{Brandes\IeC {\r u}v algoritmus}{19}{section*.18}
-\contentsline {subsubsection}{Aproximace}{22}{section*.19}
+\contentsline {subsubsection}{Brandes\IeC {\r u}v algoritmus}{19}{section*.19}
+\contentsline {subsubsection}{Aproximace}{22}{section*.20}
 \contentsline {section}{\numberline {4.5}Hled\IeC {\'a}n\IeC {\'\i } nejkrat\IeC {\v s}\IeC {\'\i }ch cest}{22}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Single source shortest path}{22}{subsection.4.5.1}
-\contentsline {subsubsection}{Prohled\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } do \IeC {\v s}\IeC {\'\i }\IeC {\v r}ky}{22}{section*.20}
-\contentsline {subsubsection}{Bellman-Ford\IeC {\r u}v algoritmus}{23}{section*.21}
-\contentsline {subsubsection}{Dijkstr\IeC {\r u}v algoritmus}{23}{section*.22}
+\contentsline {subsubsection}{Prohled\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } do \IeC {\v s}\IeC {\'\i }\IeC {\v r}ky}{22}{section*.21}
+\contentsline {subsubsection}{Bellman-Ford\IeC {\r u}v algoritmus}{23}{section*.22}
+\contentsline {subsubsection}{Dijkstr\IeC {\r u}v algoritmus}{23}{section*.23}
 \contentsline {subsection}{\numberline {4.5.2}All-pair shortest paths}{24}{subsection.4.5.2}
-\contentsline {subsubsection}{Shimbelova metoda}{24}{section*.23}
-\contentsline {subsubsection}{Floyd-Warshall\IeC {\r u}v algoritmus}{25}{section*.24}
-\contentsline {subsubsection}{Johnson\IeC {\r u}v algoritmus}{25}{section*.25}
+\contentsline {subsubsection}{Shimbelova metoda}{24}{section*.24}
+\contentsline {subsubsection}{Floyd-Warshall\IeC {\r u}v algoritmus}{25}{section*.25}
+\contentsline {subsubsection}{Johnson\IeC {\r u}v algoritmus}{25}{section*.26}
 \contentsline {section}{\numberline {4.6}Ostatn\IeC {\'\i } m\IeC {\'\i }ry v\IeC {\'y}znamnosti autor\IeC {\r u}}{25}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}H-index}{25}{subsection.4.6.1}
 \contentsline {chapter}{\numberline {5}V\IeC {\'y}sledky}{27}{chapter.5}
