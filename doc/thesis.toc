@@ -32,7 +32,7 @@
 \contentsline {subsubsection}{Aproximace}{22}{section*.19}
 \contentsline {section}{\numberline {4.5}Hled\IeC {\'a}n\IeC {\'\i } nejkrat\IeC {\v s}\IeC {\'\i }ch cest}{22}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Single source shortest path}{22}{subsection.4.5.1}
-\contentsline {subsubsection}{BFS}{22}{section*.20}
+\contentsline {subsubsection}{Prohled\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } do \IeC {\v s}\IeC {\'\i }\IeC {\v r}ky}{22}{section*.20}
 \contentsline {subsubsection}{Bellman-Ford\IeC {\r u}v algoritmus}{23}{section*.21}
 \contentsline {subsubsection}{Dijkstr\IeC {\r u}v algoritmus}{23}{section*.22}
 \contentsline {subsection}{\numberline {4.5.2}All-pair shortest paths}{24}{subsection.4.5.2}
