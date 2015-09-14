@@ -1,6 +1,6 @@
 # Měření významnosti autorů v citační síti
 
-[Bakalářská práce PDF](doc/thesis.pdf)
+[Bakalářská_práce.pdf](doc/thesis.pdf)
 
 ### Podrobnosti
 * programovací jazyk Java 6
